@@ -1,0 +1,1 @@
+from apps.autotest_deepin_terminal.widget.deepin_terminal_widget import DeepinTerminalWidget

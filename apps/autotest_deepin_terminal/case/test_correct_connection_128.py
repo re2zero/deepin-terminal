@@ -1,0 +1,41 @@
+#!/usr/bin/env python3
+# _*_ coding:utf-8 _*_
+"""
+TestCase: 正确连接
+ID: 128
+"""
+import time
+from apps.autotest_deepin_terminal.case.base_case import BaseCase
+from apps.autotest_deepin_terminal.widget.remote_management_widget import RemoteManagementWidget
+
+
+class TestCorrectConnection(BaseCase):
+
+    def test_correct_connection_128(self):
+        """正确连接"""
+        widget = RemoteManagementWidget()
+        time.sleep(0.5)
+        # Step 1: 在添加服务器界面填写正确的地址、端口、用户名，然后连接服务器
+        widget.input_server_address("192.168.1.1")
+        time.sleep(0.5)
+        widget.input_server_port("22")
+        time.sleep(0.5)
+        widget.input_server_username("root")
+        time.sleep(0.5)
+        widget.connect_server("test_server")
+        time.sleep(0.5)
+        # Step 2: 在服务器列表中添加相同的服务器，查看服务器列表显示
+        widget.input_server_name("test_server")
+        time.sleep(0.5)
+        widget.click_add_server_button()
+        time.sleep(0.5)
+        # Step 3: 在服务器列表中添加服务器名称不同，但地址、用户名、端口都一样，查看服务器列表显示
+        widget.input_server_name("test_server_2")
+        time.sleep(0.5)
+        widget.click_add_server_button()
+        time.sleep(0.5)
+
+        # Assertions:
+        # Expected: 可以连接成功
+        # Expected: 界面提示“该服务器名已存在,请重新输入”
+        # Expected: 显示名称不同的服务器名称

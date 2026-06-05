@@ -1,0 +1,1 @@
+from apps.autotest_deepin_terminal.case.base_case import BaseCase
