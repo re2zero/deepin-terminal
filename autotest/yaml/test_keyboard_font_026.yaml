@@ -1,0 +1,57 @@
+# Test case 026: 键盘交互焦点在字体
+# Module: 键盘交互(#116109)
+# Priority: 2
+
+name: "键盘交互-字体选择"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "步骤1: 打开设置界面"
+    action: main_menu_comb
+    ref: menu_settings
+
+  - name: "步骤2: Tab键切换到字体区域"
+    action: keyboard_press
+    key: "Tab"
+  - action: keyboard_press
+    key: "Tab"
+  - action: keyboard_press
+    key: "Tab"
+
+  - name: "步骤3: 按Enter键打开字体列表"
+    action: keyboard_press
+    key: "Return"
+
+  - name: "步骤4: 按↑↓方向键切换选择字体"
+    action: keyboard_press
+    key: "Down"
+  - action: keyboard_press
+    key: "Down"
+  - action: keyboard_press
+    key: "Up"
+
+  - name: "步骤5: 按Enter键确认选择字体，列表收起"
+    action: keyboard_press
+    key: "Return"
+
+  - name: "步骤6: 验证设置对话框仍可见"
+    action: wait
+    assert:
+      - type: element_visible
+        selector:
+          role: "dialog"
+
+  - name: "步骤7: 验证终端进程运行中"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

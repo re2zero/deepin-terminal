@@ -1,0 +1,59 @@
+# YAML test case — 键盘交互右键菜单中调出自定义命令插件 (id=049)
+# 验证通过Alt+M右键菜单打开自定义命令插件
+name: "键盘交互右键菜单中调出自定义命令插件"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "按Alt+M调出右键菜单"
+    action: keyboard_hot_key
+    keys: "Alt,m"
+    wait: 0.5
+
+  - name: "验证右键菜单弹出"
+    action: wait
+    assert:
+      - type: element_visible
+        selector:
+          role: "menu"
+
+  - name: "按Tab键切换到自定义命令菜单项"
+    action: keyboard_press
+    key: "Tab"
+    wait: 0.3
+
+  - name: "继续Tab到自定义命令菜单项"
+    action: keyboard_press
+    key: "Tab"
+    wait: 0.3
+
+  - name: "按Enter打开自定义命令插件"
+    action: keyboard_press
+    key: "Return"
+    wait: 0.5
+
+  - name: "验证自定义命令列表可见（但没有Focus效果）"
+    action: wait
+    assert:
+      - type: element_visible
+        selector:
+          role: "list"
+
+  - name: "按ESC返回终端"
+    action: keyboard_press
+    key: "Escape"
+    wait: 0.5
+
+  - name: "验证终端进程仍在运行"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

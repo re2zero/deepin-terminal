@@ -1,0 +1,145 @@
+# Test case 157: 输入命令
+# Module: 自定义命令(#116137)
+# Priority: 2
+
+name: "输入命令"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "步骤1: 主菜单打开自定义命令"
+    action: main_menu_comb
+    ref: menu_custom_commands
+  - action: wait
+    duration: 1.0
+
+  - name: "步骤1: 截图-自定义命令列表界面"
+    action: screenshot
+    desc: "弹出自定义命令添加窗口"
+
+  - name: "步骤3: 点击命令输入框并输入一般命令"
+    action: element_action
+    ref: custom_command_command_input
+    do: "click"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_type
+    text: "ls -la /home"
+    wait: 0.3
+
+  - name: "步骤3: 截图-一般命令输入"
+    action: screenshot
+    desc: "命令栏可正常输入一般命令"
+
+  - name: "步骤4: 清除后输入超长命令超过32字符"
+    action: keyboard_press
+    key: "BackSpace"
+    wait: 0.1
+  - action: keyboard_press
+    key: "BackSpace"
+    wait: 0.1
+  - action: keyboard_press
+    key: "BackSpace"
+    wait: 0.1
+  - action: keyboard_press
+    key: "BackSpace"
+    wait: 0.1
+  - action: keyboard_press
+    key: "BackSpace"
+    wait: 0.1
+  - action: keyboard_press
+    key: "BackSpace"
+    wait: 0.1
+  - action: keyboard_press
+    key: "BackSpace"
+    wait: 0.1
+  - action: keyboard_press
+    key: "BackSpace"
+    wait: 0.1
+  - action: keyboard_press
+    key: "BackSpace"
+    wait: 0.1
+  - action: keyboard_press
+    key: "BackSpace"
+    wait: 0.1
+  - action: keyboard_press
+    key: "BackSpace"
+    wait: 0.1
+  - action: keyboard_press
+    key: "BackSpace"
+    wait: 0.1
+  - action: keyboard_press
+    key: "BackSpace"
+    wait: 0.1
+  - action: keyboard_type
+    text: "ThisIsAVeryLongCommandStringExceedingThirtyTwoChars"
+    wait: 0.3
+
+  - name: "步骤4: 截图-超长命令输入"
+    action: screenshot
+    desc: "超过32字符命令栏可正常输入"
+
+  - name: "步骤5: 清除后输入特殊字符命令"
+    action: keyboard_press
+    key: "BackSpace"
+    wait: 0.1
+  - action: keyboard_press
+    key: "BackSpace"
+    wait: 0.1
+  - action: keyboard_press
+    key: "BackSpace"
+    wait: 0.1
+  - action: keyboard_press
+    key: "BackSpace"
+    wait: 0.1
+  - action: keyboard_press
+    key: "BackSpace"
+    wait: 0.1
+  - action: keyboard_press
+    key: "BackSpace"
+    wait: 0.1
+  - action: keyboard_press
+    key: "BackSpace"
+    wait: 0.1
+  - action: keyboard_press
+    key: "BackSpace"
+    wait: 0.1
+  - action: keyboard_press
+    key: "BackSpace"
+    wait: 0.1
+  - action: keyboard_press
+    key: "BackSpace"
+    wait: 0.1
+  - action: keyboard_press
+    key: "BackSpace"
+    wait: 0.1
+  - action: keyboard_press
+    key: "BackSpace"
+    wait: 0.1
+  - action: keyboard_type
+    text: "echo !!!@#$$%"
+    wait: 0.3
+
+  - name: "步骤5: 截图-特殊字符命令输入"
+    action: screenshot
+    desc: "特殊字符命令可正常输入"
+
+  - name: "按Escape退出自定义命令"
+    action: keyboard_press
+    key: "Escape"
+  - action: wait
+    duration: 0.5
+
+  - name: "验证终端仍在运行"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

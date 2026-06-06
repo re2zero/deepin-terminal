@@ -1,0 +1,337 @@
+# Element registry for terminal (deepin-terminal)
+# Generated from live AT-SPI tree capture on 2026-06-05
+# Screen: 2560x1440
+# All YAML test cases reference elements via 'ref' — never inline selectors.
+
+app: terminal
+elements:
+  # ===== Main Window =====
+  main_frame:
+    name: "DMainWindow"
+    role: "frame"
+  main_window:
+    name: "DMainWindow"
+    role: "frame"
+
+  # ===== Titlebar =====
+  titlebar_panel:
+    name: "DMainWindowTitlebar"
+    role: "panel"
+  main_menu_button:
+    name: "DTitlebarDWindowOptionButton"
+    role: "button"
+  minimize_button:
+    name: "DTitlebarDWindowMinButton"
+    role: "button"
+  maximize_button:
+    name: "DTitlebarDWindowMaxButton"
+    role: "button"
+  close_button:
+    name: "DTitlebarDWindowCloseButton"
+    role: "button"
+  quit_fullscreen_button:
+    name: "DTitlebarDWindowQuitFullscreenButton"
+    role: "button"
+  app_icon:
+    name: "DTitlebarIconLabel"
+    role: "label"
+
+  # ===== Tab Bar =====
+  add_tab_button:
+    name: "DTabBarAddButton"
+    role: "button"
+  tab_scroll_left:
+    name: "向左滚动"
+    role: "button"
+  tab_scroll_right:
+    name: "向右滚动"
+    role: "button"
+  tab_list:
+    role: "page tab list"
+
+  # ===== Terminal Content Area =====
+  terminal_content:
+    role: "layered pane"
+  terminal_scrollbar:
+    role: "scroll bar"
+
+  # ===== Search Bar (Ctrl+Alt+F) =====
+  search_input:
+    name: "DLineEditChildLineEdit"
+    role: "text"
+  search_clear_button:
+    name: "清除"
+    role: "button"
+
+  # ===== Main Menu Items =====
+  menu_new_window:
+    name: "新建窗口"
+    role: "menu item"
+  menu_custom_commands:
+    name: "自定义命令"
+    role: "menu item"
+  menu_remote_management:
+    name: "远程管理"
+    role: "menu item"
+  menu_settings:
+    name: "设置"
+    role: "menu item"
+  menu_theme:
+    name: "主题"
+    role: "menu item"
+  menu_help:
+    name: "帮助"
+    role: "menu item"
+  menu_about:
+    name: "关于"
+    role: "menu item"
+  menu_exit:
+    name: "退出"
+    role: "menu item"
+
+  # ===== Theme Submenu =====
+  theme_light:
+    name: "浅色"
+    role: "menu item"
+  theme_dark:
+    name: "深色"
+    role: "menu item"
+  theme_follow_system:
+    name: "跟随系统"
+    role: "menu item"
+
+  # ===== Right-click Context Menu (coordinate-based) =====
+  # Right-click at terminal content center triggers context menu
+  # Window info: 1108x848 at (53,28), center at (989,591) from window_get_center
+  terminal_center:
+    x: 989
+    y: 591
+
+  # Context menu items — accessed via context_menu_comb (right-click + keyboard)
+  # These use terminal_center as the right-click point + keyboard menu path
+  context_paste:
+    click_target: terminal_center
+    menu: ["粘贴"]
+  context_horizontal_split:
+    click_target: terminal_center
+    menu: ["横向分屏"]
+  context_vertical_split:
+    click_target: terminal_center
+    menu: ["纵向分屏"]
+  context_close_workspace:
+    click_target: terminal_center
+    menu: ["关闭工作区"]
+  context_close_other_workspaces:
+    click_target: terminal_center
+    menu: ["关闭其它工作区"]
+  context_new_workspace:
+    click_target: terminal_center
+    menu: ["新建工作区"]
+  context_fullscreen:
+    click_target: terminal_center
+    menu: ["全屏"]
+  context_search:
+    click_target: terminal_center
+    menu: ["搜索"]
+  context_remote_management:
+    click_target: terminal_center
+    menu: ["远程管理"]
+  context_upload_file:
+    click_target: terminal_center
+    menu: ["上传文件"]
+  context_download_file:
+    click_target: terminal_center
+    menu: ["下载文件"]
+  context_settings:
+    click_target: terminal_center
+    menu: ["设置"]
+  context_rename_title:
+    click_target: terminal_center
+    menu: ["重命名标题"]
+  context_copy:
+    click_target: terminal_center
+    menu: ["复制"]
+  context_open_link:
+    click_target: terminal_center
+    menu: ["打开链接"]
+  context_copy_link:
+    click_target: terminal_center
+    menu: ["复制链接"]
+  context_open_in_file_manager:
+    click_target: terminal_center
+    menu: ["在文件管理器中打开"]
+  context_encoding:
+    click_target: terminal_center
+    menu: ["编码"]
+
+  # ===== Settings Dialog =====
+  settings_dialog:
+    role: "dialog"
+  settings_titlebar:
+    name: "DSettingTitleBar"
+    role: "panel"
+  settings_close_button:
+    name: "DTitlebarDWindowCloseButton"
+    role: "button"
+  settings_nav_list:
+    name: "NavigationBar"
+    role: "list"
+
+  # Settings navigation items
+  settings_basic:
+    name: "基础设置"
+    role: "list item"
+  settings_interface:
+    name: "界面"
+    role: "list item"
+  settings_tab_title:
+    name: "标签标题"
+    role: "list item"
+  settings_shortcuts:
+    name: "快捷键"
+    role: "list item"
+  settings_terminal_shortcuts:
+    name: "终端"
+    role: "list item"
+  settings_tab_shortcuts:
+    name: "标签页"
+    role: "list item"
+  settings_other_shortcuts:
+    name: "其他"
+    role: "list item"
+  settings_advanced:
+    name: "高级设置"
+    role: "list item"
+  settings_cursor:
+    name: "光标"
+    role: "list item"
+  settings_scroll:
+    name: "滚动"
+    role: "list item"
+  settings_window:
+    name: "窗口"
+    role: "list item"
+  settings_shell:
+    name: "Shell"
+    role: "list item"
+  settings_debuginfod:
+    name: "Debuginfod"
+    role: "list item"
+
+  # Settings content elements
+  font_combo_box:
+    role: "combo box"
+  font_size_spin:
+    role: "spin button"
+  cursor_text_input:
+    name: "OptionLineEdit"
+    role: "text"
+  scrollback_spin:
+    role: "spin button"
+  startup_mode_combo:
+    role: "combo box"
+  shell_combo:
+    role: "combo box"
+  restore_defaults_button:
+    name: "ContentSettingsResetButton"
+    role: "button"
+
+  # ===== Custom Command Dialog =====
+  custom_command_name_input:
+    name: "名称"
+    role: "text"
+  custom_command_command_input:
+    name: "命令"
+    role: "text"
+  custom_command_shortcut_input:
+    name: "快捷键"
+    role: "text"
+  custom_command_cancel:
+    name: "取消"
+    role: "button"
+  custom_command_add:
+    name: "添加"
+    role: "button"
+  custom_command_save:
+    name: "保存"
+    role: "button"
+  custom_command_delete:
+    name: "删除命令"
+    role: "button"
+
+  # ===== Remote Management Dialog =====
+  remote_server_name:
+    name: "服务器名"
+    role: "text"
+  remote_server_address:
+    name: "地址"
+    role: "text"
+  remote_server_port:
+    name: "端口"
+    role: "text"
+  remote_username:
+    name: "用户名"
+    role: "text"
+  remote_password:
+    name: "密码"
+    role: "text"
+  remote_cancel:
+    name: "取消"
+    role: "button"
+  remote_add:
+    name: "添加"
+    role: "button"
+  remote_save:
+    name: "保存"
+    role: "button"
+  remote_delete:
+    name: "删除服务器"
+    role: "button"
+  add_server_button:
+    role: "button"
+
+  # ===== Workspace =====
+  workspace_tabs:
+    role: "page tab list"
+  workspace_add_button:
+    name: "DTabBarAddButton"
+    role: "button"
+
+  # ===== Encoding Plugin =====
+  encoding_list:
+    role: "list"
+
+  # ===== Custom Command Plugin =====
+  custom_command_list:
+    role: "list"
+  custom_command_search_box:
+    role: "text"
+
+  # ===== Remote Management Plugin =====
+  remote_search_box:
+    role: "text"
+  remote_server_list:
+    role: "list"
+
+  # ===== About Dialog =====
+  about_dialog:
+    role: "dialog"
+
+  # ===== Help Dialog =====
+  help_dialog:
+    role: "dialog"
+
+  # ===== Exit Protection Dialog =====
+  exit_protection_dialog:
+    role: "dialog"
+  exit_cancel:
+    name: "取消"
+    role: "button"
+  exit_confirm:
+    name: "确定"
+    role: "button"
+
+  # ===== Fullscreen =====
+  quit_fullscreen:
+    name: "DTitlebarDWindowQuitFullscreenButton"
+    role: "button"

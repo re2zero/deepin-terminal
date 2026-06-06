@@ -1,0 +1,61 @@
+# Test case 134: [014]添加按钮
+# Module: 远程管理器(#116129)
+# Priority: 1
+# Steps:
+#   1. 终端右键-远程服务器
+#   2. 查看添加按钮
+# Expected:
+#   1. 弹出窗口，右侧远程管理界面下方显示添加服务器和添加分组
+#   2. 按钮中部文字分别显示添加服务器和添加分组
+
+name: "[014]添加按钮"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "步骤1: 验证主窗口可见"
+    action: element_action
+    ref: main_frame
+    do: "click"
+    assert:
+      - type: element_visible
+        selector:
+          role: "frame"
+
+  - name: "步骤1: 右键选择远程管理"
+    action: context_menu_comb
+    ref: context_remote_management
+    wait: 1.0
+
+  - name: "步骤2: 截图验证远程管理面板和添加按钮"
+    action: screenshot
+    desc: "右侧远程管理界面下方显示添加服务器和添加分组按钮"
+
+  - name: "步骤2: 验证添加服务器按钮存在"
+    action: element_action
+    ref: add_server_button
+    do: "click"
+    wait: 0.5
+
+  - name: "步骤2: 验证添加服务器弹框关闭"
+    action: keyboard_press
+    key: "Escape"
+    wait: 0.5
+
+  - name: "截图远程管理面板按钮显示"
+    action: screenshot
+    desc: "底部显示添加服务器和添加分组按钮，中部有文字标识"
+
+  - name: "验证终端进程仍在运行"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

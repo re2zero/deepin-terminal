@@ -1,0 +1,113 @@
+# YAML test case for terminal - 查找过程
+name: "查找过程"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "验证主窗口可见"
+    action: element_action
+    ref: main_frame
+    do: "click"
+    assert:
+      - type: element_visible
+        selector:
+          role: "frame"
+
+  - name: "先输入一些内容到终端，再打开搜索"
+    action: keyboard_type
+    text: "echo hello world test search"
+    wait: 0.3
+
+  - name: "回车执行"
+    action: keyboard_press
+    key: "Return"
+    wait: 0.5
+
+  - name: "打开搜索框"
+    action: keyboard_hot_key
+    keys: "ctrl+alt+f"
+    wait: 1.0
+
+  - name: "输入搜索内容"
+    action: element_set_value
+    ref: search_input
+    value: "hello"
+    wait: 0.5
+
+  - name: "截图-输入搜索内容"
+    action: screenshot
+    desc: "搜索框中输入hello准备搜索"
+
+  - name: "按回车开始搜索"
+    action: keyboard_press
+    key: "Return"
+    wait: 1.0
+
+  - name: "截图-回车搜索后"
+    action: screenshot
+    desc: "从上往下搜索，关键字高亮选中"
+
+  - name: "输入不存在的内容搜索"
+    action: element_action
+    ref: search_clear_button
+    do: "click"
+    wait: 0.5
+
+  - name: "输入不存在的关键词"
+    action: element_set_value
+    ref: search_input
+    value: "nonexistent_xyz123"
+    wait: 0.3
+
+  - name: "按回车搜索不存在的内容"
+    action: keyboard_press
+    key: "Return"
+    wait: 1.0
+
+  - name: "截图-搜索无结果"
+    action: screenshot
+    desc: "没有对应内容时搜索框亮红或无提示"
+
+  - name: "关闭搜索框，进行分屏操作"
+    action: keyboard_press
+    key: "Escape"
+    wait: 0.5
+
+  - name: "横向分屏"
+    action: context_menu_comb
+    ref: context_horizontal_split
+    wait: 1.0
+
+  - name: "在分屏中再打开搜索"
+    action: keyboard_hot_key
+    keys: "ctrl+alt+f"
+    wait: 1.0
+
+  - name: "输入搜索内容"
+    action: element_set_value
+    ref: search_input
+    value: "test"
+    wait: 0.5
+
+  - name: "回车搜索"
+    action: keyboard_press
+    key: "Return"
+    wait: 1.0
+
+  - name: "截图-分屏搜索"
+    action: screenshot
+    desc: "当前光标所在分屏内搜索"
+
+  - name: "验证进程运行中"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

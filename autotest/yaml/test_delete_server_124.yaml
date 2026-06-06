@@ -1,0 +1,127 @@
+# Test case 124: 删除服务器
+# Module: 远程管理器(#116129)
+# Priority: 2
+name: "删除服务器"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "步骤1: 打开远程管理插件，选中服务器进入编辑界面"
+    action: main_menu_comb
+    ref: menu_remote_management
+  - action: wait
+    duration: 1.0
+
+  - name: "Tab键切换到服务器列表"
+    action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+
+  - name: "按→到编辑按钮，按Enter进入编辑"
+    action: keyboard_press
+    key: "Right"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Return"
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤2: Tab键切换到删除服务器按钮"
+    action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+
+  - name: "按Enter键进入删除确认对话框"
+    action: keyboard_press
+    key: "Return"
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤3: 按Tab键切换到取消按钮"
+    action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+
+  - name: "步骤4: 按Tab键切换到确定按钮"
+    action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+
+  - name: "步骤5: 按空格键取消删除"
+    action: keyboard_press
+    key: "Space"
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤6: 按ESC关闭对话框，焦点返回"
+    action: keyboard_press
+    key: "Return"
+  - action: wait
+    duration: 0.5
+  - action: keyboard_press
+    key: "Escape"
+  - action: wait
+    duration: 0.5
+
+  - name: "Shift+Tab反向切换测试"
+    action: keyboard_hot_key
+    keys: "shift,Tab"
+  - action: wait
+    duration: 0.5
+
+  - name: "按ESC关闭远程管理面板"
+    action: keyboard_press
+    key: "Escape"
+  - action: wait
+    duration: 0.5
+
+  - name: "验证终端进程仍在运行"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

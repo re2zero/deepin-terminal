@@ -1,0 +1,85 @@
+# Test case 055: 键盘交互远程管理搜索有结果
+# Module: 键盘交互(#116109)
+# Priority: 2
+
+name: "键盘交互-远程搜索有结果"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "步骤1: 打开远程管理插件"
+    action: main_menu_comb
+    ref: menu_remote_management
+  - action: wait
+    duration: 1.0
+
+  - name: "步骤2: 搜索框输入搜索字符，按Enter键搜索"
+    action: element_action
+    ref: remote_search_box
+    do: "click"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_type_text
+    text: "a"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Return"
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤3: 按Tab键切换到搜索结果服务器"
+    action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤4: 按→方向键，编辑按钮有边框效果"
+    action: keyboard_press
+    key: "Right"
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤5: 按↓方向键切换搜索结果"
+    action: keyboard_press
+    key: "Down"
+  - action: wait
+    duration: 0.3
+
+  - name: "步骤5: 按↑方向键切换搜索结果"
+    action: keyboard_press
+    key: "Up"
+  - action: wait
+    duration: 0.3
+
+  - name: "步骤6: 选中非组结果，按Enter键连接"
+    action: keyboard_press
+    key: "Return"
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤8: 按ESC键焦点回到终端"
+    action: keyboard_press
+    key: "Escape"
+  - action: wait
+    duration: 0.5
+
+  - name: "Shift+Tab反向切换测试"
+    action: keyboard_hot_key
+    keys: "shift,Tab"
+  - action: wait
+    duration: 0.5
+
+  - name: "验证终端进程仍在运行"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

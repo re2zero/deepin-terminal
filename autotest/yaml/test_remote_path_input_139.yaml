@@ -1,0 +1,116 @@
+# Test case 139: 路径
+# Module: 远程管理器(#116129)
+# Priority: 2
+
+name: "远程管理-路径输入"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "步骤1: 打开远程管理插件，添加服务器"
+    action: main_menu_comb
+    ref: menu_remote_management
+  - action: wait
+    duration: 1.0
+
+  - name: "Tab键切换到添加服务器按钮，按Enter"
+    action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Return"
+  - action: wait
+    duration: 0.5
+
+  - name: "Tab导航到路径输入框（高级选项区域）"
+    action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+
+  - name: "步骤1: 输入中文文本测试"
+    action: keyboard_type_text
+    text: "阿里快圣诞节"
+  - action: wait
+    duration: 0.5
+
+  - name: "清除已有输入，输入英文文本测试"
+    action: keyboard_hot_key
+    keys: "ctrl,a"
+  - action: wait
+    duration: 0.2
+  - action: keyboard_type_text
+    text: "asdfkad"
+  - action: wait
+    duration: 0.5
+
+  - name: "清除已有输入，输入特殊字符测试"
+    action: keyboard_hot_key
+    keys: "ctrl,a"
+  - action: wait
+    duration: 0.2
+  - action: keyboard_type_text
+    text: "adkj!@#"
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤2: 按ESC关闭添加服务器窗口"
+    action: keyboard_press
+    key: "Escape"
+  - action: wait
+    duration: 0.5
+
+  - name: "验证终端进程仍在运行"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

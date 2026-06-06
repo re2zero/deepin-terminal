@@ -1,0 +1,96 @@
+# Test case 083: 启动时使用普通、分屏、最大化和全屏窗口
+# Module: 设置界面高级设置(#116119)
+# Priority: 2
+
+name: "启动时使用窗口模式下拉框"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "步骤1: 通过主菜单打开设置"
+    action: main_menu_comb
+    ref: menu_settings
+    wait: 1.0
+    assert:
+      - type: element_visible
+        ref: settings_dialog
+
+  - name: "步骤2: 点击窗口设置导航项"
+    action: element_action
+    ref: settings_window
+    do: "click"
+    wait: 0.5
+
+  - name: "步骤3: Tab键将焦点移到启动时使用下拉框（默认正常窗口）"
+    action: keyboard_press
+    key: "Tab"
+    wait: 0.3
+
+  - name: "步骤4: Enter键展开下拉列表"
+    action: keyboard_press
+    key: "Enter"
+    wait: 0.5
+
+  - name: "步骤5: 按向下箭头选择分屏模式"
+    action: keyboard_press
+    key: "Down"
+    wait: 0.3
+
+  - name: "步骤6: 再次按向下箭头选择全屏模式"
+    action: keyboard_press
+    key: "Down"
+    wait: 0.3
+
+  - name: "步骤7: 再次按向下箭头选择最大化模式"
+    action: keyboard_press
+    key: "Down"
+    wait: 0.3
+
+  - name: "步骤8: 按Enter键确认选择最大化"
+    action: keyboard_press
+    key: "Enter"
+    wait: 0.3
+
+  - name: "步骤9: 按向上箭头反向选择回全屏"
+    action: keyboard_press
+    key: "Enter"
+    wait: 0.5
+
+  - name: "步骤10: 按向上箭头选择"
+    action: keyboard_press
+    key: "Up"
+    wait: 0.3
+
+  - name: "步骤11: 再次按向上箭头回退到分屏"
+    action: keyboard_press
+    key: "Up"
+    wait: 0.3
+
+  - name: "步骤12: 按向上箭头回退到正常窗口（默认）"
+    action: keyboard_press
+    key: "Up"
+    wait: 0.3
+
+  - name: "步骤13: Enter确认选择正常窗口"
+    action: keyboard_press
+    key: "Enter"
+    wait: 0.3
+
+  - name: "步骤14: ESC关闭设置窗口"
+    action: keyboard_press
+    key: "Escape"
+    wait: 0.5
+
+  - name: "验证终端进程运行中"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

@@ -1,0 +1,45 @@
+# Test case 030: 键盘交互焦点在光标闪烁复选框
+# Module: 键盘交互(#116109)
+# Priority: 2
+
+name: "键盘交互-光标闪烁复选框"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "步骤1: 打开设置界面"
+    action: main_menu_comb
+    ref: menu_settings
+
+  - name: "步骤2: Tab键切换到光标闪烁复选框"
+    action: keyboard_press
+    key: "Tab"
+  - action: keyboard_press
+    key: "Tab"
+  - action: keyboard_press
+    key: "Tab"
+
+  - name: "步骤3: 按Enter键切换复选框选中/取消"
+    action: keyboard_press
+    key: "Return"
+
+  - name: "步骤4: 验证设置对话框仍可见"
+    action: wait
+    assert:
+      - type: element_visible
+        selector:
+          role: "dialog"
+
+  - name: "步骤5: 验证终端进程运行中"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

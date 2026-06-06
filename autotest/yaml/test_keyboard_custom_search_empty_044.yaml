@@ -1,0 +1,77 @@
+# YAML test case — 键盘交互自定义命令搜索结果为空 (id=044)
+# 验证在搜索框中输入无匹配字符后的交互行为
+name: "键盘交互自定义命令搜索结果为空"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "打开自定义命令插件"
+    action: main_menu_comb
+    ref: main_menu_button
+    menu:
+      - "自定义命令"
+    assert:
+      - type: element_visible
+        selector:
+          role: "list"
+
+  - name: "验证搜索框有Focus效果"
+    action: wait
+    assert:
+      - type: element_visible
+        selector:
+          role: "text"
+
+  - name: "搜索框为空时按Enter键（无变化）"
+    action: keyboard_press
+    key: "Return"
+    wait: 0.3
+
+  - name: "验证搜索框仍然可见"
+    action: wait
+    assert:
+      - type: element_visible
+        selector:
+          role: "text"
+
+  - name: "输入不匹配的字符"
+    action: element_set_value
+    ref: custom_command_search_box
+    value: "zzzzz_no_match"
+    wait: 0.3
+
+  - name: "按Enter键确认搜索（结果为空）"
+    action: keyboard_press
+    key: "Return"
+    wait: 0.3
+
+  - name: "按左方向键或Enter返回搜索框"
+    action: keyboard_press
+    key: "Left"
+    wait: 0.3
+
+  - name: "验证搜索框可见（已返回搜索）"
+    action: wait
+    assert:
+      - type: element_visible
+        selector:
+          role: "text"
+
+  - name: "按ESC返回终端"
+    action: keyboard_press
+    key: "Escape"
+    wait: 0.5
+
+  - name: "验证终端进程仍在运行"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

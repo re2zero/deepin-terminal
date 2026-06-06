@@ -1,0 +1,54 @@
+# Test case 153: 滚动条显示
+# Module: 工作区(#116131)
+# Priority: 2
+
+name: "滚动条显示"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "步骤1: 截图-初始状态无滚动条"
+    action: screenshot
+    desc: "内容不够屏幕显示时，没有滚动条"
+
+  - name: "步骤3: 执行命令产生足够输出使纵向滚动条出现"
+    action: keyboard_type
+    text: "for i in $(seq 1 80); do echo line$i; done"
+    wait: 0.3
+  - action: keyboard_press
+    key: "Return"
+    wait: 1.5
+
+  - name: "步骤3: 截图-出现纵向滚动条"
+    action: screenshot
+    desc: "纵向滚动条出现"
+
+  - name: "步骤7: 使用Shift+PageUp向上滚动"
+    action: keyboard_hot_key
+    keys: "shift,Page_Up"
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤7: 使用Shift+PageDown向下滚动"
+    action: keyboard_hot_key
+    keys: "shift,Page_Down"
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤7: 截图-滚动后屏幕内容"
+    action: screenshot
+    desc: "可以上下滚动屏幕"
+
+  - name: "验证终端仍在运行"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

@@ -1,0 +1,93 @@
+# YAML test case — 键盘交互删除命令 (id=048)
+# 验证删除自定义命令对话框中的键盘导航（含确认/取消）
+name: "键盘交互删除命令"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "打开自定义命令插件"
+    action: main_menu_comb
+    ref: main_menu_button
+    menu:
+      - "自定义命令"
+    assert:
+      - type: element_visible
+        selector:
+          role: "list"
+
+  - name: "Tab切换到自定义命令列表"
+    action: keyboard_press
+    key: "Tab"
+    wait: 0.3
+
+  - name: "按右方向键聚焦编辑按钮"
+    action: keyboard_press
+    key: "Right"
+    wait: 0.3
+
+  - name: "按Enter打开编辑对话框"
+    action: keyboard_press
+    key: "Return"
+    wait: 0.5
+
+  - name: "验证编辑对话框打开"
+    action: wait
+    assert:
+      - type: element_visible
+        selector:
+          role: "text"
+
+  - name: "Tab键导航到删除命令按钮"
+    action: keyboard_press
+    key: "Tab"
+    wait: 0.3
+
+  - name: "继续Tab到删除命令"
+    action: keyboard_press
+    key: "Tab"
+    wait: 0.3
+
+  - name: "再Tab到删除命令按钮"
+    action: keyboard_press
+    key: "Tab"
+    wait: 0.3
+
+  - name: "按Enter打开删除确认对话框"
+    action: keyboard_press
+    key: "Return"
+    wait: 0.5
+
+  - name: "按Tab键切换到取消按钮"
+    action: keyboard_press
+    key: "Tab"
+    wait: 0.3
+
+  - name: "再Tab切换到确定（删除）按钮"
+    action: keyboard_press
+    key: "Tab"
+    wait: 0.3
+
+  - name: "按ESC退出删除确认对话框"
+    action: keyboard_press
+    key: "Escape"
+    wait: 0.3
+
+  - name: "验证返回编辑对话框"
+    action: wait
+    assert:
+      - type: element_visible
+        selector:
+          role: "text"
+
+  - name: "按ESC退出编辑对话框返回命令列表"
+    action: keyboard_press
+    key: "Escape"
+    wait: 0.3
+
+teardown:
+  - action: session_stop

@@ -1,0 +1,34 @@
+# YAML test case for terminal - 日志配置文件查看 (id=203)
+# Module: 日志适配规范(#110625)
+# Priority: 1
+name: "日志配置文件查看"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "步骤1: 执行cat命令查看日志配置文件"
+    action: keyboard_type_text
+    text: "cat /usr/share/deepin-log-viewer/deepin-log.conf.d/deepin-terminal.json"
+  - action: wait
+    duration: 0.5
+  - action: keyboard_press
+    key: "Return"
+  - action: wait
+    duration: 2.0
+    assert:
+      - type: process_running
+        app: "terminal"
+
+  - name: "步骤2: 验证终端正常运行"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

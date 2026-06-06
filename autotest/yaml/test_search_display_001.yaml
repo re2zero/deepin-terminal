@@ -1,0 +1,100 @@
+# YAML test case for terminal - 查找显示
+name: "查找显示"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "验证主窗口可见"
+    action: element_action
+    ref: main_frame
+    do: "click"
+    assert:
+      - type: element_visible
+        selector:
+          role: "frame"
+
+  - name: "右键菜单选择搜索"
+    action: context_menu_comb
+    ref: context_search
+    wait: 1.0
+
+  - name: "验证搜索界面显示"
+    action: element_action
+    ref: search_input
+    do: "click"
+    assert:
+      - type: element_visible
+        selector:
+          name: "DLineEditChildLineEdit"
+          role: "text"
+
+  - name: "截图-搜索界面显示"
+    action: screenshot
+    desc: "搜索界面右上角显示搜索框和按钮"
+
+  - name: "按ESC隐藏搜索框"
+    action: keyboard_press
+    key: "Escape"
+    wait: 0.5
+
+  - name: "使用快捷键Ctrl+Alt+F调出搜索"
+    action: keyboard_hot_key
+    keys: "ctrl+alt+f"
+    wait: 1.0
+
+  - name: "验证快捷键调出搜索界面"
+    action: element_action
+    ref: search_input
+    do: "click"
+    assert:
+      - type: element_visible
+        selector:
+          name: "DLineEditChildLineEdit"
+          role: "text"
+
+  - name: "截图-快捷键调出搜索"
+    action: screenshot
+    desc: "快捷键Ctrl+Alt+F调出搜索界面"
+
+  - name: "关闭搜索框，进行横向分屏"
+    action: keyboard_press
+    key: "Escape"
+    wait: 0.5
+
+  - name: "横向分屏"
+    action: context_menu_comb
+    ref: context_horizontal_split
+    wait: 1.0
+
+  - name: "在分屏状态下使用快捷键调出搜索"
+    action: keyboard_hot_key
+    keys: "ctrl+alt+f"
+    wait: 1.0
+
+  - name: "验证分屏时搜索框显示"
+    action: element_action
+    ref: search_input
+    do: "click"
+    assert:
+      - type: element_visible
+        selector:
+          name: "DLineEditChildLineEdit"
+          role: "text"
+
+  - name: "截图-分屏时搜索显示"
+    action: screenshot
+    desc: "多分屏时搜索始终显示在右上角"
+
+  - name: "验证进程运行中"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

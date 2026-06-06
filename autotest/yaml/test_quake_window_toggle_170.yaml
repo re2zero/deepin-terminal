@@ -1,0 +1,54 @@
+# Test case 170: 雷神窗口切换
+# Module: /V25_2500（测试部专用）/B类解耦商店应用/终端/104X(#116091)
+# Priority: 2
+
+name: "雷神窗口切换"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "步骤1: 验证主窗口可见"
+    action: element_action
+    ref: main_frame
+    do: "click"
+    assert:
+      - type: element_visible
+        selector:
+          role: "frame"
+
+  - name: "步骤2: Alt+F2调出雷神窗口"
+    action: keyboard_hot_key
+    keys: "Alt,F2"
+    wait: 2.0
+
+  - name: "步骤3: 截图-雷神窗口显示且被选中"
+    action: screenshot
+    desc: "雷神窗口显示且被选中"
+
+  - name: "步骤4: 再次按Alt+F2隐藏雷神窗口"
+    action: keyboard_hot_key
+    keys: "Alt,F2"
+    wait: 1.5
+
+  - name: "步骤5: Alt+F2再次显示雷神窗口（仅聚焦）"
+    action: keyboard_hot_key
+    keys: "Alt,F2"
+    wait: 2.0
+
+  - name: "步骤6: 截图-雷神窗口再次显示"
+    action: screenshot
+    desc: "雷神窗口从隐藏状态再次显示并获取焦点"
+
+  - name: "步骤7: 验证终端进程运行中"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

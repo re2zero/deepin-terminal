@@ -1,0 +1,56 @@
+# YAML test case for terminal - 链接
+name: "链接"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "验证主窗口可见"
+    action: element_action
+    ref: main_frame
+    do: "click"
+    assert:
+      - type: element_visible
+        selector:
+          role: "frame"
+
+  - name: "在终端中输出超链接"
+    action: keyboard_type
+    text: "echo https://www.deepin.org"
+    wait: 0.3
+
+  - name: "回车执行"
+    action: keyboard_press
+    key: "Return"
+    wait: 0.5
+
+  - name: "截图-终端显示超链接"
+    action: screenshot
+    desc: "终端中显示超链接"
+
+  - name: "右键点击终端内容区域"
+    action: context_menu_comb
+    ref: context_open_link
+    wait: 1.0
+
+  - name: "截图-右键菜单弹出"
+    action: screenshot
+    desc: "右键菜单弹出，显示打开链接和复制链接选项"
+
+  - name: "验证进程运行中"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+  - name: "关闭右键菜单"
+    action: keyboard_press
+    key: "Escape"
+    wait: 0.5
+
+teardown:
+  - action: session_stop

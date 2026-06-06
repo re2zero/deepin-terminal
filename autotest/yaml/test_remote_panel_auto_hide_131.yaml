@@ -1,0 +1,65 @@
+# Test case 131: 远程管理面板自动隐藏
+# Module: 远程管理器(#116129)
+# Priority: 2
+# Steps:
+#   1. 打开终端，进入到远程管理面板
+#   2. 使用鼠标点击选中上面、下面、左面、右面拖动改变窗口大小
+#   3. 鼠标点击远程管理面板旁边的终端区域
+# Expected:
+#   2. 远程管理面板自动隐藏
+#   3. 远程管理面板自动隐藏
+
+name: "远程管理面板自动隐藏"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "步骤1: 验证主窗口可见"
+    action: element_action
+    ref: main_frame
+    do: "click"
+    assert:
+      - type: element_visible
+        selector:
+          role: "frame"
+
+  - name: "步骤1: 主菜单打开远程管理面板"
+    action: main_menu_comb
+    ref: menu_remote_management
+    wait: 1.0
+
+  - name: "步骤2: 调整窗口大小-拖动上边"
+    action: mouse_drag
+    ref: titlebar_panel
+    wait: 0.5
+
+  - name: "步骤2: 验证远程管理面板可见"
+    action: wait
+    assert:
+      - type: element_visible
+        selector:
+          role: "list"
+
+  - name: "步骤3: 鼠标点击终端区域（远程管理面板外）"
+    action: element_action
+    ref: terminal_content
+    do: "click"
+    wait: 0.5
+
+  - name: "截图验证面板隐藏状态"
+    action: screenshot
+    desc: "点击终端区域后远程管理面板自动隐藏"
+
+  - name: "验证终端进程仍在运行"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

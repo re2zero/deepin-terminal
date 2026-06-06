@@ -1,0 +1,76 @@
+name: "键盘交互焦点在最小化，最大化，关闭按钮"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "按Tab键焦点切换到最小化按钮"
+    action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.5
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.5
+
+  - name: "按Enter键触发最小化"
+    action: keyboard_press
+    key: "Enter"
+  - action: wait
+    duration: 1.0
+
+  - name: "恢复窗口（恢复焦点）"
+    action: keyboard_hot_key
+    keys: "shift+tab"
+  - action: wait
+    duration: 0.5
+  - action: keyboard_hot_key
+    keys: "shift+tab"
+  - action: wait
+    duration: 0.5
+  - action: keyboard_hot_key
+    keys: "shift+tab"
+  - action: wait
+    duration: 0.5
+
+  - name: "按Tab键切换到关闭按钮"
+    action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.5
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.5
+
+  - name: "按Enter键关闭窗口（触发退出保护）"
+    action: keyboard_press
+    key: "Enter"
+  - action: wait
+    duration: 1.0
+
+  - name: "在退出保护弹框中按Tab键切换焦点"
+    action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.5
+
+  - name: "按ESC键关闭退出保护弹框"
+    action: keyboard_press
+    key: "Escape"
+  - action: wait
+    duration: 1.0
+
+  - name: "验证终端仍在运行（取消退出）"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

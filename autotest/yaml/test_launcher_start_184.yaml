@@ -1,0 +1,27 @@
+# YAML test case for terminal - 启动器启动 (id=184)
+# Module: 启动终端(#116145)
+# Priority: 2
+name: "启动器启动"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "验证终端正常启动"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+  - name: "验证主窗口可见"
+    action: wait
+    assert:
+      - type: element_visible
+        ref: main_window
+
+teardown:
+  - action: session_stop

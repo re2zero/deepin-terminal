@@ -1,0 +1,193 @@
+# Test case 125: 编辑服务器
+# Module: 远程管理器(#116129)
+# Priority: 2
+name: "编辑服务器"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "步骤1: 打开远程管理插件，选中服务器进入编辑界面"
+    action: main_menu_comb
+    ref: menu_remote_management
+  - action: wait
+    duration: 1.0
+
+  - name: "Tab键切换到服务器列表"
+    action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+
+  - name: "按→到编辑按钮，按Enter进入编辑"
+    action: keyboard_press
+    key: "Right"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Return"
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤2: Tab到服务器名字段"
+    action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+
+  - name: "步骤3: Tab到地址字段"
+    action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+
+  - name: "步骤4: Tab到端口字段"
+    action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+
+  - name: "步骤5: Tab到用户名字段"
+    action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+
+  - name: "步骤6: Tab到密码字段"
+    action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+
+  - name: "步骤7: 继续Tab浏览分组、路径、命令、编码等字段"
+    action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+
+  - name: "按ESC关闭编辑窗口"
+    action: keyboard_press
+    key: "Escape"
+  - action: wait
+    duration: 0.5
+
+  - name: "Shift+Tab反向切换测试"
+    action: keyboard_hot_key
+    keys: "shift,Tab"
+  - action: wait
+    duration: 0.5
+
+  - name: "按ESC关闭远程管理面板"
+    action: keyboard_press
+    key: "Escape"
+  - action: wait
+    duration: 0.5
+
+  - name: "验证终端进程仍在运行"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

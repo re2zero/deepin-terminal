@@ -1,0 +1,68 @@
+# Test case 180: [006]最小化
+# Module: 主界面右上角菜单栏(#116141)
+# Priority: 1
+
+name: "最小化窗口"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "步骤1: 点击最小化按钮"
+    action: element_action
+    ref: minimize_button
+    do: "click"
+    wait: 1.0
+
+  - name: "步骤2: 恢复窗口（聚焦终端窗口）"
+    action: window_focus
+    app_name: "terminal"
+    wait: 1.0
+
+  - name: "验证窗口恢复后按钮可见"
+    action: wait
+    assert:
+      - type: element_visible
+        ref: minimize_button
+      - type: element_visible
+        ref: maximize_button
+      - type: element_visible
+        ref: close_button
+
+  - name: "步骤3: 最大化窗口"
+    action: element_action
+    ref: maximize_button
+    do: "click"
+    wait: 1.0
+
+  - name: "步骤4: 最大化状态下点击最小化"
+    action: element_action
+    ref: minimize_button
+    do: "click"
+    wait: 1.0
+
+  - name: "步骤5: 恢复窗口（聚焦终端窗口）"
+    action: window_focus
+    app_name: "terminal"
+    wait: 1.0
+
+  - name: "验证窗口恢复后为最大化状态，按钮可见"
+    action: wait
+    assert:
+      - type: element_visible
+        ref: minimize_button
+      - type: element_visible
+        ref: close_button
+
+  - name: "验证终端进程运行中"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

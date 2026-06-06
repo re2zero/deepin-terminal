@@ -1,0 +1,105 @@
+# Test case 199: 多语言界面翻译
+# Module: 翻译(#116175)
+# Priority: 3
+
+name: "多语言界面翻译"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "验证主窗口可见"
+    action: wait
+    assert:
+      - type: element_visible
+        ref: main_window
+
+  - name: "打开主菜单验证菜单项可见"
+    action: element_action
+    ref: main_menu_button
+    do: "click"
+    wait: 1.0
+
+  - name: "截图-主菜单显示"
+    action: screenshot
+    desc: "主菜单各项翻译显示"
+
+  - name: "关闭主菜单"
+    action: keyboard_press
+    key: "Escape"
+    wait: 0.5
+
+  - name: "通过主菜单打开设置对话框"
+    action: main_menu_comb
+    ref: menu_settings
+    wait: 1.0
+    assert:
+      - type: element_visible
+        ref: settings_dialog
+
+  - name: "截图-设置对话框显示"
+    action: screenshot
+    desc: "设置对话框各项翻译显示"
+
+  - name: "验证设置导航项可见"
+    action: wait
+    assert:
+      - type: element_visible
+        ref: settings_basic
+      - type: element_visible
+        ref: settings_interface
+      - type: element_visible
+        ref: settings_tab_title
+      - type: element_visible
+        ref: settings_shortcuts
+      - type: element_visible
+        ref: settings_advanced
+
+  - name: "关闭设置对话框"
+    action: keyboard_press
+    key: "Escape"
+    wait: 0.5
+
+  - name: "通过主菜单打开关于对话框"
+    action: main_menu_comb
+    ref: menu_about
+    wait: 1.0
+    assert:
+      - type: element_visible
+        ref: about_dialog
+
+  - name: "截图-关于对话框显示"
+    action: screenshot
+    desc: "关于对话框各项翻译显示"
+
+  - name: "关闭关于对话框"
+    action: keyboard_press
+    key: "Escape"
+    wait: 0.5
+
+  - name: "通过主菜单打开帮助"
+    action: main_menu_comb
+    ref: menu_help
+    wait: 2.0
+
+  - name: "截图-帮助界面显示"
+    action: screenshot
+    desc: "帮助页面各项翻译显示"
+
+  - name: "关闭帮助窗口"
+    action: keyboard_press
+    key: "Escape"
+    wait: 1.0
+
+  - name: "验证终端进程运行中"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

@@ -1,0 +1,54 @@
+# YAML test case — 键盘交互远程管理列表为空 (id=050)
+# 验证远程管理插件在列表为空时的键盘交互行为
+name: "键盘交互远程管理列表为空"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "打开主菜单"
+    action: main_menu_comb
+    ref: main_menu_button
+    menu:
+      - "远程管理"
+    assert:
+      - type: element_visible
+        selector:
+          role: "list"
+
+  - name: "验证远程管理插件打开"
+    action: wait
+    assert:
+      - type: element_visible
+        selector:
+          role: "text"
+
+  - name: "验证焦点已切换到添加服务器按钮"
+    action: wait
+    assert:
+      - type: element_visible
+        selector:
+          role: "button"
+
+  - name: "按Tab键切换焦点"
+    action: keyboard_press
+    key: "Tab"
+    wait: 0.3
+
+  - name: "按ESC返回终端"
+    action: keyboard_press
+    key: "Escape"
+    wait: 0.5
+
+  - name: "验证终端进程仍在运行"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

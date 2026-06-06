@@ -1,0 +1,57 @@
+# Test case 024: 键盘交互设置界面Tab键切换顺序
+# Module: 键盘交互(#116109)
+# Priority: 2
+
+name: "键盘交互-设置界面Tab键切换顺序"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "步骤1: 打开设置界面"
+    action: main_menu_comb
+    ref: menu_settings
+
+  - name: "步骤2: 第一次按Tab键，焦点到右上角X关闭按钮"
+    action: keyboard_press
+    key: "Tab"
+
+  - name: "步骤3: 第二次按Tab键，焦点到左侧导航列表"
+    action: keyboard_press
+    key: "Tab"
+
+  - name: "步骤4: 按↓方向键切换左侧菜单"
+    action: keyboard_press
+    key: "Down"
+
+  - name: "步骤5: 第三次按Tab键，焦点到右侧内容区域"
+    action: keyboard_press
+    key: "Tab"
+
+  - name: "步骤6: 按↓方向键切换内容区域焦点"
+    action: keyboard_press
+    key: "Down"
+
+  - name: "步骤7: Shift+Tab反向切换回左侧列表"
+    action: keyboard_hot_key
+    keys: "shift,Tab"
+
+  - name: "步骤8: 验证设置对话框可见"
+    action: wait
+    assert:
+      - type: element_visible
+        selector:
+          role: "dialog"
+
+  - name: "步骤9: 验证终端进程运行中"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

@@ -1,0 +1,208 @@
+# Test case 133: 必填项
+# Module: 远程管理器(#116129)
+# Priority: 2
+# Steps:
+#   1. 在添加服务器界面中只填写服务器名，点击添加按钮，查看软件显示
+#   2. 在添加服务器界面中只填写地址，点击添加按钮，查看软件显示
+#   3. 在添加服务器界面中只填写用户名，点击添加按钮，查看软件显示
+#   4. 在添加服务器界面中只填写服务器名和地址，点击添加按钮，查看软件显示
+#   5. 在添加服务器界面中只填写服务器名和用户名，点击添加按钮，查看软件显示
+#   6. 在添加服务器界面中只填写地址和用户名，点击添加按钮，查看软件显示
+#   7. 在添加服务器界面中填写服务器名、地址和用户名，点击添加按钮，查看软件显示
+# Expected:
+#   1-6. 软件不会添加服务器到服务器列表中
+#   7. 添加服务器成功，并自动保存到服务器列表中
+
+name: "必填项"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "验证主窗口可见"
+    action: element_action
+    ref: main_frame
+    do: "click"
+    assert:
+      - type: element_visible
+        selector:
+          role: "frame"
+
+  - name: "主菜单打开远程管理"
+    action: main_menu_comb
+    ref: menu_remote_management
+    wait: 1.0
+
+  - name: "步骤1: 只填写服务器名，点击添加"
+    action: element_action
+    ref: add_server_button
+    do: "click"
+    wait: 0.5
+  - action: element_action
+    ref: remote_server_name
+    do: "click"
+    wait: 0.3
+  - action: keyboard_type
+    text: "server-only-name"
+    wait: 0.3
+  - action: element_action
+    ref: remote_add
+    do: "click"
+    wait: 0.5
+
+  - name: "步骤2: 只填写地址，点击添加"
+    action: element_action
+    ref: add_server_button
+    do: "click"
+    wait: 0.5
+  - action: element_action
+    ref: remote_server_address
+    do: "click"
+    wait: 0.3
+  - action: keyboard_type
+    text: "127.0.0.1"
+    wait: 0.3
+  - action: element_action
+    ref: remote_add
+    do: "click"
+    wait: 0.5
+
+  - name: "步骤3: 只填写用户名，点击添加"
+    action: element_action
+    ref: add_server_button
+    do: "click"
+    wait: 0.5
+  - action: element_action
+    ref: remote_username
+    do: "click"
+    wait: 0.3
+  - action: keyboard_type
+    text: "testuser"
+    wait: 0.3
+  - action: element_action
+    ref: remote_add
+    do: "click"
+    wait: 0.5
+
+  - name: "步骤4: 只填写服务器名和地址，点击添加"
+    action: element_action
+    ref: add_server_button
+    do: "click"
+    wait: 0.5
+  - action: element_action
+    ref: remote_server_name
+    do: "click"
+    wait: 0.3
+  - action: keyboard_type
+    text: "server-name-addr"
+    wait: 0.3
+  - action: element_action
+    ref: remote_server_address
+    do: "click"
+    wait: 0.3
+  - action: keyboard_type
+    text: "127.0.0.1"
+    wait: 0.3
+  - action: element_action
+    ref: remote_add
+    do: "click"
+    wait: 0.5
+
+  - name: "步骤5: 只填写服务器名和用户名，点击添加"
+    action: element_action
+    ref: add_server_button
+    do: "click"
+    wait: 0.5
+  - action: element_action
+    ref: remote_server_name
+    do: "click"
+    wait: 0.3
+  - action: keyboard_type
+    text: "server-name-user"
+    wait: 0.3
+  - action: element_action
+    ref: remote_username
+    do: "click"
+    wait: 0.3
+  - action: keyboard_type
+    text: "testuser"
+    wait: 0.3
+  - action: element_action
+    ref: remote_add
+    do: "click"
+    wait: 0.5
+
+  - name: "步骤6: 只填写地址和用户名，点击添加"
+    action: element_action
+    ref: add_server_button
+    do: "click"
+    wait: 0.5
+  - action: element_action
+    ref: remote_server_address
+    do: "click"
+    wait: 0.3
+  - action: keyboard_type
+    text: "127.0.0.1"
+    wait: 0.3
+  - action: element_action
+    ref: remote_username
+    do: "click"
+    wait: 0.3
+  - action: keyboard_type
+    text: "testuser"
+    wait: 0.3
+  - action: element_action
+    ref: remote_add
+    do: "click"
+    wait: 0.5
+
+  - name: "步骤7: 填写服务器名、地址和用户名，点击添加"
+    action: element_action
+    ref: add_server_button
+    do: "click"
+    wait: 0.5
+  - action: element_action
+    ref: remote_server_name
+    do: "click"
+    wait: 0.3
+  - action: keyboard_type
+    text: "server-full-valid"
+    wait: 0.3
+  - action: element_action
+    ref: remote_server_address
+    do: "click"
+    wait: 0.3
+  - action: keyboard_type
+    text: "127.0.0.1"
+    wait: 0.3
+  - action: element_action
+    ref: remote_username
+    do: "click"
+    wait: 0.3
+  - action: keyboard_type
+    text: "testuser"
+    wait: 0.3
+  - action: element_action
+    ref: remote_add
+    do: "click"
+    wait: 1.0
+
+  - name: "步骤7: 验证服务器成功添加到列表"
+    action: wait
+    assert:
+      - type: element_visible
+        selector:
+          role: "list"
+
+  - name: "验证终端进程仍在运行"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

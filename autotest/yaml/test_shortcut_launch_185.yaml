@@ -1,0 +1,36 @@
+# YAML test case for terminal - 快捷键启动 (id=185)
+# Module: 启动终端(#116145)
+# Priority: 2
+name: "快捷键启动"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "步骤1: 验证终端已正常启动"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+  - name: "步骤2: 验证主窗口可见"
+    action: wait
+    assert:
+      - type: element_visible
+        ref: main_window
+
+  - name: "步骤2: 使用Ctrl+Alt+T快捷键再次启动（应新建窗口或切换焦点）"
+    action: keyboard_hot_key
+    keys: "ctrl,alt,t"
+  - action: wait
+    duration: 2.0
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

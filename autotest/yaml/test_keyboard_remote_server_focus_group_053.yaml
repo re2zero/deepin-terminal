@@ -1,0 +1,89 @@
+# Test case 053: 键盘交互远程管理功能，焦点在服务器列表组上
+# Module: 键盘交互(#116109)
+# Priority: 2
+# Precondition: 列表有2个以上服务器
+
+name: "键盘交互-远程服务器列表(组)"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "步骤1: 打开远程管理插件"
+    action: main_menu_comb
+    ref: menu_remote_management
+  - action: wait
+    duration: 1.0
+
+  - name: "步骤1: Tab键切换到搜索框"
+    action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤2: 再按Tab键，焦点在远程服务器组上"
+    action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤2: 按↓方向键切换到组"
+    action: keyboard_press
+    key: "Down"
+  - action: wait
+    duration: 0.3
+
+  - name: "步骤3: 按Enter键进入组列表"
+    action: keyboard_press
+    key: "Return"
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤4: 按Tab键，组内单个服务器焦点切换到服务器上"
+    action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤5: 组内多个服务器，按Tab键焦点切换到搜索框"
+    action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤6: 按↓方向键切换组内服务器列表"
+    action: keyboard_press
+    key: "Down"
+  - action: wait
+    duration: 0.3
+
+  - name: "步骤6: 按↑方向键切换组内服务器列表"
+    action: keyboard_press
+    key: "Up"
+  - action: wait
+    duration: 0.3
+
+  - name: "步骤7: 按Enter键执行连接服务器操作"
+    action: keyboard_press
+    key: "Return"
+  - action: wait
+    duration: 0.5
+
+  - name: "Shift+Tab反向切换测试"
+    action: keyboard_hot_key
+    keys: "shift,Tab"
+  - action: wait
+    duration: 0.5
+
+  - name: "验证终端进程仍在运行"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

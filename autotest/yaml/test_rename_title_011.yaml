@@ -1,0 +1,118 @@
+# YAML test case for terminal - 重命名标题
+name: "重命名标题"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "验证主窗口可见"
+    action: element_action
+    ref: main_frame
+    do: "click"
+    assert:
+      - type: element_visible
+        selector:
+          role: "frame"
+
+  - name: "右键选择重命名标题"
+    action: context_menu_comb
+    ref: context_rename_title
+    wait: 1.0
+
+  - name: "截图-重命名对话框弹出"
+    action: screenshot
+    desc: "弹出重命名标题输入对话框"
+
+  - name: "按ESC关闭对话框"
+    action: keyboard_press
+    key: "Escape"
+    wait: 0.5
+
+  - name: "截图-ESC后对话框消失"
+    action: screenshot
+    desc: "对话框自动消失"
+
+  - name: "再次打开重命名标题"
+    action: context_menu_comb
+    ref: context_rename_title
+    wait: 1.0
+
+  - name: "直接点击确定（不改标题）"
+    action: keyboard_press
+    key: "Return"
+    wait: 0.5
+
+  - name: "截图-直接确认后"
+    action: screenshot
+    desc: "标题栏显示不变"
+
+  - name: "再次打开重命名标题"
+    action: context_menu_comb
+    ref: context_rename_title
+    wait: 1.0
+
+  - name: "删除原标题后确认"
+    action: keyboard_press
+    key: "BackSpace"
+    wait: 0.1
+  - name: "再按退格删除更多"
+    action: keyboard_press
+    key: "BackSpace"
+    wait: 0.1
+  - name: "继续删除"
+    action: keyboard_press
+    key: "BackSpace"
+    wait: 0.1
+  - name: "继续删除"
+    action: keyboard_press
+    key: "BackSpace"
+    wait: 0.1
+  - name: "继续删除"
+    action: keyboard_press
+    key: "BackSpace"
+    wait: 0.5
+
+  - name: "按回车确认空标题"
+    action: keyboard_press
+    key: "Return"
+    wait: 0.5
+
+  - name: "截图-空标题确认后"
+    action: screenshot
+    desc: "删除原标题后确认，标题栏显示不变"
+
+  - name: "再次打开重命名标题"
+    action: context_menu_comb
+    ref: context_rename_title
+    wait: 1.0
+
+  - name: "输入超长标题"
+    action: keyboard_type
+    text: "ThisIsAVeryLongTitleNameForTestingPurposesWithManyCharactersExceedingNormalLength"
+    wait: 0.5
+
+  - name: "截图-超长标题输入"
+    action: screenshot
+    desc: "输入超长标题，对话框中可以显示完整"
+
+  - name: "按回车确认"
+    action: keyboard_press
+    key: "Return"
+    wait: 1.0
+
+  - name: "截图-超长标题在标题栏显示"
+    action: screenshot
+    desc: "标题栏中以...截断显示超长标题"
+
+  - name: "验证进程运行中"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

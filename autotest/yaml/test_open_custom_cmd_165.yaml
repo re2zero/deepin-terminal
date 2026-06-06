@@ -1,0 +1,59 @@
+name: "开启"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "步骤1: 通过主菜单-自定义命令开启自定义命令模块"
+    action: main_menu_comb
+    ref: menu_custom_commands
+    wait: 1.0
+
+  - name: "步骤1: 验证成功开启自定义命令模块（终端仍在运行）"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+  - name: "步骤2: 关闭后再通过主菜单-设置开启自定义命令模块"
+    action: keyboard_press
+    key: "Escape"
+  - action: wait
+    duration: 0.5
+  - action: main_menu_comb
+    ref: menu_settings
+    wait: 1.0
+  - action: element_action
+    ref: settings_shortcuts
+    do: "click"
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤2: 验证成功开启（终端仍在运行）"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+  - name: "步骤3: 关闭后使用快捷键 Alt+Ins 开启自定义命令模块"
+    action: keyboard_press
+    key: "Escape"
+  - action: wait
+    duration: 0.5
+  - action: keyboard_hot_key
+    keys: "alt+insert"
+  - action: wait
+    duration: 1.0
+
+  - name: "步骤3: 验证成功开启自定义命令模块（终端仍在运行）"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

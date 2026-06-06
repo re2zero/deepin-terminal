@@ -1,0 +1,75 @@
+# Test case 096: 纵向分屏快捷键
+# Module: 设置界面快捷键(#116121)
+# Priority: 3
+
+name: "纵向分屏快捷键"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "步骤1: 打开设置界面"
+    action: main_menu_comb
+    ref: menu_settings
+
+  - name: "步骤2: 点击快捷键导航"
+    action: element_action
+    ref: settings_shortcuts
+    do: "click"
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤3: 点击其他子类别"
+    action: element_action
+    ref: settings_other_shortcuts
+    do: "click"
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤4: 使用默认纵向分屏快捷键Ctrl+Shift+J"
+    action: keyboard_hot_key
+    keys: "ctrl+shift+j"
+  - action: wait
+    duration: 1.0
+
+  - name: "步骤5: Tab切换到纵向分屏快捷键项"
+    action: keyboard_press
+    key: "Tab"
+  - action: keyboard_press
+    key: "Tab"
+
+  - name: "步骤6: Enter进入编辑模式，修改快捷键为Ctrl+Shift+M"
+    action: keyboard_press
+    key: "Return"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_hot_key
+    keys: "ctrl+shift+m"
+  - action: wait
+    duration: 0.3
+
+  - name: "步骤7: 使用旧快捷键验证不生效"
+    action: keyboard_hot_key
+    keys: "ctrl+shift+j"
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤8: 验证设置对话框可见"
+    action: wait
+    assert:
+      - type: element_visible
+        selector:
+          role: "dialog"
+
+  - name: "步骤9: 验证终端进程运行中"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

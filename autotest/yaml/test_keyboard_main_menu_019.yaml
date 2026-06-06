@@ -1,0 +1,67 @@
+name: "键盘交互Tab键切换到主菜单按Enter键"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "按Tab键切换到主菜单按钮"
+    action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.5
+
+  - name: "按Enter键展开主菜单"
+    action: keyboard_press
+    key: "Enter"
+  - action: wait
+    duration: 0.5
+
+  - name: "按向下方向键选择菜单项"
+    action: keyboard_press
+    key: "Down"
+  - action: wait
+    duration: 0.3
+
+  - name: "按向上方向键选择菜单项"
+    action: keyboard_press
+    key: "Up"
+  - action: wait
+    duration: 0.3
+
+  - name: "选择主题菜单项并按向右方向键展开子菜单"
+    action: main_menu_comb
+    ref: main_menu_button
+    menu: ["主题"]
+  - action: wait
+    duration: 0.5
+
+  - name: "按向下方向键选择主题选项"
+    action: keyboard_press
+    key: "Down"
+  - action: wait
+    duration: 0.3
+
+  - name: "按向左方向键收起主题列表"
+    action: keyboard_press
+    key: "Left"
+  - action: wait
+    duration: 0.5
+
+  - name: "按ESC键关闭菜单"
+    action: keyboard_press
+    key: "Escape"
+  - action: wait
+    duration: 0.5
+
+  - name: "验证终端仍在运行"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

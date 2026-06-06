@@ -1,0 +1,71 @@
+# Test case 149: 标签页消息提醒
+# Module: 工作区(#116131)
+# Priority: 2
+
+name: "标签页消息提醒"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "步骤1: 点击加号按钮新建第二个标签页"
+    action: element_action
+    ref: add_tab_button
+    do: "click"
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤1: 再次新建第三个标签页"
+    action: element_action
+    ref: add_tab_button
+    do: "click"
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤1: 截图-三个标签页显示"
+    action: screenshot
+    desc: "新建多个标签页后，当前标签页高亮显示"
+
+  - name: "步骤2: 在第三个标签页执行耗时命令(sleep 3)"
+    action: keyboard_type
+    text: "sleep 3"
+    wait: 0.3
+  - action: keyboard_press
+    key: "Return"
+    wait: 0.3
+
+  - name: "步骤2: 切换到第一个标签页等待命令完成"
+    action: keyboard_hot_key
+    keys: "ctrl+shift+1"
+    wait: 0.3
+  - action: wait
+    duration: 4.0
+    assert:
+      - type: process_running
+        app: "terminal"
+
+  - name: "步骤2: 截图-命令完成的标签页变色提醒"
+    action: screenshot
+    desc: "命令执行完成后的标签页颜色变化，高亮提醒"
+
+  - name: "步骤3: 点击命令完成的标签页"
+    action: keyboard_hot_key
+    keys: "ctrl+shift+3"
+    wait: 0.5
+
+  - name: "步骤3: 截图-点击后提醒色自动消除"
+    action: screenshot
+    desc: "点击标签页后提醒色自动消除"
+
+  - name: "验证终端进程仍在运行"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

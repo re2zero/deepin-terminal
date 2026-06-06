@@ -1,0 +1,76 @@
+# Test case 085: 背景模糊
+# Module: 设置界面高级设置(#116119)
+# Priority: 2
+
+name: "背景模糊复选框切换"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "步骤1: 通过主菜单打开设置"
+    action: main_menu_comb
+    ref: menu_settings
+    wait: 1.0
+    assert:
+      - type: element_visible
+        ref: settings_dialog
+
+  - name: "步骤2: 点击界面设置导航项"
+    action: element_action
+    ref: settings_interface
+    do: "click"
+    wait: 0.5
+
+  - name: "步骤3: Tab键将焦点移到背景模糊复选框（默认不勾选）"
+    action: keyboard_press
+    key: "Tab"
+    wait: 0.3
+
+  - name: "步骤4: 再次Tab键确保焦点在目标复选框"
+    action: keyboard_press
+    key: "Tab"
+    wait: 0.3
+
+  - name: "步骤5: Space键勾选背景模糊"
+    action: keyboard_press
+    key: "Space"
+    wait: 0.3
+
+  - name: "步骤6: Shift+Tab反向切换焦点"
+    action: keyboard_hot_key
+    keys: "Shift,Tab"
+    wait: 0.3
+
+  - name: "步骤7: 再次Space键取消勾选（恢复默认）"
+    action: keyboard_press
+    key: "Tab"
+    wait: 0.3
+
+  - name: "步骤8: Tab键确保焦点在复选框"
+    action: keyboard_press
+    key: "Tab"
+    wait: 0.3
+
+  - name: "步骤9: Space键取消勾选背景模糊"
+    action: keyboard_press
+    key: "Space"
+    wait: 0.3
+
+  - name: "步骤10: ESC关闭设置窗口"
+    action: keyboard_press
+    key: "Escape"
+    wait: 0.5
+
+  - name: "验证终端进程运行中"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

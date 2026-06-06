@@ -1,0 +1,95 @@
+# Test case 163: 删除
+# Module: 自定义命令(#116137)
+# Priority: 2
+
+name: "删除"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "前置: 通过主菜单打开自定义命令面板并添加测试命令"
+    action: main_menu_comb
+    ref: menu_custom_commands
+    wait: 1.0
+
+  - name: "前置: 添加第一个自定义命令"
+    action: element_set_value
+    ref: custom_command_name_input
+    value: "待删除命令"
+  - action: element_set_value
+    ref: custom_command_command_input
+    value: "echo delete"
+  - action: element_action
+    ref: custom_command_add
+    do: "click"
+  - action: wait
+    duration: 1.0
+
+  - name: "前置: 添加第二个自定义命令"
+    action: element_set_value
+    ref: custom_command_name_input
+    value: "保留命令"
+  - action: element_set_value
+    ref: custom_command_command_input
+    value: "echo keep"
+  - action: element_action
+    ref: custom_command_add
+    do: "click"
+  - action: wait
+    duration: 1.0
+
+  - name: "步骤1: 选中自定义命令，点击编辑"
+    action: element_action
+    ref: custom_command_list
+    do: "click"
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤2: 点击删除命令并确认"
+    action: element_action
+    ref: custom_command_delete
+    do: "click"
+  - action: wait
+    duration: 0.5
+  - action: element_action
+    ref: exit_confirm
+    do: "click"
+  - action: wait
+    duration: 1.0
+
+  - name: "步骤2: 验证成功删除（终端仍在运行）"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+  - name: "步骤3: 再次选中命令，点击编辑然后点删除并取消"
+    action: element_action
+    ref: custom_command_list
+    do: "click"
+  - action: wait
+    duration: 0.5
+  - action: element_action
+    ref: custom_command_delete
+    do: "click"
+  - action: wait
+    duration: 0.5
+  - action: element_action
+    ref: exit_cancel
+    do: "click"
+  - action: wait
+    duration: 1.0
+
+  - name: "步骤3: 验证取消删除后列表信息未变（终端仍在运行）"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

@@ -1,0 +1,57 @@
+# Test case 181: 关闭
+# Module: 主界面右上角菜单栏(#116141)
+# Priority: 2
+
+name: "关闭窗口"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "步骤1: 点击关闭按钮（触发退出保护弹框）"
+    action: element_action
+    ref: close_button
+    do: "click"
+    wait: 1.0
+
+  - name: "点击取消按钮取消关闭"
+    action: element_action
+    ref: exit_cancel
+    do: "click"
+    wait: 1.0
+
+  - name: "验证终端仍在运行"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+  - name: "步骤2: 通过主菜单新建窗口"
+    action: main_menu_comb
+    ref: menu_new_window
+    wait: 1.5
+
+  - name: "在新窗口中点击关闭按钮"
+    action: element_action
+    ref: close_button
+    do: "click"
+    wait: 1.0
+
+  - name: "在退出保护弹框中点击确定按钮关闭窗口"
+    action: element_action
+    ref: exit_confirm
+    do: "click"
+    wait: 2.0
+
+  - name: "验证终端进程运行中（原窗口仍在）"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

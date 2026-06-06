@@ -1,0 +1,66 @@
+# 键盘交互：焦点在按键时滚动复选框
+# Keyboard interaction: focus on "scroll on keypress" checkbox
+# Use Tab/Enter to toggle, Shift+Tab for reverse navigation
+
+name: "键盘交互-按键时滚动复选框"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "通过主菜单打开设置"
+    action: main_menu_comb
+    ref: menu_settings
+    wait: 1.0
+    assert:
+      - type: element_visible
+        ref: settings_dialog
+
+  - name: "点击滚动设置导航项"
+    action: element_action
+    ref: settings_scroll
+    do: "click"
+    wait: 0.5
+
+  - name: "Tab键将焦点移到按键时滚动复选框"
+    action: keyboard_press
+    key: "Tab"
+    wait: 0.3
+
+  - name: "再次Tab键确保焦点在复选框"
+    action: keyboard_press
+    key: "Tab"
+    wait: 0.3
+
+  - name: "Enter键切换复选框状态"
+    action: keyboard_press
+    key: "Enter"
+    wait: 0.3
+
+  - name: "Shift+Tab反向切换焦点"
+    action: keyboard_hot_key
+    keys: "Shift,Tab"
+    wait: 0.3
+
+  - name: "再次Enter键切换复选框状态"
+    action: keyboard_press
+    key: "Enter"
+    wait: 0.3
+
+  - name: "Escape关闭设置窗口"
+    action: keyboard_press
+    key: "Escape"
+    wait: 0.5
+
+  - name: "验证终端进程运行中"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

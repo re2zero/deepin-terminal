@@ -1,0 +1,45 @@
+# Test case 154: 窗口标题显示
+# Module: 工作区(#116131)
+# Priority: 2
+
+name: "窗口标题显示"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "步骤2: 点击终端主窗口确保焦点"
+    action: element_action
+    ref: main_frame
+    do: "click"
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤2: 截图-窗口标题显示"
+    action: screenshot
+    desc: "窗口标题显示当前终端标题-终端形式"
+
+  - name: "步骤2: 执行命令改变当前路径"
+    action: keyboard_type
+    text: "cd /tmp"
+    wait: 0.3
+  - action: keyboard_press
+    key: "Return"
+    wait: 0.5
+
+  - name: "步骤2: 截图-标题随路径变化"
+    action: screenshot
+    desc: "窗口标题随工作目录变化更新"
+
+  - name: "验证终端仍在运行"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

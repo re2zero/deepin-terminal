@@ -1,0 +1,13 @@
+# NON-AUTOMATABLE: skip-触摸操作无法自动化
+name: "内置主题显示以及功能 - NON-AUTOMATABLE: skip-触摸操作无法自动化"
+app: "deepin-terminal"
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+steps:
+  - name: "跳过 - skip-触摸操作无法自动化"
+    action: wait
+    wait: 1
+teardown:
+  - action: session_stop

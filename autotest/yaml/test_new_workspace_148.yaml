@@ -1,0 +1,35 @@
+# Test case 148: [011]新建工作区
+# Module: 工作区(#116131)
+# Priority: 1
+
+name: "工作区-新建工作区"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "步骤1: 点击工作区标签旁的+按钮"
+    action: element_action
+    ref: add_tab_button
+    do: "click"
+  - action: wait
+    duration: 1.0
+
+  - name: "步骤2: 使用快捷键新建工作区 Ctrl+Shift+T"
+    action: keyboard_hot_key
+    keys: "ctrl,shift,T"
+  - action: wait
+    duration: 1.0
+
+  - name: "验证终端进程仍在运行"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

@@ -1,0 +1,104 @@
+# YAML test case for terminal - 向上查找
+name: "向上查找"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "验证主窗口可见"
+    action: element_action
+    ref: main_frame
+    do: "click"
+    assert:
+      - type: element_visible
+        selector:
+          role: "frame"
+
+  - name: "输入多行内容到终端"
+    action: keyboard_type
+    text: "echo line1_hello"
+    wait: 0.3
+
+  - name: "回车"
+    action: keyboard_press
+    key: "Return"
+    wait: 0.3
+
+  - name: "输入第二行"
+    action: keyboard_type
+    text: "echo line2_hello"
+    wait: 0.3
+
+  - name: "回车"
+    action: keyboard_press
+    key: "Return"
+    wait: 0.3
+
+  - name: "输入第三行"
+    action: keyboard_type
+    text: "echo line3_hello"
+    wait: 0.3
+
+  - name: "回车"
+    action: keyboard_press
+    key: "Return"
+    wait: 0.5
+
+  - name: "打开搜索框"
+    action: keyboard_hot_key
+    keys: "ctrl+alt+f"
+    wait: 1.0
+
+  - name: "输入搜索关键词"
+    action: element_set_value
+    ref: search_input
+    value: "hello"
+    wait: 0.5
+
+  - name: "先回车向下搜索到最底部"
+    action: keyboard_press
+    key: "Return"
+    wait: 0.5
+  - name: "再回车一次"
+    action: keyboard_press
+    key: "Return"
+    wait: 0.5
+  - name: "再回车一次"
+    action: keyboard_press
+    key: "Return"
+    wait: 0.5
+
+  - name: "截图-当前位置"
+    action: screenshot
+    desc: "搜索到达最后匹配项"
+
+  - name: "使用Shift+Enter向上搜索"
+    action: keyboard_hot_key
+    keys: "shift+Return"
+    wait: 1.0
+
+  - name: "截图-Shift+Enter向上搜索"
+    action: screenshot
+    desc: "使用快捷鍵Shift+Enter向上检索"
+
+  - name: "再次Shift+Enter继续向上搜索"
+    action: keyboard_hot_key
+    keys: "shift+Return"
+    wait: 1.0
+
+  - name: "截图-再次向上搜索"
+    action: screenshot
+    desc: "再次向上检索到上一个匹配项"
+
+  - name: "验证进程运行中"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

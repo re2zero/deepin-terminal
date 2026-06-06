@@ -1,0 +1,67 @@
+# Test case 173: [019]设置
+# Module: /V25_2500（测试部专用）/B类解耦商店应用/终端/104X/主界面右上角菜单栏(#116141)
+# Priority: 2
+
+name: "[019]设置"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "步骤1: 验证主窗口可见"
+    action: element_action
+    ref: main_frame
+    do: "click"
+    assert:
+      - type: element_visible
+        selector:
+          role: "frame"
+
+  - name: "步骤2: 通过主菜单打开设置"
+    action: main_menu_comb
+    ref: menu_settings
+    wait: 1.0
+    assert:
+      - type: element_visible
+        ref: settings_dialog
+
+  - name: "步骤3: 截图-设置界面弹出"
+    action: screenshot
+    desc: "设置界面弹出"
+
+  - name: "步骤4: 点击设置窗口右上角关闭按钮"
+    action: element_action
+    ref: settings_close_button
+    do: "click"
+    wait: 1.0
+
+  - name: "步骤5: ESC关闭设置窗口(用于恢复验证状态)"
+    action: keyboard_press
+    key: "Escape"
+    wait: 0.5
+
+  - name: "步骤6: 通过主菜单再次打开设置"
+    action: main_menu_comb
+    ref: menu_settings
+    wait: 1.0
+    assert:
+      - type: element_visible
+        ref: settings_dialog
+
+  - name: "步骤7: 按ESC键关闭设置窗口"
+    action: keyboard_press
+    key: "Escape"
+    wait: 1.0
+
+  - name: "步骤8: 验证设置窗口关闭，返回终端"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

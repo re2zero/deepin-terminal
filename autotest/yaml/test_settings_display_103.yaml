@@ -1,0 +1,95 @@
+# Test case 103: 设置界面功能项显示
+# Module: 设置界面基础设置(#116123)
+# Priority: 2
+
+name: "设置界面功能项显示"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "步骤1: 打开主菜单-设置"
+    action: main_menu_comb
+    ref: menu_settings
+  - action: wait
+    duration: 1.0
+
+  - name: "步骤1: 验证设置弹窗显示"
+    action: wait
+    assert:
+      - type: element_visible
+        ref: settings_dialog
+
+  - name: "步骤1: 截图-设置窗口"
+    action: screenshot
+    desc: "设置窗口已打开"
+
+  - name: "步骤2: 验证左侧菜单栏包含基础设置"
+    action: wait
+    assert:
+      - type: element_visible
+        ref: settings_basic
+
+  - name: "步骤3: 点击基础设置"
+    action: element_action
+    ref: settings_basic
+    do: "click"
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤3: 截图-基础设置页"
+    action: screenshot
+    desc: "基础设置页显示界面、透明度、字体、字体大小"
+
+  - name: "步骤4: 点击快捷键导航项"
+    action: element_action
+    ref: settings_shortcuts
+    do: "click"
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤4: 截图-快捷键页"
+    action: screenshot
+    desc: "快捷键页显示终端、工作区、其他快捷键"
+
+  - name: "步骤5: 点击高级设置"
+    action: element_action
+    ref: settings_advanced
+    do: "click"
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤5: 截图-高级设置页"
+    action: screenshot
+    desc: "高级设置页光标、滚动、窗口、Shell等选项"
+
+  - name: "步骤6: 点击恢复默认按钮"
+    action: element_action
+    ref: restore_defaults_button
+    do: "click"
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤6: 截图-点击恢复默认后"
+    action: screenshot
+    desc: "设置界面恢复默认"
+
+  - name: "步骤6: 验证终端进程运行中"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+  - name: "关闭设置窗口"
+    action: element_action
+    ref: settings_close_button
+    do: "click"
+  - action: wait
+    duration: 0.5
+
+teardown:
+  - action: session_stop

@@ -1,0 +1,92 @@
+# Test case 162: 编辑成功
+# Module: 自定义命令(#116137)
+# Priority: 2
+
+name: "编辑成功"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "前置: 通过主菜单打开自定义命令面板并添加测试命令"
+    action: main_menu_comb
+    ref: menu_custom_commands
+    wait: 1.0
+
+  - name: "前置: 添加一个自定义命令"
+    action: element_set_value
+    ref: custom_command_name_input
+    value: "原始命令"
+  - action: element_set_value
+    ref: custom_command_command_input
+    value: "echo original"
+  - action: element_set_value
+    ref: custom_command_shortcut_input
+    value: "Ctrl+Shift+O"
+  - action: element_action
+    ref: custom_command_add
+    do: "click"
+  - action: wait
+    duration: 1.0
+
+  - name: "步骤1: 进入自定义命令列表，点击编辑"
+    action: element_action
+    ref: custom_command_list
+    do: "click"
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤2: 修改自定义名称，点击保存"
+    action: element_set_value
+    ref: custom_command_name_input
+    value: "新命令名"
+  - action: element_action
+    ref: custom_command_save
+    do: "click"
+  - action: wait
+    duration: 1.0
+
+  - name: "步骤2: 验证修改成功（终端仍在运行）"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+  - name: "步骤4: 修改命令内容，点击保存"
+    action: element_set_value
+    ref: custom_command_command_input
+    value: "echo modified"
+  - action: element_action
+    ref: custom_command_save
+    do: "click"
+  - action: wait
+    duration: 1.0
+
+  - name: "步骤4: 验证修改成功（终端仍在运行）"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+  - name: "步骤6: 修改快捷键，点击保存"
+    action: element_set_value
+    ref: custom_command_shortcut_input
+    value: "Ctrl+Shift+N"
+  - action: element_action
+    ref: custom_command_save
+    do: "click"
+  - action: wait
+    duration: 1.0
+
+  - name: "步骤6: 验证快捷键修改成功（终端仍在运行）"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

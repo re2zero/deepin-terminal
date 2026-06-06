@@ -1,0 +1,84 @@
+# YAML test case — 键盘交互自定义命令按ESC键 (id=043)
+# 验证在自定义命令插件中按ESC键焦点返回终端
+name: "键盘交互自定义命令全局功能按ESC键"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "打开自定义命令插件"
+    action: main_menu_comb
+    ref: main_menu_button
+    menu:
+      - "自定义命令"
+    assert:
+      - type: element_visible
+        selector:
+          role: "list"
+
+  - name: "焦点在搜索框时按ESC键"
+    action: keyboard_press
+    key: "Escape"
+    wait: 0.5
+
+  - name: "验证焦点回到终端"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+  - name: "重新打开自定义命令插件"
+    action: main_menu_comb
+    ref: main_menu_button
+    menu:
+      - "自定义命令"
+
+  - name: "Tab切换到自定义列表"
+    action: keyboard_press
+    key: "Tab"
+    wait: 0.3
+
+  - name: "焦点在自定义列表时按ESC键"
+    action: keyboard_press
+    key: "Escape"
+    wait: 0.5
+
+  - name: "验证焦点再次回到终端"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+  - name: "重新打开自定义命令插件"
+    action: main_menu_comb
+    ref: main_menu_button
+    menu:
+      - "自定义命令"
+
+  - name: "Tab切换到添加/编辑按钮区域"
+    action: keyboard_press
+    key: "Tab"
+    wait: 0.3
+
+  - name: "再Tab一次"
+    action: keyboard_press
+    key: "Tab"
+    wait: 0.3
+
+  - name: "焦点在列表区域时按ESC键"
+    action: keyboard_press
+    key: "Escape"
+    wait: 0.5
+
+  - name: "验证焦点回到终端"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

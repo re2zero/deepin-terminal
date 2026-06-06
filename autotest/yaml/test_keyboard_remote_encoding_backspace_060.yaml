@@ -1,0 +1,112 @@
+# Test case 060: 键盘交互编码、退格键、删除键
+# Module: 键盘交互(#116109)
+# Priority: 2
+
+name: "键盘交互-编码退格删除"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "步骤1: 打开远程管理插件，进入编码/退格/删除区域"
+    action: main_menu_comb
+    ref: menu_remote_management
+  - action: wait
+    duration: 1.0
+
+  - name: "Tab到服务器列表，选中服务器进入编辑"
+    action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Right"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Return"
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤1: Tab导航到编码选项"
+    action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Tab"
+  - action: wait
+    duration: 0.3
+
+  - name: "步骤2: 按空格键/Enter打开编码列表"
+    action: keyboard_press
+    key: "Space"
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤3: 按↓方向键切换选择编码"
+    action: keyboard_press
+    key: "Down"
+  - action: wait
+    duration: 0.3
+
+  - name: "步骤3: 按↑方向键切换选择编码"
+    action: keyboard_press
+    key: "Up"
+  - action: wait
+    duration: 0.3
+
+  - name: "步骤4: 按Enter键确认选择，列表收起"
+    action: keyboard_press
+    key: "Return"
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤5: 重新打开列表，按ESC键收起列表"
+    action: keyboard_press
+    key: "Space"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_press
+    key: "Escape"
+  - action: wait
+    duration: 0.5
+
+  - name: "Shift+Tab反向切换测试"
+    action: keyboard_hot_key
+    keys: "shift,Tab"
+  - action: wait
+    duration: 0.5
+
+  - name: "验证终端进程仍在运行"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

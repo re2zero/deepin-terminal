@@ -1,0 +1,45 @@
+# YAML test case for terminal - 日志收集工具查看终端应用日志 (id=204)
+# Module: 日志适配规范(#110625)
+# Priority: 2
+name: "日志收集工具查看终端应用日志"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "步骤1: 启动日志收集工具"
+    action: session_start
+    command: "deepin-log-viewer"
+    wait: 3.0
+
+  - name: "步骤2: 点击应用日志导航栏"
+    action: element_action
+    ref: settings_basic
+    do: "click"
+  - action: wait
+    duration: 1.0
+
+  - name: "步骤2: 验证日志收集工具进程运行中"
+    action: wait
+    assert:
+      - type: process_running
+        app: "deepin-log-viewer"
+
+  - name: "步骤3: 关闭日志收集工具"
+    action: keyboard_hot_key
+    keys: "alt,f4"
+  - action: wait
+    duration: 1.0
+
+  - name: "步骤3: 验证终端仍在运行"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

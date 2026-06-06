@@ -1,0 +1,58 @@
+name: "自动粘贴"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "步骤1: 终端输入命令 deepin-music，选中不执行"
+    action: keyboard_type_text
+    text: "deepin-music"
+  - action: wait
+    duration: 0.5
+  - action: keyboard_hot_key
+    keys: "ctrl+a"
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤2: 打开自定义命令面板（选中的命令应自动粘贴到命令输入框）"
+    action: main_menu_comb
+    ref: menu_custom_commands
+    wait: 1.0
+
+  - name: "步骤3: 输入命令名称，点击保存"
+    action: element_set_value
+    ref: custom_command_name_input
+    value: "深度音乐"
+  - action: wait
+    duration: 0.5
+  - action: element_action
+    ref: custom_command_add
+    do: "click"
+  - action: wait
+    duration: 1.0
+
+  - name: "步骤3: 验证保存成功（终端仍在运行）"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+  - name: "步骤4: 点击列表中新建的命令进行编辑"
+    action: element_action
+    ref: custom_command_list
+    do: "click"
+  - action: wait
+    duration: 1.0
+
+  - name: "步骤4: 验证编辑未出现异常（终端仍在运行）"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop

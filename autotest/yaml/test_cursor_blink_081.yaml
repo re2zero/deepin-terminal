@@ -1,0 +1,77 @@
+# Test case 081: 光标闪烁
+# Module: 设置界面高级设置(#116119)
+# Priority: 2
+# Steps: Open settings -> advanced -> cursor, toggle cursor blink via keyboard, verify config
+
+name: "光标闪烁复选框切换"
+app: "deepin-terminal"
+screenshot: false
+
+setup:
+  - action: session_start
+    command: "deepin-terminal"
+    wait: 3.0
+
+steps:
+  - name: "步骤1: 通过主菜单打开设置"
+    action: main_menu_comb
+    ref: menu_settings
+    wait: 1.0
+    assert:
+      - type: element_visible
+        ref: settings_dialog
+
+  - name: "步骤2: 点击光标设置导航项"
+    action: element_action
+    ref: settings_cursor
+    do: "click"
+    wait: 0.5
+
+  - name: "步骤3: Tab键将焦点移到光标闪烁复选框（默认勾选）"
+    action: keyboard_press
+    key: "Tab"
+    wait: 0.3
+
+  - name: "步骤4: 再次Tab键确保焦点在目标复选框"
+    action: keyboard_press
+    key: "Tab"
+    wait: 0.3
+
+  - name: "步骤5: Space键取消勾选光标闪烁"
+    action: keyboard_press
+    key: "Space"
+    wait: 0.3
+
+  - name: "步骤6: Shift+Tab反向切换焦点"
+    action: keyboard_hot_key
+    keys: "Shift,Tab"
+    wait: 0.3
+
+  - name: "步骤7: 再次Tab到复选框并Space恢复勾选"
+    action: keyboard_press
+    key: "Tab"
+    wait: 0.3
+
+  - name: "步骤8: Tab键确保焦点在复选框"
+    action: keyboard_press
+    key: "Tab"
+    wait: 0.3
+
+  - name: "步骤9: Space键恢复勾选光标闪烁"
+    action: keyboard_press
+    key: "Space"
+    wait: 0.3
+
+  - name: "步骤10: ESC关闭设置窗口"
+    action: keyboard_press
+    key: "Escape"
+    wait: 0.5
+
+  - name: "验证终端进程运行中"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
+
+teardown:
+  - action: session_stop
