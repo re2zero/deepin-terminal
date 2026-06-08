@@ -9,14 +9,14 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤1: 主菜单打开自定义命令"
     action: main_menu_comb
     ref: menu_custom_commands
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "步骤1: 截图-自定义命令列表界面"
     action: screenshot
@@ -43,7 +43,7 @@ steps:
     action: keyboard_hot_key
     keys: "ctrl+shift+a"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤4: 截图-快捷键Ctrl+Shift+A输入"
     action: screenshot
@@ -59,7 +59,7 @@ steps:
   - action: keyboard_hot_key
     keys: "ctrl+shift+alt+b"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤5: 截图-多个修饰键组合快捷键"
     action: screenshot
@@ -69,7 +69,7 @@ steps:
     action: keyboard_press
     key: "Escape"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "验证终端仍在运行"
     action: wait

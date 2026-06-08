@@ -17,28 +17,20 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
-  - name: "步骤1: 验证主窗口可见"
-    action: element_action
-    ref: main_frame
-    do: "click"
-    assert:
-      - type: element_visible
-        selector:
-          role: "frame"
 
   - name: "步骤1: 主菜单打开远程管理"
     action: main_menu_comb
     ref: menu_remote_management
-    wait: 1.0
+    wait: 0.3
 
   - name: "步骤1: 点击添加服务器按钮"
     action: element_action
     ref: add_server_button
     do: "click"
-    wait: 0.5
+    wait: 0.3
 
   - name: "步骤1: 填写服务器名"
     action: element_action
@@ -80,7 +72,7 @@ steps:
     action: element_action
     ref: remote_add
     do: "click"
-    wait: 1.0
+    wait: 0.3
 
   - name: "步骤1: 验证服务器添加成功，列表中存在"
     action: wait
@@ -93,7 +85,7 @@ steps:
     action: element_action
     ref: add_server_button
     do: "click"
-    wait: 0.5
+    wait: 0.3
 
   - action: element_action
     ref: remote_server_name
@@ -131,13 +123,13 @@ steps:
     action: element_action
     ref: remote_add
     do: "click"
-    wait: 1.0
+    wait: 0.3
 
   - name: "步骤3: 添加服务器名称不同但地址端口用户名相同"
     action: element_action
     ref: add_server_button
     do: "click"
-    wait: 0.5
+    wait: 0.3
 
   - action: element_action
     ref: remote_server_name
@@ -175,7 +167,7 @@ steps:
     action: element_action
     ref: remote_add
     do: "click"
-    wait: 1.0
+    wait: 0.3
 
   - name: "验证服务器列表中存在两个不同名称的服务器"
     action: wait

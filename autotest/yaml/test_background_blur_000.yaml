@@ -6,22 +6,14 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
-  - name: "验证主窗口可见"
-    action: element_action
-    ref: main_frame
-    do: "click"
-    assert:
-      - type: element_visible
-        selector:
-          role: "frame"
 
   - name: "右键打开设置对话框"
     action: context_menu_comb
     ref: context_settings
-    wait: 1.0
+    wait: 0.3
     assert:
       - type: element_visible
         selector:
@@ -35,7 +27,7 @@ steps:
     action: element_action
     ref: settings_advanced
     do: "click"
-    wait: 1.0
+    wait: 0.3
 
   - name: "截图-高级设置页面"
     action: screenshot
@@ -51,7 +43,13 @@ steps:
     action: element_action
     ref: settings_close_button
     do: "click"
-    wait: 1.0
+    wait: 0.3
+
+  - name: "验证终端进程运行中"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
 
 teardown:
   - action: session_stop

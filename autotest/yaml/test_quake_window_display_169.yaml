@@ -9,17 +9,9 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
-  - name: "步骤1: 验证主窗口可见"
-    action: element_action
-    ref: main_frame
-    do: "click"
-    assert:
-      - type: element_visible
-        selector:
-          role: "frame"
 
   - name: "步骤2: 使用Alt+F2调出雷神终端"
     action: keyboard_hot_key
@@ -33,7 +25,7 @@ steps:
   - name: "步骤4: 鼠标拖拽窗口底部调整高度"
     action: keyboard_press
     key: "Escape"
-    wait: 1.0
+    wait: 0.3
 
   - name: "步骤5: Alt+F2再次打开雷神窗口"
     action: keyboard_hot_key

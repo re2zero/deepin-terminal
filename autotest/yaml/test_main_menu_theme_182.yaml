@@ -9,14 +9,14 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤1: 主菜单切换到深色主题"
     action: main_menu_comb
     ref: main_menu_button
     menu: ["主题", "深色"]
-    wait: 1.0
+    wait: 0.3
 
   - name: "截图-深色主题效果"
     action: screenshot
@@ -26,7 +26,7 @@ steps:
     action: main_menu_comb
     ref: main_menu_button
     menu: ["主题", "跟随系统"]
-    wait: 1.0
+    wait: 0.3
 
   - name: "截图-跟随系统主题"
     action: screenshot
@@ -40,13 +40,13 @@ steps:
   - name: "在新窗口中通过主菜单打开设置"
     action: main_menu_comb
     ref: menu_settings
-    wait: 1.0
+    wait: 0.3
 
   - name: "在设置弹框打开状态下切换主题"
     action: main_menu_comb
     ref: main_menu_button
     menu: ["主题", "跟随系统"]
-    wait: 1.0
+    wait: 0.3
 
   - name: "截图-弹框字体显示"
     action: screenshot
@@ -55,7 +55,7 @@ steps:
   - name: "关闭设置弹框"
     action: keyboard_press
     key: "Escape"
-    wait: 0.5
+    wait: 0.3
 
   - name: "验证终端进程运行中"
     action: wait

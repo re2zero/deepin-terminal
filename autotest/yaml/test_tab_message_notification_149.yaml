@@ -9,7 +9,7 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤1: 点击加号按钮新建第二个标签页"
@@ -17,14 +17,14 @@ steps:
     ref: add_tab_button
     do: "click"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤1: 再次新建第三个标签页"
     action: element_action
     ref: add_tab_button
     do: "click"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤1: 截图-三个标签页显示"
     action: screenshot
@@ -55,7 +55,7 @@ steps:
   - name: "步骤3: 点击命令完成的标签页"
     action: keyboard_hot_key
     keys: "ctrl+shift+3"
-    wait: 0.5
+    wait: 0.3
 
   - name: "步骤3: 截图-点击后提醒色自动消除"
     action: screenshot

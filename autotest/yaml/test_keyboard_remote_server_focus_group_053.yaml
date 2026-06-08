@@ -10,26 +10,26 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤1: 打开远程管理插件"
     action: main_menu_comb
     ref: menu_remote_management
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "步骤1: Tab键切换到搜索框"
     action: keyboard_press
     key: "Tab"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤2: 再按Tab键，焦点在远程服务器组上"
     action: keyboard_press
     key: "Tab"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤2: 按↓方向键切换到组"
     action: keyboard_press
@@ -41,19 +41,19 @@ steps:
     action: keyboard_press
     key: "Return"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤4: 按Tab键，组内单个服务器焦点切换到服务器上"
     action: keyboard_press
     key: "Tab"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤5: 组内多个服务器，按Tab键焦点切换到搜索框"
     action: keyboard_press
     key: "Tab"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤6: 按↓方向键切换组内服务器列表"
     action: keyboard_press
@@ -71,13 +71,13 @@ steps:
     action: keyboard_press
     key: "Return"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "Shift+Tab反向切换测试"
     action: keyboard_hot_key
     keys: "shift,Tab"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "验证终端进程仍在运行"
     action: wait

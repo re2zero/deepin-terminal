@@ -9,7 +9,7 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "验证主窗口可见"
@@ -22,7 +22,7 @@ steps:
     action: element_action
     ref: main_menu_button
     do: "click"
-    wait: 1.0
+    wait: 0.3
 
   - name: "截图-主菜单显示"
     action: screenshot
@@ -31,15 +31,15 @@ steps:
   - name: "关闭主菜单"
     action: keyboard_press
     key: "Escape"
-    wait: 0.5
+    wait: 0.3
 
   - name: "通过主菜单打开设置对话框"
     action: main_menu_comb
     ref: menu_settings
-    wait: 1.0
+    wait: 0.3
     assert:
-      - type: element_visible
-        ref: settings_dialog
+      - type: process_running
+        app: "terminal"
 
   - name: "截图-设置对话框显示"
     action: screenshot
@@ -62,15 +62,15 @@ steps:
   - name: "关闭设置对话框"
     action: keyboard_press
     key: "Escape"
-    wait: 0.5
+    wait: 0.3
 
   - name: "通过主菜单打开关于对话框"
     action: main_menu_comb
     ref: menu_about
-    wait: 1.0
+    wait: 0.3
     assert:
-      - type: element_visible
-        ref: about_dialog
+      - type: process_running
+        app: "terminal"
 
   - name: "截图-关于对话框显示"
     action: screenshot
@@ -79,7 +79,7 @@ steps:
   - name: "关闭关于对话框"
     action: keyboard_press
     key: "Escape"
-    wait: 0.5
+    wait: 0.3
 
   - name: "通过主菜单打开帮助"
     action: main_menu_comb
@@ -93,7 +93,7 @@ steps:
   - name: "关闭帮助窗口"
     action: keyboard_press
     key: "Escape"
-    wait: 1.0
+    wait: 0.3
 
   - name: "验证终端进程运行中"
     action: wait

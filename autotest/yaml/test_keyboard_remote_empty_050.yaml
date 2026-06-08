@@ -7,7 +7,7 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "打开主菜单"
@@ -42,7 +42,7 @@ steps:
   - name: "按ESC返回终端"
     action: keyboard_press
     key: "Escape"
-    wait: 0.5
+    wait: 0.3
 
   - name: "验证终端进程仍在运行"
     action: wait

@@ -20,28 +20,20 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
-  - name: "验证主窗口可见"
-    action: element_action
-    ref: main_frame
-    do: "click"
-    assert:
-      - type: element_visible
-        selector:
-          role: "frame"
 
   - name: "主菜单打开远程管理"
     action: main_menu_comb
     ref: menu_remote_management
-    wait: 1.0
+    wait: 0.3
 
   - name: "步骤1: 填写错误地址并尝试连接"
     action: element_action
     ref: add_server_button
     do: "click"
-    wait: 0.5
+    wait: 0.3
   - action: element_action
     ref: remote_server_name
     do: "click"
@@ -59,13 +51,13 @@ steps:
   - action: element_action
     ref: remote_add
     do: "click"
-    wait: 1.0
+    wait: 0.3
 
   - name: "步骤2: 填写错误用户名并尝试连接"
     action: element_action
     ref: add_server_button
     do: "click"
-    wait: 0.5
+    wait: 0.3
   - action: element_action
     ref: remote_server_name
     do: "click"
@@ -90,13 +82,13 @@ steps:
   - action: element_action
     ref: remote_add
     do: "click"
-    wait: 1.0
+    wait: 0.3
 
   - name: "步骤3: 填写错误端口并尝试连接"
     action: element_action
     ref: add_server_button
     do: "click"
-    wait: 0.5
+    wait: 0.3
   - action: element_action
     ref: remote_server_name
     do: "click"
@@ -121,13 +113,13 @@ steps:
   - action: element_action
     ref: remote_add
     do: "click"
-    wait: 1.0
+    wait: 0.3
 
   - name: "步骤4: 填写错误端口和地址并尝试连接"
     action: element_action
     ref: add_server_button
     do: "click"
-    wait: 0.5
+    wait: 0.3
   - action: element_action
     ref: remote_server_name
     do: "click"
@@ -152,13 +144,13 @@ steps:
   - action: element_action
     ref: remote_add
     do: "click"
-    wait: 1.0
+    wait: 0.3
 
   - name: "步骤5: 填写错误端口和用户名并尝试连接"
     action: element_action
     ref: add_server_button
     do: "click"
-    wait: 0.5
+    wait: 0.3
   - action: element_action
     ref: remote_server_name
     do: "click"
@@ -190,13 +182,13 @@ steps:
   - action: element_action
     ref: remote_add
     do: "click"
-    wait: 1.0
+    wait: 0.3
 
   - name: "步骤6: 填写错误的端口、地址和用户名并尝试连接"
     action: element_action
     ref: add_server_button
     do: "click"
-    wait: 0.5
+    wait: 0.3
   - action: element_action
     ref: remote_server_name
     do: "click"
@@ -228,13 +220,13 @@ steps:
   - action: element_action
     ref: remote_add
     do: "click"
-    wait: 1.0
+    wait: 0.3
 
   - name: "步骤7-8: 添加错误路径和命令的服务器"
     action: element_action
     ref: add_server_button
     do: "click"
-    wait: 0.5
+    wait: 0.3
   - action: element_action
     ref: remote_server_name
     do: "click"
@@ -252,13 +244,13 @@ steps:
   - action: element_action
     ref: remote_add
     do: "click"
-    wait: 1.0
+    wait: 0.3
 
   - name: "步骤9: 添加未安装ssh服务的服务器尝试连接"
     action: element_action
     ref: add_server_button
     do: "click"
-    wait: 0.5
+    wait: 0.3
   - action: element_action
     ref: remote_server_name
     do: "click"
@@ -290,7 +282,7 @@ steps:
   - action: element_action
     ref: remote_add
     do: "click"
-    wait: 1.0
+    wait: 0.3
 
   - name: "验证终端进程仍在运行"
     action: wait

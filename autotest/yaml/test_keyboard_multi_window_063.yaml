@@ -10,7 +10,7 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤1: Ctrl+Alt+T新建终端窗口"
@@ -24,7 +24,7 @@ steps:
   - name: "步骤2: Alt键打开主菜单"
     action: keyboard_press
     key: "Alt"
-    wait: 0.5
+    wait: 0.3
 
   - name: "步骤3: 方向键导航到自定义命令"
     action: keyboard_press
@@ -34,12 +34,12 @@ steps:
   - name: "步骤4: Enter键打开自定义命令"
     action: keyboard_press
     key: "Enter"
-    wait: 1.0
+    wait: 0.3
 
   - name: "步骤5: ESC键关闭自定义命令并返回焦点"
     action: keyboard_press
     key: "Escape"
-    wait: 0.5
+    wait: 0.3
 
   - name: "步骤6: 验证终端进程运行中"
     action: wait
@@ -50,7 +50,7 @@ steps:
   - name: "步骤7: ESC全局关闭聚焦窗口的菜单"
     action: keyboard_press
     key: "Escape"
-    wait: 0.5
+    wait: 0.3
 
   - name: "验证焦点返回终端"
     action: wait

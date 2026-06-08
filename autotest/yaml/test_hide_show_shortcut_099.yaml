@@ -9,7 +9,7 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤1: 打开设置界面"
@@ -21,28 +21,28 @@ steps:
     ref: settings_shortcuts
     do: "click"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤3: 点击终端子类别检查无显示快捷键"
     action: element_action
     ref: settings_terminal_shortcuts
     do: "click"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤4: 点击标签页子类别检查无显示快捷键"
     action: element_action
     ref: settings_tab_shortcuts
     do: "click"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤5: 点击其他子类别检查无显示快捷键"
     action: element_action
     ref: settings_other_shortcuts
     do: "click"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤6: 验证设置对话框可见"
     action: wait

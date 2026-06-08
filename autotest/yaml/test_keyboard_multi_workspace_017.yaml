@@ -5,7 +5,7 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "新建两个工作区"
@@ -13,60 +13,60 @@ steps:
     ref: add_tab_button
     do: "click"
   - action: wait
-    duration: 1.0
+    duration: 0.3
   - action: element_action
     ref: add_tab_button
     do: "click"
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "按Tab键焦点跳转到+按钮"
     action: keyboard_press
     key: "Tab"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "Ctrl+Shift+1切换到第一个工作区"
     action: keyboard_hot_key
     keys: "ctrl+shift+1"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "Ctrl+Shift+9切换到最后一个工作区"
     action: keyboard_hot_key
     keys: "ctrl+shift+9"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "按Tab键依次跳转到主菜单"
     action: keyboard_press
     key: "Tab"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "按Tab键跳转到最小化"
     action: keyboard_press
     key: "Tab"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "按Tab键跳转到最大化"
     action: keyboard_press
     key: "Tab"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "按Tab键跳转到关闭按钮"
     action: keyboard_press
     key: "Tab"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "按Shift+Tab反向切换"
     action: keyboard_hot_key
     keys: "shift+tab"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "验证终端仍在运行"
     action: wait

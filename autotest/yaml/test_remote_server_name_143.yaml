@@ -9,14 +9,14 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤1: 打开远程管理插件，添加服务器"
     action: main_menu_comb
     ref: menu_remote_management
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "Tab键切换到添加服务器按钮，按Enter"
     action: keyboard_press
@@ -30,7 +30,7 @@ steps:
   - action: keyboard_press
     key: "Return"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤1: Tab到取消按钮，按Enter关闭窗口"
     action: keyboard_press
@@ -68,7 +68,7 @@ steps:
   - action: keyboard_press
     key: "Return"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤2: 重新打开添加服务器，直接点添加按钮"
     action: keyboard_press
@@ -82,7 +82,7 @@ steps:
   - action: keyboard_press
     key: "Return"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "Tab到添加按钮，按Enter关闭窗口"
     action: keyboard_press
@@ -116,7 +116,7 @@ steps:
   - action: keyboard_press
     key: "Return"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤4: 重新打开添加服务器，按ESC退出"
     action: keyboard_press
@@ -130,11 +130,11 @@ steps:
   - action: keyboard_press
     key: "Return"
   - action: wait
-    duration: 0.5
+    duration: 0.3
   - action: keyboard_press
     key: "Escape"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤5: 重新打开添加服务器，输入中文到服务器名"
     action: keyboard_press
@@ -148,7 +148,7 @@ steps:
   - action: keyboard_press
     key: "Return"
   - action: wait
-    duration: 0.5
+    duration: 0.3
   - action: keyboard_press
     key: "Tab"
   - action: wait
@@ -156,7 +156,7 @@ steps:
   - action: keyboard_type_text
     text: "阿里快圣诞节"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "清除已有输入，输入英文文本"
     action: keyboard_hot_key
@@ -166,7 +166,7 @@ steps:
   - action: keyboard_type_text
     text: "asdfkad"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "清除已有输入，输入特殊字符"
     action: keyboard_hot_key
@@ -176,13 +176,13 @@ steps:
   - action: keyboard_type_text
     text: "adkj!@#"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "按ESC关闭添加服务器窗口"
     action: keyboard_press
     key: "Escape"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "验证终端进程仍在运行"
     action: wait

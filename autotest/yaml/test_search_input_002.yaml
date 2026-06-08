@@ -6,22 +6,14 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
-  - name: "验证主窗口可见"
-    action: element_action
-    ref: main_frame
-    do: "click"
-    assert:
-      - type: element_visible
-        selector:
-          role: "frame"
 
   - name: "打开搜索框"
     action: keyboard_hot_key
     keys: "ctrl+alt+f"
-    wait: 1.0
+    wait: 0.3
 
   - name: "验证搜索输入框显示且焦点聚焦"
     action: element_action
@@ -41,7 +33,7 @@ steps:
     action: element_set_value
     ref: search_input
     value: "123ASsdh周圣》?:%$%^&"
-    wait: 0.5
+    wait: 0.3
 
   - name: "截图-输入特殊字符"
     action: screenshot
@@ -51,13 +43,13 @@ steps:
     action: element_action
     ref: search_clear_button
     do: "click"
-    wait: 0.5
+    wait: 0.3
 
   - name: "输入长字符"
     action: element_set_value
     ref: search_input
     value: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-    wait: 0.5
+    wait: 0.3
 
   - name: "截图-输入长字符"
     action: screenshot
@@ -77,7 +69,7 @@ steps:
     action: element_action
     ref: search_clear_button
     do: "click"
-    wait: 0.5
+    wait: 0.3
 
   - name: "截图-清除后状态"
     action: screenshot

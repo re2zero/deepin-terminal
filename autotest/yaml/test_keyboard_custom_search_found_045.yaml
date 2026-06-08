@@ -7,7 +7,7 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "打开自定义命令插件"
@@ -73,12 +73,18 @@ steps:
   - name: "按Enter执行选中的自定义命令"
     action: keyboard_press
     key: "Return"
-    wait: 1.0
+    wait: 0.3
 
   - name: "按ESC焦点回到终端"
     action: keyboard_press
     key: "Escape"
-    wait: 0.5
+    wait: 0.3
+
+  - name: "验证终端进程运行中"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
 
 teardown:
   - action: session_stop

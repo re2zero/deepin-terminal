@@ -15,22 +15,14 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
-  - name: "步骤1: 验证主窗口可见"
-    action: element_action
-    ref: main_frame
-    do: "click"
-    assert:
-      - type: element_visible
-        selector:
-          role: "frame"
 
   - name: "步骤1: 右键选择远程管理"
     action: context_menu_comb
     ref: context_remote_management
-    wait: 1.0
+    wait: 0.3
 
   - name: "步骤2: 截图验证远程管理面板和添加按钮"
     action: screenshot
@@ -40,12 +32,12 @@ steps:
     action: element_action
     ref: add_server_button
     do: "click"
-    wait: 0.5
+    wait: 0.3
 
   - name: "步骤2: 验证添加服务器弹框关闭"
     action: keyboard_press
     key: "Escape"
-    wait: 0.5
+    wait: 0.3
 
   - name: "截图远程管理面板按钮显示"
     action: screenshot

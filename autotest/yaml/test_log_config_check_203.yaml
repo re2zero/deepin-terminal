@@ -8,18 +8,18 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤1: 执行cat命令查看日志配置文件"
     action: keyboard_type_text
     text: "cat /usr/share/deepin-log-viewer/deepin-log.conf.d/deepin-terminal.json"
   - action: wait
-    duration: 0.5
+    duration: 0.3
   - action: keyboard_press
     key: "Return"
   - action: wait
-    duration: 2.0
+    duration: 0.3
     assert:
       - type: process_running
         app: "terminal"

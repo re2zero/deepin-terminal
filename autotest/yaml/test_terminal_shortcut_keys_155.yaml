@@ -9,14 +9,14 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤1: 正常窗口按Ctrl+Shift+?显示快捷键面板"
     action: keyboard_hot_key
     keys: "ctrl+shift+?"
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "步骤1: 截图-快捷键面板显示在窗口中间"
     action: screenshot
@@ -26,13 +26,13 @@ steps:
     action: keyboard_press
     key: "Escape"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤3: 按Ctrl+Shift+?再次打开快捷键面板"
     action: keyboard_hot_key
     keys: "ctrl+shift+?"
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "步骤3: 截图-快捷键面板再次显示"
     action: screenshot
@@ -42,13 +42,13 @@ steps:
     action: keyboard_press
     key: "Escape"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤3: 按Ctrl+Shift+?打开然后不松开快捷键"
     action: keyboard_hot_key
     keys: "ctrl+shift+?"
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "步骤3: 松开后截图-面板不消失"
     action: screenshot
@@ -58,7 +58,7 @@ steps:
     action: keyboard_press
     key: "Escape"
   - action: wait
-    duration: 0.5
+    duration: 0.3
     assert:
       - type: process_running
         app: "terminal"

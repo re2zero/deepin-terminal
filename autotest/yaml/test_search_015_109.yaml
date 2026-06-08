@@ -9,14 +9,14 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤1: 右键菜单选择搜索(查找)"
     action: context_menu_comb
     ref: context_search
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "步骤1: 验证搜索框显示"
     action: wait
@@ -37,13 +37,13 @@ steps:
   - action: keyboard_type_text
     text: "test"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤2: 按Enter键搜索"
     action: keyboard_press
     key: "Return"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤2: 截图-搜索结果显示"
     action: screenshot

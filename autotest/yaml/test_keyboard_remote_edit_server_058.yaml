@@ -9,14 +9,14 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤1: 打开远程管理插件，选中服务器进入编辑界面"
     action: main_menu_comb
     ref: menu_remote_management
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "Tab键切换到服务器列表"
     action: keyboard_press
@@ -36,7 +36,7 @@ steps:
   - action: keyboard_press
     key: "Return"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤2: 依次按Tab键切换服务器名字段"
     action: keyboard_press
@@ -104,23 +104,23 @@ steps:
   - action: keyboard_press
     key: "Return"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤4: 在编辑界面按ESC键退出"
     action: keyboard_press
     key: "Return"
   - action: wait
-    duration: 0.5
+    duration: 0.3
   - action: keyboard_press
     key: "Escape"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "Shift+Tab反向切换测试"
     action: keyboard_hot_key
     keys: "shift,Tab"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "验证终端进程仍在运行"
     action: wait

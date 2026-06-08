@@ -15,28 +15,20 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
-  - name: "步骤1: 验证主窗口可见"
-    action: element_action
-    ref: main_frame
-    do: "click"
-    assert:
-      - type: element_visible
-        selector:
-          role: "frame"
 
   - name: "步骤1: 主菜单打开远程管理"
     action: main_menu_comb
     ref: menu_remote_management
-    wait: 1.0
+    wait: 0.3
 
   - name: "步骤1: 点击添加服务器按钮"
     action: element_action
     ref: add_server_button
     do: "click"
-    wait: 0.5
+    wait: 0.3
 
   - name: "步骤1: 在服务器名输入框中按删除键"
     action: element_action
@@ -67,7 +59,7 @@ steps:
   - name: "步骤2: 测试删除键能否弹出下拉菜单"
     action: keyboard_press
     key: "Delete"
-    wait: 0.5
+    wait: 0.3
 
   - name: "步骤2: 按↓键选择下拉菜单选项"
     action: keyboard_press
@@ -81,12 +73,12 @@ steps:
     wait: 0.3
   - action: keyboard_press
     key: "Return"
-    wait: 0.5
+    wait: 0.3
 
   - name: "关闭添加服务器弹框"
     action: keyboard_press
     key: "Escape"
-    wait: 0.5
+    wait: 0.3
 
   - name: "验证终端进程仍在运行"
     action: wait

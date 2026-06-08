@@ -9,20 +9,20 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤1: 点击最大化按钮"
     action: element_action
     ref: maximize_button
     do: "click"
-    wait: 1.0
+    wait: 0.3
 
   - name: "步骤2: 点击还原按钮"
     action: element_action
     ref: maximize_button
     do: "click"
-    wait: 1.0
+    wait: 0.3
 
   - name: "步骤3: 验证窗口按钮均可见"
     action: wait

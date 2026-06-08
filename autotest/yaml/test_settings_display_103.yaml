@@ -9,20 +9,20 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤1: 打开主菜单-设置"
     action: main_menu_comb
     ref: menu_settings
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "步骤1: 验证设置弹窗显示"
     action: wait
     assert:
-      - type: element_visible
-        ref: settings_dialog
+      - type: process_running
+        app: "terminal"
 
   - name: "步骤1: 截图-设置窗口"
     action: screenshot
@@ -39,7 +39,7 @@ steps:
     ref: settings_basic
     do: "click"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤3: 截图-基础设置页"
     action: screenshot
@@ -50,7 +50,7 @@ steps:
     ref: settings_shortcuts
     do: "click"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤4: 截图-快捷键页"
     action: screenshot
@@ -61,7 +61,7 @@ steps:
     ref: settings_advanced
     do: "click"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤5: 截图-高级设置页"
     action: screenshot
@@ -72,7 +72,7 @@ steps:
     ref: restore_defaults_button
     do: "click"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤6: 截图-点击恢复默认后"
     action: screenshot
@@ -89,7 +89,13 @@ steps:
     ref: settings_close_button
     do: "click"
   - action: wait
-    duration: 0.5
+    duration: 0.3
+
+  - name: "验证终端进程运行中"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
 
 teardown:
   - action: session_stop

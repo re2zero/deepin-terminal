@@ -9,18 +9,25 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤1: 主菜单打开自定义命令"
     action: main_menu_comb
     ref: menu_custom_commands
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "步骤1: 截图-自定义命令列表界面"
     action: screenshot
     desc: "进入添加命令栏"
+
+  - name: "步骤2: 点击添加命令按钮打开添加对话框"
+    action: element_action
+    ref: add_custom_command_button
+    do: "click"
+  - action: wait
+    duration: 0.3
 
   - name: "步骤4: 点击名称输入框，输入超长名称超过32字符"
     action: element_action
@@ -51,7 +58,7 @@ steps:
   - action: keyboard_press
     key: "Return"
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "步骤4: 截图-超长名称提示"
     action: screenshot
@@ -119,7 +126,7 @@ steps:
     action: keyboard_press
     key: "Escape"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "验证终端仍在运行"
     action: wait

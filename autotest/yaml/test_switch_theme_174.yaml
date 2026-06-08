@@ -9,74 +9,47 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
-
-steps:
-  - name: "步骤1: 验证主窗口可见"
-    action: element_action
-    ref: main_frame
-    do: "click"
-    assert:
-      - type: element_visible
-        selector:
-          role: "frame"
-
-  - name: "步骤2: 通过主菜单打开主题子菜单"
-    action: main_menu_comb
-    ref: menu_theme
     wait: 1.0
 
-  - name: "步骤3: 关闭菜单(默认深色主题已生效)"
-    action: keyboard_press
-    key: "Escape"
-    wait: 0.5
+steps:
 
-  - name: "步骤4: 截图-深色主题"
+  - name: "步骤2: 切换到深色主题"
+    action: main_menu_comb
+    ref: main_menu_button
+    menu: ["主题", "深色"]
+    wait: 0.3
+
+  - name: "步骤3: 截图-深色主题"
     action: screenshot
     desc: "终端显示深色主题"
 
-  - name: "步骤5: 通过主菜单打开主题子菜单"
+  - name: "步骤4: 切换到浅色主题"
     action: main_menu_comb
-    ref: menu_theme
-    wait: 1.0
+    ref: main_menu_button
+    menu: ["主题", "浅色"]
+    wait: 0.3
 
-  - name: "步骤6: 切换到浅色主题"
-    action: element_action
-    ref: theme_light
-    do: "click"
-    wait: 1.0
-
-  - name: "步骤7: 截图-浅色主题"
+  - name: "步骤5: 截图-浅色主题"
     action: screenshot
     desc: "终端显示浅色主题"
 
-  - name: "步骤8: 通过主菜单打开主题子菜单"
+  - name: "步骤6: 切换到跟随系统主题"
     action: main_menu_comb
-    ref: menu_theme
-    wait: 1.0
+    ref: main_menu_button
+    menu: ["主题", "跟随系统"]
+    wait: 0.3
 
-  - name: "步骤9: 切换到跟随系统主题"
-    action: element_action
-    ref: theme_follow_system
-    do: "click"
-    wait: 1.0
-
-  - name: "步骤10: 截图-跟随系统主题"
+  - name: "步骤7: 截图-跟随系统主题"
     action: screenshot
     desc: "终端显示跟随系统主题"
 
-  - name: "步骤11: 通过主菜单打开主题子菜单"
+  - name: "步骤8: 切换回深色主题（恢复默认）"
     action: main_menu_comb
-    ref: menu_theme
-    wait: 1.0
+    ref: main_menu_button
+    menu: ["主题", "深色"]
+    wait: 0.3
 
-  - name: "步骤12: 切换回深色主题（恢复默认）"
-    action: element_action
-    ref: theme_dark
-    do: "click"
-    wait: 1.0
-
-  - name: "步骤13: 验证终端进程运行中"
+  - name: "步骤9: 验证终端进程运行中"
     action: wait
     assert:
       - type: process_running

@@ -7,7 +7,7 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "打开自定义命令插件"
@@ -33,7 +33,7 @@ steps:
   - name: "按Enter打开编辑对话框"
     action: keyboard_press
     key: "Return"
-    wait: 0.5
+    wait: 0.3
 
   - name: "验证编辑对话框打开"
     action: wait
@@ -60,7 +60,7 @@ steps:
   - name: "按Enter打开删除确认对话框"
     action: keyboard_press
     key: "Return"
-    wait: 0.5
+    wait: 0.3
 
   - name: "按Tab键切换到取消按钮"
     action: keyboard_press
@@ -88,6 +88,12 @@ steps:
     action: keyboard_press
     key: "Escape"
     wait: 0.3
+
+  - name: "验证终端进程运行中"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
 
 teardown:
   - action: session_stop

@@ -7,7 +7,7 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "打开自定义命令插件"
@@ -23,7 +23,7 @@ steps:
   - name: "焦点在搜索框时按ESC键"
     action: keyboard_press
     key: "Escape"
-    wait: 0.5
+    wait: 0.3
 
   - name: "验证焦点回到终端"
     action: wait
@@ -45,7 +45,7 @@ steps:
   - name: "焦点在自定义列表时按ESC键"
     action: keyboard_press
     key: "Escape"
-    wait: 0.5
+    wait: 0.3
 
   - name: "验证焦点再次回到终端"
     action: wait
@@ -72,7 +72,7 @@ steps:
   - name: "焦点在列表区域时按ESC键"
     action: keyboard_press
     key: "Escape"
-    wait: 0.5
+    wait: 0.3
 
   - name: "验证焦点回到终端"
     action: wait

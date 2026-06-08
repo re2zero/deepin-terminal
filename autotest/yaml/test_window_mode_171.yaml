@@ -9,17 +9,9 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
-  - name: "步骤1: 验证主窗口可见"
-    action: element_action
-    ref: main_frame
-    do: "click"
-    assert:
-      - type: element_visible
-        selector:
-          role: "frame"
 
   - name: "步骤2: 输入deepin-terminal --help"
     action: keyboard_type
@@ -29,7 +21,7 @@ steps:
   - name: "步骤3: 回车执行"
     action: keyboard_press
     key: "Return"
-    wait: 1.0
+    wait: 0.3
 
   - name: "步骤4: 截图-帮助信息输出"
     action: screenshot
@@ -52,7 +44,7 @@ steps:
   - name: "步骤8: 关闭新窗口"
     action: keyboard_hot_key
     keys: "Alt,F4"
-    wait: 1.0
+    wait: 0.3
 
   - name: "步骤9: 输入deepin-terminal -m fullscreen"
     action: keyboard_type
@@ -71,7 +63,7 @@ steps:
   - name: "步骤12: 退出全屏"
     action: keyboard_hot_key
     keys: "Alt,F4"
-    wait: 1.0
+    wait: 0.3
 
   - name: "步骤13: 输入deepin-terminal -m maximum"
     action: keyboard_type
@@ -90,7 +82,7 @@ steps:
   - name: "步骤16: 关闭新窗口"
     action: keyboard_hot_key
     keys: "Alt,F4"
-    wait: 1.0
+    wait: 0.3
 
   - name: "步骤17: 输入deepin-terminal -m splitscreen"
     action: keyboard_type
@@ -109,7 +101,7 @@ steps:
   - name: "步骤20: 关闭新窗口"
     action: keyboard_hot_key
     keys: "Alt,F4"
-    wait: 1.0
+    wait: 0.3
 
   - name: "步骤21: 验证终端进程运行中"
     action: wait

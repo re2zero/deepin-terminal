@@ -9,20 +9,20 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤1: 点击关闭按钮（触发退出保护弹框）"
     action: element_action
     ref: close_button
     do: "click"
-    wait: 1.0
+    wait: 0.3
 
   - name: "点击取消按钮取消关闭"
     action: element_action
     ref: exit_cancel
     do: "click"
-    wait: 1.0
+    wait: 0.3
 
   - name: "验证终端仍在运行"
     action: wait
@@ -39,7 +39,7 @@ steps:
     action: element_action
     ref: close_button
     do: "click"
-    wait: 1.0
+    wait: 0.3
 
   - name: "在退出保护弹框中点击确定按钮关闭窗口"
     action: element_action

@@ -8,7 +8,7 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤1: 新建多个工作区"
@@ -16,17 +16,17 @@ steps:
     ref: add_tab_button
     do: "click"
   - action: wait
-    duration: 1.0
+    duration: 0.3
   - action: element_action
     ref: add_tab_button
     do: "click"
   - action: wait
-    duration: 1.0
+    duration: 0.3
   - action: element_action
     ref: add_tab_button
     do: "click"
   - action: wait
-    duration: 1.0
+    duration: 0.3
     assert:
       - type: process_running
         app: "terminal"
@@ -36,7 +36,7 @@ steps:
     ref: tab_list
     do: "right_click"
   - action: wait
-    duration: 0.5
+    duration: 0.3
   - name: "按Down键导航到关闭其它标签页"
     action: keyboard_press
     key: "Down"
@@ -49,7 +49,7 @@ steps:
   - action: keyboard_press
     key: "Return"
   - action: wait
-    duration: 1.0
+    duration: 0.3
     assert:
       - type: process_running
         app: "terminal"
@@ -59,7 +59,7 @@ steps:
     ref: tab_list
     do: "right_click"
   - action: wait
-    duration: 0.5
+    duration: 0.3
     assert:
       - type: process_running
         app: "terminal"
@@ -68,7 +68,13 @@ steps:
     action: keyboard_press
     key: "Escape"
   - action: wait
-    duration: 0.5
+    duration: 0.3
+
+  - name: "验证终端进程运行中"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
 
 teardown:
   - action: session_stop

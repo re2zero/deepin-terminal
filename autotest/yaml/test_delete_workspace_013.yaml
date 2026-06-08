@@ -5,7 +5,7 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "新建两个工作区"
@@ -13,24 +13,24 @@ steps:
     ref: add_tab_button
     do: "click"
   - action: wait
-    duration: 1.0
+    duration: 0.3
   - action: element_action
     ref: add_tab_button
     do: "click"
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "Alt+W删除当前工作区"
     action: keyboard_hot_key
     keys: "alt+w"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "再次Alt+W删除当前工作区"
     action: keyboard_hot_key
     keys: "alt+w"
   - action: wait
-    duration: 0.5
+    duration: 0.3
     assert:
       - type: process_running
         app: "terminal"

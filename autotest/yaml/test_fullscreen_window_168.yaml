@@ -5,29 +5,28 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
-  - name: "步骤1: 打开终端，使用快捷键F11进入全屏"
+  - name: "按F11进入全屏"
     action: keyboard_press
     key: "F11"
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
-  - name: "步骤1: 验证全屏显示（终端仍在运行）"
+  - name: "验证终端进程运行中"
     action: wait
     assert:
       - type: process_running
         app: "terminal"
 
-  - name: "步骤2: 点击退出全屏按钮"
-    action: element_action
-    ref: quit_fullscreen_button
-    do: "click"
+  - name: "按F11退出全屏"
+    action: keyboard_press
+    key: "F11"
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
-  - name: "步骤2: 验证窗口退出全屏（终端仍在运行）"
+  - name: "验证终端进程运行中"
     action: wait
     assert:
       - type: process_running

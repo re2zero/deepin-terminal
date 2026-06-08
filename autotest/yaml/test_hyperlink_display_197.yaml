@@ -8,24 +8,24 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤1: 输入带超链接的命令"
     action: keyboard_type_text
     text: "ping www.baidu.com"
   - action: wait
-    duration: 0.5
+    duration: 0.3
   - action: keyboard_press
     key: "Return"
   - action: wait
-    duration: 2.0
+    duration: 0.3
 
   - name: "步骤1: 按Ctrl+C停止ping"
     action: keyboard_hot_key
     keys: "ctrl,c"
   - action: wait
-    duration: 1.0
+    duration: 0.3
     assert:
       - type: process_running
         app: "terminal"
@@ -34,11 +34,11 @@ steps:
     action: keyboard_type_text
     text: "www.baidu.com"
   - action: wait
-    duration: 0.5
+    duration: 0.3
   - action: keyboard_press
     key: "Return"
   - action: wait
-    duration: 1.0
+    duration: 0.3
     assert:
       - type: process_running
         app: "terminal"

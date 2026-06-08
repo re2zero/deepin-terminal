@@ -9,7 +9,7 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤1: 点击工作区标签旁的+按钮"
@@ -17,13 +17,13 @@ steps:
     ref: add_tab_button
     do: "click"
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "步骤2: 使用快捷键新建工作区 Ctrl+Shift+T"
     action: keyboard_hot_key
     keys: "ctrl,shift,T"
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "验证终端进程仍在运行"
     action: wait

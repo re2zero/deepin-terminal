@@ -9,7 +9,7 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤1: 键盘按Shift+←选择光标前字符"
@@ -28,8 +28,8 @@ steps:
     action: wait
     assert:
       - type: element_visible
-        selector:
-          role: "frame"
+
+        ref: main_frame
 
   - name: "步骤5: 验证终端进程运行中"
     action: wait

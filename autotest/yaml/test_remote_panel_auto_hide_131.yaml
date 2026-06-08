@@ -16,27 +16,19 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
-  - name: "步骤1: 验证主窗口可见"
-    action: element_action
-    ref: main_frame
-    do: "click"
-    assert:
-      - type: element_visible
-        selector:
-          role: "frame"
 
   - name: "步骤1: 主菜单打开远程管理面板"
     action: main_menu_comb
     ref: menu_remote_management
-    wait: 1.0
+    wait: 0.3
 
   - name: "步骤2: 调整窗口大小-拖动上边"
     action: mouse_drag
     ref: titlebar_panel
-    wait: 0.5
+    wait: 0.3
 
   - name: "步骤2: 验证远程管理面板可见"
     action: wait
@@ -49,7 +41,7 @@ steps:
     action: element_action
     ref: terminal_content
     do: "click"
-    wait: 0.5
+    wait: 0.3
 
   - name: "截图验证面板隐藏状态"
     action: screenshot

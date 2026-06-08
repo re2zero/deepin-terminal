@@ -7,13 +7,13 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "按Alt+M调出右键菜单"
     action: keyboard_hot_key
     keys: "Alt,m"
-    wait: 0.5
+    wait: 0.3
 
   - name: "验证右键菜单弹出"
     action: wait
@@ -35,7 +35,7 @@ steps:
   - name: "按Enter打开自定义命令插件"
     action: keyboard_press
     key: "Return"
-    wait: 0.5
+    wait: 0.3
 
   - name: "验证自定义命令列表可见（但没有Focus效果）"
     action: wait
@@ -47,7 +47,7 @@ steps:
   - name: "按ESC返回终端"
     action: keyboard_press
     key: "Escape"
-    wait: 0.5
+    wait: 0.3
 
   - name: "验证终端进程仍在运行"
     action: wait

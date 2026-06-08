@@ -5,7 +5,7 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤1: 首次打开终端，检查窗口显示（居中显示）"
@@ -22,7 +22,7 @@ steps:
 
   - name: "步骤2: 检查正常窗口显示（圆角窗口，默认标签栏）"
     action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "步骤2: 验证圆角窗口显示正常（终端仍在运行）"
     action: wait
@@ -34,11 +34,11 @@ steps:
     action: keyboard_hot_key
     keys: "ctrl+f"
   - action: wait
-    duration: 0.5
+    duration: 0.3
   - action: keyboard_press
     key: "Escape"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤3: 验证窗口大小修改后终端仍在运行"
     action: wait

@@ -9,14 +9,14 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤1: 打开远程管理插件，添加服务器"
     action: main_menu_comb
     ref: menu_remote_management
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "Tab键切换到添加服务器按钮，按Enter"
     action: keyboard_press
@@ -30,7 +30,7 @@ steps:
   - action: keyboard_press
     key: "Return"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "Tab切换到编码选项（高级选项区域）"
     action: keyboard_press
@@ -70,7 +70,7 @@ steps:
     action: keyboard_press
     key: "Space"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤2: 按↓方向键切换选择编码"
     action: keyboard_press
@@ -88,7 +88,7 @@ steps:
     action: keyboard_press
     key: "Return"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "验证终端进程仍在运行"
     action: wait

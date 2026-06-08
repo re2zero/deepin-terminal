@@ -9,7 +9,7 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤1: 新建一个标签页"
@@ -17,7 +17,7 @@ steps:
     ref: add_tab_button
     do: "click"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤2: 打开设置界面"
     action: main_menu_comb
@@ -28,14 +28,14 @@ steps:
     ref: settings_shortcuts
     do: "click"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤4: 点击标签页子类别"
     action: element_action
     ref: settings_tab_shortcuts
     do: "click"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤5: Tab切换到关闭标签页快捷键项"
     action: keyboard_press
@@ -59,7 +59,7 @@ steps:
     action: keyboard_hot_key
     keys: "alt+w"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤8: 验证设置对话框可见"
     action: wait

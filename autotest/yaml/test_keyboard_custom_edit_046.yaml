@@ -7,7 +7,7 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "打开自定义命令插件"
@@ -33,7 +33,7 @@ steps:
   - name: "按Enter打开编辑对话框"
     action: keyboard_press
     key: "Return"
-    wait: 0.5
+    wait: 0.3
 
   - name: "验证编辑对话框打开（名称输入框可见）"
     action: wait

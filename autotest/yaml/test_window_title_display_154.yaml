@@ -9,7 +9,7 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤2: 点击终端主窗口确保焦点"
@@ -17,7 +17,7 @@ steps:
     ref: main_frame
     do: "click"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤2: 截图-窗口标题显示"
     action: screenshot
@@ -29,7 +29,7 @@ steps:
     wait: 0.3
   - action: keyboard_press
     key: "Return"
-    wait: 0.5
+    wait: 0.3
 
   - name: "步骤2: 截图-标题随路径变化"
     action: screenshot

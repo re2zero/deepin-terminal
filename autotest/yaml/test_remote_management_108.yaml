@@ -9,14 +9,14 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤1: 右键菜单选择远程管理"
     action: context_menu_comb
     ref: context_remote_management
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "步骤1: 截图-远程管理面板显示"
     action: screenshot
@@ -33,7 +33,7 @@ steps:
     ref: terminal_content
     do: "click"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤2: 截图-点击后远程管理页面隐藏"
     action: screenshot

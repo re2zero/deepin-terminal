@@ -10,13 +10,13 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤1: Ctrl+Alt+F打开查找框"
     action: keyboard_hot_key
     keys: "ctrl+alt+f"
-    wait: 1.0
+    wait: 0.3
     assert:
       - type: element_visible
         ref: search_input
@@ -44,7 +44,7 @@ steps:
   - name: "步骤6: ESC键隐藏查找框"
     action: keyboard_press
     key: "Escape"
-    wait: 0.5
+    wait: 0.3
     assert:
       - type: element_not_visible
         ref: search_input

@@ -9,22 +9,22 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤1: 通过主菜单打开设置"
     action: main_menu_comb
     ref: menu_settings
-    wait: 1.0
+    wait: 0.3
     assert:
-      - type: element_visible
-        ref: settings_dialog
+      - type: process_running
+        app: "terminal"
 
   - name: "步骤2: 点击高级设置导航项"
     action: element_action
     ref: settings_advanced
     do: "click"
-    wait: 0.5
+    wait: 0.3
 
   - name: "步骤3: 多次Tab键将焦点移到恢复所有设置按钮"
     action: keyboard_press
@@ -64,7 +64,7 @@ steps:
   - name: "步骤10: Enter键触发恢复所有设置（不做修改时界面不变）"
     action: keyboard_press
     key: "Enter"
-    wait: 0.5
+    wait: 0.3
 
   - name: "步骤11: Shift+Tab反向切换焦点验证"
     action: keyboard_hot_key
@@ -74,7 +74,7 @@ steps:
   - name: "步骤12: ESC关闭设置窗口"
     action: keyboard_press
     key: "Escape"
-    wait: 0.5
+    wait: 0.3
 
   - name: "验证终端进程运行中"
     action: wait

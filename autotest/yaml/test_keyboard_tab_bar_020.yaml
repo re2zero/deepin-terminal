@@ -5,7 +5,7 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "新建一个工作区以便标签栏有多个标签"
@@ -13,49 +13,49 @@ steps:
     ref: add_tab_button
     do: "click"
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "按Tab键焦点跳转到+按钮（标签栏）"
     action: keyboard_press
     key: "Tab"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "按Tab键焦点跳转到主菜单"
     action: keyboard_press
     key: "Tab"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "按Tab键焦点跳转到最小化按钮"
     action: keyboard_press
     key: "Tab"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "按Tab键焦点跳转到最大化按钮"
     action: keyboard_press
     key: "Tab"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "按Tab键焦点跳转到关闭按钮"
     action: keyboard_press
     key: "Tab"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "按Shift+Tab反向切换焦点"
     action: keyboard_hot_key
     keys: "shift+tab"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "按ESC键焦点回到终端"
     action: keyboard_press
     key: "Escape"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "验证终端仍在运行"
     action: wait

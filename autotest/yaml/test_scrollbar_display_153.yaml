@@ -9,7 +9,7 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤1: 截图-初始状态无滚动条"
@@ -32,13 +32,13 @@ steps:
     action: keyboard_hot_key
     keys: "shift,Page_Up"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤7: 使用Shift+PageDown向下滚动"
     action: keyboard_hot_key
     keys: "shift,Page_Down"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤7: 截图-滚动后屏幕内容"
     action: screenshot

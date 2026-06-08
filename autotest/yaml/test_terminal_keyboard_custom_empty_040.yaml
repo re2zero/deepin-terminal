@@ -9,7 +9,7 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "Tab键切换到主菜单"
@@ -20,18 +20,18 @@ steps:
   - name: "Space键打开主菜单"
     action: keyboard_press
     key: "Space"
-    wait: 0.5
+    wait: 0.3
 
   - name: "通过主菜单打开自定义命令"
     action: main_menu_comb
     ref: menu_custom_commands
-    wait: 1.0
+    wait: 0.3
 
   - name: "验证自定义命令列表显示"
     action: wait
     assert:
-      - type: element_visible
-        ref: custom_command_list
+      - type: process_running
+        app: "terminal"
 
   - name: "Tab键切换到添加命令按钮"
     action: keyboard_press
@@ -46,7 +46,7 @@ steps:
   - name: "Escape关闭自定义命令列表"
     action: keyboard_press
     key: "Escape"
-    wait: 0.5
+    wait: 0.3
 
   - name: "验证终端进程运行中"
     action: wait

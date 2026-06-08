@@ -5,50 +5,50 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "按Tab键焦点切换到+按钮"
     action: keyboard_press
     key: "Tab"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "按Enter键新建工作区（焦点在+按钮上）"
     action: keyboard_press
     key: "Enter"
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "按Tab键焦点切换到主菜单按钮"
     action: keyboard_press
     key: "Tab"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "按Tab键焦点切换到最小化按钮"
     action: keyboard_press
     key: "Tab"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "按Tab键焦点切换到最大化按钮"
     action: keyboard_press
     key: "Tab"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "按Tab键焦点切换到关闭按钮"
     action: keyboard_press
     key: "Tab"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "按Shift+Tab反向切换焦点到最大化按钮"
     action: keyboard_hot_key
     keys: "shift+tab"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "验证终端仍在运行"
     action: wait

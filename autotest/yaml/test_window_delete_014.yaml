@@ -5,20 +5,20 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "右键菜单新建纵向分屏窗口"
     action: context_menu_comb
     ref: context_vertical_split
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "右键菜单关闭窗口（关闭分屏）"
     action: context_menu_comb
     ref: context_close_workspace
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "验证终端仍在运行"
     action: wait
@@ -30,14 +30,14 @@ steps:
     action: context_menu_comb
     ref: context_close_workspace
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "点击取消按钮"
     action: element_action
     ref: exit_cancel
     do: "click"
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "验证终端窗口不变（进程仍在运行）"
     action: wait
@@ -49,14 +49,14 @@ steps:
     action: context_menu_comb
     ref: context_close_workspace
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "点击确定按钮强制退出"
     action: element_action
     ref: exit_confirm
     do: "click"
   - action: wait
-    duration: 2.0
+    duration: 0.3
 
   - name: "验证终端已退出"
     action: wait

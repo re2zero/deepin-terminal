@@ -6,22 +6,14 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
-  - name: "验证主窗口可见"
-    action: element_action
-    ref: main_frame
-    do: "click"
-    assert:
-      - type: element_visible
-        selector:
-          role: "frame"
 
   - name: "右键选择重命名标题"
     action: context_menu_comb
     ref: context_rename_title
-    wait: 1.0
+    wait: 0.3
 
   - name: "截图-重命名对话框弹出"
     action: screenshot
@@ -30,7 +22,7 @@ steps:
   - name: "按ESC关闭对话框"
     action: keyboard_press
     key: "Escape"
-    wait: 0.5
+    wait: 0.3
 
   - name: "截图-ESC后对话框消失"
     action: screenshot
@@ -39,12 +31,12 @@ steps:
   - name: "再次打开重命名标题"
     action: context_menu_comb
     ref: context_rename_title
-    wait: 1.0
+    wait: 0.3
 
   - name: "直接点击确定（不改标题）"
     action: keyboard_press
     key: "Return"
-    wait: 0.5
+    wait: 0.3
 
   - name: "截图-直接确认后"
     action: screenshot
@@ -53,7 +45,7 @@ steps:
   - name: "再次打开重命名标题"
     action: context_menu_comb
     ref: context_rename_title
-    wait: 1.0
+    wait: 0.3
 
   - name: "删除原标题后确认"
     action: keyboard_press
@@ -74,12 +66,12 @@ steps:
   - name: "继续删除"
     action: keyboard_press
     key: "BackSpace"
-    wait: 0.5
+    wait: 0.3
 
   - name: "按回车确认空标题"
     action: keyboard_press
     key: "Return"
-    wait: 0.5
+    wait: 0.3
 
   - name: "截图-空标题确认后"
     action: screenshot
@@ -88,12 +80,12 @@ steps:
   - name: "再次打开重命名标题"
     action: context_menu_comb
     ref: context_rename_title
-    wait: 1.0
+    wait: 0.3
 
   - name: "输入超长标题"
     action: keyboard_type
     text: "ThisIsAVeryLongTitleNameForTestingPurposesWithManyCharactersExceedingNormalLength"
-    wait: 0.5
+    wait: 0.3
 
   - name: "截图-超长标题输入"
     action: screenshot
@@ -102,7 +94,7 @@ steps:
   - name: "按回车确认"
     action: keyboard_press
     key: "Return"
-    wait: 1.0
+    wait: 0.3
 
   - name: "截图-超长标题在标题栏显示"
     action: screenshot

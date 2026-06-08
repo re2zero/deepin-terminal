@@ -9,14 +9,14 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤1: 右键打开通用菜单"
     action: context_menu_comb
     ref: context_paste
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "步骤1: 截图-右键通用菜单"
     action: screenshot
@@ -26,7 +26,7 @@ steps:
     action: keyboard_press
     key: "Escape"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤1: 验证终端进程运行中"
     action: wait
@@ -38,7 +38,7 @@ steps:
     action: context_menu_comb
     ref: context_open_in_file_manager
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "步骤2: 截图-无选中内容右键菜单"
     action: screenshot
@@ -48,7 +48,7 @@ steps:
     action: keyboard_press
     key: "Escape"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤3: 验证终端仍在运行"
     action: wait

@@ -9,7 +9,7 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤1: 新建多个工作区"
@@ -17,41 +17,41 @@ steps:
     ref: add_tab_button
     do: "click"
   - action: wait
-    duration: 0.5
+    duration: 0.3
   - action: element_action
     ref: add_tab_button
     do: "click"
   - action: wait
-    duration: 0.5
+    duration: 0.3
   - action: element_action
     ref: add_tab_button
     do: "click"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤2: 使用Ctrl+Shift+1切换到第1个标签"
     action: keyboard_hot_key
     keys: "ctrl+shift+1"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤3: 使用Ctrl+Shift+2切换到第2个标签"
     action: keyboard_hot_key
     keys: "ctrl+shift+2"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤4: 使用Ctrl+Shift+3切换到第3个标签"
     action: keyboard_hot_key
     keys: "ctrl+shift+3"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤5: 使用Ctrl+Shift+9切换到最后一个标签"
     action: keyboard_hot_key
     keys: "ctrl+shift+9"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤6: 打开设置验证快捷键配置"
     action: main_menu_comb
@@ -62,14 +62,14 @@ steps:
     ref: settings_shortcuts
     do: "click"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤8: 点击标签页子类别检查1~9快捷键"
     action: element_action
     ref: settings_tab_shortcuts
     do: "click"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤9: 验证设置对话框可见"
     action: wait

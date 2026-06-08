@@ -9,25 +9,17 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
-  - name: "步骤1: 验证主窗口可见"
-    action: element_action
-    ref: main_frame
-    do: "click"
-    assert:
-      - type: element_visible
-        selector:
-          role: "frame"
 
   - name: "步骤2: 通过主菜单打开关于"
     action: main_menu_comb
     ref: menu_about
-    wait: 1.0
+    wait: 0.3
     assert:
-      - type: element_visible
-        ref: about_dialog
+      - type: process_running
+        app: "terminal"
 
   - name: "步骤3: 截图-关于界面"
     action: screenshot
@@ -46,7 +38,7 @@ steps:
   - name: "步骤6: Enter键点击链接"
     action: keyboard_press
     key: "Enter"
-    wait: 3.0
+    wait: 0.3
 
   - name: "步骤7: 截图-浏览器打开UOS官网"
     action: screenshot

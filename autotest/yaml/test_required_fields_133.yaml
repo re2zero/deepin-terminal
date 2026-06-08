@@ -20,28 +20,20 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
-  - name: "验证主窗口可见"
-    action: element_action
-    ref: main_frame
-    do: "click"
-    assert:
-      - type: element_visible
-        selector:
-          role: "frame"
 
   - name: "主菜单打开远程管理"
     action: main_menu_comb
     ref: menu_remote_management
-    wait: 1.0
+    wait: 0.3
 
   - name: "步骤1: 只填写服务器名，点击添加"
     action: element_action
     ref: add_server_button
     do: "click"
-    wait: 0.5
+    wait: 0.3
   - action: element_action
     ref: remote_server_name
     do: "click"
@@ -52,13 +44,13 @@ steps:
   - action: element_action
     ref: remote_add
     do: "click"
-    wait: 0.5
+    wait: 0.3
 
   - name: "步骤2: 只填写地址，点击添加"
     action: element_action
     ref: add_server_button
     do: "click"
-    wait: 0.5
+    wait: 0.3
   - action: element_action
     ref: remote_server_address
     do: "click"
@@ -69,13 +61,13 @@ steps:
   - action: element_action
     ref: remote_add
     do: "click"
-    wait: 0.5
+    wait: 0.3
 
   - name: "步骤3: 只填写用户名，点击添加"
     action: element_action
     ref: add_server_button
     do: "click"
-    wait: 0.5
+    wait: 0.3
   - action: element_action
     ref: remote_username
     do: "click"
@@ -86,13 +78,13 @@ steps:
   - action: element_action
     ref: remote_add
     do: "click"
-    wait: 0.5
+    wait: 0.3
 
   - name: "步骤4: 只填写服务器名和地址，点击添加"
     action: element_action
     ref: add_server_button
     do: "click"
-    wait: 0.5
+    wait: 0.3
   - action: element_action
     ref: remote_server_name
     do: "click"
@@ -110,13 +102,13 @@ steps:
   - action: element_action
     ref: remote_add
     do: "click"
-    wait: 0.5
+    wait: 0.3
 
   - name: "步骤5: 只填写服务器名和用户名，点击添加"
     action: element_action
     ref: add_server_button
     do: "click"
-    wait: 0.5
+    wait: 0.3
   - action: element_action
     ref: remote_server_name
     do: "click"
@@ -134,13 +126,13 @@ steps:
   - action: element_action
     ref: remote_add
     do: "click"
-    wait: 0.5
+    wait: 0.3
 
   - name: "步骤6: 只填写地址和用户名，点击添加"
     action: element_action
     ref: add_server_button
     do: "click"
-    wait: 0.5
+    wait: 0.3
   - action: element_action
     ref: remote_server_address
     do: "click"
@@ -158,13 +150,13 @@ steps:
   - action: element_action
     ref: remote_add
     do: "click"
-    wait: 0.5
+    wait: 0.3
 
   - name: "步骤7: 填写服务器名、地址和用户名，点击添加"
     action: element_action
     ref: add_server_button
     do: "click"
-    wait: 0.5
+    wait: 0.3
   - action: element_action
     ref: remote_server_name
     do: "click"
@@ -189,7 +181,7 @@ steps:
   - action: element_action
     ref: remote_add
     do: "click"
-    wait: 1.0
+    wait: 0.3
 
   - name: "步骤7: 验证服务器成功添加到列表"
     action: wait

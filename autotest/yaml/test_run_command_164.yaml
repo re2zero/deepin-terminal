@@ -5,16 +5,21 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤1: 通过主菜单打开自定义命令面板并添加命令"
     action: main_menu_comb
     ref: menu_custom_commands
-    wait: 1.0
+    wait: 0.3
 
   - name: "步骤1: 新建自定义命令 深度音乐 deepin-music 快捷键Ctrl+Shift+M"
-    action: element_set_value
+    action: element_action
+    ref: add_custom_command_button
+    do: "click"
+  - action: wait
+    duration: 0.3
+  - action: element_set_value
     ref: custom_command_name_input
     value: "深度音乐"
   - action: element_set_value
@@ -27,7 +32,7 @@ steps:
     ref: custom_command_add
     do: "click"
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "步骤1: 验证成功添加到自定义命令列表"
     action: wait
@@ -39,7 +44,7 @@ steps:
     action: keyboard_hot_key
     keys: "ctrl+shift+m"
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "步骤2: 验证终端仍在运行"
     action: wait
@@ -52,7 +57,7 @@ steps:
     ref: custom_command_list
     do: "click"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤3: 验证终端仍在运行"
     action: wait
@@ -71,7 +76,7 @@ steps:
     ref: custom_command_save
     do: "click"
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "步骤4: 验证修改成功（终端仍在运行）"
     action: wait
@@ -83,7 +88,7 @@ steps:
     action: keyboard_hot_key
     keys: "ctrl+shift+m"
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "步骤5: 验证终端仍在运行（无效命令不会导致崩溃）"
     action: wait

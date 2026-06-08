@@ -5,7 +5,7 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
   - name: "验证终端进程运行"
     action: wait
     assert:
@@ -29,19 +29,19 @@ steps:
     action: element_action
     ref: settings_basic
     do: "click"
-    wait: 0.5
+    wait: 0.3
 
   - name: "点击界面设置"
     action: element_action
     ref: settings_interface
     do: "click"
-    wait: 0.5
+    wait: 0.3
 
   - name: "点击快捷键"
     action: element_action
     ref: settings_shortcuts
     do: "click"
-    wait: 0.5
+    wait: 0.3
 
   - name: "点击终端快捷键"
     action: element_action
@@ -65,7 +65,7 @@ steps:
     action: element_action
     ref: settings_advanced
     do: "click"
-    wait: 0.5
+    wait: 0.3
 
   - name: "点击光标设置"
     action: element_action
@@ -96,7 +96,13 @@ steps:
     action: element_action
     ref: settings_close_button
     do: "click"
-    wait: 0.5
+    wait: 0.3
+
+  - name: "验证终端进程运行中"
+    action: wait
+    assert:
+      - type: process_running
+        app: "terminal"
 
 teardown:
   - action: session_stop

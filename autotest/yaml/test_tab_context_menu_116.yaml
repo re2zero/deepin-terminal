@@ -8,7 +8,7 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤1: 验证主窗口显示正常"
@@ -22,24 +22,24 @@ steps:
     ref: tab_list
     do: "right_click"
   - action: wait
-    duration: 0.5
+    duration: 0.3
   - name: "按ESC关闭菜单"
     action: keyboard_press
     key: "Escape"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤3: 新建多个标签页"
     action: element_action
     ref: add_tab_button
     do: "click"
   - action: wait
-    duration: 1.0
+    duration: 0.3
   - action: element_action
     ref: add_tab_button
     do: "click"
   - action: wait
-    duration: 1.0
+    duration: 0.3
     assert:
       - type: process_running
         app: "terminal"
@@ -49,24 +49,24 @@ steps:
     ref: tab_list
     do: "right_click"
   - action: wait
-    duration: 0.5
+    duration: 0.3
   - name: "按ESC关闭菜单"
     action: keyboard_press
     key: "Escape"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤5: 右键标签栏打开菜单，选择关闭标签页"
     action: element_action
     ref: tab_list
     do: "right_click"
   - action: wait
-    duration: 0.5
+    duration: 0.3
   - name: "按Return选择关闭标签页"
     action: keyboard_press
     key: "Return"
   - action: wait
-    duration: 1.0
+    duration: 0.3
     assert:
       - type: process_running
         app: "terminal"
@@ -76,13 +76,13 @@ steps:
     ref: add_tab_button
     do: "click"
   - action: wait
-    duration: 1.0
+    duration: 0.3
   - name: "右键打开菜单选择关闭其它标签页"
     action: element_action
     ref: tab_list
     do: "right_click"
   - action: wait
-    duration: 0.5
+    duration: 0.3
   - action: keyboard_press
     key: "Down"
   - action: wait
@@ -94,7 +94,7 @@ steps:
   - action: keyboard_press
     key: "Return"
   - action: wait
-    duration: 1.0
+    duration: 0.3
     assert:
       - type: process_running
         app: "terminal"

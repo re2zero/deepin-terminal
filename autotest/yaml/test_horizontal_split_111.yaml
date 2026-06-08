@@ -9,14 +9,14 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤1: 右键菜单选择横向分屏"
     action: context_menu_comb
     ref: context_horizontal_split
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "步骤1: 截图-横向分屏显示"
     action: screenshot
@@ -32,7 +32,7 @@ steps:
     action: context_menu_comb
     ref: context_close_workspace
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "步骤2: 截图-恢复单屏后"
     action: screenshot
@@ -42,7 +42,7 @@ steps:
     action: keyboard_hot_key
     keys: "ctrl+shift+h"
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "步骤3: 截图-快捷键横向分屏"
     action: screenshot

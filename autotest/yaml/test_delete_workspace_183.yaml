@@ -8,7 +8,7 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤1: 新建多个工作区"
@@ -16,18 +16,18 @@ steps:
     ref: add_tab_button
     do: "click"
   - action: wait
-    duration: 1.0
+    duration: 0.3
   - action: element_action
     ref: add_tab_button
     do: "click"
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "步骤2: 使用快捷键Ctrl+Shift+W删除当前工作区"
     action: keyboard_hot_key
     keys: "ctrl,shift,w"
   - action: wait
-    duration: 1.0
+    duration: 0.3
     assert:
       - type: process_running
         app: "terminal"
@@ -36,14 +36,14 @@ steps:
     action: context_menu_comb
     ref: context_close_workspace
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "步骤3: 点击确定按钮退出"
     action: element_action
     ref: exit_confirm
     do: "click"
   - action: wait
-    duration: 2.0
+    duration: 0.3
 
   - name: "步骤3: 验证终端已退出"
     action: wait

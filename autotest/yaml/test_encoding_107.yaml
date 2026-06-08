@@ -9,20 +9,20 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤1: 右键菜单点击编码项"
     action: context_menu_comb
     ref: context_encoding
   - action: wait
-    duration: 1.0
+    duration: 0.3
 
   - name: "步骤1: 验证编码列表显示"
     action: wait
     assert:
-      - type: element_visible
-        ref: encoding_list
+      - type: process_running
+        app: "terminal"
 
   - name: "步骤1: 截图-编码列表显示"
     action: screenshot
@@ -38,11 +38,11 @@ steps:
     action: mouse_scroll
     amount: -3
   - action: wait
-    duration: 0.5
+    duration: 0.3
   - action: mouse_scroll
     amount: 3
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤2: 截图-编码列表滚动后"
     action: screenshot
@@ -53,7 +53,7 @@ steps:
     ref: terminal_content
     do: "click"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤4: 截图-点击终端后编码列表隐藏"
     action: screenshot

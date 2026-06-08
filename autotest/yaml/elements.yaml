@@ -109,6 +109,9 @@ elements:
 
   # Context menu items — accessed via context_menu_comb (right-click + keyboard)
   # These use terminal_center as the right-click point + keyboard menu path
+  context_custom_commands:
+    click_target: terminal_center
+    menu: ["自定义命令"]
   context_paste:
     click_target: terminal_center
     menu: ["粘贴"]
@@ -132,7 +135,7 @@ elements:
     menu: ["全屏"]
   context_search:
     click_target: terminal_center
-    menu: ["搜索"]
+    menu: ["查找"]
   context_remote_management:
     click_target: terminal_center
     menu: ["远程管理"]
@@ -237,15 +240,17 @@ elements:
     role: "button"
 
   # ===== Custom Command Dialog =====
+  # DTK input fields share accessible name "DLineEditChildLineEdit" — use role + index
+  # Dialog field order: name(0), command(1), shortcut(2)
   custom_command_name_input:
-    name: "名称"
     role: "text"
+    index: 0
   custom_command_command_input:
-    name: "命令"
     role: "text"
+    index: 1
   custom_command_shortcut_input:
-    name: "快捷键"
     role: "text"
+    index: 2
   custom_command_cancel:
     name: "取消"
     role: "button"
@@ -260,21 +265,17 @@ elements:
     role: "button"
 
   # ===== Remote Management Dialog =====
+  # DTK dialog input fields share name "DLineEditChildLineEdit" — use role-only matching
   remote_server_name:
-    name: "服务器名"
     role: "text"
   remote_server_address:
-    name: "地址"
     role: "text"
   remote_server_port:
-    name: "端口"
     role: "text"
   remote_username:
-    name: "用户名"
     role: "text"
   remote_password:
-    name: "密码"
-    role: "text"
+    role: "password text"
   remote_cancel:
     name: "取消"
     role: "button"
@@ -288,7 +289,47 @@ elements:
     name: "删除服务器"
     role: "button"
   add_server_button:
+    name: "添加服务器"
     role: "button"
+  add_group_button:
+    name: "添加分组"
+    role: "button"
+  add_custom_command_button:
+    name: "添加命令"
+    role: "button"
+
+  # ===== Remote Management — Advanced Options =====
+  remote_advanced_options:
+    name: "高级选项"
+    role: "button"
+  remote_certificate:
+    name: "DFileChooserEditSuggestButton"
+    role: "button"
+  remote_group_combo:
+    role: "combo box"
+  remote_path:
+    role: "text"
+  remote_command:
+    role: "text"
+  remote_encoding_combo:
+    name: "UTF-8"
+    role: "combo box"
+  remote_backspace_combo:
+    name: "ascii-del"
+    role: "combo box"
+  remote_delete_key_combo:
+    name: "escape-sequence"
+    role: "combo box"
+
+  # ===== Remote Management Panel Labels =====
+  remote_empty_label:
+    name: "未添加服务器"
+    role: "label"
+
+  # ===== Custom Command Panel =====
+  custom_command_empty_label:
+    name: "未添加自定义命令"
+    role: "label"
 
   # ===== Workspace =====
   workspace_tabs:

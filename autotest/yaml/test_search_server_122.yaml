@@ -8,14 +8,14 @@ screenshot: false
 setup:
   - action: session_start
     command: "deepin-terminal"
-    wait: 3.0
+    wait: 1.0
 
 steps:
   - name: "步骤1: 打开远程管理查看搜索按钮"
     action: main_menu_comb
     ref: menu_remote_management
   - action: wait
-    duration: 1.0
+    duration: 0.3
     assert:
       - type: process_running
         app: "terminal"
@@ -30,7 +30,7 @@ steps:
     ref: remote_search_box
     do: "click"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤3: 输入特殊字符搜索"
     action: keyboard_type_text
@@ -40,7 +40,7 @@ steps:
   - action: keyboard_press
     key: "Return"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "清空搜索框"
     action: keyboard_hot_key
@@ -60,7 +60,7 @@ steps:
   - action: keyboard_press
     key: "Return"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "清空搜索框"
     action: keyboard_hot_key
@@ -80,7 +80,7 @@ steps:
   - action: keyboard_press
     key: "Return"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "清空搜索框"
     action: keyboard_hot_key
@@ -100,7 +100,7 @@ steps:
   - action: keyboard_press
     key: "Return"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "步骤7: 输入字符后删除"
     action: keyboard_hot_key
@@ -129,7 +129,7 @@ steps:
     action: keyboard_press
     key: "Escape"
   - action: wait
-    duration: 0.5
+    duration: 0.3
 
   - name: "验证终端进程仍在运行"
     action: wait
