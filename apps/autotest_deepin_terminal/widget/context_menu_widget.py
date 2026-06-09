@@ -5,6 +5,7 @@ Widget methods for right-click context menu functionality.
 """
 
 from apps.autotest_deepin_terminal.widget.base_widget import BaseWidget
+from apps.autotest_deepin_terminal.widget.menu_utils import context_menu_click
 from src import log
 
 
@@ -20,11 +21,8 @@ class ContextMenuWidget(BaseWidget):
         import time
         time.sleep(0.3)
 
-    def click_context_menu_item(self, menu_item):
-        """Click a menu item in the context menu."""
-        self.dog.element_click(menu_item)
-        import time
-        time.sleep(0.5)
+    def click_context_menu_item(self, menu_item, x=400, y=300):
+        context_menu_click(menu_item, click_x=x, click_y=y)
 
     def click_open_in_file_manager(self):
         """Click 'Open in file manager' from context menu."""

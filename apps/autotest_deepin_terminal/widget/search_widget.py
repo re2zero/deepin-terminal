@@ -5,6 +5,7 @@ Widget methods for search/find functionality.
 """
 
 from apps.autotest_deepin_terminal.widget.base_widget import BaseWidget
+from apps.autotest_deepin_terminal.widget.menu_utils import context_menu_click
 from src import log
 
 
@@ -16,11 +17,7 @@ class SearchWidget(BaseWidget):
 
     def open_search_by_menu(self):
         """Open search bar via right-click menu."""
-        self.right_click(400, 300)
-        import time
-        time.sleep(0.3)
-        self.dog.element_click("查找")
-        time.sleep(0.5)
+        context_menu_click("查找")
 
     def open_search_by_shortcut(self):
         """Open search bar using Ctrl+Alt+F shortcut."""

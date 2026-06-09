@@ -92,8 +92,12 @@ class WindowModeWidget(BaseWidget):
     # === Window title ===
 
     def get_window_title(self):
-        """Get the current terminal window title."""
-        return self.dog.element_get_text("终端")
+        import time
+        time.sleep(0.3)
+        try:
+            return self.dog.app_element("终端").name
+        except Exception:
+            return ""
 
     # === Multiple windows ===
 

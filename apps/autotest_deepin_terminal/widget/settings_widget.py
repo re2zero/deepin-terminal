@@ -5,7 +5,9 @@ Widget methods for settings dialog functionality.
 """
 
 from apps.autotest_deepin_terminal.widget.base_widget import BaseWidget
+from apps.autotest_deepin_terminal.widget.menu_utils import context_menu_click, scan_and_click_in_app
 from src import log
+from src.mouse_key import MouseKey
 
 
 @log
@@ -15,7 +17,6 @@ class SettingsWidget(BaseWidget):
     # === Open settings ===
 
     def open_settings_by_menu(self):
-        """Open settings dialog via main menu."""
         self.dog.element_click("DTitlebarDWindowOptionButton")
         import time
         time.sleep(0.3)
@@ -24,18 +25,12 @@ class SettingsWidget(BaseWidget):
 
     def open_settings_by_right_click(self):
         """Open settings dialog via right-click context menu."""
-        self.right_click(400, 300)
-        import time
-        time.sleep(0.3)
-        self.dog.element_click("设置")
-        time.sleep(0.5)
+        context_menu_click("设置")
 
     def close_settings_by_esc(self):
-        """Close settings dialog by pressing ESC."""
         self.press_key("Escape")
 
     def close_settings_by_x(self):
-        """Close settings dialog by clicking X button."""
         self.dog.element_click("DTitlebarDWindowCloseButton")
 
     # === Basic settings ===
@@ -92,6 +87,19 @@ class SettingsWidget(BaseWidget):
     def click_advanced_settings(self):
         """Click advanced settings tab in left sidebar."""
         self.dog.element_click("高级设置")
+        self._scroll_settings_content()
+
+    def _scroll_settings_content(self):
+        import pyautogui
+        import time
+        time.sleep(0.3)
+        MouseKey.move_to(1200, 500, duration=0.15)
+        time.sleep(0.1)
+        pyautogui.click()
+        time.sleep(0.2)
+        for _ in range(6):
+            pyautogui.scroll(-15)
+            time.sleep(0.05)
 
     def switch_cursor_style(self, style_index=0):
         """Switch cursor style (0=block, 1=|, 2=_)."""
@@ -104,16 +112,13 @@ class SettingsWidget(BaseWidget):
         time.sleep(0.3)
 
     def toggle_cursor_blink(self):
-        """Toggle cursor blink checkbox."""
-        self.dog.element_click("光标闪烁")
+        scan_and_click_in_app("光标闪烁")
 
     def toggle_scroll_on_key(self):
-        """Toggle scroll on keypress checkbox."""
-        self.dog.element_click("按键时滚动")
+        scan_and_click_in_app("按键时滚动")
 
     def toggle_scroll_on_output(self):
-        """Toggle scroll on output checkbox."""
-        self.dog.element_click("输出时滚动")
+        scan_and_click_in_app("输出时滚动")
 
     def select_startup_mode(self, mode):
         """Select startup window mode from dropdown (AT-SPI combo box)."""
@@ -124,16 +129,13 @@ class SettingsWidget(BaseWidget):
         time.sleep(0.3)
 
     def toggle_blur_background(self):
-        """Toggle blur background checkbox."""
-        self.dog.element_click("背景模糊")
+        scan_and_click_in_app("背景模糊")
 
     def toggle_hide_quake_on_lost_focus(self):
-        """Toggle hide quake window on lost focus checkbox."""
-        self.dog.element_click("丢失焦点后自动隐藏雷神窗口")
+        scan_and_click_in_app("丢失焦点后自动隐藏雷神窗口")
 
     def toggle_auto_copy_on_select(self):
-        """Toggle auto copy to clipboard on text selection checkbox."""
-        self.dog.element_click("选中文字时自动复制到剪贴板")
+        scan_and_click_in_app("选中文字时自动复制到剪贴板")
 
     def select_shell(self, shell_name):
         """Select shell from shell configuration dropdown (AT-SPI combo box)."""
@@ -144,8 +146,7 @@ class SettingsWidget(BaseWidget):
         time.sleep(0.3)
 
     def toggle_disable_ctrl_s_q(self):
-        """Toggle disable Ctrl+S and Ctrl+Q checkbox."""
-        self.dog.element_click("禁用Ctrl+S和Ctrl+Q控制")
+        scan_and_click_in_app("禁用Ctrl+S和Ctrl+Q控制")
 
     def click_restore_defaults(self):
         """Click restore defaults button."""

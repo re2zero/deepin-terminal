@@ -5,6 +5,7 @@ Widget methods for main menu bar and window controls.
 """
 
 from apps.autotest_deepin_terminal.widget.base_widget import BaseWidget
+from apps.autotest_deepin_terminal.widget.menu_utils import _scan_popup_and_click
 from src import log
 
 
@@ -55,14 +56,31 @@ class MainMenuWidget(BaseWidget):
     # === Theme ===
 
     def switch_theme_dark(self):
-        """Switch to dark theme via main menu."""
         self.click_main_menu()
-        import time
-        time.sleep(0.3)
-        self.dog.element_click("主题")
-        time.sleep(0.3)
-        self.dog.element_click("深色")
-        time.sleep(0.5)
+        _scan_popup_and_click("主题", True)
+        _scan_popup_and_click("深色", True)
+
+    def switch_theme_light(self):
+        self.click_main_menu()
+        _scan_popup_and_click("主题", True)
+        _scan_popup_and_click("浅色", True)
+
+    def switch_theme_system(self):
+        self.click_main_menu()
+        _scan_popup_and_click("主题", True)
+        _scan_popup_and_click("跟随系统", True)
+
+    # === Help ===
+
+    def click_help(self):
+        self.click_main_menu()
+        _scan_popup_and_click("帮助", True)
+
+    # === About ===
+
+    def click_about(self):
+        self.click_main_menu()
+        _scan_popup_and_click("关于", True)
 
     def switch_theme_light(self):
         """Switch to light theme via main menu."""
@@ -133,24 +151,14 @@ class MainMenuWidget(BaseWidget):
     # === Settings (via menu) ===
 
     def click_settings(self):
-        """Click Settings menu item."""
         self.click_main_menu()
-        import time
-        time.sleep(0.3)
-        self.dog.element_click("设置")
-        import time
-        time.sleep(0.5)
+        _scan_popup_and_click("设置", True)
 
     # === Exit ===
 
     def click_exit(self):
-        """Click Exit menu item."""
         self.click_main_menu()
-        import time
-        time.sleep(0.3)
-        self.dog.element_click("退出")
-        import time
-        time.sleep(0.5)
+        _scan_popup_and_click("退出", True)
 
     # === Window controls ===
 
@@ -181,13 +189,8 @@ class MainMenuWidget(BaseWidget):
     # === New window ===
 
     def click_new_window(self):
-        """Click 'New window' from main menu."""
         self.click_main_menu()
-        import time
-        time.sleep(0.3)
-        self.dog.element_click("新建窗口")
-        import time
-        time.sleep(0.5)
+        _scan_popup_and_click("新建窗口", True)
 
     # === Keyboard shortcut display ===
 

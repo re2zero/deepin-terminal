@@ -5,6 +5,7 @@ Widget methods for workspace (tab/split) functionality.
 """
 
 from apps.autotest_deepin_terminal.widget.base_widget import BaseWidget
+from apps.autotest_deepin_terminal.widget.menu_utils import context_menu_click
 from src import log
 
 
@@ -46,19 +47,11 @@ class WorkspaceWidget(BaseWidget):
 
     def horizontal_split_by_menu(self):
         """Create horizontal split via right-click menu."""
-        self.right_click(400, 300)
-        import time
-        time.sleep(0.3)
-        self.dog.element_click("横向分屏")
-        time.sleep(0.5)
+        context_menu_click("横向分屏")
 
     def vertical_split_by_menu(self):
         """Create vertical split via right-click menu."""
-        self.right_click(400, 300)
-        import time
-        time.sleep(0.3)
-        self.dog.element_click("纵向分屏")
-        time.sleep(0.5)
+        context_menu_click("纵向分屏")
 
     def horizontal_split_by_shortcut(self):
         """Create horizontal split using Ctrl+Shift+H shortcut."""
@@ -85,14 +78,14 @@ class WorkspaceWidget(BaseWidget):
     def right_click_tab(self):
         """Right-click on the current tab."""
         import time
-        self.dog.element_right_click("工作区")
+        self.dog.element_click("工作区", button=3)
 
     def close_tab_from_context_menu(self):
         """Close tab via tab right-click context menu."""
         self.right_click_tab()
         import time
         time.sleep(0.3)
-        self.dog.element_click("关闭标签页")
+        context_menu_click("关闭标签页", click_x=400, click_y=300)
         time.sleep(0.3)
 
     def close_other_tabs_from_context_menu(self):
@@ -100,7 +93,7 @@ class WorkspaceWidget(BaseWidget):
         self.right_click_tab()
         import time
         time.sleep(0.3)
-        self.dog.element_click("关闭其它标签页")
+        context_menu_click("关闭其它标签页", click_x=400, click_y=300)
         time.sleep(0.3)
 
     def rename_tab_from_context_menu(self):
@@ -108,18 +101,14 @@ class WorkspaceWidget(BaseWidget):
         self.right_click_tab()
         import time
         time.sleep(0.3)
-        self.dog.element_click("重命名标题")
+        context_menu_click("重命名标题", click_x=400, click_y=300)
         time.sleep(0.3)
 
     # === Window operations ===
 
     def fullscreen_by_menu(self):
         """Toggle fullscreen via right-click menu."""
-        self.right_click(400, 300)
-        import time
-        time.sleep(0.3)
-        self.dog.element_click("全屏")
-        time.sleep(0.5)
+        context_menu_click("全屏")
 
     def fullscreen_by_shortcut(self):
         """Toggle fullscreen using F11 shortcut."""
@@ -128,6 +117,19 @@ class WorkspaceWidget(BaseWidget):
     def exit_fullscreen(self):
         """Exit fullscreen mode."""
         self.dog.element_click("退出全屏")
+        import time
+        time.sleep(0.5)
+
+    # === Window restore ===
+
+    def restore_window(self):
+        """Restore window from maximized state."""
+        self.dog.element_click("DTitlebarDWindowQuitFullscreenButton")
+        import time
+        time.sleep(0.5)
+
+    def maximize_window(self):
+        self.dog.element_click("DTitlebarDWindowMaxButton")
         import time
         time.sleep(0.5)
 
