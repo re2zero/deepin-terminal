@@ -16,3 +16,6 @@ deepin-terminal.pro.user
 .npm-cache/
 .trellis/
 obj-*-linux-gnu/
+
+# auto test reports
+autotest/report/

@@ -16,107 +16,29 @@ steps:
     action: main_menu_comb
     ref: menu_remote_management
   - action: wait
-    duration: 0.3
+    duration: 0.5
 
-  - name: "步骤1: Tab到添加服务器按钮，按Enter键"
-    action: keyboard_press
-    key: "Tab"
+  - name: "步骤2: 点击添加服务器按钮打开对话框"
+    action: element_action
+    ref: add_server_button
   - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Return"
+    duration: 0.5
+
+  - name: "步骤3: 输入服务器名称"
+    action: keyboard_type_text
+    text: "测试服务器"
   - action: wait
     duration: 0.3
 
-  - name: "步骤2: 依次按Tab键切换服务器名字段"
-    action: keyboard_press
-    key: "Tab"
+  - name: "步骤4: 点击添加按钮"
+    action: element_action
+    ref: remote_add
   - action: wait
-    duration: 0.3
+    duration: 0.5
 
-  - name: "步骤2: Tab键切换到地址字段"
+  - name: "步骤5: 关闭远程管理面板"
     action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-
-  - name: "步骤2: Tab键切换到端口字段"
-    action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-
-  - name: "步骤2: Tab键切换到用户名字段"
-    action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-
-  - name: "步骤2: Tab键切换到密码字段"
-    action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-
-  - name: "步骤3: 继续Tab到取消按钮，按Enter键"
-    action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Return"
-  - action: wait
-    duration: 0.3
-
-  - name: "步骤4: 重新打开添加服务器弹框，按ESC键退出"
-    action: keyboard_press
-    key: "Return"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
     key: "Escape"
-  - action: wait
-    duration: 0.3
-
-  - name: "Shift+Tab反向切换测试"
-    action: keyboard_hot_key
-    keys: "shift,Tab"
   - action: wait
     duration: 0.3
 

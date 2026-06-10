@@ -12,95 +12,61 @@ setup:
     wait: 1.0
 
 steps:
-  - name: "步骤1: 打开远程管理插件，添加服务器"
-    action: main_menu_comb
-    ref: menu_remote_management
+  - name: "步骤1: 打开远程管理插件"
+    action: context_menu_comb
+    ref: context_remote_management
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤2: 点击添加服务器按钮"
+    action: element_action
+    ref: add_server_button
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤3: 输入服务器名称"
+    action: keyboard_type_text
+    text: "路径测试服务器"
   - action: wait
     duration: 0.3
 
-  - name: "Tab键切换到添加服务器按钮，按Enter"
+  - name: "步骤4: 点击添加按钮保存"
+    action: element_action
+    ref: remote_add
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤5: 点击已添加的服务器"
+    action: element_action
+    selector:
+      role: "list item"
+      index: 0
+  - action: wait
+    duration: 0.3
+
+  - name: "步骤6: 按Right+Return打开编辑对话框"
     action: keyboard_press
-    key: "Tab"
+    key: "Right"
   - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
+    duration: 0.2
   - action: keyboard_press
     key: "Return"
   - action: wait
-    duration: 0.3
+    duration: 0.5
 
-  - name: "Tab导航到路径输入框（高级选项区域）"
-    action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-
-  - name: "步骤1: 输入中文文本测试"
+  - name: "步骤7: 输入编辑后的服务器名称"
     action: keyboard_type_text
-    text: "阿里快圣诞节"
+    text: "编辑后路径测试服务器"
   - action: wait
     duration: 0.3
 
-  - name: "清除已有输入，输入英文文本测试"
-    action: keyboard_hot_key
-    keys: "ctrl,a"
+  - name: "步骤8: 点击保存按钮"
+    action: element_action
+    ref: remote_save
   - action: wait
-    duration: 0.2
-  - action: keyboard_type_text
-    text: "asdfkad"
-  - action: wait
-    duration: 0.3
+    duration: 0.5
 
-  - name: "清除已有输入，输入特殊字符测试"
-    action: keyboard_hot_key
-    keys: "ctrl,a"
-  - action: wait
-    duration: 0.2
-  - action: keyboard_type_text
-    text: "adkj!@#"
-  - action: wait
-    duration: 0.3
-
-  - name: "步骤2: 按ESC关闭添加服务器窗口"
+  - name: "步骤9: 按ESC关闭远程管理窗口"
     action: keyboard_press
     key: "Escape"
   - action: wait

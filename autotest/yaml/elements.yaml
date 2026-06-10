@@ -277,13 +277,13 @@ elements:
   remote_password:
     role: "password text"
   remote_cancel:
-    name: "取消"
+    name: "取 消"
     role: "button"
   remote_add:
-    name: "添加"
+    name: "添 加"
     role: "button"
   remote_save:
-    name: "保存"
+    name: "保 存"
     role: "button"
   remote_delete:
     name: "删除服务器"

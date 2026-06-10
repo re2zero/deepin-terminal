@@ -12,23 +12,39 @@ setup:
     wait: 1.0
 
 steps:
-  - name: "步骤1: 打开远程管理插件，选中服务器进入编辑界面"
-    action: main_menu_comb
-    ref: menu_remote_management
+  - name: "步骤1: 打开远程管理插件"
+    action: context_menu_comb
+    ref: context_remote_management
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤2: 点击添加服务器按钮"
+    action: element_action
+    ref: add_server_button
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤3: 输入服务器名称"
+    action: keyboard_type_text
+    text: "测试服务器"
   - action: wait
     duration: 0.3
 
-  - name: "Tab键切换到服务器列表"
-    action: keyboard_press
-    key: "Tab"
+  - name: "步骤4: 点击添加按钮保存"
+    action: element_action
+    ref: remote_add
   - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
+    duration: 0.5
+
+  - name: "步骤5: 点击已添加的服务器"
+    action: element_action
+    selector:
+      role: "list item"
+      index: 0
   - action: wait
     duration: 0.3
 
-  - name: "按→到编辑按钮，按Enter进入编辑"
+  - name: "步骤6: 按Right到编辑按钮，按Return进入编辑"
     action: keyboard_press
     key: "Right"
   - action: wait
@@ -36,79 +52,29 @@ steps:
   - action: keyboard_press
     key: "Return"
   - action: wait
+    duration: 0.5
+
+  - name: "步骤7: 点击删除服务器按钮"
+    action: element_action
+    ref: remote_delete
+  - action: wait
     duration: 0.3
 
-  - name: "Tab键切换到删除服务器按钮"
+  - name: "步骤8: 点击确定按钮确认删除"
+    action: element_action
+    selector:
+      name: "删 除"
+      role: "button"
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤9: 按Escape关闭远程管理面板"
     action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
+    key: "Escape"
   - action: wait
     duration: 0.3
 
-  - name: "步骤1: 按Enter/空格键进入删除弹框"
-    action: keyboard_press
-    key: "Return"
-  - action: wait
-    duration: 0.3
-
-  - name: "步骤2: 按Tab键焦点切换到取消按钮"
-    action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-
-  - name: "步骤2: 按Tab键焦点切换到确定按钮"
-    action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-
-  - name: "步骤3: 按空格键取消删除"
-    action: keyboard_press
-    key: "Space"
-  - action: wait
-    duration: 0.3
-
-  - name: "步骤4: 按ESC键焦点返回到当前选择删除的服务器"
-    action: keyboard_press
-    key: "Return"
-  - action: wait
-    duration: 0.3
-
-  - name: "Shift+Tab反向切换测试"
-    action: keyboard_hot_key
-    keys: "shift,Tab"
-  - action: wait
-    duration: 0.3
-
-  - name: "验证终端进程仍在运行"
+  - name: "步骤10: 验证终端进程仍在运行"
     action: wait
     assert:
       - type: process_running

@@ -12,23 +12,39 @@ setup:
     wait: 1.0
 
 steps:
-  - name: "步骤1: 打开远程管理插件，选中服务器进入编辑界面"
-    action: main_menu_comb
-    ref: menu_remote_management
+  - name: "步骤1: 打开远程管理插件"
+    action: context_menu_comb
+    ref: context_remote_management
+  - action: wait
+    duration: 0.5
+
+  - name: "点击添加服务器按钮"
+    action: element_action
+    ref: add_server_button
+  - action: wait
+    duration: 0.5
+
+  - name: "步骤2: 填写服务器信息"
+    action: keyboard_type_text
+    text: "测试服务器"
   - action: wait
     duration: 0.3
 
-  - name: "Tab键切换到服务器列表"
-    action: keyboard_press
-    key: "Tab"
+  - name: "点击添加按钮保存"
+    action: element_action
+    ref: remote_add
   - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
+    duration: 0.5
+
+  - name: "步骤3: 选中刚添加的服务器"
+    action: element_action
+    selector:
+      role: "list item"
+      index: 0
   - action: wait
     duration: 0.3
 
-  - name: "按→方向键到编辑按钮，按Enter进入编辑"
+  - name: "按Right和Return进入编辑模式"
     action: keyboard_press
     key: "Right"
   - action: wait
@@ -36,89 +52,27 @@ steps:
   - action: keyboard_press
     key: "Return"
   - action: wait
-    duration: 0.3
+    duration: 0.5
 
-  - name: "步骤2: 依次按Tab键切换服务器名字段"
-    action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-
-  - name: "步骤2: Tab到地址字段"
-    action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-
-  - name: "步骤2: Tab到端口字段"
-    action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-
-  - name: "步骤2: Tab到用户名字段"
-    action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-
-  - name: "步骤2: Tab到密码字段"
-    action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-
-  - name: "步骤3: 继续Tab到删除服务器按钮，按Enter键"
-    action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Tab"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Return"
-  - action: wait
-    duration: 0.3
-
-  - name: "步骤4: 在编辑界面按ESC键退出"
-    action: keyboard_press
-    key: "Return"
-  - action: wait
-    duration: 0.3
-  - action: keyboard_press
-    key: "Escape"
-  - action: wait
-    duration: 0.3
-
-  - name: "Shift+Tab反向切换测试"
+  - name: "步骤4: 编辑服务器名称"
     action: keyboard_hot_key
-    keys: "shift,Tab"
+    keys: "ctrl,a"
+  - action: wait
+    duration: 0.3
+  - action: keyboard_type_text
+    text: "编辑后的服务器"
+  - action: wait
+    duration: 0.3
+
+  - name: "点击保存按钮"
+    action: element_action
+    ref: remote_save
+  - action: wait
+    duration: 0.5
+
+  - name: "按ESC键退出远程管理"
+    action: keyboard_press
+    key: "Escape"
   - action: wait
     duration: 0.3
 
