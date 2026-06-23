@@ -1,0 +1,121 @@
+name: 远程管理-地址和端口
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 在添加服务器窗口的地址输入框中输入：阿里快圣诞节，查看软件显示
+    2. 在添加服务器窗口的地址输入框中输入：asdfkad，查看软件显示
+    3. 在添加服务器窗口的地址输入框中输入：adkj!@#，查看软件显示
+    4. 在添加服务器窗口的地址输入框中输入：超长字符，查看软件显示
+    5. 在添加服务器窗口的地址输入框中输入：特殊字符，查看软件显示
+    6. 在端口输入框中输入：上课，查看软件显示
+    7. 在端口输入框中输入：ak47，查看软件显示
+    8. 在端口输入框中输入：2222，查看软件显示
+  预期结果:
+    1. 可以正常输入，并显示正确
+    2. 可以正常输入，并显示正确
+    3. 可以正常输入，并显示正确
+    4. 可以正常输入，并显示正确
+    5. 可以正常输入，并显示正确
+    6. 软件会给出提示信息：此处只能输入数字
+    7. 软件会给出提示信息：此处只能输入数字
+    8. 可以正常输入，并显示正确
+module: 远程管理器
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653097'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 打开远程管理插件，添加服务器'
+  action: main_menu_comb
+  ref: menu_remote_management
+- action: wait
+  duration: 0.3
+- name: Tab键切换到添加服务器按钮，按Enter
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Return
+- action: wait
+  duration: 0.3
+- name: Tab导航到地址字段
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- name: '步骤1: 输入中文文本到地址'
+  action: keyboard_type
+  value: 阿里快圣诞节
+- action: wait
+  duration: 0.3
+- name: 清除已有输入，输入英文文本到地址
+  action: keyboard_press
+  value: ctrl,a
+- action: wait
+  duration: 0.2
+- action: keyboard_type
+  value: asdfkad
+- action: wait
+  duration: 0.3
+- name: 清除已有输入，输入特殊字符到地址
+  action: keyboard_press
+  value: ctrl,a
+- action: wait
+  duration: 0.2
+- action: keyboard_type
+  value: adkj!@#
+- action: wait
+  duration: 0.3
+- name: '步骤2: Tab到端口字段'
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- name: '步骤6: 输入中文字符到端口'
+  action: keyboard_type
+  value: 上课
+- action: wait
+  duration: 0.3
+- name: 清除已有输入，输入字母到端口
+  action: keyboard_press
+  value: ctrl,a
+- action: wait
+  duration: 0.2
+- action: keyboard_type
+  value: ak47
+- action: wait
+  duration: 0.3
+- name: 清除已有输入，输入数字到端口
+  action: keyboard_press
+  value: ctrl,a
+- action: wait
+  duration: 0.2
+- action: keyboard_type
+  value: '2222'
+- action: wait
+  duration: 0.3
+- name: 按ESC关闭添加服务器窗口
+  action: keyboard_press
+  key: Escape
+- action: wait
+  duration: 0.3
+- name: 验证终端进程仍在运行
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

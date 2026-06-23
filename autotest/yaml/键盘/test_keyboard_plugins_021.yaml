@@ -1,0 +1,55 @@
+name: 键盘交互焦点在插件
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 按Tab键焦点在查找、编码、远程管理、自定义命令插件
+    2. 键盘按ESC键
+  （PS：测试时需要测试Shift+Tab反向切换）
+  预期结果:
+    1. 选项有Foucs效果
+    2. 焦点返回到终端
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653585'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 按Tab键焦点依次经过标签栏和主菜单等
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- name: 按Tab键焦点跳转到插件区域（查找、编码等）
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- name: 按Shift+Tab反向切换焦点
+  action: keyboard_press
+  value: shift+tab
+- action: wait
+  duration: 0.3
+- name: 按ESC键焦点返回到终端
+  action: keyboard_press
+  key: Escape
+- action: wait
+  duration: 0.3
+- name: 验证终端仍在运行
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

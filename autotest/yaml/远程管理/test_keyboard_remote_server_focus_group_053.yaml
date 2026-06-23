@@ -1,0 +1,86 @@
+name: 键盘交互-远程服务器列表(组)
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，Tab键进入编辑服务器界面
+    2. 依次按Tab键
+    3. 在“删除服务器”、“取消”和“保存”按钮按下空格或者回车
+    4. 按ESC退出弹框
+  （PS：测试时需要测试Shift+Tab反向切换）
+  预期结果:
+    1. 默认服务器名全选
+    2. 切换顺序：服务器名、地址、端口、用户名、密码、加密图标、证书、选择证书图标、高级选项、分组、路径、命令、编码、退格键、删除键、删除服务器、取消、保存、右上角X键，各选项有Focus效果
+    3. 执行相应选项操作
+    4. 焦点返回在当前编辑的远程管理上
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653511'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 打开远程管理插件'
+  action: main_menu_comb
+  ref: menu_remote_management
+- action: wait
+  duration: 0.3
+- name: '步骤1: Tab键切换到搜索框'
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- name: '步骤2: 再按Tab键，焦点在远程服务器组上'
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- name: '步骤2: 按↓方向键切换到组'
+  action: keyboard_press
+  key: Down
+- action: wait
+  duration: 0.3
+- name: '步骤3: 按Enter键进入组列表'
+  action: keyboard_press
+  key: Return
+- action: wait
+  duration: 0.3
+- name: '步骤4: 按Tab键，组内单个服务器焦点切换到服务器上'
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- name: '步骤5: 组内多个服务器，按Tab键焦点切换到搜索框'
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- name: '步骤6: 按↓方向键切换组内服务器列表'
+  action: keyboard_press
+  key: Down
+- action: wait
+  duration: 0.3
+- name: '步骤6: 按↑方向键切换组内服务器列表'
+  action: keyboard_press
+  key: Up
+- action: wait
+  duration: 0.3
+- name: '步骤7: 按Enter键执行连接服务器操作'
+  action: keyboard_press
+  key: Return
+- action: wait
+  duration: 0.3
+- name: Shift+Tab反向切换测试
+  action: keyboard_press
+  value: shift,Tab
+- action: wait
+  duration: 0.3
+- name: 验证终端进程仍在运行
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

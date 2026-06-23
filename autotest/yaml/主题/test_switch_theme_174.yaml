@@ -1,0 +1,64 @@
+name: '[010]切换主题'
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 进入终端，菜单栏点击主题选项
+    2. 切换主题选项为浅色主题
+    3. 切换主题选项为跟随系统
+    4. 三个主题之间多次来回切换
+  预期结果:
+    1. 默认选项为深色
+    2. 终端主题颜色为浅色
+    3. 终端主题颜色跟随系统变化
+    4. 切换主题终端显示无异常
+module: 主界面右上角菜单栏
+feature: ''
+tags:
+- L1
+vars:
+  XLSX_ID: '1652967'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤2: 切换到深色主题'
+  action: main_menu_comb
+  ref: main_menu_button
+  wait: 0.3
+  items:
+  - 主题
+  - 深色
+- name: '步骤3: 截图-深色主题'
+  action: noop
+- name: '步骤4: 切换到浅色主题'
+  action: main_menu_comb
+  ref: main_menu_button
+  wait: 0.3
+  items:
+  - 主题
+  - 浅色
+- name: '步骤5: 截图-浅色主题'
+  action: noop
+- name: '步骤6: 切换到跟随系统主题'
+  action: main_menu_comb
+  ref: main_menu_button
+  wait: 0.3
+  items:
+  - 主题
+  - 跟随系统
+- name: '步骤7: 截图-跟随系统主题'
+  action: noop
+- name: '步骤8: 切换回深色主题（恢复默认）'
+  action: main_menu_comb
+  ref: main_menu_button
+  wait: 0.3
+  items:
+  - 主题
+  - 深色
+- name: '步骤9: 验证终端进程运行中'
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

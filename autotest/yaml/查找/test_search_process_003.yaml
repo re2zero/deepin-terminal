@@ -1,0 +1,96 @@
+name: 查找过程
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 输入搜索内容后，按下回车
+    2. 回车搜索，检查搜索过程
+    3. 符合搜索的内容
+    4. 当窗口有多个分屏时，检查搜索对象
+    5. 没有对应搜索内容时
+  预期结果:
+    1. 开始搜索
+    2. 从上往下搜索
+    3. 关键字被高亮选中
+    4. 当前光标在哪个分屏，就会只搜索哪个分屏
+    5. 没有提示，搜索框亮红
+module: 查找
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653621'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 先输入一些内容到终端，再打开搜索
+  action: keyboard_type
+  value: echo hello world test search
+  wait: 0.3
+- name: 回车执行
+  action: keyboard_press
+  key: Return
+  wait: 0.3
+- name: 打开搜索框
+  action: keyboard_press
+  value: ctrl+alt+f
+  wait: 0.3
+- name: 输入搜索内容
+  action: element_set_value
+  ref: search_input
+  value: hello
+  wait: 0.3
+- name: 截图-输入搜索内容
+  action: noop
+- name: 按回车开始搜索
+  action: keyboard_press
+  key: Return
+  wait: 0.3
+- name: 截图-回车搜索后
+  action: noop
+- name: 输入不存在的内容搜索
+  action: element_action
+  ref: search_clear_button
+  do: click
+  wait: 0.3
+- name: 输入不存在的关键词
+  action: element_set_value
+  ref: search_input
+  value: nonexistent_xyz123
+  wait: 0.3
+- name: 按回车搜索不存在的内容
+  action: keyboard_press
+  key: Return
+  wait: 0.3
+- name: 截图-搜索无结果
+  action: noop
+- name: 关闭搜索框，进行分屏操作
+  action: keyboard_press
+  key: Escape
+  wait: 0.3
+- name: 横向分屏
+  action: context_menu_comb
+  ref: context_horizontal_split
+  wait: 0.3
+- name: 在分屏中再打开搜索
+  action: keyboard_press
+  value: ctrl+alt+f
+  wait: 0.3
+- name: 输入搜索内容 (2)
+  action: element_set_value
+  ref: search_input
+  value: test
+  wait: 0.3
+- name: 回车搜索
+  action: keyboard_press
+  key: Return
+  wait: 0.3
+- name: 截图-分屏搜索
+  action: noop
+- name: 验证进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

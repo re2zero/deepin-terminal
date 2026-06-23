@@ -1,0 +1,34 @@
+# UNSUPPORTED: 触摸操作无法自动化
+name: '触摸屏一指上下滑动功能 - NON-AUTOMATABLE: 触摸操作无法自动化'
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，输入ls -al让屏幕超过一屏内容
+    2. 在终端界面一指向上滑动
+    3. 在终端界面一指向下滑动
+    4. 手指上下来回滑动屏幕
+  预期结果:
+    1. 窗口显示一屏以上内容
+    2. 屏幕内容向上
+    3. 屏幕内容向下
+    4. 上下滑动正常，无crash现象
+module: 触摸屏
+feature: ''
+tags:
+- L1
+vars:
+  XLSX_ID: '1653485'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 跳过 - skip-触摸操作无法自动化
+  action: wait
+  value: '300'
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

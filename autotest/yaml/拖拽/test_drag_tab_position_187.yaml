@@ -1,0 +1,36 @@
+# UNSUPPORTED: skip-触摸操作无法自动化
+name: '拖动标签页位置 - NON-AUTOMATABLE: skip-触摸操作无法自动化'
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，只有一个标签页
+    2. 新建标签页，标签页数量大于1个，选中一个标签页图标
+    3. 按住鼠标左键，拖拽此标签页图标
+    4. 释放鼠标左键
+  Notes:测试时一并测试触摸屏、触控板、键盘交互
+  预期结果:
+    1. 不支持拖动切换位置
+    2. 标签页被选中
+    3. 标签页图标跟随鼠标移动位置，标签页图标在标签栏拖动过程中，拖动到其他标签页位置时，需显示与当前标签的交换动画显示
+    4. 拖拽的标签页移动到鼠标释放的位置
+  （有程序运行完成后，标签字体变色，拖动过程不影响标签文字颜色）
+module: 标签页移动
+feature: ''
+tags:
+- L1
+vars:
+  XLSX_ID: '1652909'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 跳过 - skip-触摸操作无法自动化
+  action: wait
+  value: '300'
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

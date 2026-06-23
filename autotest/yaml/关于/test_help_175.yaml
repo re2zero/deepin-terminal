@@ -1,0 +1,60 @@
+name: 帮助
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 进入终端，菜单栏点击帮助选项
+    2. 打开终端后，按Ｆ１，查看软件显示
+    3. 浏览帮助内容，以及文案、插图显示
+    4. 弹出帮助文档后，点击右上角的x按钮，查看软件显示
+  预期结果:
+    1. 进入帮助界面
+    2. 弹出帮助信息界面
+    3. 浏览正常，文案、插图显示正确
+    4. 帮助信息显示正确
+module: 主界面右上角菜单栏
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1652965'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤2: 通过主菜单打开帮助'
+  action: main_menu_comb
+  ref: menu_help
+  wait: 2.0
+- name: '步骤3: 截图-帮助界面弹出'
+  action: noop
+- name: '步骤4: 关闭帮助窗口'
+  action: keyboard_press
+  key: Escape
+  wait: 0.3
+- name: '步骤5: 按F1键再次打开帮助'
+  action: keyboard_press
+  key: F1
+  wait: 2.0
+- name: '步骤6: 截图-F1键打开帮助'
+  action: noop
+- name: '步骤7: 浏览帮助内容-按Down键'
+  action: keyboard_press
+  key: Down
+  wait: 0.3
+- name: '步骤8: 浏览帮助内容-再次按Down键'
+  action: keyboard_press
+  key: Down
+  wait: 0.3
+- name: '步骤9: 截图-帮助内容'
+  action: noop
+- name: '步骤10: 关闭帮助窗口'
+  action: keyboard_press
+  key: Escape
+  wait: 0.3
+- name: '步骤11: 验证终端进程运行中'
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

@@ -1,0 +1,26 @@
+name: null
+app: null
+screenshot: null
+description: |
+  测试步骤:
+    1. 进入设置，Tab键跳转到字体
+    2. 按Enter键
+    3. 按“↑”、“↓“方向键
+    4. 点击Enter键
+    5. 在列表显示时按ESC键
+  （PS：测试时需要测试Shift+Tab反向切换）
+  预期结果:
+    1. 字体框有Focus效果
+    2. 显示字体列表
+    3. 切换选择字体
+    4. 执行选择字体，并且列表收起
+    5. 字体列表收起
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653575'
+setup: []
+steps: []
+teardown: []

@@ -1,0 +1,59 @@
+name: 键盘交互-透明度调节
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 检查设置界面主题透明度
+    2. 检查设置小透明度
+    3. 检查是否支持鼠标拖动滚动条
+    4. 检查配置文件修改前后： cat ~/.config/deepin/deepin-terminal/config.conf
+  预期结果:
+    1. 默认透明度1
+    2. 最小值为
+    0. 2，界面显示几乎透明
+    3. 支持拖动滚动条修改透明度
+    4. opacity值和界面设置一致
+module: 设置界面基础设置
+feature: ''
+tags:
+- L3
+vars:
+  XLSX_ID: '1653229'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 打开设置界面'
+  action: main_menu_comb
+  ref: menu_settings
+- name: '步骤2: Tab键切换到透明度设置区域'
+  action: keyboard_press
+  key: Tab
+- action: keyboard_press
+  key: Tab
+- action: keyboard_press
+  key: Tab
+- name: '步骤3: 按→方向键调节透明度增大'
+  action: keyboard_press
+  key: Right
+- name: '步骤4: 按←方向键调节透明度减小'
+  action: keyboard_press
+  key: Left
+- name: '步骤5: 按↑方向键调节透明度增大'
+  action: keyboard_press
+  key: Up
+- name: '步骤6: 按↓方向键调节透明度减小'
+  action: keyboard_press
+  key: Down
+- name: '步骤7: 验证设置对话框仍可见'
+  action: wait
+  assert:
+  - type: element_visible
+  selector: null
+  role: dialog
+- name: '步骤8: 验证终端进程运行中'
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

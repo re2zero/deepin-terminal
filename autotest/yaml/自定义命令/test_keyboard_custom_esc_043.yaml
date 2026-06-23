@@ -1,0 +1,77 @@
+name: 键盘交互自定义命令全局功能按ESC键
+app: deepin-terminal
+screenshot: false
+description: |
+  前置条件: 列表有2个以上命令
+  测试步骤:
+    1. 当焦点在搜索框、自定义命令列表、编辑按钮、添加命令按钮上时
+    2. 按ESC键
+  （PS：测试时需要测试Shift+Tab反向切换）
+  预期结果:
+    1. 选项有Focus效果
+    2. 焦点回到终端
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653541'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 打开自定义命令插件
+  action: main_menu_comb
+  ref: main_menu_button
+  assert:
+  - type: element_visible
+  selector: null
+  role: list
+  items:
+  - 自定义命令
+- name: 焦点在搜索框时按ESC键
+  action: keyboard_press
+  key: Escape
+  wait: 0.3
+- name: 验证焦点回到终端
+  action: wait
+  value: '1000'
+- name: 重新打开自定义命令插件
+  action: main_menu_comb
+  ref: main_menu_button
+  items:
+  - 自定义命令
+- name: Tab切换到自定义列表
+  action: keyboard_press
+  key: Tab
+  wait: 0.3
+- name: 焦点在自定义列表时按ESC键
+  action: keyboard_press
+  key: Escape
+  wait: 0.3
+- name: 验证焦点再次回到终端
+  action: wait
+  value: '1000'
+- name: 重新打开自定义命令插件 (2)
+  action: main_menu_comb
+  ref: main_menu_button
+  items:
+  - 自定义命令
+- name: Tab切换到添加/编辑按钮区域
+  action: keyboard_press
+  key: Tab
+  wait: 0.3
+- name: 再Tab一次
+  action: keyboard_press
+  key: Tab
+  wait: 0.3
+- name: 焦点在列表区域时按ESC键
+  action: keyboard_press
+  key: Escape
+  wait: 0.3
+- name: 验证焦点回到终端 (2)
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

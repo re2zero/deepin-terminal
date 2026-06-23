@@ -1,0 +1,37 @@
+# UNSUPPORTED: skip-触摸操作无法自动化
+name: '自定义主题背景色控件功能 - NON-AUTOMATABLE: skip-触摸操作无法自动化'
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，进入自定义主题对话框，检查背景色控件默认颜色显示
+    2. 点击背景色控件
+    3. 取色板中选择某一个颜色，点击“确定” 按钮
+    4. 点击自定义主题界面“确定” 按钮
+    5. 点击自定义主题界面“取消”按钮
+  Notes:测试时一并测试触摸屏、触控板、键盘交互
+  预期结果:
+    1. 默认“黑色” （0x252525）
+    2. 弹出取色板
+    3. 取色板页面关闭，返回到自定义主题弹出框界面；预览效果背景景色颜色显示与选择的一致
+    4. 保存自定义主题的更改设置；自定义主题弹出框关闭，自定义主题被激活
+    5. 取消本次自定义主题更改，自定义主题弹出框关闭，取消本次操作
+module: 主题/自定义主题
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1652889'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 跳过 - skip-触摸操作无法自动化
+  action: wait
+  value: '300'
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

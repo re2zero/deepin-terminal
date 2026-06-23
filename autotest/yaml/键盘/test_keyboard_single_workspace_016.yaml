@@ -1,0 +1,64 @@
+name: 键盘交互主界面只有一个工作区
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 键盘按Ctrl+Alt+T打开终端，再按Super+Tab
+    2. 按Space/Enter键
+    3. 按Super+Tab焦点跳出终端，键盘继续按Tab键
+  （PS：测试时需要测试Shift+Tab反向切换）
+  预期结果:
+    1. 跳转到+按钮
+    2. 新建一个新的工作区，焦点返回到终端
+    3. 依次到+按钮、主菜单、最小化、最大化、关闭按钮，可循切换到当前标签栏
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653595'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 按Tab键焦点切换到+按钮
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- name: 按Enter键新建工作区（焦点在+按钮上）
+  action: keyboard_press
+  key: Enter
+- action: wait
+  duration: 0.3
+- name: 按Tab键焦点切换到主菜单按钮
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- name: 按Tab键焦点切换到最小化按钮
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- name: 按Tab键焦点切换到最大化按钮
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- name: 按Tab键焦点切换到关闭按钮
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- name: 按Shift+Tab反向切换焦点到最大化按钮
+  action: keyboard_press
+  value: shift+tab
+- action: wait
+  duration: 0.3
+- name: 验证终端仍在运行
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

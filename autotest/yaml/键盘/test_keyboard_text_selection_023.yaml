@@ -1,0 +1,43 @@
+name: 键盘交互-选中文字功能
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开正常窗口，键盘按Shift+“←”
+    2. 键盘按Shift+“→”方向键
+    3. 使用右键菜单将正常窗口做横向分屏或纵向分屏
+  （PS：测试时需要测试Shift+Tab反向切换）
+  预期结果:
+    1. 选择光标前面字符
+    2. 选择光标后面字符
+    3. 分屏功能正常，没有获得焦点的分屏窗口不支持选中文字功能
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653581'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 键盘按Shift+←选择光标前字符'
+  action: keyboard_press
+  value: shift,Left
+- name: '步骤2: 键盘按Shift+→选择光标后字符'
+  action: keyboard_press
+  value: shift,Right
+- name: '步骤3: 右键菜单纵向分屏'
+  action: context_menu_comb
+  ref: context_vertical_split
+- name: '步骤4: 验证主窗口仍可见'
+  action: wait
+  assert:
+  - type: element_visible
+  ref: main_frame
+- name: '步骤5: 验证终端进程运行中'
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

@@ -1,0 +1,44 @@
+name: 删除工作区
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，新建多个工作区，鼠标点击工作区X图标
+    2. 使用快捷键alt+w
+  预期结果:
+    1. 删除工作区
+    2. 删除工作区
+module: 工作区
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653601'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 新建两个工作区
+  action: element_action
+  ref: add_tab_button
+  do: click
+- action: wait
+  duration: 0.3
+- action: element_action
+  ref: add_tab_button
+  do: click
+- action: wait
+  duration: 0.3
+- name: Alt+W删除当前工作区
+  action: keyboard_press
+  value: alt+w
+- action: wait
+  duration: 0.3
+- name: 再次Alt+W删除当前工作区
+  action: keyboard_press
+  value: alt+w
+- action: wait
+  duration: 0.3
+teardown:
+- action: session_stop

@@ -1,0 +1,23 @@
+name: "触摸 test suite"
+app: deepin-terminal
+reset_between_cases: true
+env:
+  FIXTURES_DIR: "${FIXTURES_DIR}"
+# All cases in this module are UNSUPPORTED (touch operations cannot be automated)
+# UNSUPPORTED: test_touch_main_interface_click_064
+# UNSUPPORTED: test_touch_tab_right_click_menu_065
+# UNSUPPORTED: test_touch_one_finger_scroll_066
+# UNSUPPORTED: test_touch_two_finger_zoom_067
+# UNSUPPORTED: test_touch_long_press_right_click_068
+# UNSUPPORTED: test_touch_split_screen_069
+# UNSUPPORTED: test_touch_search_070
+# UNSUPPORTED: test_touch_rename_071
+# UNSUPPORTED: test_touch_new_custom_command_072
+# UNSUPPORTED: test_touch_edit_custom_command_073
+# UNSUPPORTED: test_touch_delete_custom_command_074
+# UNSUPPORTED: test_touch_add_server_075
+# UNSUPPORTED: test_touch_edit_server_076
+# UNSUPPORTED: test_touch_delete_server_077
+# UNSUPPORTED: test_touch_upload_file_078
+# UNSUPPORTED: test_touch_download_file_079
+cases: []

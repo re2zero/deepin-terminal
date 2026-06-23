@@ -1,0 +1,103 @@
+name: 设置界面显示
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，右键/菜单栏选择设置，检查设置界面显示
+    2. 点击左边标题，检查右边内容显示
+    3. 鼠标移动到右边进行滚动
+  预期结果:
+    1. 和设计图显示一致，左边标题列表，右边显示具体参数设置（基础设置中不显示主题；终端设置界面去除关于；
+  高级设置下：光标闪烁中新增：选中文字时复制到剪贴板（默认开启）；
+  滚动设置中去除回滚行数；窗口设置中新增分屏、丢失焦点后隐藏雷神窗口（默认关闭）背景模糊（自动关闭）
+    2. 被选择的标题自动切换到最上方
+    3. 可以上下滚动查看
+module: 设置界面基础设置
+feature: ''
+tags:
+- L1
+vars:
+  XLSX_ID: '1653231'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+- name: 验证终端进程运行
+  action: wait
+  value: '1000'
+steps:
+- name: 右键打开设置
+  action: context_menu_comb
+  ref: context_settings
+  wait_for: null
+  selector: null
+  role: dialog
+  timeout: 5000
+  assert:
+  - type: element_visible
+- name: 验证基础设置导航项存在
+  action: element_action
+  ref: settings_basic
+  do: click
+  wait: 0.3
+- name: 点击界面设置
+  action: element_action
+  ref: settings_interface
+  do: click
+  wait: 0.3
+- name: 点击快捷键
+  action: element_action
+  ref: settings_shortcuts
+  do: click
+  wait: 0.3
+- name: 点击终端快捷键
+  action: element_action
+  ref: settings_terminal_shortcuts
+  do: click
+  wait: 0.3
+- name: 点击标签页快捷键
+  action: element_action
+  ref: settings_tab_shortcuts
+  do: click
+  wait: 0.3
+- name: 点击其他快捷键
+  action: element_action
+  ref: settings_other_shortcuts
+  do: click
+  wait: 0.3
+- name: 点击高级设置
+  action: element_action
+  ref: settings_advanced
+  do: click
+  wait: 0.3
+- name: 点击光标设置
+  action: element_action
+  ref: settings_cursor
+  do: click
+  wait: 0.3
+- name: 点击滚动设置
+  action: element_action
+  ref: settings_scroll
+  do: click
+  wait: 0.3
+- name: 点击窗口设置
+  action: element_action
+  ref: settings_window
+  do: click
+  wait: 0.3
+- name: 验证设置对话框仍然打开
+  action: wait
+  assert:
+  - type: element_visible
+  selector: null
+  role: dialog
+- name: 关闭设置
+  action: element_action
+  ref: settings_close_button
+  do: click
+  wait: 0.3
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

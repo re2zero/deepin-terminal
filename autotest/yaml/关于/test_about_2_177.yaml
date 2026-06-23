@@ -1,0 +1,59 @@
+name: 关于2
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，点击右上角的设置－关于，软件显示
+    2. 查看关于窗口内容是否显示正确
+    3. 打开关于窗口后点击右上角的x按钮，查看窗口显示
+    4. 打开关于窗口后按ESC键，查看窗口显示
+    5. 打开关于窗口后按Alt+F4，查看窗口显示
+  预期结果:
+    1. 软件会自动弹出关于窗口
+    2. 关于窗口内容显示正确
+    3. 关于窗口会自动关闭
+    4. 对话框会自动关闭，支持ESC退出
+    5. 关于窗口会自动关闭
+module: 主界面右上角菜单栏
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1652961'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤2: 通过主菜单打开关于'
+  action: main_menu_comb
+  ref: menu_about
+  wait: 0.3
+- name: '步骤3: 截图-关于窗口内容'
+  action: noop
+- name: '步骤4: 点击关于窗口右上角关闭按钮'
+  action: element_action
+  ref: settings_close_button
+  do: click
+  wait: 0.3
+- name: '步骤5: 通过主菜单再次打开关于'
+  action: main_menu_comb
+  ref: menu_about
+  wait: 0.3
+- name: '步骤6: 按ESC键关闭关于窗口'
+  action: keyboard_press
+  key: Escape
+  wait: 0.3
+- name: '步骤7: 通过主菜单再次打开关于'
+  action: main_menu_comb
+  ref: menu_about
+  wait: 0.3
+- name: '步骤8: 按Alt+F4关闭关于窗口'
+  action: keyboard_press
+  value: Alt,F4
+  wait: 0.3
+- name: '步骤9: 验证终端进程运行中'
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

@@ -1,0 +1,53 @@
+name: 本地编码
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，右键点击“编码”菜单
+    2. 打开终端列表
+    3. 首次进入终端检查终端默认编码
+    4. 右键菜单修改编码后，新建终端
+    5. 弹出编码选择列表点击终端
+  预期结果:
+    1. 终端右边窗口弹出编码选择列表
+    2. 当前的编码在可视区域内
+    3. 是UTF-8
+    4. 新建终端编码恢复默认UTF-8
+    5. 自动隐藏编码列表
+module: 右键菜单工作区
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653189'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 右键菜单打开编码列表'
+  action: context_menu_comb
+  ref: context_encoding
+- action: wait
+  duration: 0.3
+- name: '步骤1: 验证编码列表显示'
+  action: wait
+  value: '1000'
+- name: '步骤1: 截图-编码选择列表显示'
+  action: noop
+- name: '步骤1: 验证终端进程运行中'
+  action: wait
+  value: '1000'
+- name: '步骤2: 关闭编码列表-点击终端内容区域'
+  action: element_action
+  ref: terminal_content
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤2: 截图-编码列表隐藏'
+  action: noop
+- name: '步骤2: 验证终端进程运行中'
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

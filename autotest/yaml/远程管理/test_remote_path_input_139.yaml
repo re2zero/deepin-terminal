@@ -1,0 +1,77 @@
+name: 远程管理-路径输入
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，右键菜单选择远程管理
+    2. 按空白处
+  预期结果:
+    1. 右侧显示出远程管理添加页面
+    2. 远程管理页面隐藏
+module: 右键菜单工作区
+feature: ''
+tags:
+- L1
+vars:
+  XLSX_ID: '1653199'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 打开远程管理插件'
+  action: context_menu_comb
+  ref: context_remote_management
+- action: wait
+  duration: 0.5
+- name: '步骤2: 点击添加服务器按钮'
+  action: element_action
+  ref: add_server_button
+- action: wait
+  duration: 0.5
+- name: '步骤3: 输入服务器名称'
+  action: keyboard_type
+  value: 路径测试服务器
+- action: wait
+  duration: 0.3
+- name: '步骤4: 点击添加按钮保存'
+  action: element_action
+  ref: remote_add
+- action: wait
+  duration: 0.5
+- name: '步骤5: 点击已添加的服务器'
+  action: element_action
+  selector: null
+  role: list item
+  index: 0
+- action: wait
+  duration: 0.3
+- name: '步骤6: 按Right+Return打开编辑对话框'
+  action: keyboard_press
+  key: Right
+- action: wait
+  duration: 0.2
+- action: keyboard_press
+  key: Return
+- action: wait
+  duration: 0.5
+- name: '步骤7: 输入编辑后的服务器名称'
+  action: keyboard_type
+  value: 编辑后路径测试服务器
+- action: wait
+  duration: 0.3
+- name: '步骤8: 点击保存按钮'
+  action: element_action
+  ref: remote_save
+- action: wait
+  duration: 0.5
+- name: '步骤9: 按ESC关闭远程管理窗口'
+  action: keyboard_press
+  key: Escape
+- action: wait
+  duration: 0.3
+- name: 验证终端进程仍在运行
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

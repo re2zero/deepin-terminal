@@ -1,0 +1,42 @@
+# UNSUPPORTED: 触摸操作无法自动化
+name: '分屏窗口中Ctrl+S和Ctrl+Q流控制 - NON-AUTOMATABLE: 触摸操作无法自动化'
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，做横向分屏、纵向分屏操作
+    2. 进入设置shelll分类下，不勾选“禁用Ctrl+S和Ctrl+Q流控制”选项
+    3. 在左边工作区中使用快键“Ctrl+S”
+    4. 在右边工作区中使用快键“Ctrl+S”
+    5. 点击文案提示框的“ｘ”按钮，键盘按下“Ctrl+Q”，输入命令
+    6. 进入设置shelll分类下，勾选“禁用Ctrl+S和Ctrl+Q流控制”选项
+    7. 在下方工作区种使用快键“Ctrl+S”
+  Notes:测试时一并测试触摸屏、触控板、键盘交互
+  预期结果:
+    1. 1个标签页显示3个工作区
+    2. checkbox复选框不勾选
+    3. 左边焦点在的工作区弹出提示文案“已经按下Ctrl+S，输出被挂起。可以按下Ctrl+Q继续。”
+    4. 右边焦点在工作区弹出提示文案“已经按下Ctrl+S，输出被挂起。可以按下Ctrl+Q继续。”
+    5. 文案提示框被关闭，输入恢复，之前被禁用数据被恢复
+    6. checkbox复选框被勾选
+    7. 无反应，可以正常输入命令
+  Notes:键盘交互不用考虑焦点到X按钮，Ctrl+Q可以关闭此弹框
+module: 设置界面高级设置
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653299'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 跳过 - skip-触摸操作无法自动化
+  action: wait
+  value: '300'
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

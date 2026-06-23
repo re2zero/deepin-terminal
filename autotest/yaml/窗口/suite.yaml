@@ -1,0 +1,39 @@
+name: "窗口 test suite"
+app: deepin-terminal
+reset_between_cases: true
+env:
+  FIXTURES_DIR: "${FIXTURES_DIR}"
+cases:
+  - name: "关闭窗口"
+    path: 窗口/test_close_window_181.yaml
+  - name: "全屏窗口"
+    path: 窗口/test_fullscreen_window_168.yaml
+  - name: "丢失焦点隐藏雷神窗口复选框"
+    path: 窗口/test_hide_quake_focus_loss_084.yaml
+  - name: "最大化还原"
+    path: 窗口/test_maximize_restore_179.yaml
+  - name: "最小化窗口"
+    path: 窗口/test_minimize_window_180.yaml
+  # UNSUPPORTED: test_multi_window_ctrl_s_q_flow_control_090
+  # - name: "test_multi_window_ctrl_s_q_flow_control_090"
+  #   path: 窗口/test_multi_window_ctrl_s_q_flow_control_090.yaml
+  - name: "正常窗口"
+    path: 窗口/test_normal_window_167.yaml
+  # UNSUPPORTED: test_normal_window_ctrl_s_q_flow_control_088
+  # - name: "test_normal_window_ctrl_s_q_flow_control_088"
+  #   path: 窗口/test_normal_window_ctrl_s_q_flow_control_088.yaml
+  # UNSUPPORTED: test_quake_animation_189
+  # - name: "test_quake_animation_189"
+  #   path: 窗口/test_quake_animation_189.yaml
+  - name: "[005]雷神窗口显示"
+    path: 窗口/test_quake_window_display_169.yaml
+  - name: "雷神窗口切换"
+    path: 窗口/test_quake_window_toggle_170.yaml
+  - name: "窗口删除"
+    path: 窗口/test_window_delete_014.yaml
+  - name: "windowmod"
+    path: 窗口/test_window_mode_171.yaml
+  - name: "窗口选择"
+    path: 窗口/test_window_selection_152.yaml
+  - name: "窗口标题显示"
+    path: 窗口/test_window_title_display_154.yaml

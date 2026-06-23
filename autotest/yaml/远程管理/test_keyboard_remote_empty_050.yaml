@@ -1,0 +1,58 @@
+name: 键盘交互远程管理列表为空
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，Tab键切换到主菜单，按Enter键
+    2. “↑”、“↓”方向键/Tab键切换远程管理
+    3. 按Enter键
+  （PS：测试时需要测试Shift+Tab反向切换）
+  预期结果:
+    1. 显示主菜单列表
+    2. 远程管理插件打开
+    3. 焦点切换到添加服务器按钮
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653527'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 打开主菜单
+  action: main_menu_comb
+  ref: main_menu_button
+  assert:
+  - type: element_visible
+  selector: null
+  role: list
+  items:
+  - 远程管理
+- name: 验证远程管理插件打开
+  action: wait
+  assert:
+  - type: element_visible
+  selector: null
+  role: text
+- name: 验证焦点已切换到添加服务器按钮
+  action: wait
+  assert:
+  - type: element_visible
+  selector: null
+  role: button
+- name: 按Tab键切换焦点
+  action: keyboard_press
+  key: Tab
+  wait: 0.3
+- name: 按ESC返回终端
+  action: keyboard_press
+  key: Escape
+  wait: 0.3
+- name: 验证终端进程仍在运行
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

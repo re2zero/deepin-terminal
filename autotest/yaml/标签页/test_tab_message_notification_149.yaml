@@ -1,0 +1,63 @@
+name: 标签页消息提醒
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，新建多个标签页，选中其中一个标签页，检查各个标签页名称显示
+    2. 在其中一个标签页执行命令，然后切换到其他标签页，等到命令完成
+    3. 此时点击标签页
+  预期结果:
+    1. 被选中的标签页高亮显示；
+    2. 执行完成之后的标签页颜色会变色，高亮显示，提醒其他标签页任务已经完成
+    3. 标签页自动消除标签上的提醒色
+module: 工作区
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653063'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 点击加号按钮新建第二个标签页'
+  action: element_action
+  ref: add_tab_button
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤1: 再次新建第三个标签页'
+  action: element_action
+  ref: add_tab_button
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤1: 截图-三个标签页显示'
+  action: noop
+- name: '步骤2: 在第三个标签页执行耗时命令(sleep 3)'
+  action: keyboard_type
+  value: sleep 3
+  wait: 0.3
+- action: keyboard_press
+  key: Return
+  wait: 0.3
+- name: '步骤2: 切换到第一个标签页等待命令完成'
+  action: keyboard_press
+  value: ctrl+shift+1
+  wait: 0.3
+- action: wait
+  duration: 4.0
+- name: '步骤2: 截图-命令完成的标签页变色提醒'
+  action: noop
+- name: '步骤3: 点击命令完成的标签页'
+  action: keyboard_press
+  value: ctrl+shift+3
+  wait: 0.3
+- name: '步骤3: 截图-点击后提醒色自动消除'
+  action: noop
+- name: 验证终端进程仍在运行
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

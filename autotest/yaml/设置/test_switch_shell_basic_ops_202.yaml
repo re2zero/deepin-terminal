@@ -1,0 +1,31 @@
+# UNSUPPORTED: skip-触摸操作无法自动化
+name: '切换shell后终端基本功能操作 - NON-AUTOMATABLE: skip-触摸操作无法自动化'
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，进入设置高级设置默认shell下，切换默认shell程序，如：rbash
+    2. 在终端中做新建标签页；新建窗口；修改编码；连接远程管理；执行自定义命令；远程管理和自定义命令进行增加、编辑、删除操作等
+  Notes:测试时一并测试触摸屏、触控板、键盘交互；dash，sh，bash需要覆盖到
+  预期结果:
+    1. 当前默认程序为rbash
+    2. 操作的功能正常，无异常
+module: 设置/高级设置/shell
+feature: ''
+tags:
+- L1
+vars:
+  XLSX_ID: '1652807'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 跳过 - skip-触摸操作无法自动化
+  action: wait
+  value: '300'
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

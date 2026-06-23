@@ -1,0 +1,33 @@
+# UNSUPPORTED: skip-触摸操作无法自动化
+name: '自定义主题主题风格 - NON-AUTOMATABLE: skip-触摸操作无法自动化'
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，进入自定义主题弹框界面
+    2. 点击浅色单选按钮
+    3. 再次点击深色单选按钮
+  Notes:测试时一并测试触摸屏、触控板、键盘交互
+  预期结果:
+    1. 默认主题风格是深色；预览效果窗口标题栏显示深色
+    2. 浅色按钮被选中；预览效果窗口标题栏显示浅色
+    3. 深色按钮被选中；预览效果窗口标题栏显示深色
+module: 主题/自定义主题
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1652893'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 跳过 - skip-触摸操作无法自动化
+  action: wait
+  value: '300'
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

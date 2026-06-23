@@ -1,0 +1,89 @@
+name: 键盘交互编辑自定义命令
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 进入编辑命令界面
+    2. 依次 按Tab键
+    3. 在“删除命令”、“取消”和“保存”按钮按下Enter键
+    4. 按ESC键
+  （PS：测试时需要测试Shift+Tab反向切换）
+  预期结果:
+    1. 默认自定义名称全选
+    2. 一次切换名称、命令、快捷键、删除命令、取消、保存，右上角X键，各选项有Focus效果
+    3. 执行相应选项操作
+    4. 退出弹框，焦点返回在当前编辑的自定义命令的编辑按钮上
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653535'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 打开自定义命令插件
+  action: main_menu_comb
+  ref: main_menu_button
+  assert:
+  - type: element_visible
+  selector: null
+  role: list
+  items:
+  - 自定义命令
+- name: Tab切换到自定义命令列表
+  action: keyboard_press
+  key: Tab
+  wait: 0.3
+- name: 按右方向键聚焦编辑按钮
+  action: keyboard_press
+  key: Right
+  wait: 0.3
+- name: 按Enter打开编辑对话框
+  action: keyboard_press
+  key: Return
+  wait: 0.3
+- name: 验证编辑对话框打开（名称输入框可见）
+  action: wait
+  assert:
+  - type: element_visible
+  selector: null
+  role: text
+- name: 按Tab键切换到命令输入框
+  action: keyboard_press
+  key: Tab
+  wait: 0.3
+- name: 再Tab切换到快捷键输入框
+  action: keyboard_press
+  key: Tab
+  wait: 0.3
+- name: 再Tab切换到删除命令按钮
+  action: keyboard_press
+  key: Tab
+  wait: 0.3
+- name: 再Tab切换到取消按钮
+  action: keyboard_press
+  key: Tab
+  wait: 0.3
+- name: 再Tab切换到保存按钮
+  action: keyboard_press
+  key: Tab
+  wait: 0.3
+- name: 按Shift+Tab反向切换
+  action: keyboard_press
+  value: Shift,Tab
+  wait: 0.3
+- name: 按ESC退出编辑对话框
+  action: keyboard_press
+  key: Escape
+  wait: 0.3
+- name: 验证返回自定义命令列表
+  action: wait
+  assert:
+  - type: element_visible
+  selector: null
+  role: list
+teardown:
+- action: session_stop

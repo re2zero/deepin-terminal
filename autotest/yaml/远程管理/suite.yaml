@@ -1,0 +1,86 @@
+name: "远程管理 test suite"
+app: deepin-terminal
+reset_between_cases: true
+env:
+  FIXTURES_DIR: "${FIXTURES_DIR}"
+cases:
+  - name: "[014]添加按钮"
+    path: 远程管理/test_add_button_134.yaml
+  - name: "连接服务器后操作"
+    path: 远程管理/test_after_connect_operations_129.yaml
+  - name: "退格键"
+    path: 远程管理/test_backspace_key_136.yaml
+  - name: "正确连接"
+    path: 远程管理/test_correct_connection_128.yaml
+  - name: "删除键"
+    path: 远程管理/test_delete_key_135.yaml
+  - name: "删除服务器"
+    path: 远程管理/test_delete_server_124.yaml
+  - name: "编辑服务器"
+    path: 远程管理/test_edit_server_125.yaml
+  # UNSUPPORTED: test_insert_remote_tab_title_format_119
+  # - name: "test_insert_remote_tab_title_format_119"
+  #   path: 远程管理/test_insert_remote_tab_title_format_119.yaml
+  # UNSUPPORTED: test_insert_remote_tab_title_types_145
+  # - name: "test_insert_remote_tab_title_types_145"
+  #   path: 远程管理/test_insert_remote_tab_title_types_145.yaml
+  - name: "键盘交互-添加服务器"
+    path: 远程管理/test_keyboard_remote_add_server_057.yaml
+  - name: "键盘交互-删除服务器"
+    path: 远程管理/test_keyboard_remote_delete_server_059.yaml
+  - name: "键盘交互-编辑远程服务器"
+    path: 远程管理/test_keyboard_remote_edit_server_058.yaml
+  - name: "键盘交互远程管理列表为空"
+    path: 远程管理/test_keyboard_remote_empty_050.yaml
+  - name: "键盘交互-编码退格删除"
+    path: 远程管理/test_keyboard_remote_encoding_backspace_060.yaml
+  - name: "键盘交互-远程管理全局ESC"
+    path: 远程管理/test_keyboard_remote_esc_056.yaml
+  - name: "键盘交互远程管理列表有一个服务器（分组或未分组）"
+    path: 远程管理/test_keyboard_remote_one_server_051.yaml
+  - name: "键盘交互-右键菜单远程管理"
+    path: 远程管理/test_keyboard_remote_right_click_menu_061.yaml
+  - name: "键盘交互-远程搜索为空"
+    path: 远程管理/test_keyboard_remote_search_empty_054.yaml
+  - name: "键盘交互-远程搜索有结果"
+    path: 远程管理/test_keyboard_remote_search_results_055.yaml
+  - name: "键盘交互-远程服务器列表(组)"
+    path: 远程管理/test_keyboard_remote_server_focus_group_053.yaml
+  - name: "键盘交互-远程服务器列表(非组)"
+    path: 远程管理/test_keyboard_remote_server_focus_not_group_052.yaml
+  - name: "未填写密码"
+    path: 远程管理/test_no_password_127.yaml
+  - name: "远程管理-地址和端口"
+    path: 远程管理/test_remote_address_port_142.yaml
+  - name: "远程管理-命令输入"
+    path: 远程管理/test_remote_command_input_138.yaml
+  - name: "远程管理-编码"
+    path: 远程管理/test_remote_encoding_137.yaml
+  - name: "远程管理-分组输入"
+    path: 远程管理/test_remote_group_input_140.yaml
+  - name: "远程管理"
+    path: 远程管理/test_remote_management_108.yaml
+  - name: "远程管理-不显示expect命令"
+    path: 远程管理/test_remote_no_expect_command_147.yaml
+  - name: "远程管理面板自动隐藏"
+    path: 远程管理/test_remote_panel_auto_hide_131.yaml
+  - name: "远程管理-路径输入"
+    path: 远程管理/test_remote_path_input_139.yaml
+  - name: "远程管理-服务器名称"
+    path: 远程管理/test_remote_server_name_143.yaml
+  - name: "服务器窗口"
+    path: 远程管理/test_remote_server_window_121.yaml
+  - name: "远程管理-终端标签名称"
+    path: 远程管理/test_remote_terminal_tab_name_144.yaml
+  - name: "远程管理-用户名密码"
+    path: 远程管理/test_remote_username_password_141.yaml
+  - name: "必填项"
+    path: 远程管理/test_required_fields_133.yaml
+  - name: "服务器分组"
+    path: 远程管理/test_server_grouping_123.yaml
+  - name: "上传文件"
+    path: 远程管理/test_upload_file_132.yaml
+  - name: "错误连接"
+    path: 远程管理/test_wrong_connection_130.yaml
+  - name: "错误密码"
+    path: 远程管理/test_wrong_password_126.yaml

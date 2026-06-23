@@ -1,0 +1,23 @@
+name: null
+app: null
+screenshot: null
+description: |
+  测试步骤:
+    1. 打开默认窗口大小，点击最小化
+    2. 再次点击图标
+    3. 最大化窗口时点击最小化
+    4. 点击图标
+  预期结果:
+    1. 窗口被隐藏
+    2. 窗口正常显示
+    3. 窗口被隐藏
+    4. 窗口最大化显示
+module: 主界面右上角菜单栏
+feature: ''
+tags:
+- L1
+vars:
+  XLSX_ID: '1652955'
+setup: []
+steps: []
+teardown: []

@@ -1,0 +1,37 @@
+name: '[008]隐藏'
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 开启自定义命令模块后，鼠标点一下终端
+  预期结果:
+    1. 自定义命令模块自动隐藏
+module: 自定义命令
+feature: ''
+tags:
+- L1
+vars:
+  XLSX_ID: '1653001'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 通过主菜单开启自定义命令模块'
+  action: main_menu_comb
+  ref: menu_custom_commands
+  wait: 0.3
+- name: '步骤1: 验证自定义命令模块已开启'
+  action: wait
+  value: '1000'
+- name: '步骤1: 鼠标点击终端内容区域'
+  action: element_action
+  ref: terminal_content
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤1: 验证自定义命令模块自动隐藏（终端仍在运行）'
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

@@ -1,0 +1,72 @@
+name: 键盘交互焦点在标签栏
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 按Super+Tab键焦点在标签栏+按钮，主菜单、最小化、最大化、关闭按钮
+    2. 按Tab键
+    3. 按ESC键
+    4. 按Enter键
+  （PS：测试时需要测试Shift+Tab反向切换）
+  预期结果:
+    1. 焦点在标签栏+按钮，选项有Foucs效果
+    2. 焦点依次切换到主菜单、最小化、最大化、关闭按钮，选项有Foucs效果
+    3. 焦点回到终端
+    4. 执行各菜单功能
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653587'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 新建一个工作区以便标签栏有多个标签
+  action: element_action
+  ref: add_tab_button
+  do: click
+- action: wait
+  duration: 0.3
+- name: 按Tab键焦点跳转到+按钮（标签栏）
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- name: 按Tab键焦点跳转到主菜单
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- name: 按Tab键焦点跳转到最小化按钮
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- name: 按Tab键焦点跳转到最大化按钮
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- name: 按Tab键焦点跳转到关闭按钮
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- name: 按Shift+Tab反向切换焦点
+  action: keyboard_press
+  value: shift+tab
+- action: wait
+  duration: 0.3
+- name: 按ESC键焦点回到终端
+  action: keyboard_press
+  key: Escape
+- action: wait
+  duration: 0.3
+- name: 验证终端仍在运行
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

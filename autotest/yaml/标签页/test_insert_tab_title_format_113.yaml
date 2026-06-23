@@ -1,0 +1,32 @@
+# UNSUPPORTED: 触摸操作无法自动化
+name: '插入不同类型标签标题格式 - NON-AUTOMATABLE: 触摸操作无法自动化'
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，进入设置基础设置下标签标题格式
+    2. 点击插入按钮，选择插入格式，程序名 %n
+  、当前目录（短）%d、当前目录（长）%D、会话编号 %#、用户名 %u、本地主机 %h、shell设定的窗口标题 %w
+  Notes:测试时一并测试触摸屏、触控板、键盘交互
+  预期结果:
+    1. 默认格式%w
+    2. 编辑框中显示选择插入选项，并且标签标题格式显示与选择的一致
+module: 右键菜单工作区
+feature: ''
+tags:
+- L1
+vars:
+  XLSX_ID: '1653185'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 跳过 - skip-触摸操作无法自动化
+  action: wait
+  value: '300'
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

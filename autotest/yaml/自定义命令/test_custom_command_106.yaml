@@ -1,0 +1,53 @@
+name: 自定义命令
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，键盘按Tab键切换到自定义插件
+    2. 再次按Tab键
+  （PS：测试时需要测试Shift+Tab反向切换）
+  预期结果:
+    1. 当前自定义命令有Focus效果
+    2. 切换到添加自定义命令按钮
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653545'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 打开主菜单-自定义命令'
+  action: main_menu_comb
+  ref: menu_custom_commands
+- action: wait
+  duration: 0.3
+- name: '步骤1: 截图-自定义命令面板显示'
+  action: noop
+- name: '步骤1: 验证终端进程运行中'
+  action: wait
+  value: '1000'
+- name: '步骤2: 点击添加自定义命令按钮'
+  action: element_action
+  ref: add_custom_command_button
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤2: 截图-添加自定义命令界面'
+  action: noop
+- name: '步骤3: 点击终端内容区域使面板隐藏'
+  action: element_action
+  ref: terminal_content
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤3: 截图-点击终端后面板隐藏'
+  action: noop
+- name: '步骤3: 验证终端进程运行中'
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

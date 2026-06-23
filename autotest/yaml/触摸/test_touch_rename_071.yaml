@@ -1,0 +1,34 @@
+# UNSUPPORTED: 触摸操作无法自动化
+name: '触摸屏重命名功能 - NON-AUTOMATABLE: 触摸操作无法自动化'
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，长按右键
+    2. 点击右键菜单重命名选项
+    3. 点击右上角x键，取消按钮
+    4. 点击确定按钮
+  预期结果:
+    1. 弹出右键菜单
+    2. 调出重命名弹框，名称输入框默认被全选
+    3. 退出重命名弹框，标签名称未被修改
+    4. 退出重命名弹框，标签名称被修改
+module: 触摸屏
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653471'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 跳过 - skip-触摸操作无法自动化
+  action: wait
+  value: '300'
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

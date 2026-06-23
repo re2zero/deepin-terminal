@@ -1,0 +1,72 @@
+name: 窗口删除
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，新建分屏窗口
+    2. 右键菜单选择关闭窗口或关闭其它窗口
+    3. 仍然有程序运行时做关闭窗口
+    4. 点击取消
+    5. 点击确定
+  预期结果:
+    1. 分屏正常
+    2. 工作区关闭
+    3. 弹出退出保护弹框
+    4. 终端窗口不变
+    5. 终端窗口强制退出
+module: 工作区
+feature: ''
+tags:
+- L3
+vars:
+  XLSX_ID: '1653599'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 右键菜单新建纵向分屏窗口
+  action: context_menu_comb
+  ref: context_vertical_split
+- action: wait
+  duration: 0.3
+- name: 右键菜单关闭窗口（关闭分屏）
+  action: context_menu_comb
+  ref: context_close_workspace
+- action: wait
+  duration: 0.3
+- name: 验证终端仍在运行
+  action: wait
+  value: '1000'
+- name: 右键菜单关闭窗口（触发退出保护弹框）
+  action: context_menu_comb
+  ref: context_close_workspace
+- action: wait
+  duration: 0.3
+- name: 点击取消按钮
+  action: element_action
+  ref: exit_cancel
+  do: click
+- action: wait
+  duration: 0.3
+- name: 验证终端窗口不变（进程仍在运行）
+  action: wait
+  value: '1000'
+- name: 右键菜单再次关闭窗口
+  action: context_menu_comb
+  ref: context_close_workspace
+- action: wait
+  duration: 0.3
+- name: 点击确定按钮强制退出
+  action: element_action
+  ref: exit_confirm
+  do: click
+- action: wait
+  duration: 0.3
+- name: 验证终端已退出
+  action: wait
+  assert:
+  - type: process_not_running
+  app: terminal
+teardown:
+- action: session_stop

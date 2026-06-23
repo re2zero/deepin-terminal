@@ -1,0 +1,56 @@
+name: 关闭标签页
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开设置界面，检查关闭标签页的默认快捷键显示
+    2. 使用默认快捷键
+    3. 修改快捷键为其他；如 ctrl+W检查新的快捷键是否生效
+    4. 使用旧的快捷键
+    5. 检查配置文件cat ~/.config/deepin/deepin-terminal/config.conf
+  预期结果:
+    1. 默认显示：alt+w
+    2. 标签页被关闭
+    3. 新修改的快捷键使用正常
+    4. 旧的快捷键不生效
+    5. close_tab值和设置界面显示一致
+module: 设置界面快捷键
+feature: ''
+tags:
+- L3
+vars:
+  XLSX_ID: '1653265'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 新建多个工作区'
+  action: element_action
+  ref: add_tab_button
+  do: click
+- action: wait
+  duration: 0.3
+- action: element_action
+  ref: add_tab_button
+  do: click
+- action: wait
+  duration: 0.3
+- action: element_action
+  ref: add_tab_button
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤2: 右键标签页打开菜单，选择关闭标签页'
+  action: element_action
+  ref: tab_list
+  do: right_click
+- action: wait
+  duration: 0.3
+- name: 按Return键选择关闭标签页（第一项）
+  action: keyboard_press
+  key: Return
+- action: wait
+  duration: 0.3
+teardown:
+- action: session_stop

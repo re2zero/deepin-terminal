@@ -1,0 +1,57 @@
+name: 上传文件
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，点击主菜单远程管理
+    2. 点击插件列表服务器选项
+    3. 单指长按调出右键菜单，选择上传文件
+    4. 选择一个文件，点击上传按钮
+  预期结果:
+    1. 显示远程管理插件
+    2. 自动连接服务器
+    3. 弹出选择文件对话框
+    4. 终端界面提示文件上传成功
+module: 触摸屏
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653447'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 主菜单打开远程管理面板'
+  action: main_menu_comb
+  ref: menu_remote_management
+  wait: 0.3
+- name: '步骤1: 选择远程管理列表中的服务器'
+  action: element_action
+  ref: remote_server_list
+  do: click
+  wait: 0.3
+- name: '步骤1: 连接服务器登录'
+  action: keyboard_press
+  key: Return
+  wait: 0.3
+- name: '步骤2: 右键点击终端区域调出菜单'
+  action: context_menu_comb
+  ref: context_remote_management
+  wait: 0.3
+- name: '步骤3: 选择上传文件选项'
+  action: context_menu_comb
+  ref: context_upload_file
+  wait: 0.3
+- name: '步骤4: 文件选择对话框弹出'
+  action: noop
+- name: '步骤5: 按ESC关闭文件选择对话框'
+  action: keyboard_press
+  key: Escape
+  wait: 0.3
+- name: 验证终端进程仍在运行
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

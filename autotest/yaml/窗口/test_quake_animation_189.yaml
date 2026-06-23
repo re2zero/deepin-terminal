@@ -1,0 +1,55 @@
+# UNSUPPORTED: skip-触摸操作无法自动化
+name: '雷神窗口动画效果 - NON-AUTOMATABLE: skip-触摸操作无法自动化'
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 键盘按Alt+F2/Dock栏打开雷神窗口（默认高度）
+    2. 输入任意命令，如ss，拖动雷神窗口到最大，键盘按Alt+F2/Dock栏隐藏雷神窗口
+    3. 再次键盘按Alt+F2/Dock栏打开雷神窗口
+    4. 拖动雷神窗口到最小，键盘按Alt+F2/Dock栏隐藏雷神窗口
+    5. 切换Dock栏位置为上/下/左/右
+    6. 关闭窗口特效操作以上1~4步骤
+    7. 雷神窗口中做分屏，拖动分屏分割线
+  Notes:测试时一并测试触摸屏、触控板、键盘交互
+  预期结果:
+    1. 展开显示动画效果，时间在
+    0. 3~
+    0. 5s之间
+    2. 收起显示动画效果，动画效果与展开相反，时间在
+    0. 3~
+    0. 5s之间
+    3. 展开显示动画效果，时间在
+    0. 3~
+    0. 5s之间
+    4. 收起显示动画效果，动画效果与展开相反，时间在
+    0. 3~
+    0. 5s之间
+    5. 展开收起动画显示正确，时间在
+    0. 3~
+    0. 5s之间
+    6. 展开收起动画显示正确，时间在
+    0. 3~
+    0. 5s之间
+    7. 不存在动画效果
+  Notes:操作手速过快，在动画时，导致雷神窗口可以拉伸问题，目前不考虑；
+  动画时，雷神窗口可以输入信息，不影响使用，目前不考虑；
+module: 雷神窗口动画效果
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1652899'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 跳过 - skip-触摸操作无法自动化
+  action: wait
+  value: '300'
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

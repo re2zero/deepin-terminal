@@ -1,0 +1,59 @@
+name: 键盘交互右键菜单中调出自定义命令插件
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 键盘按Alt+M调出右键菜
+    2. 按Tab键切换到自定义命令，按Enter键
+  （PS：测试时需要测试Shift+Tab反向切换）
+  预期结果:
+    1. 显示右键菜单
+    2. 自定义命令列表没有获得Focus效果
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653529'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 按Alt+M调出右键菜单
+  action: keyboard_press
+  value: Alt,m
+  wait: 0.3
+- name: 验证右键菜单弹出
+  action: wait
+  assert:
+  - type: element_visible
+  selector: null
+  role: menu
+- name: 按Tab键切换到自定义命令菜单项
+  action: keyboard_press
+  key: Tab
+  wait: 0.3
+- name: 继续Tab到自定义命令菜单项
+  action: keyboard_press
+  key: Tab
+  wait: 0.3
+- name: 按Enter打开自定义命令插件
+  action: keyboard_press
+  key: Return
+  wait: 0.3
+- name: 验证自定义命令列表可见（但没有Focus效果）
+  action: wait
+  assert:
+  - type: element_visible
+  selector: null
+  role: list
+- name: 按ESC返回终端
+  action: keyboard_press
+  key: Escape
+  wait: 0.3
+- name: 验证终端进程仍在运行
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

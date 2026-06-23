@@ -1,0 +1,19 @@
+name: "分屏 test suite"
+app: deepin-terminal
+reset_between_cases: true
+env:
+  FIXTURES_DIR: "${FIXTURES_DIR}"
+cases:
+  - name: "横向分屏"
+    path: 分屏/test_horizontal_split_111.yaml
+  - name: "[012]窗口横向分屏"
+    path: 分屏/test_horizontal_split_150.yaml
+  # UNSUPPORTED: test_split_ctrl_s_q_flow_control_089
+  # - name: "test_split_ctrl_s_q_flow_control_089"
+  #   path: 分屏/test_split_ctrl_s_q_flow_control_089.yaml
+  - name: "纵向分屏"
+    path: 分屏/test_vertical_split_110.yaml
+  - name: "[013]窗口纵向分屏"
+    path: 分屏/test_vertical_split_151.yaml
+  - name: "纵向分屏快捷键"
+    path: 分屏/test_vertical_split_shortcut_096.yaml

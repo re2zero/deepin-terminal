@@ -1,0 +1,32 @@
+# UNSUPPORTED: 触摸操作无法自动化
+name: '触摸屏标签页右键菜单 - NON-AUTOMATABLE: 触摸操作无法自动化'
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，点击标签页x按钮
+    2. 点击关闭标签页选项
+    3. 点击关闭其它标签页选项
+  预期结果:
+    1. 关闭标签页
+    2. 关闭当前标签页
+    3. 其它标签页被关闭
+module: 触摸屏
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653489'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 跳过 - skip-触摸操作无法自动化
+  action: wait
+  value: '300'
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

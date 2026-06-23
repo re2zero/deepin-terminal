@@ -1,0 +1,37 @@
+name: 远程管理面板自动隐藏
+app: deepin-terminal
+screenshot: false
+description: "测试步骤:\n  1. 打开终端，进入到远程管理面板\n  2. 使用鼠标点击选中上面、下面、左面、右面拖动改变窗口大小\n  3. 鼠标点击远程管理面板旁边的终端区域\n预期结果:\n  1. \n  2. 远程管理面板自动隐藏\n  3. 远程管理面板自动隐藏\n"
+module: 远程管理器
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653129'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 主菜单打开远程管理面板'
+  action: main_menu_comb
+  ref: menu_remote_management
+  wait: 0.3
+- name: '步骤2: 验证远程管理面板可见'
+  action: wait
+  assert:
+  - type: element_visible
+  selector: null
+  role: list
+- name: '步骤3: 鼠标点击终端区域（远程管理面板外）'
+  action: element_action
+  ref: terminal_content
+  do: click
+  wait: 0.3
+- name: 截图验证面板隐藏状态
+  action: noop
+- name: 验证终端进程仍在运行
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

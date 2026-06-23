@@ -1,0 +1,57 @@
+name: 隐藏显示快捷键
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开设置界面，检查是否存在“显示快捷键”功能
+  预期结果:
+    1. 不显示“显示快捷键”功能
+module: 设置界面快捷键
+feature: ''
+tags:
+- L3
+vars:
+  XLSX_ID: '1653241'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 打开设置界面'
+  action: main_menu_comb
+  ref: menu_settings
+- name: '步骤2: 点击快捷键导航'
+  action: element_action
+  ref: settings_shortcuts
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤3: 点击终端子类别检查无显示快捷键'
+  action: element_action
+  ref: settings_terminal_shortcuts
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤4: 点击标签页子类别检查无显示快捷键'
+  action: element_action
+  ref: settings_tab_shortcuts
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤5: 点击其他子类别检查无显示快捷键'
+  action: element_action
+  ref: settings_other_shortcuts
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤6: 验证设置对话框可见'
+  action: wait
+  assert:
+  - type: element_visible
+  selector: null
+  role: dialog
+- name: '步骤7: 验证终端进程运行中'
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

@@ -1,0 +1,61 @@
+name: '[009]终端快捷键'
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，键盘按Ctrl+Shift+？
+    2. 正常窗口模式下，键盘按Ctrl+Shift+？
+    3. 雷神窗口模式下，键盘按Ctrl+Shift+？
+  预期结果:
+    1. 显示快捷键，松开键盘快捷窗口不消失；快捷键文案显示与需求一致
+    2. 快捷键显示在窗口中间
+    3. 快捷键显示在屏幕中间
+module: 快捷键
+feature: ''
+tags:
+- L1
+vars:
+  XLSX_ID: '1653041'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 正常窗口按Ctrl+Shift+?显示快捷键面板'
+  action: keyboard_press
+  value: ctrl+shift+?
+- action: wait
+  duration: 0.3
+- name: '步骤1: 截图-快捷键面板显示在窗口中间'
+  action: noop
+- name: '步骤1: 按Escape关闭快捷键面板'
+  action: keyboard_press
+  key: Escape
+- action: wait
+  duration: 0.3
+- name: '步骤3: 按Ctrl+Shift+?再次打开快捷键面板'
+  action: keyboard_press
+  value: ctrl+shift+?
+- action: wait
+  duration: 0.3
+- name: '步骤3: 截图-快捷键面板再次显示'
+  action: noop
+- name: '步骤3: 按Escape关闭快捷键面板'
+  action: keyboard_press
+  key: Escape
+- action: wait
+  duration: 0.3
+- name: '步骤3: 按Ctrl+Shift+?打开然后不松开快捷键'
+  action: keyboard_press
+  value: ctrl+shift+?
+- action: wait
+  duration: 0.3
+- name: '步骤3: 松开后截图-面板不消失'
+  action: noop
+- name: 按Escape关闭并验证终端运行中
+  action: keyboard_press
+  key: Escape
+- action: wait
+  duration: 0.3
+teardown:
+- action: session_stop

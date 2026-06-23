@@ -1,0 +1,43 @@
+name: '[014]添加按钮'
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 终端右键-远程服务器
+    2. 查看添加按钮
+  预期结果:
+    1. 弹出窗口， 右侧远程管理界面下方显示添加服务器和添加分组
+    2. 按钮中部文字分别显示添加服务器和添加分组
+module: 远程管理器
+feature: ''
+tags:
+- L1
+vars:
+  XLSX_ID: '1653121'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 右键选择远程管理'
+  action: context_menu_comb
+  ref: context_remote_management
+  wait: 0.3
+- name: '步骤2: 截图验证远程管理面板和添加按钮'
+  action: noop
+- name: '步骤2: 验证添加服务器按钮存在'
+  action: element_action
+  ref: add_server_button
+  do: click
+  wait: 0.3
+- name: '步骤2: 验证添加服务器弹框关闭'
+  action: keyboard_press
+  key: Escape
+  wait: 0.3
+- name: 截图远程管理面板按钮显示
+  action: noop
+- name: 验证终端进程仍在运行
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

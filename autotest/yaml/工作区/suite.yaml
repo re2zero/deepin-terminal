@@ -1,0 +1,14 @@
+name: "工作区 test suite"
+app: deepin-terminal
+reset_between_cases: true
+env:
+  FIXTURES_DIR: "${FIXTURES_DIR}"
+cases:
+  - name: "删除工作区"
+    path: 工作区/test_delete_workspace_013.yaml
+  - name: "删除工作区"
+    path: 工作区/test_delete_workspace_183.yaml
+  - name: "工作区-新建工作区"
+    path: 工作区/test_new_workspace_148.yaml
+  - name: "切换工作区"
+    path: 工作区/test_switch_workspace_012.yaml

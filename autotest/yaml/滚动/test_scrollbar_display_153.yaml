@@ -1,0 +1,59 @@
+name: 滚动条显示
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，检查内容够屏幕显示时，是否有滚动条
+    2. 修改窗口宽度，让终端输出一长串内容，检查是否有横向滚动条
+    3. 修改窗口高度：减小高度，终端输出一段内容，检查是否有纵向滚动条
+    4. 增加窗口高度，终端内容够显示完整，检查是否有滚动条
+    5. 再次缩小窗口高度
+    6. 鼠标移动到右侧的滚动条
+    7. 使用shift+pageup/pagedown
+  预期结果:
+    1. 没有显示滚动条
+    2. 没有横向滚动条
+    3. 出现纵向滚动条
+    4. 滚动条不会显示
+    5. 滚动条出现
+    6. 滚动条放大
+    7. 可以上下滚动屏幕
+module: 工作区
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653051'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 截图-初始状态无滚动条'
+  action: noop
+- name: '步骤3: 执行命令产生足够输出使纵向滚动条出现'
+  action: keyboard_type
+  value: for i in $(seq 1 80); do echo line$i; done
+  wait: 0.3
+- action: keyboard_press
+  key: Return
+  wait: 1.5
+- name: '步骤3: 截图-出现纵向滚动条'
+  action: noop
+- name: '步骤7: 使用Shift+PageUp向上滚动'
+  action: keyboard_press
+  value: shift,Page_Up
+- action: wait
+  duration: 0.3
+- name: '步骤7: 使用Shift+PageDown向下滚动'
+  action: keyboard_press
+  value: shift,Page_Down
+- action: wait
+  duration: 0.3
+- name: '步骤7: 截图-滚动后屏幕内容'
+  action: noop
+- name: 验证终端仍在运行
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

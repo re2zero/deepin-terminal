@@ -1,0 +1,41 @@
+name: 日志收集工具查看终端应用日志
+app: deepin-terminal
+screenshot: false
+description: |
+  前置条件: 1、配置文件：/usr/share/deepin-log-viewer/deepin-log.conf.d/deepin-terminal.json，默认状态，未被修改过
+  测试步骤:
+    1. 点击【日志收集工具】左侧导航栏【应用日志】
+    2. 点击【应用列表】，依次选择、“终端“
+    3. 进行【级别】切换
+  预期结果:
+    1. 进入【应用日志】界面
+    2. 选择成功
+    3. 存在对应级别的日志信息
+module: 终端
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1652791'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 启动日志收集工具'
+  action: session_start
+  command: deepin-log-viewer
+  wait: 2.0
+- name: '步骤2: 验证日志收集工具进程运行中'
+  action: wait
+  value: '1000'
+- name: '步骤3: 关闭日志收集工具'
+  action: keyboard_press
+  value: ctrl,q
+- action: wait
+  duration: 0.3
+- name: '步骤4: 验证终端仍在运行'
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

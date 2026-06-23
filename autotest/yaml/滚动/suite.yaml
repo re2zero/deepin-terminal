@@ -1,0 +1,12 @@
+name: "滚动 test suite"
+app: deepin-terminal
+reset_between_cases: true
+env:
+  FIXTURES_DIR: "${FIXTURES_DIR}"
+cases:
+  - name: "按键时滚动复选框切换"
+    path: 滚动/test_scroll_on_key_082.yaml
+  - name: "输出时滚动复选框切换"
+    path: 滚动/test_scroll_on_output_087.yaml
+  - name: "滚动条显示"
+    path: 滚动/test_scrollbar_display_153.yaml

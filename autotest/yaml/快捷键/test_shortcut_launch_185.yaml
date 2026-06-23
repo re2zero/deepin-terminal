@@ -1,0 +1,36 @@
+name: 快捷键启动
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 按快捷键Ctrl+Alt+T，查看系统显示
+    2. 进入控制中心-键盘和语言-快捷键-修改终端启动快捷键，再使用新快捷键启动，查看系统显示
+  预期结果:
+    1. 可以正常启动终端
+    2. 可以正常启动终端
+module: 启动终端
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1652935'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 验证终端已正常启动'
+  action: wait
+  value: '1000'
+- name: '步骤2: 验证主窗口可见'
+  action: wait
+  assert:
+  - type: element_visible
+  ref: main_window
+- name: '步骤2: 使用Ctrl+Alt+T快捷键再次启动（应新建窗口或切换焦点）'
+  action: keyboard_press
+  value: ctrl,alt,t
+- action: wait
+  duration: 0.3
+teardown:
+- action: session_stop

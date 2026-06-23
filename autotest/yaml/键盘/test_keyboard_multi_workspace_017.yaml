@@ -1,0 +1,82 @@
+name: 键盘交互主界面有多个工作区
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 键盘按Ctrl+Alt+T打开终端，新建多个工作区
+    2. 按Super+Tab键
+    3. 键盘按Ctrl+shift+1~Ctrl+shift+9
+    4. Super+Tab跳出焦点到“+”按钮，键盘继续按Tab键
+  （PS：测试时需要测试Shift+Tab反向切换）
+  预期结果:
+    1. 标签栏出现< >箭头
+    2. 跳转到“+”按钮
+    3. Ctrl+shift+1切换到第一个标签页，Ctrl+shift+9切换到最后一个标签页
+    4. 按Tab依次跳转到+按钮，主菜单、最小化、最大化、关闭按钮，可循切换到当前标签栏
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653593'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 新建两个工作区
+  action: element_action
+  ref: add_tab_button
+  do: click
+- action: wait
+  duration: 0.3
+- action: element_action
+  ref: add_tab_button
+  do: click
+- action: wait
+  duration: 0.3
+- name: 按Tab键焦点跳转到+按钮
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- name: Ctrl+Shift+1切换到第一个工作区
+  action: keyboard_press
+  value: ctrl+shift+1
+- action: wait
+  duration: 0.3
+- name: Ctrl+Shift+9切换到最后一个工作区
+  action: keyboard_press
+  value: ctrl+shift+9
+- action: wait
+  duration: 0.3
+- name: 按Tab键依次跳转到主菜单
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- name: 按Tab键跳转到最小化
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- name: 按Tab键跳转到最大化
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- name: 按Tab键跳转到关闭按钮
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- name: 按Shift+Tab反向切换
+  action: keyboard_press
+  value: shift+tab
+- action: wait
+  duration: 0.3
+- name: 验证终端仍在运行
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

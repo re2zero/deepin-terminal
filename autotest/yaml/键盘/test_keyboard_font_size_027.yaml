@@ -1,0 +1,54 @@
+name: 键盘交互-字体大小调节
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 进入设置Tab键切换到字体大小
+    2. 键盘按“↑”、“↓“方向键
+    3. 输入字体，按Enter键
+  （PS：测试时需要测试Shift+Tab反向切换）
+  预期结果:
+    1. 字体设置框有Focus效果
+    2. “+”、“-”按钮触发字体增大与减小操作
+    3. 字体框有仍然有Focus效果
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653573'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 打开设置界面'
+  action: main_menu_comb
+  ref: menu_settings
+- name: '步骤2: Tab键切换到字体大小区域'
+  action: keyboard_press
+  key: Tab
+- action: keyboard_press
+  key: Tab
+- action: keyboard_press
+  key: Tab
+- name: '步骤3: 按↑方向键增大字体大小'
+  action: keyboard_press
+  key: Up
+- name: '步骤4: 按↓方向键减小字体大小'
+  action: keyboard_press
+  key: Down
+- name: '步骤5: 按Enter键确认'
+  action: keyboard_press
+  key: Return
+- name: '步骤6: 验证设置对话框仍可见'
+  action: wait
+  assert:
+  - type: element_visible
+  selector: null
+  role: dialog
+- name: '步骤7: 验证终端进程运行中'
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

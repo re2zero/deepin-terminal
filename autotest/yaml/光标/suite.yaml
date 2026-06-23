@@ -1,0 +1,10 @@
+name: "光标 test suite"
+app: deepin-terminal
+reset_between_cases: true
+env:
+  FIXTURES_DIR: "${FIXTURES_DIR}"
+cases:
+  - name: "光标闪烁复选框切换"
+    path: 光标/test_cursor_blink_081.yaml
+  - name: "光标风格切换"
+    path: 光标/test_cursor_style_080.yaml

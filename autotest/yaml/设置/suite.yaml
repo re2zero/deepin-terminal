@@ -1,0 +1,33 @@
+name: "设置 test suite"
+app: deepin-terminal
+reset_between_cases: true
+env:
+  FIXTURES_DIR: "${FIXTURES_DIR}"
+cases:
+  - name: "选中文字时自动复制到剪贴板"
+    path: 设置/test_auto_copy_on_select_091.yaml
+  - name: "终端界面内容自动换行显示"
+    path: 设置/test_auto_wrap_198.yaml
+  - name: "背景模糊"
+    path: 设置/test_background_blur_000.yaml
+  - name: "背景模糊复选框切换"
+    path: 设置/test_background_blur_085.yaml
+  # UNSUPPORTED: test_default_shell_list_200
+  # - name: "test_default_shell_list_200"
+  #   path: 设置/test_default_shell_list_200.yaml
+  - name: "恢复默认设置按钮"
+    path: 设置/test_restore_defaults_086.yaml
+  - name: "[019]设置"
+    path: 设置/test_settings_173.yaml
+  - name: "设置界面显示"
+    path: 设置/test_settings_display_101.yaml
+  - name: "设置界面功能项显示"
+    path: 设置/test_settings_display_103.yaml
+  # UNSUPPORTED: test_switch_shell_201
+  # - name: "test_switch_shell_201"
+  #   path: 设置/test_switch_shell_201.yaml
+  # UNSUPPORTED: test_switch_shell_basic_ops_202
+  # - name: "test_switch_shell_basic_ops_202"
+  #   path: 设置/test_switch_shell_basic_ops_202.yaml
+  - name: "透明度"
+    path: 设置/test_transparency_102.yaml

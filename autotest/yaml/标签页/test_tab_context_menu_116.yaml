@@ -1,0 +1,99 @@
+name: 标签页右键菜单
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，点击标签页x按钮
+    2. 点击关闭标签页选项
+    3. 点击关闭其它标签页选项
+  预期结果:
+    1. 关闭标签页
+    2. 关闭当前标签页
+    3. 其它标签页被关闭
+module: 触摸屏
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653489'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 验证主窗口显示正常'
+  action: wait
+  value: '1000'
+- name: '步骤2: 右键单击标签栏查看菜单项'
+  action: element_action
+  ref: tab_list
+  do: right_click
+- action: wait
+  duration: 0.3
+- name: 按ESC关闭菜单
+  action: keyboard_press
+  key: Escape
+- action: wait
+  duration: 0.3
+- name: '步骤3: 新建多个标签页'
+  action: element_action
+  ref: add_tab_button
+  do: click
+- action: wait
+  duration: 0.3
+- action: element_action
+  ref: add_tab_button
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤4: 多标签时右键标签栏查看菜单项'
+  action: element_action
+  ref: tab_list
+  do: right_click
+- action: wait
+  duration: 0.3
+- name: 按ESC关闭菜单 (2)
+  action: keyboard_press
+  key: Escape
+- action: wait
+  duration: 0.3
+- name: '步骤5: 右键标签栏打开菜单，选择关闭标签页'
+  action: element_action
+  ref: tab_list
+  do: right_click
+- action: wait
+  duration: 0.3
+- name: 按Return选择关闭标签页
+  action: keyboard_press
+  key: Return
+- action: wait
+  duration: 0.3
+- name: '步骤6: 新建更多标签页用于关闭其它测试'
+  action: element_action
+  ref: add_tab_button
+  do: click
+- action: wait
+  duration: 0.3
+- name: 右键打开菜单选择关闭其它标签页
+  action: element_action
+  ref: tab_list
+  do: right_click
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Down
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Down
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Return
+- action: wait
+  duration: 0.3
+- name: '步骤7: 验证终端在有程序运行时进程正常'
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

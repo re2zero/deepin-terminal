@@ -1,0 +1,24 @@
+# UNSUPPORTED: 触摸操作无法自动化
+name: '插入不同类型远程标签标题功能 - NON-AUTOMATABLE: 触摸操作无法自动化'
+app: deepin-terminal
+screenshot: false
+description: "前置条件: 连接远程管理\n测试步骤:\n  1. 打开终端，进入设置基础设置下远程标签标题格式\n  2. 点击插入按钮，选择插入格式，用户名%u 、用户名@  %U、远程主机（短）%h、会话编号 %#、shell设定的窗口标题 %w\nNotes:测试时一并测试触摸屏、触控板、键盘交互\n预期结果:\n  1. 默认格式%U%h；例：dzw@\n  10. \n  4. \n  11. 35\n  2. 编辑框中显示加入的插入选项；标签标题格式显示与选择的一致\n"
+module: 远程管理器
+feature: ''
+tags:
+- L1
+vars:
+  XLSX_ID: '1653075'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 跳过 - skip-触摸操作无法自动化
+  action: wait
+  value: '300'
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

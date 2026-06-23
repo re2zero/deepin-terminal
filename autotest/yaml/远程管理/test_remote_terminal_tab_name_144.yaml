@@ -1,0 +1,60 @@
+name: 远程管理-终端标签名称
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，在终端中添加服务器，然后连接服务器，查看终端标签显示
+    2. 连接服务器成功后，输入exit/键盘按ctrl+d，退出服务器连接，查看标签显示
+  预期结果:
+    1. 终端标签会显示连接服务器的名称
+    2. 标签显示会退回到当前目录的名称
+module: 远程管理器
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653087'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 打开远程管理插件'
+  action: main_menu_comb
+  ref: menu_remote_management
+- action: wait
+  duration: 0.3
+- name: Tab到服务器列表，选中服务器连接
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Down
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Return
+- action: wait
+  duration: 0.3
+- name: '步骤1: 查看终端标签显示连接服务器名称'
+  action: wait
+  duration: 0.3
+- name: '步骤2: 输入exit退出服务器连接'
+  action: keyboard_type
+  value: exit
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Return
+- action: wait
+  duration: 0.3
+- name: 验证终端进程仍在运行
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

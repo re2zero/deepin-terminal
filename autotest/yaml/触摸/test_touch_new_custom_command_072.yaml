@@ -1,0 +1,34 @@
+# UNSUPPORTED: 触摸操作无法自动化
+name: '触摸屏新建自定义命令功能 - NON-AUTOMATABLE: 触摸操作无法自动化'
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，长按右键
+    2. 点击右键菜单自定义命令
+    3. 点击添加命令按钮
+    4. 输入名称、命令、快捷键点击添加
+  预期结果:
+    1. 弹出右键菜单
+    2. 显示自定义命令插件
+    3. 弹出添加命令弹框
+    4. 自定义命令添加成功
+module: 触摸屏
+feature: ''
+tags:
+- L1
+vars:
+  XLSX_ID: '1653469'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 跳过 - skip-触摸操作无法自动化
+  action: wait
+  value: '300'
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

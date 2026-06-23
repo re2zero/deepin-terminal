@@ -1,0 +1,55 @@
+name: 键盘交互-多窗口中操作
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 使用快捷键Ctrl+Alt+T新建多个终端窗口
+    2. 在其中一个窗口中操作自定义命令，远程管理，编码等功能
+    3. 在全局功能中使用键盘ESC键
+  预期结果:
+    1. 终端窗口显示正常
+    2. 键盘操作功能正常
+    3. 焦点返回正确
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653501'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: Ctrl+Alt+T新建终端窗口'
+  action: keyboard_press
+  value: ctrl+alt+t
+  wait: 2.0
+- name: '步骤2: Alt键打开主菜单'
+  action: keyboard_press
+  key: Alt
+  wait: 0.3
+- name: '步骤3: 方向键导航到自定义命令'
+  action: keyboard_press
+  key: Down
+  wait: 0.3
+- name: '步骤4: Enter键打开自定义命令'
+  action: keyboard_press
+  key: Enter
+  wait: 0.3
+- name: '步骤5: ESC键关闭自定义命令并返回焦点'
+  action: keyboard_press
+  key: Escape
+  wait: 0.3
+- name: '步骤6: 验证终端进程运行中'
+  action: wait
+  value: '1000'
+- name: '步骤7: ESC全局关闭聚焦窗口的菜单'
+  action: keyboard_press
+  key: Escape
+  wait: 0.3
+- name: 验证焦点返回终端
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

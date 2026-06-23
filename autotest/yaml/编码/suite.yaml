@@ -1,0 +1,10 @@
+name: "编码 test suite"
+app: deepin-terminal
+reset_between_cases: true
+env:
+  FIXTURES_DIR: "${FIXTURES_DIR}"
+cases:
+  - name: "编码方式"
+    path: 编码/test_encoding_107.yaml
+  - name: "本地编码"
+    path: 编码/test_local_encoding_112.yaml

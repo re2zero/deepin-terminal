@@ -1,0 +1,59 @@
+name: 切换工作区
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，新建多个工作区，鼠标点击各个工作区名称
+    2. 使用快捷键切换：ctrl+tab/shift+ctrl+tab
+    3. 使用Ctrl+Shift + 1 ~ Ctrl+Shift + 9，切换工作区
+  预期结果:
+    1. 点击可切换不同工作区
+    2. 依次切换工作区
+    3. 数字表示不同工作区；当⼯作区的数量不⼤于 9 时， Ctrl+ Shift + 1 ~ Ctrl+ Shift + 9 分别切换到数字对应的标签， 当⼯作区的数量⼤于 9 时， Ctrl+ Shift + 9 切换到最后⼀个标签，⽽不是第 9 个标签
+module: 工作区
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653603'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 新建两个工作区
+  action: element_action
+  ref: add_tab_button
+  do: click
+- action: wait
+  duration: 0.3
+- action: element_action
+  ref: add_tab_button
+  do: click
+- action: wait
+  duration: 0.3
+- name: Ctrl+Tab切换到下一个工作区
+  action: keyboard_press
+  value: ctrl+tab
+- action: wait
+  duration: 0.3
+- name: Ctrl+Shift+Tab切换到上一个工作区
+  action: keyboard_press
+  value: ctrl+shift+tab
+- action: wait
+  duration: 0.3
+- name: Ctrl+Shift+1切换到第一个工作区
+  action: keyboard_press
+  value: ctrl+shift+1
+- action: wait
+  duration: 0.3
+- name: Ctrl+Shift+3切换到第三个工作区
+  action: keyboard_press
+  value: ctrl+shift+3
+- action: wait
+  duration: 0.3
+- name: 验证终端仍在运行
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

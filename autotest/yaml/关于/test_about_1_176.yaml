@@ -1,0 +1,36 @@
+name: 关于1
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 进入终端，菜单栏点击关于选项
+    2. 软件弹出属性对话框后，用鼠标移动属性对话框，查看对话框显示
+  预期结果:
+    1. 弹出关于界面
+    2. 可以用鼠标移动属性对话框
+module: 主界面右上角菜单栏
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1652963'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤2: 通过主菜单打开关于'
+  action: main_menu_comb
+  ref: menu_about
+  wait: 0.3
+- name: '步骤3: 截图-关于界面弹出'
+  action: noop
+- name: '步骤4: 关闭关于窗口'
+  action: keyboard_press
+  key: Escape
+  wait: 0.3
+- name: '步骤5: 验证终端进程运行中'
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

@@ -1,0 +1,104 @@
+name: 键盘交互-远程管理全局ESC
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，当焦点在搜索框、服务器列表、编辑按钮、添加服务器按钮
+    2. 按ESC键
+  （PS：测试时需要测试Shift+Tab反向切换）
+  预期结果:
+    1. 选项有Focus效果
+    2. 焦点回到终端
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653515'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 打开远程管理插件'
+  action: main_menu_comb
+  ref: menu_remote_management
+- action: wait
+  duration: 0.3
+- name: '步骤1: 焦点在搜索框，按ESC键'
+  action: keyboard_press
+  key: Escape
+- action: wait
+  duration: 0.3
+- name: 重新打开远程管理插件
+  action: main_menu_comb
+  ref: menu_remote_management
+- action: wait
+  duration: 0.3
+- name: Tab到服务器列表，按ESC键
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Escape
+- action: wait
+  duration: 0.3
+- name: 重新打开远程管理插件 (2)
+  action: main_menu_comb
+  ref: menu_remote_management
+- action: wait
+  duration: 0.3
+- name: Tab到编辑按钮，按ESC键
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Right
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Escape
+- action: wait
+  duration: 0.3
+- name: 重新打开远程管理插件 (3)
+  action: main_menu_comb
+  ref: menu_remote_management
+- action: wait
+  duration: 0.3
+- name: Tab到添加服务器按钮，按ESC键
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Escape
+- action: wait
+  duration: 0.3
+- name: Shift+Tab反向切换测试
+  action: keyboard_press
+  value: shift,Tab
+- action: wait
+  duration: 0.3
+- name: 验证终端进程仍在运行
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

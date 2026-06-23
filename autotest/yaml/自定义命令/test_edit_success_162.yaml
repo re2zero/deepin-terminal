@@ -1,0 +1,97 @@
+name: 编辑成功
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 进入自定义命令列表，任选一个自定义命令点击编辑
+    2. 输入自定义名称，点击保存
+    3. 粘贴输入字符，点击保存
+    4. 输入命令，点击保存
+    5. 粘贴输入命令，点击保存
+    6. 修改快捷键，点击保存
+  预期结果:
+    1. 弹出编辑窗口
+    2. 修改成功，列表中名称改变
+    3. 修改成功，可以正常粘贴输入
+    4. 修改成功，列表中不显示具体命令，故列表无变化
+    5. 修改成功，可以正常粘贴输入
+    6. 修改成功，列表中快捷键改变
+module: 自定义命令
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653013'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '前置: 通过主菜单打开自定义命令面板并添加测试命令'
+  action: main_menu_comb
+  ref: menu_custom_commands
+  wait: 0.3
+- name: '前置: 添加一个自定义命令'
+  action: element_action
+  ref: add_custom_command_button
+  do: click
+- action: wait
+  duration: 0.3
+- action: element_set_value
+  ref: custom_command_name_input
+  value: 原始命令
+- action: element_set_value
+  ref: custom_command_command_input
+  value: echo original
+- action: element_set_value
+  ref: custom_command_shortcut_input
+  value: Ctrl+Shift+O
+- action: element_action
+  ref: custom_command_add
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤1: 进入自定义命令列表，点击编辑'
+  action: element_action
+  ref: custom_command_list
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤2: 修改自定义名称，点击保存'
+  action: element_set_value
+  ref: custom_command_name_input
+  value: 新命令名
+- action: element_action
+  ref: custom_command_save
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤2: 验证修改成功（终端仍在运行）'
+  action: wait
+  value: '1000'
+- name: '步骤4: 修改命令内容，点击保存'
+  action: element_set_value
+  ref: custom_command_command_input
+  value: echo modified
+- action: element_action
+  ref: custom_command_save
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤4: 验证修改成功（终端仍在运行）'
+  action: wait
+  value: '1000'
+- name: '步骤6: 修改快捷键，点击保存'
+  action: element_set_value
+  ref: custom_command_shortcut_input
+  value: Ctrl+Shift+N
+- action: element_action
+  ref: custom_command_save
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤6: 验证快捷键修改成功（终端仍在运行）'
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

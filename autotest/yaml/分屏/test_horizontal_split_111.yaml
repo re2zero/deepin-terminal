@@ -1,0 +1,52 @@
+name: 横向分屏
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，右键选择横向分屏，检查屏幕显示
+    2. 再次右键选择
+    3. 在步骤1基础上，按快捷键ctrl+shift+h
+  预期结果:
+    1. 窗口被分为2个屏，上下分屏
+    2. 右键菜单中不显示横向分屏选项
+    3. 窗口不会被再次分屏
+module: 右键菜单工作区
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653193'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 右键菜单选择横向分屏'
+  action: context_menu_comb
+  ref: context_horizontal_split
+- action: wait
+  duration: 0.3
+- name: '步骤1: 截图-横向分屏显示'
+  action: noop
+- name: '步骤1: 验证终端进程运行中'
+  action: wait
+  value: '1000'
+- name: '步骤2: 关闭当前分屏窗口恢复单屏'
+  action: context_menu_comb
+  ref: context_close_workspace
+- action: wait
+  duration: 0.3
+- name: '步骤2: 截图-恢复单屏后'
+  action: noop
+- name: '步骤3: 使用快捷键Ctrl+Shift+H横向分屏'
+  action: keyboard_press
+  value: ctrl+shift+h
+- action: wait
+  duration: 0.3
+- name: '步骤3: 截图-快捷键横向分屏'
+  action: noop
+- name: '步骤3: 验证终端进程运行中'
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

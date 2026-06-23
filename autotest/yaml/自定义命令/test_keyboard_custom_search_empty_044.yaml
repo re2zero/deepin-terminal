@@ -1,0 +1,78 @@
+name: 键盘交互自定义命令搜索结果为空
+app: deepin-terminal
+screenshot: false
+description: |
+  前置条件: 列表有2个以上命令
+  测试步骤:
+    1. 打开终端，Tab键切换到自定义命令插件
+    2. 搜索框不输入任何字符，按Enter键
+    3. 输入字符，按Enter键，搜索结果为空
+  （PS：测试时需要测试Shift+Tab反向切换）
+  预期结果:
+    1. 搜索框有Focus效果
+    2. 搜索框无变化
+    3. < 键有Focus效果，按“←”方向键/Enter/Space键返回到搜索框
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653539'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 打开自定义命令插件
+  action: main_menu_comb
+  ref: main_menu_button
+  assert:
+  - type: element_visible
+  selector: null
+  role: list
+  items:
+  - 自定义命令
+- name: 验证搜索框有Focus效果
+  action: wait
+  assert:
+  - type: element_visible
+  selector: null
+  role: text
+- name: 搜索框为空时按Enter键（无变化）
+  action: keyboard_press
+  key: Return
+  wait: 0.3
+- name: 验证搜索框仍然可见
+  action: wait
+  assert:
+  - type: element_visible
+  selector: null
+  role: text
+- name: 输入不匹配的字符
+  action: element_set_value
+  ref: custom_command_search_box
+  value: zzzzz_no_match
+  wait: 0.3
+- name: 按Enter键确认搜索（结果为空）
+  action: keyboard_press
+  key: Return
+  wait: 0.3
+- name: 按左方向键或Enter返回搜索框
+  action: keyboard_press
+  key: Left
+  wait: 0.3
+- name: 验证搜索框可见（已返回搜索）
+  action: wait
+  assert:
+  - type: element_visible
+  selector: null
+  role: text
+- name: 按ESC返回终端
+  action: keyboard_press
+  key: Escape
+  wait: 0.3
+- name: 验证终端进程仍在运行
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

@@ -1,0 +1,86 @@
+name: 编辑服务器
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，长按右键
+    2. 点击右键菜单远程管理
+    3. 选择一个服务器，点击编辑
+    4. 输入服务器名、地址、用户名等点击保存
+  预期结果:
+    1. 弹出右键菜单
+    2. 显示远程管理插件
+    3. 弹出编辑服务器界面，服务器名全选
+    4. 服务器名保存成功
+module: 触摸屏
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653455'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 打开远程管理面板'
+  action: context_menu_comb
+  ref: context_remote_management
+- action: wait
+  duration: 0.5
+- name: '步骤2: 点击添加服务器按钮'
+  action: element_action
+  ref: add_server_button
+- action: wait
+  duration: 0.5
+- name: '步骤3: 输入服务器名称'
+  action: keyboard_type
+  value: 测试服务器
+- action: wait
+  duration: 0.3
+- name: '步骤4: 点击添加按钮保存'
+  action: element_action
+  ref: remote_add
+- action: wait
+  duration: 0.5
+- name: '步骤9: 点击新添加的服务器'
+  action: element_action
+  selector: null
+  role: list item
+  index: 0
+- action: wait
+  duration: 0.3
+- name: '步骤10: 按Right展开操作菜单'
+  action: keyboard_press
+  key: Right
+- action: wait
+  duration: 0.3
+- name: '步骤11: 按Return进入编辑'
+  action: keyboard_press
+  key: Return
+- action: wait
+  duration: 0.5
+- name: '步骤12: 清空并输入新的服务器名称'
+  action: keyboard_press
+  value: ctrl,a
+- action: wait
+  duration: 0.3
+- action: keyboard_type
+  value: 编辑后的服务器
+- action: wait
+  duration: 0.3
+- name: '步骤13: 点击保存按钮'
+  action: element_action
+  ref: remote_save
+- action: wait
+  duration: 0.5
+- name: '步骤14: 按ESC关闭远程管理面板'
+  action: keyboard_press
+  key: Escape
+- action: wait
+  duration: 0.3
+- name: 验证终端进程仍在运行
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

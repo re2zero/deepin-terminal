@@ -1,0 +1,135 @@
+name: 输入名称
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 点击添加自定义命令
+    2. 进入窗口后，直接点击取消
+    3. 自定义名称输入一般个数的汉字或者字母或数字
+    4. 自定义名称输入过长的汉字或者字母或数字
+    5. 输入特殊字符：*&！@#￥等
+    6. 输入汉字、字母、数字、特殊字符混合体
+  预期结果:
+    1. 进入添加命令窗口
+    2. 回到添加命令栏，退出窗口
+    3. 可以正常输入
+    4. 超过32字符，输入框允许输入，点击“保存”时，Tips提示框提示“名称长度不得超过32个字符”
+    5. 可正常输入
+    6. 可正常输入
+module: 自定义命令
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653025'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 主菜单打开自定义命令'
+  action: main_menu_comb
+  ref: menu_custom_commands
+- action: wait
+  duration: 0.3
+- name: '步骤1: 截图-自定义命令列表界面'
+  action: noop
+- name: '步骤2: 点击添加命令按钮打开添加对话框'
+  action: element_action
+  ref: add_custom_command_button
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤4: 点击名称输入框，输入超长名称超过32字符'
+  action: element_action
+  ref: custom_command_name_input
+  do: click
+- action: wait
+  duration: 0.3
+- action: keyboard_type
+  value: ThisIsAVeryLongCustomNameExceedingThirtyTwoCharactersLimit
+  wait: 0.3
+- name: '步骤4: Tab切换到命令输入框'
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- name: '步骤4: 输入命令内容'
+  action: keyboard_type
+  value: echo test
+  wait: 0.3
+- name: '步骤4: Tab到保存按钮并确认'
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Return
+- action: wait
+  duration: 0.3
+- name: '步骤4: 截图-超长名称提示'
+  action: noop
+- name: '步骤3: 在名称框输入正常长度名称'
+  action: element_action
+  ref: custom_command_name_input
+  do: click
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: BackSpace
+  wait: 0.1
+- action: keyboard_press
+  key: BackSpace
+  wait: 0.1
+- action: keyboard_press
+  key: BackSpace
+  wait: 0.1
+- action: keyboard_press
+  key: BackSpace
+  wait: 0.1
+- action: keyboard_press
+  key: BackSpace
+  wait: 0.1
+- action: keyboard_press
+  key: BackSpace
+  wait: 0.1
+- action: keyboard_type
+  value: TestCmd
+  wait: 0.3
+- name: '步骤6: 输入特殊字符混合名称'
+  action: keyboard_press
+  key: BackSpace
+  wait: 0.1
+- action: keyboard_press
+  key: BackSpace
+  wait: 0.1
+- action: keyboard_press
+  key: BackSpace
+  wait: 0.1
+- action: keyboard_press
+  key: BackSpace
+  wait: 0.1
+- action: keyboard_press
+  key: BackSpace
+  wait: 0.1
+- action: keyboard_press
+  key: BackSpace
+  wait: 0.1
+- action: keyboard_press
+  key: BackSpace
+  wait: 0.1
+- action: keyboard_type
+  value: Test@#123Cmd!
+  wait: 0.3
+- name: '步骤6: 截图-特殊字符混合名称'
+  action: noop
+- name: 按Escape退出自定义命令
+  action: keyboard_press
+  key: Escape
+- action: wait
+  duration: 0.3
+- name: 验证终端仍在运行
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

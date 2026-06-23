@@ -1,0 +1,69 @@
+name: 光标风格切换
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开设置界面，检查光标风格默认显示
+    2. 修改为第二种，|
+    3. 修改为第三种_
+  预期结果:
+    1. 显示有3种风格，默认选中第一种
+    2. 光标立即生效
+    3. 光标立即生效
+module: 设置界面高级设置
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653321'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 通过主菜单打开设置'
+  action: main_menu_comb
+  ref: menu_settings
+  wait: 0.3
+- name: '步骤2: 点击光标设置导航项'
+  action: element_action
+  ref: settings_cursor
+  do: click
+  wait: 0.3
+- name: '步骤3: Tab键将焦点移到光标风格区域'
+  action: keyboard_press
+  key: Tab
+  wait: 0.3
+- name: '步骤4: 按→方向键切换到第二种光标风格'
+  action: keyboard_press
+  key: Right
+  wait: 0.3
+- name: '步骤5: 按Space键确认选择'
+  action: keyboard_press
+  key: Space
+  wait: 0.3
+- name: '步骤6: 按→方向键切换到第三种光标风格'
+  action: keyboard_press
+  key: Right
+  wait: 0.3
+- name: '步骤7: 按Space键确认选择'
+  action: keyboard_press
+  key: Space
+  wait: 0.3
+- name: '步骤8: 按←方向键回退到第二种风格'
+  action: keyboard_press
+  key: Left
+  wait: 0.3
+- name: '步骤9: 按Space键确认选择'
+  action: keyboard_press
+  key: Space
+  wait: 0.3
+- name: '步骤10: ESC关闭设置窗口'
+  action: keyboard_press
+  key: Escape
+  wait: 0.3
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

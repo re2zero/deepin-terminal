@@ -1,0 +1,53 @@
+name: 超链接显示以及跳转
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，光标指在超链接处（不选中）
+    2. 点击右键菜单
+    3. 打开链接
+    4. 复制链接
+  预期结果:
+    1. 显示超链接小手
+    2. 弹出菜单栏
+    3. 跳转链接显示内容
+    4. 复制链接成功
+module: 右键菜单
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653609'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 输入带超链接的命令'
+  action: keyboard_type
+  value: ping www.baidu.com
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Return
+- action: wait
+  duration: 0.3
+- name: '步骤1: 按Ctrl+C停止ping'
+  action: keyboard_press
+  value: ctrl,c
+- action: wait
+  duration: 0.3
+- name: '步骤2: 输入单独网址验证超链接识别'
+  action: keyboard_type
+  value: www.baidu.com
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Return
+- action: wait
+  duration: 0.3
+- name: '步骤3: 验证终端正常运行'
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

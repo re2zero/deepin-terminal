@@ -1,0 +1,36 @@
+# UNSUPPORTED: 触摸操作无法自动化
+name: '触摸屏分屏功能 - NON-AUTOMATABLE: 触摸操作无法自动化'
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，长按右键
+    2. 点击右键菜单的横向分屏
+    3. 点击右键菜单纵向分屏
+    4. 点击关闭窗口
+    5. 点击关闭其它窗口
+  预期结果:
+    1. 弹出右键菜单
+    2. 显示横向分屏窗口，并且右键菜单中没有横向分屏选项
+    3. 显示纵向分屏窗口，并且右键菜单中没有纵向分屏选项
+    4. 当前窗口被关闭
+    5. 其它窗口被关闭
+module: 触摸屏
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653477'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 跳过 - skip-触摸操作无法自动化
+  action: wait
+  value: '300'
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

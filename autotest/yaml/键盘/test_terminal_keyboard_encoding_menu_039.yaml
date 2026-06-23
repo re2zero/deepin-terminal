@@ -1,0 +1,38 @@
+name: 键盘交互-右键菜单调出编码
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端， 快捷键Alt+M调出右键菜单中编码插件
+    2. 检查当前编码显示
+  （PS：测试时需要测试Shift+Tab反向切换）
+  预期结果:
+    1. 编码插件显示
+    2. 编码框没有Focus效果
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653549'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: Alt+M调出右键菜单选择编码
+  action: keyboard_press
+  value: Alt,M
+  wait: 0.3
+- name: 通过右键菜单打开编码
+  action: context_menu_comb
+  ref: context_encoding
+  wait: 0.3
+- name: 验证编码插件显示
+  action: wait
+  value: '1000'
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

@@ -1,0 +1,56 @@
+name: 键盘交互-添加服务器
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，Tab键焦点在添加服务器按钮，点击Enter键
+    2. 依次按Tab键切换
+    3. 焦点在取消、添加按钮时，按Enter/Space键
+    4. 在弹框界面按ESC键
+  （PS：测试时需要测试Shift+Tab反向切换）
+  预期结果:
+    1. 弹出添加服务器弹框
+    2. 切换顺序：服务器名、地址、端口、用户名、密码、加密图标、证书、选择证书图标、高级选项、分组、路径、命令、编码、退格键、删除键、取消、添加、右上角X键，各选项有Focus效果
+    3. 操作结束后，焦点回到添加服务器按钮
+    4. 焦点返回到添加服务器按钮
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653513'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 打开远程管理插件'
+  action: main_menu_comb
+  ref: menu_remote_management
+- action: wait
+  duration: 0.5
+- name: '步骤2: 点击添加服务器按钮打开对话框'
+  action: element_action
+  ref: add_server_button
+- action: wait
+  duration: 0.5
+- name: '步骤3: 输入服务器名称'
+  action: keyboard_type
+  value: 测试服务器
+- action: wait
+  duration: 0.3
+- name: '步骤4: 点击添加按钮'
+  action: element_action
+  ref: remote_add
+- action: wait
+  duration: 0.5
+- name: '步骤5: 关闭远程管理面板'
+  action: keyboard_press
+  key: Escape
+- action: wait
+  duration: 0.3
+- name: 验证终端进程仍在运行
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

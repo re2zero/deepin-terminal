@@ -1,0 +1,34 @@
+# UNSUPPORTED: 触摸操作无法自动化
+name: '连接服务器后拖拽文件上传 - NON-AUTOMATABLE: 触摸操作无法自动化'
+app: deepin-terminal
+screenshot: false
+description: |
+  前置条件: 远程管理列表存在一个有效的服务器地址
+  测试步骤:
+    1. 打开终端，进入远程管理，连接远程服务器
+    2. 选择一个文件拖拽到远程当前路径所在位置
+    3. 上传文件过程中网络中断或手动断开服务器
+  Notes:测试时一并测试触摸屏、触控板、键盘交互
+  预期结果:
+    1. 远程服务器连接成功
+    2. 上传成功，返回提示信息
+    3. 上传文件失败
+module: 远程管理器
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653073'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 跳过 - skip-触摸操作无法自动化
+  action: wait
+  value: '300'
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

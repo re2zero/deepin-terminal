@@ -1,0 +1,34 @@
+name: 日志配置文件查看
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 终端执行命令：
+  cat /usr/share/deepin-log-viewer/deepin-log.conf.d/deepin-terminal.json
+  预期结果:
+    1. 存在数据迁移工具日志配置文件，内容为json日志配置文件，包含“name”、“exec”、“logType”、“logPath”、“visible”、“version”，其中logType默认为“journal”，visible默认为“1”
+module: 终端
+feature: ''
+tags:
+- L1
+vars:
+  XLSX_ID: '1652793'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 执行cat命令查看日志配置文件'
+  action: keyboard_type
+  value: cat /usr/share/deepin-log-viewer/deepin-log.conf.d/deepin-terminal.json
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Return
+- action: wait
+  duration: 0.3
+- name: '步骤2: 验证终端正常运行'
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

@@ -1,0 +1,10 @@
+name: "启动 test suite"
+app: deepin-terminal
+reset_between_cases: true
+env:
+  FIXTURES_DIR: "${FIXTURES_DIR}"
+cases:
+  - name: "启动器启动"
+    path: 启动/test_launcher_start_184.yaml
+  - name: "启动时使用窗口模式下拉框"
+    path: 启动/test_startup_window_mode_083.yaml

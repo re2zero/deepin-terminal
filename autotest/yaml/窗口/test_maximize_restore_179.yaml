@@ -1,0 +1,47 @@
+name: 最大化还原
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 点击最大化窗口
+    2. 点击还原
+    3. 设置dock位置，检查终端各个按钮：最大化、关闭等按钮是否正常
+  预期结果:
+    1. 窗口最大化显示
+    2. 窗口恢复最大化之前的大小
+    3. 工作正常
+module: 主界面右上角菜单栏
+feature: ''
+tags:
+- L1
+vars:
+  XLSX_ID: '1652957'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 点击最大化按钮'
+  action: element_action
+  ref: maximize_button
+  do: click
+  wait: 0.3
+- name: '步骤2: 点击还原按钮'
+  action: element_action
+  ref: maximize_button
+  do: click
+  wait: 0.3
+- name: '步骤3: 验证窗口按钮均可见'
+  action: wait
+  assert:
+  - type: element_visible
+    ref: minimize_button
+  - type: element_visible
+    ref: maximize_button
+  - type: element_visible
+    ref: close_button
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

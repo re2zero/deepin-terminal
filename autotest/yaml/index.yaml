@@ -1,0 +1,2472 @@
+version: 1
+generated_at: '2026-06-23T12:05:20'
+tests:
+- id: test_builtin_theme_186
+  file: 主题/test_builtin_theme_186.yaml
+  name: '内置主题显示以及功能 - NON-AUTOMATABLE: skip-触摸操作无法自动化'
+  description: "测试步骤:\n  1. 打开终端，点击主菜单进入主题\n  2. 鼠标焦点悬浮在主题菜单项\n  3. 鼠标焦点离开时\n  4.\
+    \ 按键盘上、下键切换到主题菜单项\n  5. 鼠标左键选择或键盘按下“enter”键\n  6. 再次进入主题\nNotes:测试时一并测试触摸屏、触控板、键盘交互\n\
+    预期结果:\n  1. 显示浅色、深色、跟随系统、Elementary、Empathy、Tomorrow night blue、Bim、Freya、Hybrid、Ocean\
+    \ dark、Deepin、Ura、One light；默认主题是深色、跟随系统与内置主题之间有分割线\n  2. 终端主题跟随变化\n  3. 还原之前主题配色\n\
+    \  4. 终端窗口主题跟随变化\n  5. 设置主题成功\n  6. 当前主题菜单项前显示“勾选”状态\n"
+  module: 标签页移动
+  feature: ''
+  tags:
+  - L1
+  app: deepin-terminal
+  skip: null
+- id: test_custom_theme_background_192
+  file: 主题/test_custom_theme_background_192.yaml
+  name: '自定义主题背景色控件功能 - NON-AUTOMATABLE: skip-触摸操作无法自动化'
+  description: "测试步骤:\n  1. 打开终端，进入自定义主题对话框，检查背景色控件默认颜色显示\n  2. 点击背景色控件\n  3. 取色板中选择某一个颜色，点击“确定”\
+    \ 按钮\n  4. 点击自定义主题界面“确定” 按钮\n  5. 点击自定义主题界面“取消”按钮\nNotes:测试时一并测试触摸屏、触控板、键盘交互\n\
+    预期结果:\n  1. 默认“黑色” （0x252525）\n  2. 弹出取色板\n  3. 取色板页面关闭，返回到自定义主题弹出框界面；预览效果背景景色颜色显示与选择的一致\n\
+    \  4. 保存自定义主题的更改设置；自定义主题弹出框关闭，自定义主题被激活\n  5. 取消本次自定义主题更改，自定义主题弹出框关闭，取消本次操作\n"
+  module: 主题/自定义主题
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_custom_theme_combo_195
+  file: 主题/test_custom_theme_combo_195.yaml
+  name: '自定义主题组合设置功能 - NON-AUTOMATABLE: skip-触摸操作无法自动化'
+  description: "测试步骤:\n  1. 打开终端，进入自定义主题弹框界面\n  2. 点击浅色单选按钮\n  3. 再次点击深色单选按钮\nNotes:测试时一并测试触摸屏、触控板、键盘交互\n\
+    预期结果:\n  1. 默认主题风格是深色；预览效果窗口标题栏显示深色\n  2. 浅色按钮被选中；预览效果窗口标题栏显示浅色\n  3. 深色按钮被选中；预览效果窗口标题栏显示深色\n"
+  module: 主题/自定义主题
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_custom_theme_foreground_191
+  file: 主题/test_custom_theme_foreground_191.yaml
+  name: '自定义主题前景颜色控件功能 - NON-AUTOMATABLE: skip-触摸操作无法自动化'
+  description: "测试步骤:\n  1. 打开终端，进入自定义主题对话框，检查前景色控件默认颜色显示\n  2. 点击前景色控件\n  3. 取色板中选择某一个颜色，点击“确定”\
+    \ 按钮\n  4. 点击自定义主题界面“确定” 按钮\n  5. 点击自定义主题界面“取消”按钮\nNotes:测试时一并测试触摸屏、触控板、键盘交互\n\
+    预期结果:\n  1. 默认  “绿色” （0x00FF00）\n  2. 弹出取色板\n  3. 取色板页面关闭，返回到自定义主题弹出框界面；预览效果前景色颜色显示与选择的一致\n\
+    \  4. 保存自定义主题的更改设置；自定义主题弹出框关闭，自定义主题被激活\n  5. 取消本次自定义主题更改，自定义主题弹出框关闭，取消本次操作\n"
+  module: 主题/自定义主题
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_custom_theme_new_window_196
+  file: 主题/test_custom_theme_new_window_196.yaml
+  name: '设置自定义主题后新建窗口标签页分屏 - NON-AUTOMATABLE: skip-触摸操作无法自动化'
+  description: "测试步骤:\n  1. 打开终端，进入自定义对话框，分别点击前景色、背景色、提示符PS1、提示符PS2取色控件\n  2. 分别在取色板中选择任意颜色，点击“确定”按钮\n\
+    \  3. 点击自定义主题界面“确定” 按钮\n  4. 点击标签栏“+”按钮新建一个标签页\n  5. 右上角主菜单点击新建窗口\n  6. 在新的窗口中右键菜单做横向分屏纵向分屏操作\n\
+    Notes:测试时一并测试触摸屏、触控板、键盘交互\n预期结果:\n  1. 弹出取色板\n  2. 取色板页面关闭，返回到自定义主题弹出框界面；预览效果前景色、背景色、提示符PS1、提示符PS2颜色显示与选择的一致\n\
+    \  3. 保存自定义主题的更改设置；自定义主题弹出框关闭，自定义主题被激活\n  4. 新的标签页中前景色、背景色、提示符PS1、提示符PS2显示与自定义中设置的一致\n\
+    \  5. 新打开的窗口中前景色、背景色、提示符PS1、提示符PS2显示与自定义中设置的一致\n  6. 分屏的窗口中前景色、背景色、提示符PS1、提示符PS2显示与自定义中设置的一致\n"
+  module: 主题/自定义主题
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_custom_theme_ps1_193
+  file: 主题/test_custom_theme_ps1_193.yaml
+  name: '自定义主题提示符PS1控件功能 - NON-AUTOMATABLE: skip-触摸操作无法自动化'
+  description: "测试步骤:\n  1. 打开终端，进入自定义主题对话框，检查提示符PS1控件默认颜色显示\n  2. 点击提示符PS1控件\n  3.\
+    \ 取色板中选择某一个颜色，点击“确定” 按钮\n  4. 点击自定义主题界面“确定” 按钮\n  5. 点击自定义主题界面“取消”按钮\nNotes:测试时一并测试触摸屏、触控板、键盘交互\n\
+    预期结果:\n  1. “土黄色” （0x859900）\n  2. 弹出取色板\n  3. 取色板页面关闭，返回到自定义主题弹出框界面；预览效果提示符PS1颜色显示与选择的一致\n\
+    \  4. 保存自定义主题的更改设置；自定义主题弹出框关闭，自定义主题被激活\n  5. 取消本次自定义主题更改，自定义主题弹出框关闭，取消本次操作\n"
+  module: 主题/自定义主题
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_custom_theme_ps2_194
+  file: 主题/test_custom_theme_ps2_194.yaml
+  name: '自定义主题提示符PS2控件功能 - NON-AUTOMATABLE: skip-触摸操作无法自动化'
+  description: "测试步骤:\n  1. 打开终端，进入自定义主题对话框，检查提示符PS2控件默认颜色显示\n  2. 点击提示符PS2控件\n  3.\
+    \ 取色板中选择某一个颜色，点击“确定” 按钮\n  4. 点击自定义主题界面“确定” 按钮\n  5. 点击自定义主题界面“取消”按钮\nNotes:测试时一并测试触摸屏、触控板、键盘交互\n\
+    预期结果:\n  1. “蓝色” （0x3465A4）\n  2. 弹出取色板\n  3. 取色板页面关闭，返回到自定义主题弹出框界面；预览效果提示符PS1颜色显示与选择的一致\n\
+    \  4. 保存自定义主题的更改设置；自定义主题弹出框关闭，自定义主题被激活\n  5. 取消本次自定义主题更改，自定义主题弹出框关闭，取消本次操作\n"
+  module: 主题/自定义主题
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_custom_theme_style_190
+  file: 主题/test_custom_theme_style_190.yaml
+  name: '自定义主题主题风格 - NON-AUTOMATABLE: skip-触摸操作无法自动化'
+  description: "测试步骤:\n  1. 打开终端，进入自定义主题弹框界面\n  2. 点击浅色单选按钮\n  3. 再次点击深色单选按钮\nNotes:测试时一并测试触摸屏、触控板、键盘交互\n\
+    预期结果:\n  1. 默认主题风格是深色；预览效果窗口标题栏显示深色\n  2. 浅色按钮被选中；预览效果窗口标题栏显示浅色\n  3. 深色按钮被选中；预览效果窗口标题栏显示深色\n"
+  module: 主题/自定义主题
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_main_menu_theme_182
+  file: 主题/test_main_menu_theme_182.yaml
+  name: 主菜单切换主题
+  description: "测试步骤:\n  1. 打开终端，主菜单点击主题，切换深色\n  2. 主菜单切换跟随系统主题\n  3. 打开多个终端窗口，在有弹框界面，切换主题\n\
+    预期结果:\n  1. 终端窗口显示深色主题\n  2. 终端窗口显示跟随系统变化\n  3. 弹框字体显示正常\n"
+  module: 主界面右上角菜单栏
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_switch_theme_174
+  file: 主题/test_switch_theme_174.yaml
+  name: '[010]切换主题'
+  description: "测试步骤:\n  1. 进入终端，菜单栏点击主题选项\n  2. 切换主题选项为浅色主题\n  3. 切换主题选项为跟随系统\n \
+    \ 4. 三个主题之间多次来回切换\n预期结果:\n  1. 默认选项为深色\n  2. 终端主题颜色为浅色\n  3. 终端主题颜色跟随系统变化\n  4.\
+    \ 切换主题终端显示无异常\n"
+  module: 主界面右上角菜单栏
+  feature: ''
+  tags:
+  - L1
+  app: deepin-terminal
+  skip: null
+- id: test_cursor_blink_081
+  file: 光标/test_cursor_blink_081.yaml
+  name: 光标闪烁复选框切换
+  description: "测试步骤:\n  1. 打开设置界面，检查光标闪烁\n  2. 去掉勾选，检查光标显示\n  3. 检查配置文件cat ~/.config/deepin/deepin-terminal/config.conf\n\
+    预期结果:\n  1. 默认勾选，即光标会自动闪烁\n  2. 光标不闪烁\n  3. advanced.cursor.cursor_blink=true\
+    \ 表示闪烁；false表示不闪烁\n"
+  module: 设置界面高级设置
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_cursor_style_080
+  file: 光标/test_cursor_style_080.yaml
+  name: 光标风格切换
+  description: "测试步骤:\n  1. 打开设置界面，检查光标风格默认显示\n  2. 修改为第二种，|\n  3. 修改为第三种_\n预期结果:\n\
+    \  1. 显示有3种风格，默认选中第一种\n  2. 光标立即生效\n  3. 光标立即生效\n"
+  module: 设置界面高级设置
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_about_1_176
+  file: 关于/test_about_1_176.yaml
+  name: 关于1
+  description: "测试步骤:\n  1. 进入终端，菜单栏点击关于选项\n  2. 软件弹出属性对话框后，用鼠标移动属性对话框，查看对话框显示\n预期结果:\n\
+    \  1. 弹出关于界面\n  2. 可以用鼠标移动属性对话框\n"
+  module: 主界面右上角菜单栏
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_about_2_177
+  file: 关于/test_about_2_177.yaml
+  name: 关于2
+  description: "测试步骤:\n  1. 打开终端，点击右上角的设置－关于，软件显示\n  2. 查看关于窗口内容是否显示正确\n  3. 打开关于窗口后点击右上角的x按钮，查看窗口显示\n\
+    \  4. 打开关于窗口后按ESC键，查看窗口显示\n  5. 打开关于窗口后按Alt+F4，查看窗口显示\n预期结果:\n  1. 软件会自动弹出关于窗口\n\
+    \  2. 关于窗口内容显示正确\n  3. 关于窗口会自动关闭\n  4. 对话框会自动关闭，支持ESC退出\n  5. 关于窗口会自动关闭\n"
+  module: 主界面右上角菜单栏
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_help_175
+  file: 关于/test_help_175.yaml
+  name: 帮助
+  description: "测试步骤:\n  1. 进入终端，菜单栏点击帮助选项\n  2. 打开终端后，按Ｆ１，查看软件显示\n  3. 浏览帮助内容，以及文案、插图显示\n\
+    \  4. 弹出帮助文档后，点击右上角的x按钮，查看软件显示\n预期结果:\n  1. 进入帮助界面\n  2. 弹出帮助信息界面\n  3. 浏览正常，文案、插图显示正确\n\
+    \  4. 帮助信息显示正确\n"
+  module: 主界面右上角菜单栏
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_hyperlink_display_197
+  file: 其他/test_hyperlink_display_197.yaml
+  name: 超链接显示以及跳转
+  description: "测试步骤:\n  1. 打开终端，光标指在超链接处（不选中）\n  2. 点击右键菜单\n  3. 打开链接\n  4. 复制链接\n\
+    预期结果:\n  1. 显示超链接小手\n  2. 弹出菜单栏\n  3. 跳转链接显示内容\n  4. 复制链接成功\n"
+  module: 右键菜单
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_link_009
+  file: 其他/test_link_009.yaml
+  name: 链接
+  description: "测试步骤:\n  1. 打开终端，光标指在超链接处（不选中）\n  2. 点击右键菜单\n  3. 打开链接\n  4. 复制链接\n\
+    预期结果:\n  1. 显示超链接小手\n  2. 弹出菜单栏\n  3. 跳转链接显示内容\n  4. 复制链接成功\n"
+  module: 右键菜单
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_link_178
+  file: 其他/test_link_178.yaml
+  name: 链接
+  description: "测试步骤:\n  1. 打开终端，光标指在超链接处（不选中）\n  2. 点击右键菜单\n  3. 打开链接\n  4. 复制链接\n\
+    预期结果:\n  1. 显示超链接小手\n  2. 弹出菜单栏\n  3. 跳转链接显示内容\n  4. 复制链接成功\n"
+  module: 右键菜单
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_log_collect_app_204
+  file: 其他/test_log_collect_app_204.yaml
+  name: 日志收集工具查看终端应用日志
+  description: "前置条件: 1、配置文件：/usr/share/deepin-log-viewer/deepin-log.conf.d/deepin-terminal.json，默认状态，未被修改过\n\
+    测试步骤:\n  1. 点击【日志收集工具】左侧导航栏【应用日志】\n  2. 点击【应用列表】，依次选择、“终端“\n  3. 进行【级别】切换\n预期结果:\n\
+    \  1. 进入【应用日志】界面\n  2. 选择成功\n  3. 存在对应级别的日志信息\n"
+  module: 终端
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_log_config_check_203
+  file: 其他/test_log_config_check_203.yaml
+  name: 日志配置文件查看
+  description: "测试步骤:\n  1. 终端执行命令：\ncat /usr/share/deepin-log-viewer/deepin-log.conf.d/deepin-terminal.json\n\
+    预期结果:\n  1. 存在数据迁移工具日志配置文件，内容为json日志配置文件，包含“name”、“exec”、“logType”、“logPath”、“visible”、“version”，其中logType默认为“journal”，visible默认为“1”\n"
+  module: 终端
+  feature: ''
+  tags:
+  - L1
+  app: deepin-terminal
+  skip: null
+- id: test_multilang_ui_199
+  file: 其他/test_multilang_ui_199.yaml
+  name: 多语言界面翻译
+  description: "测试步骤:\n  1. 检查中文、英文、繁体、正体、维语、藏语语言系统下，终端各个界面翻译是否正常\n预期结果:\n  1. 翻译显示正常\n"
+  module: 翻译
+  feature: ''
+  tags:
+  - L3
+  app: deepin-terminal
+  skip: null
+- id: test_paste_105
+  file: 其他/test_paste_105.yaml
+  name: '粘贴 - NON-AUTOMATABLE: 需要letmego支持重启'
+  description: "测试步骤:\n  1. 打开设置界面，检查默认粘贴显示\n  2. 使用快捷键进行粘贴\n  3. 修改快捷键为其他；如ctrl+e；使用修改后的快捷键\n\
+    \  4. 使用旧的快捷键\n  5. 检查配置文件cat ~/.config/deepin/deepin-terminal/config.conf\n预期结果:\n\
+    \  1. 默认：ctrl+shift+v\n  2. 粘贴成功\n  3. 粘贴成功\n  4. 旧的快捷键不生效\n  5. paste值和界面设置一致\n"
+  module: 设置界面快捷键
+  feature: ''
+  tags:
+  - L3
+  app: deepin-terminal
+  skip: null
+- id: test_priority_172
+  file: 其他/test_priority_172.yaml
+  name: 优先级
+  description: "测试步骤:\n  1. 终端设置中设置窗口启动为全屏模式，右侧上方设置中点击关闭;新建窗口;\n  2. 终端输入deepin-terminal\
+    \ -m normal\n预期结果:\n  1. 新建的窗口为全屏模式\n  2. 弹出的窗口为正常窗口\n"
+  module: 104X
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_right_click_menu_008
+  file: 其他/test_right_click_menu_008.yaml
+  name: '右键菜单 - NON-AUTOMATABLE: 需要letmego支持重启'
+  description: "测试步骤:\n  1. 打开终端，系统有信息复制到粘贴板上时，且开启最少分屏，空白处右键菜单\n  2. 注销系统或者重启后，不做其他任何操作，右键\n\
+    \  3. 登录远程服务器，右键菜单显示\n  4. 打开雷神终端，空白处右键\n预期结果:\n  1. 粘贴、横向分屏、纵向分屏、关闭窗口、关闭其他窗口、新建工作区、全屏搜索远程管理、设置\n\
+    \  2. 没有粘贴和关闭其他窗口，其他都有\n  3. 粘贴、横向分屏、纵向分屏、关闭窗口、关闭其他窗口、新建工作区、全屏搜索远程管理、上传文件、下载文件、设置\n\
+    \  4. 粘贴、横向分屏、纵向分屏、关闭窗口、关闭其他窗口、新建工作区、全屏、搜索、远程管理、上传文件、下载文件、设置\n"
+  module: 右键菜单
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_right_click_menu_104
+  file: 其他/test_right_click_menu_104.yaml
+  name: 右键菜单显示项
+  description: "测试步骤:\n  1. 进入终端，鼠标右键，检查右键菜单通用菜单显示\n  2. 打开终端，终端未选中内容，并且光标下不是超链接，点击右键菜单\n\
+    \  3. 终端内没有选中内容，并且光标下是超链接，点击右键菜单\n  4. 终端中选中文本后，点击右键菜单\n  5. 终端中选中当前目录下的文件，点击右键菜单，点击“打开”菜单\n\
+    预期结果:\n  1. 在文件管理器中打开、横向分屏、纵向分屏、关闭工作区、新建标签页、全屏、查找、编码、自定义命令、远程管理、设置；\n  2. 显示通用菜单项\n\
+    \  3. 应该包括打开链接、复制链接、通用菜单\n  4. 应该包括复制、粘贴、搜索、通用菜单\n  5. 应该包括复制、粘贴、打开、搜索、通用菜单，会调用系统应用打开文件\n"
+  module: 右键菜单工作区
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_separator_line_010
+  file: 其他/test_separator_line_010.yaml
+  name: '分割线 - NON-AUTOMATABLE: 需要letmego支持重启'
+  description: "测试步骤:\n  1. 注销或重启后打开终端，右键菜单，不做其他任何操作\n  2. 复制信息到剪切板，右键菜单，不做其他任何操作\n\
+    \  3. 终端添加一个分屏窗口，右键菜单\n  4. 进行分屏、关闭分屏窗口、新建工作区等操作\n预期结果:\n  1. 没有粘贴和关闭其他窗口；两个选项其他按摘要中的顺序排列分割\n\
+    \  2. 右键菜单中显示粘贴，选项，独自一个分割区\n  3. 右键菜单显示;关闭其他其他窗口;选项处于横纵向分屏的分割区\n  4. 排序顺序未发生异变；分割线也未发生异变\n"
+  module: 右键菜单
+  feature: ''
+  tags:
+  - L3
+  app: deepin-terminal
+  skip: null
+- id: test_horizontal_split_111
+  file: 分屏/test_horizontal_split_111.yaml
+  name: 横向分屏
+  description: "测试步骤:\n  1. 打开终端，右键选择横向分屏，检查屏幕显示\n  2. 再次右键选择\n  3. 在步骤1基础上，按快捷键ctrl+shift+h\n\
+    预期结果:\n  1. 窗口被分为2个屏，上下分屏\n  2. 右键菜单中不显示横向分屏选项\n  3. 窗口不会被再次分屏\n"
+  module: 右键菜单工作区
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_horizontal_split_150
+  file: 分屏/test_horizontal_split_150.yaml
+  name: '[012]窗口横向分屏'
+  description: "测试步骤:\n  1. 打开终端，右键菜单选择横向分屏\n  2. 快捷键Ctrl+Shift+h\n预期结果:\n  1. 工作区窗口横向分屏显示\n\
+    \  2. 工作区窗口横向分屏显示\n"
+  module: 工作区
+  feature: ''
+  tags:
+  - L1
+  app: deepin-terminal
+  skip: null
+- id: test_split_ctrl_s_q_flow_control_089
+  file: 分屏/test_split_ctrl_s_q_flow_control_089.yaml
+  name: '分屏窗口中Ctrl+S和Ctrl+Q流控制 - NON-AUTOMATABLE: 触摸操作无法自动化'
+  description: "测试步骤:\n  1. 打开终端，做横向分屏、纵向分屏操作\n  2. 进入设置shelll分类下，不勾选“禁用Ctrl+S和Ctrl+Q流控制”选项\n\
+    \  3. 在左边工作区中使用快键“Ctrl+S”\n  4. 在右边工作区中使用快键“Ctrl+S”\n  5. 点击文案提示框的“ｘ”按钮，键盘按下“Ctrl+Q”，输入命令\n\
+    \  6. 进入设置shelll分类下，勾选“禁用Ctrl+S和Ctrl+Q流控制”选项\n  7. 在下方工作区种使用快键“Ctrl+S”\nNotes:测试时一并测试触摸屏、触控板、键盘交互\n\
+    预期结果:\n  1. 1个标签页显示3个工作区\n  2. checkbox复选框不勾选\n  3. 左边焦点在的工作区弹出提示文案“已经按下Ctrl+S，输出被挂起。可以按下Ctrl+Q继续。”\n\
+    \  4. 右边焦点在工作区弹出提示文案“已经按下Ctrl+S，输出被挂起。可以按下Ctrl+Q继续。”\n  5. 文案提示框被关闭，输入恢复，之前被禁用数据被恢复\n\
+    \  6. checkbox复选框被勾选\n  7. 无反应，可以正常输入命令\nNotes:键盘交互不用考虑焦点到X按钮，Ctrl+Q可以关闭此弹框\n"
+  module: 设置界面高级设置
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_vertical_split_110
+  file: 分屏/test_vertical_split_110.yaml
+  name: 纵向分屏
+  description: "测试步骤:\n  1. 打开设置界面，检查纵向分屏默认快捷键显示\n  2. 使用默认快捷键，检查纵向分屏显示\n  3. 修改快捷键为其他，如：ctrl+shift+m使用新的快捷键\n\
+    \  4. 使用旧的快捷键`\n  5. 检查配置文件 cat ~/.config/deepin/deepin-terminal/config.conf\n\
+    预期结果:\n  1. 默认：ctrl+shift+j\n  2. 屏幕被分为左右2个屏\n  3. 快捷键生效\n  4. 旧的快捷键不会生效\n  5.\
+    \ vertical_split和设置界面保持一致\n"
+  module: 设置界面快捷键
+  feature: ''
+  tags:
+  - L3
+  app: deepin-terminal
+  skip: null
+- id: test_vertical_split_151
+  file: 分屏/test_vertical_split_151.yaml
+  name: '[013]窗口纵向分屏'
+  description: "测试步骤:\n  1. 打开终端，右键菜单选择纵向分屏\n  2. 快捷键Ctrl+Shift+j\n预期结果:\n  1. 工作区窗口纵向分屏显示\n\
+    \  2. 工作区窗口纵向分屏显示\n"
+  module: 工作区
+  feature: ''
+  tags:
+  - L1
+  app: deepin-terminal
+  skip: null
+- id: test_vertical_split_shortcut_096
+  file: 分屏/test_vertical_split_shortcut_096.yaml
+  name: 纵向分屏快捷键
+  description: "测试步骤:\n  1. 打开设置界面，检查纵向分屏默认快捷键显示\n  2. 使用默认快捷键，检查纵向分屏显示\n  3. 修改快捷键为其他，如：ctrl+shift+m使用新的快捷键\n\
+    \  4. 使用旧的快捷键`\n  5. 检查配置文件 cat ~/.config/deepin/deepin-terminal/config.conf\n\
+    预期结果:\n  1. 默认：ctrl+shift+j\n  2. 屏幕被分为左右2个屏\n  3. 快捷键生效\n  4. 旧的快捷键不会生效\n  5.\
+    \ vertical_split和设置界面保持一致\n"
+  module: 设置界面快捷键
+  feature: ''
+  tags:
+  - L3
+  app: deepin-terminal
+  skip: null
+- id: test_launcher_start_184
+  file: 启动/test_launcher_start_184.yaml
+  name: 启动器启动
+  description: "测试步骤:\n  1. 打开启动器，在启动器中点击终端图标，查看软件显示\n  2. 打开启动器，在启动器中选中终端图标，点击右键－打开，查看软件显示\n\
+    预期结果:\n  1. 终端正常启动\n  2. 终端正常启动\n"
+  module: 启动终端
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_startup_window_mode_083
+  file: 启动/test_startup_window_mode_083.yaml
+  name: 启动时使用窗口模式下拉框
+  description: "测试步骤:\n  1. 打开启动器，在启动器中点击终端图标，查看软件显示\n  2. 打开启动器，在启动器中选中终端图标，点击右键－打开，查看软件显示\n\
+    预期结果:\n  1. 终端正常启动\n  2. 终端正常启动\n"
+  module: 启动终端
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_delete_workspace_013
+  file: 工作区/test_delete_workspace_013.yaml
+  name: 删除工作区
+  description: "测试步骤:\n  1. 打开终端，新建多个工作区，鼠标点击工作区X图标\n  2. 使用快捷键alt+w\n预期结果:\n  1.\
+    \ 删除工作区\n  2. 删除工作区\n"
+  module: 工作区
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_delete_workspace_183
+  file: 工作区/test_delete_workspace_183.yaml
+  name: 删除工作区
+  description: "测试步骤:\n  1. 打开终端，新建多个工作区，鼠标点击工作区X图标\n  2. 使用快捷键alt+w\n预期结果:\n  1.\
+    \ 删除工作区\n  2. 删除工作区\n"
+  module: 工作区
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_new_workspace_148
+  file: 工作区/test_new_workspace_148.yaml
+  name: null
+  description: "测试步骤:\n  1. 打开终端，点击工作区标签旁+按钮\n  2. 使用快捷键新建：ctrl+shift+t\n预期结果:\n \
+    \ 1. 添加新的工作区\n  2. 添加新的工作区\n"
+  module: 工作区
+  feature: ''
+  tags:
+  - L1
+  app: null
+  skip: null
+- id: test_switch_workspace_012
+  file: 工作区/test_switch_workspace_012.yaml
+  name: 切换工作区
+  description: "测试步骤:\n  1. 打开终端，新建多个工作区，鼠标点击各个工作区名称\n  2. 使用快捷键切换：ctrl+tab/shift+ctrl+tab\n\
+    \  3. 使用Ctrl+Shift + 1 ~ Ctrl+Shift + 9，切换工作区\n预期结果:\n  1. 点击可切换不同工作区\n  2. 依次切换工作区\n\
+    \  3. 数字表示不同工作区；当⼯作区的数量不⼤于 9 时， Ctrl+ Shift + 1 ~ Ctrl+ Shift + 9 分别切换到数字对应的标签，\
+    \ 当⼯作区的数量⼤于 9 时， Ctrl+ Shift + 9 切换到最后⼀个标签，⽽不是第 9 个标签\n"
+  module: 工作区
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_close_workspace_shortcut_098
+  file: 快捷键/test_close_workspace_shortcut_098.yaml
+  name: 关闭工作区快捷键
+  description: "测试步骤:\n  1. 打开设置界面，检查关闭工作区默认快捷键显示\n  2. 使用默认快捷键\n  3. 修改快捷键为其他，如 ctrl+w使用新的快捷键\n\
+    \  4. 使用旧的快捷键\n  5. 检查配置文件cat ~/.config/deepin/deepin-terminal/config.conf\n预期结果:\n\
+    \  1. 默认Alt + Q\n  2. 关闭当前工作区\n  3. 新的快捷键生效\n  4. 旧的快捷键不生效\n  5. close_workspace和设置界面保持一致\n"
+  module: 设置界面快捷键
+  feature: ''
+  tags:
+  - L3
+  app: deepin-terminal
+  skip: null
+- id: test_hide_show_shortcut_099
+  file: 快捷键/test_hide_show_shortcut_099.yaml
+  name: 隐藏显示快捷键
+  description: "测试步骤:\n  1. 打开设置界面，检查是否存在“显示快捷键”功能\n预期结果:\n  1. 不显示“显示快捷键”功能\n"
+  module: 设置界面快捷键
+  feature: ''
+  tags:
+  - L3
+  app: deepin-terminal
+  skip: null
+- id: test_new_tab_shortcut_094
+  file: 快捷键/test_new_tab_shortcut_094.yaml
+  name: 新建标签页快捷键
+  description: "测试步骤:\n  1. 打开设置界面，检查新建标签页默认显示\n  2. 使用默认快捷键\n  3. 修改快捷键为其他，例如ctrl+t；使用新的快捷键\n\
+    \  4. 使用旧的快捷键\n  5. 检查配置文件cat ~/.config/deepin/deepin-terminal/config.conf\n预期结果:\n\
+    \  1. 默认：ctrl+shift+t\n  2. 新建标签页\n  3. 新的快捷键生效\n  4. 旧的快捷键不生效\n  5. new_tab值和界面设置一致\n"
+  module: 设置界面快捷键
+  feature: ''
+  tags:
+  - L3
+  app: deepin-terminal
+  skip: null
+- id: test_paste_shortcut_092
+  file: 快捷键/test_paste_shortcut_092.yaml
+  name: 粘贴快捷键
+  description: "测试步骤:\n  1. 点击添加自定义命令\n  2. 分别点击取消 、右上角x;\n  3. 鼠标点击快捷键栏输入栏，键盘只敲字母或者数字符号\n\
+    \  4. 鼠标点击快捷键输入栏，键盘敲入ctrl/alt/shift+字母/符号\n  5. 鼠标点击快捷键输入栏，键盘敲入ctrl+shift/alt+字母/符号\n\
+    \  6. 鼠标点击快捷键输入栏，键盘敲入ctrl+tab+字母/符号\n  7. 鼠标点击快捷键输入栏，键盘敲入ctrl+shift/alt+双字符\n\
+    \  8. 鼠标点击快捷键输入栏，键盘敲入ctrl/shift/alt+字母/数字\n预期结果:\n  1. 弹出添加自定义窗口\n  2. 退出添加窗口，回到添加自定义栏\n\
+    \  3. 不能正常敲入\n  4. 可以正常敲入且显示正常\n  5. 可以再次敲入且显示正常\n  6. 提示“快捷键Ctrl+Tab已被占用，请重新设置”\n\
+    \  7. 只能敲入单字符\n  8. 可以正常敲入\n"
+  module: 自定义命令
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_select_all_shortcut_093
+  file: 快捷键/test_select_all_shortcut_093.yaml
+  name: 全选快捷键
+  description: "测试步骤:\n  1. 点击添加自定义命令\n  2. 分别点击取消 、右上角x;\n  3. 鼠标点击快捷键栏输入栏，键盘只敲字母或者数字符号\n\
+    \  4. 鼠标点击快捷键输入栏，键盘敲入ctrl/alt/shift+字母/符号\n  5. 鼠标点击快捷键输入栏，键盘敲入ctrl+shift/alt+字母/符号\n\
+    \  6. 鼠标点击快捷键输入栏，键盘敲入ctrl+tab+字母/符号\n  7. 鼠标点击快捷键输入栏，键盘敲入ctrl+shift/alt+双字符\n\
+    \  8. 鼠标点击快捷键输入栏，键盘敲入ctrl/shift/alt+字母/数字\n预期结果:\n  1. 弹出添加自定义窗口\n  2. 退出添加窗口，回到添加自定义栏\n\
+    \  3. 不能正常敲入\n  4. 可以正常敲入且显示正常\n  5. 可以再次敲入且显示正常\n  6. 提示“快捷键Ctrl+Tab已被占用，请重新设置”\n\
+    \  7. 只能敲入单字符\n  8. 可以正常敲入\n"
+  module: 自定义命令
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_select_lower_workspace_shortcut_097
+  file: 快捷键/test_select_lower_workspace_shortcut_097.yaml
+  name: 选择下面的工作区快捷键
+  description: "测试步骤:\n  1. 打开设置界面，检查选择下面的工作区默认快捷键显示\n  2. 使用默认快捷键\n  3. 修改快捷键为其他，如\
+    \ ctrl+j使用新的快捷键\n  4. 使用旧的快捷键\n  5. 检查配置文件cat ~/.config/deepin/deepin-terminal/config.conf\n\
+    预期结果:\n  1. 默认：alt+down\n  2. 选择下面的工作区\n  3. 新的快捷键生效\n  4. 旧的快捷键不生效\n  5. select_lower_workspace和设置界面显示一致\n"
+  module: 设置界面快捷键
+  feature: ''
+  tags:
+  - L3
+  app: deepin-terminal
+  skip: null
+- id: test_shortcut_launch_185
+  file: 快捷键/test_shortcut_launch_185.yaml
+  name: 快捷键启动
+  description: "测试步骤:\n  1. 按快捷键Ctrl+Alt+T，查看系统显示\n  2. 进入控制中心-键盘和语言-快捷键-修改终端启动快捷键，再使用新快捷键启动，查看系统显示\n\
+    预期结果:\n  1. 可以正常启动终端\n  2. 可以正常启动终端\n"
+  module: 启动终端
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_terminal_shortcut_keys_155
+  file: 快捷键/test_terminal_shortcut_keys_155.yaml
+  name: '[009]终端快捷键'
+  description: "测试步骤:\n  1. 打开终端，键盘按Ctrl+Shift+？\n  2. 正常窗口模式下，键盘按Ctrl+Shift+？\n \
+    \ 3. 雷神窗口模式下，键盘按Ctrl+Shift+？\n预期结果:\n  1. 显示快捷键，松开键盘快捷窗口不消失；快捷键文案显示与需求一致\n  2.\
+    \ 快捷键显示在窗口中间\n  3. 快捷键显示在屏幕中间\n"
+  module: 快捷键
+  feature: ''
+  tags:
+  - L1
+  app: deepin-terminal
+  skip: null
+- id: test_drag_tab_position_187
+  file: 拖拽/test_drag_tab_position_187.yaml
+  name: '拖动标签页位置 - NON-AUTOMATABLE: skip-触摸操作无法自动化'
+  description: "测试步骤:\n  1. 打开终端，只有一个标签页\n  2. 新建标签页，标签页数量大于1个，选中一个标签页图标\n  3. 按住鼠标左键，拖拽此标签页图标\n\
+    \  4. 释放鼠标左键\nNotes:测试时一并测试触摸屏、触控板、键盘交互\n预期结果:\n  1. 不支持拖动切换位置\n  2. 标签页被选中\n\
+    \  3. 标签页图标跟随鼠标移动位置，标签页图标在标签栏拖动过程中，拖动到其他标签页位置时，需显示与当前标签的交换动画显示\n  4. 拖拽的标签页移动到鼠标释放的位置\n\
+    （有程序运行完成后，标签字体变色，拖动过程不影响标签文字颜色）\n"
+  module: 标签页移动
+  feature: ''
+  tags:
+  - L1
+  app: deepin-terminal
+  skip: null
+- id: test_drag_tab_to_new_window_188
+  file: 拖拽/test_drag_tab_to_new_window_188.yaml
+  name: '普通窗口标签页拖拽到新窗口 - NON-AUTOMATABLE: skip-触摸操作无法自动化'
+  description: "测试步骤:\n  1. 打开终端（只有一个标签页），选择标签页按住鼠标左键，拖拽此标签页图标，鼠标位置拖动到标签栏外\n  2. 新建2个窗口，如：窗口1(包含至少1个标签A)和窗口2(包含至少1个标签B)，选中窗口2的标签B，按住鼠标左键，拖拽此标签页图标到窗口1的标签栏，释放鼠标左键\n\
+    \  3. 新建一个含有>=2个标签页的窗口，选中其中一个标签(比如标签B)，按住鼠标左键，拖拽此标签页图标，不在其他终端窗口的标签栏上释放鼠标左键\nNotes:测试时一并测试触摸屏、触控板、键盘交互\n\
+    预期结果:\n  1. 缩略图出现时，窗口消失；释放鼠标左键窗口显示正常\n  2. 显示与该位置的插入标签的动画，拖拽的标签页移动到鼠标释放的位置； 窗口2标签B销毁，窗口1包含标签A和标签B\n\
+    \  3. 新建一个终端窗口且该窗口为激活状态\nNotes:标签拖拽后，标签本身绑定的数据格式等信息需要同步\n"
+  module: 标签页移动
+  feature: ''
+  tags:
+  - L1
+  app: deepin-terminal
+  skip: null
+- id: test_drag_upload_file_146
+  file: 拖拽/test_drag_upload_file_146.yaml
+  name: '连接服务器后拖拽文件上传 - NON-AUTOMATABLE: 触摸操作无法自动化'
+  description: "前置条件: 远程管理列表存在一个有效的服务器地址\n测试步骤:\n  1. 打开终端，进入远程管理，连接远程服务器\n  2. 选择一个文件拖拽到远程当前路径所在位置\n\
+    \  3. 上传文件过程中网络中断或手动断开服务器\nNotes:测试时一并测试触摸屏、触控板、键盘交互\n预期结果:\n  1. 远程服务器连接成功\n\
+    \  2. 上传成功，返回提示信息\n  3. 上传文件失败\n"
+  module: 远程管理器
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_search_015_109
+  file: 查找/test_search_015_109.yaml
+  name: '[015]查找'
+  description: "测试步骤:\n  1. 打开终端，右键选择查找\n  2. 输入内容，按enter键\n预期结果:\n  1. 窗口右上方显示查找框\n\
+    \  2. 匹配内容高亮，搜索不到内容输入框爆红\n"
+  module: 右键菜单工作区
+  feature: ''
+  tags:
+  - L1
+  app: deepin-terminal
+  skip: null
+- id: test_search_custom_cmd_161
+  file: 查找/test_search_custom_cmd_161.yaml
+  name: 搜索
+  description: "前置条件: 列表有2个以上命令\n测试步骤:\n  1. 打开终端，Tab键切换到自定义命令插件\n  2. 搜索框不输入任何字符，按Enter键\n\
+    \  3. 输入字符，按Enter键，搜索结果为空\n（PS：测试时需要测试Shift+Tab反向切换）\n预期结果:\n  1. 搜索框有Focus效果\n\
+    \  2. 搜索框无变化\n  3. < 键有Focus效果，按“←”方向键/Enter/Space键返回到搜索框\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_search_display_001
+  file: 查找/test_search_display_001.yaml
+  name: 查找显示
+  description: "测试步骤:\n  1. 打开终端，右键菜单选择搜索，检查搜索显示\n  2. 使用快捷键ctrl+alt+f\n  3. 窗口显示多个分屏时，检查搜索显示\n\
+    预期结果:\n  1. 在右上角显示：放大镜、搜索输入框、向上搜索向下搜索按钮\n  2. 调出搜索界面\n  3. 始终显示在右上角\n"
+  module: 查找
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_search_down_005
+  file: 查找/test_search_down_005.yaml
+  name: 向下查找
+  description: "测试步骤:\n  1. 点击向下搜索，\n  2. 键盘enter回车搜索\n预期结果:\n  1. 向下检索并选中符合条件的搜索内容\n\
+    \  2. 默认从上往下搜索，每次点击一次，往下检索\n"
+  module: 查找
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_search_hide_006
+  file: 查找/test_search_hide_006.yaml
+  name: 查找隐藏
+  description: "测试步骤:\n  1. 打开查找框按ESC\n  2. 打开查找框鼠标点击终端其他地方\n预期结果:\n  1. 搜索界面被隐藏\n\
+    \  2. 搜索界面被隐藏\n"
+  module: 查找
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_search_input_002
+  file: 查找/test_search_input_002.yaml
+  name: 查找输入框
+  description: "测试步骤:\n  1. 打开搜索时，检查光标焦点\n  2. 输入任意字符：123ASsdh周圣》?:%$%^&\n  3. 输入很长的字符\n\
+    \  4. 输入内容后\n  5. 点击x\n预期结果:\n  1. 焦点聚焦在输入框\n  2. 可以正常输入，无字符校验\n  3. 可以正常输入，没有长度校验\n\
+    \  4. 会有清空按钮显示\n  5. 输入内容被清空；可以重新输入\n"
+  module: 查找
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_search_process_003
+  file: 查找/test_search_process_003.yaml
+  name: 查找过程
+  description: "测试步骤:\n  1. 输入搜索内容后，按下回车\n  2. 回车搜索，检查搜索过程\n  3. 符合搜索的内容\n  4. 当窗口有多个分屏时，检查搜索对象\n\
+    \  5. 没有对应搜索内容时\n预期结果:\n  1. 开始搜索\n  2. 从上往下搜索\n  3. 关键字被高亮选中\n  4. 当前光标在哪个分屏，就会只搜索哪个分屏\n\
+    \  5. 没有提示，搜索框亮红\n"
+  module: 查找
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_search_server_122
+  file: 查找/test_search_server_122.yaml
+  name: 搜索服务器
+  description: "测试步骤:\n  1. 打开服务器列表，查看是否有搜索按钮\n  2. 点击搜索按钮后，查看软件显示\n  3. 在输入框中输入字符：特殊字符，然后点击回车\n\
+    \  4. 在搜索输入框中输入服务器的名称，点击回车\n  5. 在搜索输入框中输入服务器的ip地址，点击回车\n  6. 在搜索输入框中输入分组名称，点击回车\n\
+    \  7. 在搜索输入框中输入字符后，点击后面的删除按钮\n  8. 搜索是模糊匹配的，只要服务器名称、ｉｐ地址、分组　任何一项匹配，都会显示出来\n预期结果:\n\
+    \  1. 有搜索按钮显示\n  2. 点击搜索按钮后，会自动进入搜索输入框，可输入字符\n  3. 搜索列表显示为空\n  4. 软件会自动匹配服务器名称，并将其显示\n\
+    \  5. 软件会自动匹配服务器的ip地址，并将其显示\n  6. 软件会自动匹配分组，并将分组内的服务器全部显示\n  7. 软件会自动清空输入的字符\n\
+    \  8. 操作成功\n"
+  module: 远程管理器
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_search_up_004
+  file: 查找/test_search_up_004.yaml
+  name: 向上查找
+  description: "测试步骤:\n  1. 点击向上搜索按钮\n  2. 使用快捷键shift+enter/shift+return\n预期结果:\n\
+    \  1. 向上检索\n  2. 向上检索\n"
+  module: 查找
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_close_other_tabs_114
+  file: 标签页/test_close_other_tabs_114.yaml
+  name: 关闭其它标签页
+  description: "测试步骤:\n  1. 打开终端，新建多个工作区\n  2. 鼠标焦点在标签上，点击右键菜单栏关闭其它标签页\n  3. 只有一个标签页，点击右键“关闭其它标签页”\n\
+    预期结果:\n  1. 工作区新建成功\n  2. 关闭焦点以外的标签页\n  3. 关闭其它标签页置灰显示不可操作\n"
+  module: 右键菜单标签页
+  feature: ''
+  tags:
+  - L1
+  app: deepin-terminal
+  skip: null
+- id: test_close_tab_115
+  file: 标签页/test_close_tab_115.yaml
+  name: 关闭标签页
+  description: "测试步骤:\n  1. 打开设置界面，检查关闭标签页的默认快捷键显示\n  2. 使用默认快捷键\n  3. 修改快捷键为其他；如\
+    \ ctrl+W检查新的快捷键是否生效\n  4. 使用旧的快捷键\n  5. 检查配置文件cat ~/.config/deepin/deepin-terminal/config.conf\n\
+    预期结果:\n  1. 默认显示：alt+w\n  2. 标签页被关闭\n  3. 新修改的快捷键使用正常\n  4. 旧的快捷键不生效\n  5. close_tab值和设置界面显示一致\n"
+  module: 设置界面快捷键
+  feature: ''
+  tags:
+  - L3
+  app: deepin-terminal
+  skip: null
+- id: test_close_tab_shortcut_095
+  file: 标签页/test_close_tab_shortcut_095.yaml
+  name: 关闭标签页快捷键
+  description: "测试步骤:\n  1. 打开设置界面，检查关闭标签页的默认快捷键显示\n  2. 使用默认快捷键\n  3. 修改快捷键为其他；如\
+    \ ctrl+W检查新的快捷键是否生效\n  4. 使用旧的快捷键\n  5. 检查配置文件cat ~/.config/deepin/deepin-terminal/config.conf\n\
+    预期结果:\n  1. 默认显示：alt+w\n  2. 标签页被关闭\n  3. 新修改的快捷键使用正常\n  4. 旧的快捷键不生效\n  5. close_tab值和设置界面显示一致\n"
+  module: 设置界面快捷键
+  feature: ''
+  tags:
+  - L3
+  app: deepin-terminal
+  skip: null
+- id: test_insert_tab_title_format_113
+  file: 标签页/test_insert_tab_title_format_113.yaml
+  name: '插入不同类型标签标题格式 - NON-AUTOMATABLE: 触摸操作无法自动化'
+  description: "测试步骤:\n  1. 打开终端，进入设置基础设置下标签标题格式\n  2. 点击插入按钮，选择插入格式，程序名 %n\n、当前目录（短）%d、当前目录（长）%D、会话编号\
+    \ %#、用户名 %u、本地主机 %h、shell设定的窗口标题 %w\nNotes:测试时一并测试触摸屏、触控板、键盘交互\n预期结果:\n  1. 默认格式%w\n\
+    \  2. 编辑框中显示选择插入选项，并且标签标题格式显示与选择的一致\n"
+  module: 右键菜单工作区
+  feature: ''
+  tags:
+  - L1
+  app: deepin-terminal
+  skip: null
+- id: test_insert_tab_title_format_function_118
+  file: 标签页/test_insert_tab_title_format_function_118.yaml
+  name: '插入标签标题格式功能 - NON-AUTOMATABLE: 触摸操作无法自动化'
+  description: "测试步骤:\n  1. 打开终端，标签页点击鼠标右键\n  2. 点击插入按钮，选择程序名 %n 、当前目录（短）%d、当前目录（长）%D、会话编号\
+    \ %#、用户名 %u、本地主机 %h、shell设定的窗口标题 %w\n  3. 点击确定按钮\n  4. 点击取消按钮\n  5. 清空标签标题格式内容，点击确定\n\
+    Notes:测试时一并测试触摸屏、触控板、键盘交互\n预期结果:\n  1. 弹出重命名标签页弹框，标签标题格式输入框内容默认全选，标签标题格式与设置中一致\n\
+    \  2. 标签标题格式输入框显示选择插入的格式\n  3. 重命名标签显示与选择的一致\n  4. 重命名标签保持不变\n  5. 标签标题显示为Terminal\n"
+  module: 右键菜单标签页
+  feature: ''
+  tags:
+  - L1
+  app: deepin-terminal
+  skip: null
+- id: test_middle_click_tab_120
+  file: 标签页/test_middle_click_tab_120.yaml
+  name: 鼠标指针在标签页上，点击鼠标中键
+  description: "测试步骤:\n  1. 打开终端，鼠标指针指在标签页，点击鼠标中键\n  2. 再次打开终端，点击“+”按钮新建多个标签页，鼠标指针指在未获得焦点的标签页，点击鼠标中键\n\
+    \  3. 终端窗口中做横向分屏纵向分屏操作，鼠标指针指在分屏窗口标签页处，点击鼠标中键\n预期结果:\n  1. 终端窗口被关闭\n  2. 当前标签页被关闭\n\
+    \  3. 当前分屏标签页窗口被关闭\n"
+  module: 右键菜单标签页
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_rename_title_011
+  file: 标签页/test_rename_title_011.yaml
+  name: 重命名标题
+  description: "测试步骤:\n  1. 打开终端，点击右键-重命名标题，查看软件显示\n  2. 弹出输入对话框后，按ESC键，查看对话框显示\n\
+    \  3. 弹出输入对话框后，直接点击重命名，查看标题显示\n  4. 弹出输入对话框后，删除原来的标题，点击重命名，查看标题栏显示\n  5. 在对话框中输入任意长度字符，查看软件显示\n\
+    \  6. 重命名标题栏后，登录远程服务器，查看标题栏显示\n  7. 重命名标题栏后，切换shell路径，查看标题栏显示\n预期结果:\n  1. 软件会自动弹出输入对话框\n\
+    \  2. 对话框自动消失\n  3. 标题栏显示不变\n  4. 标题栏显示不变\n  5. 可以输入任意长度，但在标题栏显示时，会以...表示\n  6.\
+    \ 标题栏显示不变\n  7. 标题栏显示不变\n"
+  module: 右键菜单
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_tab_context_menu_116
+  file: 标签页/test_tab_context_menu_116.yaml
+  name: 标签页右键菜单
+  description: "测试步骤:\n  1. 打开终端，点击标签页x按钮\n  2. 点击关闭标签页选项\n  3. 点击关闭其它标签页选项\n预期结果:\n\
+    \  1. 关闭标签页\n  2. 关闭当前标签页\n  3. 其它标签页被关闭\n"
+  module: 触摸屏
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_tab_message_notification_149
+  file: 标签页/test_tab_message_notification_149.yaml
+  name: 标签页消息提醒
+  description: "测试步骤:\n  1. 打开终端，新建多个标签页，选中其中一个标签页，检查各个标签页名称显示\n  2. 在其中一个标签页执行命令，然后切换到其他标签页，等到命令完成\n\
+    \  3. 此时点击标签页\n预期结果:\n  1. 被选中的标签页高亮显示；\n  2. 执行完成之后的标签页颜色会变色，高亮显示，提醒其他标签页任务已经完成\n\
+    \  3. 标签页自动消除标签上的提醒色\n"
+  module: 工作区
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_tab_right_click_rename_title_117
+  file: 标签页/test_tab_right_click_rename_title_117.yaml
+  name: '标签页右键菜单重命名标题 - NON-AUTOMATABLE: 触摸操作无法自动化'
+  description: "测试步骤:\n  1. 打开终端，编辑器区右键菜单\n  2. 标签页点击鼠标右键\n  3. 点击重命名标签\nNotes:测试时一并测试触摸屏、触控板、键盘交互\n\
+    预期结果:\n  1. 右键菜单中不显示重命名标题\n  2. 显示重命名标题\n  3. 弹出重命名标题弹框；弹框样式显示与UI一致\n"
+  module: 右键菜单标签页
+  feature: ''
+  tags:
+  - L1
+  app: deepin-terminal
+  skip: null
+- id: test_tab_shortcut_1_9_100
+  file: 标签页/test_tab_shortcut_1_9_100.yaml
+  name: 标签页1~9快捷键
+  description: "测试步骤:\n  1. 打开终端，进入设置，快捷键下\n  2. 新建工作区不大于9个，键盘按Ctrl+ Shift + 1 ~ Ctrl+\
+    \ Shift + 9\n  3. 新建工作区大于9个，键盘按Ctrl+ Shift + 9\nNotes:测试时一并测试触摸屏、触控板、键盘交互\n预期结果:\n\
+    \  1. 存在切换标签页1~9快捷键功能；默认快捷键“Ctrl+Shift+1”、“Ctrl+Shift+2”、“Ctrl+Shift+3” ... “Ctrl+Shift+9”；支持自定义快捷键功能\n\
+    \  2. 分别切换到数字对应的标签\n  3. 切换到最后⼀个标签，⽽不是第 9 个标签\n"
+  module: 设置界面快捷键
+  feature: ''
+  tags:
+  - L1
+  app: deepin-terminal
+  skip: null
+- id: test_tab_title_numbering_split_007
+  file: 标签页/test_tab_title_numbering_split_007.yaml
+  name: 设置标签标题编号后，对标签页进行分屏操作
+  description: "前置条件: 设置中标签的标签标题格式为会话编号%#\n测试步骤:\n  1. 打开终端，进行横向分屏/纵向分屏操作\n预期结果:\n\
+    \  1. 1当前的标签会话编号也会随之递增，且会话编号显示的是所选的终端的会话编号\n"
+  module: 查找
+  feature: ''
+  tags:
+  - L3
+  app: deepin-terminal
+  skip: null
+- id: test_scroll_on_key_082
+  file: 滚动/test_scroll_on_key_082.yaml
+  name: 按键时滚动复选框切换
+  description: "测试步骤:\n  1. 打开设置界面，检查按键时滚动设置\n  2. 终端内容超过一屏，输入ls -al按enter键执行命令，再次按enter键\n\
+    \  3. 取消勾选按键时滚动，ls -al按enter键执行命令，再次按enter键\n  4. 检查配置文件cat ~/.config/deepin/deepin-terminal/config.conf\n\
+    预期结果:\n  1. 默认勾选\n  2. 自动滚动到光标处\n  3. 页面不会滚动\n  4. scroll_on_key=true表示勾选，否则显示为false\n"
+  module: 设置界面高级设置
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_scroll_on_output_087
+  file: 滚动/test_scroll_on_output_087.yaml
+  name: 输出时滚动复选框切换
+  description: "测试步骤:\n  1. 打开设置界面，检查输出时滚动设置\n  2. 执行命令 sleep 10&& ls -al 然后将界面向上滚动，等待命令执行完成后，检查界面显示\n\
+    \  3. 取消勾选输出时滚动，再次执行上面的命令，检查界面是否滚动\n  4. 检查配置文件cat ~/.config/deepin/deepin-terminal/config.conf\n\
+    \  5. 执行命令 sleep 10&& ls -al 然后将界面向上滚动，等待命令执行完成后，检查界面显示\n预期结果:\n  1. 默认勾选\n  2.\
+    \ 界面会向下滚动，并出现滚动条\n  3. 命令完成时不会出现滚动\n  4. scroll_on_output=true默认输出时滚动，false则表示不滚动\n\
+    \  5. 界面不会滚动\n"
+  module: 设置界面高级设置
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_scrollbar_display_153
+  file: 滚动/test_scrollbar_display_153.yaml
+  name: 滚动条显示
+  description: "测试步骤:\n  1. 打开终端，检查内容够屏幕显示时，是否有滚动条\n  2. 修改窗口宽度，让终端输出一长串内容，检查是否有横向滚动条\n\
+    \  3. 修改窗口高度：减小高度，终端输出一段内容，检查是否有纵向滚动条\n  4. 增加窗口高度，终端内容够显示完整，检查是否有滚动条\n  5. 再次缩小窗口高度\n\
+    \  6. 鼠标移动到右侧的滚动条\n  7. 使用shift+pageup/pagedown\n预期结果:\n  1. 没有显示滚动条\n  2. 没有横向滚动条\n\
+    \  3. 出现纵向滚动条\n  4. 滚动条不会显示\n  5. 滚动条出现\n  6. 滚动条放大\n  7. 可以上下滚动屏幕\n"
+  module: 工作区
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_close_window_181
+  file: 窗口/test_close_window_181.yaml
+  name: 关闭窗口
+  description: "测试步骤:\n  1. 打开多个窗口，点击关闭\n  2. 打开2个窗口，然后最小化，点击dock上图标；在预览中点击关闭1个窗口\n\
+    预期结果:\n  1. 当前窗口被关闭\n  2. 窗口被关闭，剩下一个窗口显示正常\n"
+  module: 主界面右上角菜单栏
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_fullscreen_window_168
+  file: 窗口/test_fullscreen_window_168.yaml
+  name: 全屏窗口
+  description: "测试步骤:\n  1. 打开设置界面，检查启动时使用默认设置\n  2. 检查下拉菜单显示\n  3. 设置为最大化，新建窗口\n\
+    \  4. 检查配置文件cat ~/.config/deepin/deepin-terminal/config.conf\n  5. 注意：窗口大小是保存最后关闭一个的窗口大小\n\
+    预期结果:\n  1. 默认显示为正常窗口\n  2. 正常窗口、分屏、全屏、最大化\n  3. 窗口最大化显示\n  4. use_on_starting显示和设置界面显示一致\n\
+    \  5. 操作成功\n"
+  module: 设置界面高级设置
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_hide_quake_focus_loss_084
+  file: 窗口/test_hide_quake_focus_loss_084.yaml
+  name: 丢失焦点隐藏雷神窗口复选框
+  description: "测试步骤:\n  1. 进入设置，焦点在丢失焦点隐藏雷神窗口复选框\n  2. 键盘按Enter键\n（PS：测试时需要测试Shift+Tab反向切换）\n\
+    预期结果:\n  1. 复选框有Focus效果\n  2. 取消/选中复选框\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_maximize_restore_179
+  file: 窗口/test_maximize_restore_179.yaml
+  name: 最大化还原
+  description: "测试步骤:\n  1. 点击最大化窗口\n  2. 点击还原\n  3. 设置dock位置，检查终端各个按钮：最大化、关闭等按钮是否正常\n\
+    预期结果:\n  1. 窗口最大化显示\n  2. 窗口恢复最大化之前的大小\n  3. 工作正常\n"
+  module: 主界面右上角菜单栏
+  feature: ''
+  tags:
+  - L1
+  app: deepin-terminal
+  skip: null
+- id: test_minimize_window_180
+  file: 窗口/test_minimize_window_180.yaml
+  name: null
+  description: "测试步骤:\n  1. 打开默认窗口大小，点击最小化\n  2. 再次点击图标\n  3. 最大化窗口时点击最小化\n  4. 点击图标\n\
+    预期结果:\n  1. 窗口被隐藏\n  2. 窗口正常显示\n  3. 窗口被隐藏\n  4. 窗口最大化显示\n"
+  module: 主界面右上角菜单栏
+  feature: ''
+  tags:
+  - L1
+  app: null
+  skip: null
+- id: test_multi_window_ctrl_s_q_flow_control_090
+  file: 窗口/test_multi_window_ctrl_s_q_flow_control_090.yaml
+  name: '多个窗口/多工作区中Ctrl+S和Ctrl+Q流控制 - NON-AUTOMATABLE: 触摸操作无法自动化'
+  description: "前置条件: 不勾选“禁用Ctrl+S和Ctrl+Q流控制”选项\n测试步骤:\n  1. 打开终端，新建多个终端窗口，其中一个窗口键盘按Ctrl+S\n\
+    \  2. 其窗口新建多个工作区，其中一个工作区键盘按Ctrl+S\nNotes:测试时一并测试触摸屏、触控板、键盘交互\n预期结果:\n  1. 只要当前窗口弹出“已经按下Ctrl+S，输出被挂起。可以按下Ctrl+Q继续。”，其它窗口不弹，可以正常输入内容\n\
+    \  2. 只要当前工作区弹出“已经按下Ctrl+S，输出被挂起。可以按下Ctrl+Q继续。”，其它窗口不弹，可以正常输入内容\nNotes:键盘交互不用考虑焦点到X按钮，Ctrl+Q可以关闭此弹框\n"
+  module: 设置界面高级设置
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_normal_window_167
+  file: 窗口/test_normal_window_167.yaml
+  name: 正常窗口
+  description: "测试步骤:\n  1. 首次打开终端，检查窗口显示\n  2. 检查正常窗口显示\n  3. 修改窗口大小，关闭窗口，重新打开\n\
+    预期结果:\n  1. 显示为正常窗口，居中显示\n  2. 圆角窗口，显示默认标签栏\n  3. 窗口大小被记录，居中显示\n"
+  module: 104X
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_normal_window_ctrl_s_q_flow_control_088
+  file: 窗口/test_normal_window_ctrl_s_q_flow_control_088.yaml
+  name: '普通窗口Ctrl+S和Ctrl+Q流控制 - NON-AUTOMATABLE: 触摸操作无法自动化'
+  description: "测试步骤:\n  1. 打开终端，进入设置，高级设置\n  2. 点击shell分类选项\n  3. 勾选“禁用Ctrl+S和Ctrl+Q流控制”，在终端中使用快键“Ctrl+S”\n\
+    \  4. 不勾选“禁用Ctrl+S和Ctrl+Q流控制”，在终端中使用“Ctrl+S”\n  5. 在终端中输入任意命令\n  6. 点击文案提示框的“ｘ”按钮\n\
+    \  7. 键盘按下“Ctrl+Q”\nNotes:测试时一并测试触摸屏、触控板、键盘交互\n预期结果:\n  1. 有shell分类选项\n  2. shell分类下有“禁用Ctrl+S和Ctrl+Q流控制”选项；checkbox复选框默认不勾选；界面显示与UI设计一致\n\
+    \  3. 无反应，可以正常输入命令\n  4. 弹出提示文案“已经按下Ctrl+S，输出被挂起。可以按下Ctrl+Q继续。”\n  5. 终端中的输入被挂起，输入的命令无法显示在终端中\n\
+    \  6. 文案提示框被关闭\n  7. 输入恢复，之前被禁用数据被恢复\n"
+  module: 设置界面高级设置
+  feature: ''
+  tags:
+  - L1
+  app: deepin-terminal
+  skip: null
+- id: test_quake_animation_189
+  file: 窗口/test_quake_animation_189.yaml
+  name: '雷神窗口动画效果 - NON-AUTOMATABLE: skip-触摸操作无法自动化'
+  description: "测试步骤:\n  1. 键盘按Alt+F2/Dock栏打开雷神窗口（默认高度）\n  2. 输入任意命令，如ss，拖动雷神窗口到最大，键盘按Alt+F2/Dock栏隐藏雷神窗口\n\
+    \  3. 再次键盘按Alt+F2/Dock栏打开雷神窗口\n  4. 拖动雷神窗口到最小，键盘按Alt+F2/Dock栏隐藏雷神窗口\n  5. 切换Dock栏位置为上/下/左/右\n\
+    \  6. 关闭窗口特效操作以上1~4步骤\n  7. 雷神窗口中做分屏，拖动分屏分割线\nNotes:测试时一并测试触摸屏、触控板、键盘交互\n预期结果:\n\
+    \  1. 展开显示动画效果，时间在\n  0. 3~\n  0. 5s之间\n  2. 收起显示动画效果，动画效果与展开相反，时间在\n  0. 3~\n\
+    \  0. 5s之间\n  3. 展开显示动画效果，时间在\n  0. 3~\n  0. 5s之间\n  4. 收起显示动画效果，动画效果与展开相反，时间在\n\
+    \  0. 3~\n  0. 5s之间\n  5. 展开收起动画显示正确，时间在\n  0. 3~\n  0. 5s之间\n  6. 展开收起动画显示正确，时间在\n\
+    \  0. 3~\n  0. 5s之间\n  7. 不存在动画效果\nNotes:操作手速过快，在动画时，导致雷神窗口可以拉伸问题，目前不考虑；\n动画时，雷神窗口可以输入信息，不影响使用，目前不考虑；\n"
+  module: 雷神窗口动画效果
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_quake_window_display_169
+  file: 窗口/test_quake_window_display_169.yaml
+  name: '[005]雷神窗口显示'
+  description: "测试步骤:\n  1. 右键dock上终端图标，选择雷神终端\n  2. 检查默认雷神窗口显示\n  3. 鼠标拖拽窗口底部\n \
+    \ 4. 检查最大窗口高度\n  5. 退出雷神窗口（Alt+F2），再次打开\n预期结果:\n  1. 打开雷神终端\n  2. 使用屏幕的1/3的高度；标签工作区等按钮显示在下方\n\
+    \  3. 可以修改窗口高度\n  4. 最大高度不超过屏幕高度的2/3\n  5. 记录上次修改的高度\n"
+  module: 104X
+  feature: ''
+  tags:
+  - L1
+  app: deepin-terminal
+  skip: null
+- id: test_quake_window_toggle_170
+  file: 窗口/test_quake_window_toggle_170.yaml
+  name: 雷神窗口切换
+  description: "测试步骤:\n  1. 使用快捷键 Alt+F2调出雷神窗口\n  2. 再次按Alt+F2\n  3. 雷神窗口没有获取焦点时，首次按Alt+F2\n\
+    \  4. 再次按Alt+F2\n  5. 雷神窗口在其他工作区显示时，按Alt+F2\n  6. 关闭窗口特效，检查步骤5的结果\n  7. 雷神窗口在其他工作区隐藏时，按Alt+F2\n\
+    预期结果:\n  1. 显示雷神窗口且被选中\n  2. 雷神窗口被隐藏\n  3. 不会隐藏雷神窗口；是聚焦到雷神窗口\n  4. 隐藏雷神终端（只有焦点在雷神窗口时，才会隐藏窗口）\n\
+    \  5. 会自动切换到雷神终端所在工作区\n  6. 自动切换到雷神终端所在工作区\n  7. 把雷神窗口从其他工作区拉到当前工作区并显示\n"
+  module: 104X
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_window_delete_014
+  file: 窗口/test_window_delete_014.yaml
+  name: 窗口删除
+  description: "测试步骤:\n  1. 打开终端，新建分屏窗口\n  2. 右键菜单选择关闭窗口或关闭其它窗口\n  3. 仍然有程序运行时做关闭窗口\n\
+    \  4. 点击取消\n  5. 点击确定\n预期结果:\n  1. 分屏正常\n  2. 工作区关闭\n  3. 弹出退出保护弹框\n  4. 终端窗口不变\n\
+    \  5. 终端窗口强制退出\n"
+  module: 工作区
+  feature: ''
+  tags:
+  - L3
+  app: deepin-terminal
+  skip: null
+- id: test_window_mode_171
+  file: 窗口/test_window_mode_171.yaml
+  name: windowmod
+  description: "测试步骤:\n  1. 终端输入deepin-terminal  --help\n  2. 终端输入deepin-terminal\
+    \ -m normal\n  3. 终端输入deepin-terminal -m  fullscreen\n  4. 终端输入deepin-terminal\
+    \ -m  maximum\n  5. 终端输入deepin-terminal -m splitscreen\n  6. 终端输入deepin-terminal\
+    \ -m xxx（非上述四个参数）\n  7. 终端输入deepin-terminal -m\n预期结果:\n  1. 参数中有-m  --window-mode\
+    \ ，规定终端启动的窗口模式并有参数选项（noraml、fullscreen、maximum、splitscreen）\n  2. 开启另一个终端，正常窗口\n\
+    \  3. 开启另一个终端，全屏\n  4. 弹出另一个终端，最大化窗口\n  5. 弹出另一个终端，分屏窗口\n  6. 系统应有错误提示，且不弹出相应窗口\n\
+    \  7. 系统应有相应提示信息，且不弹出窗口\n"
+  module: 104X
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_window_selection_152
+  file: 窗口/test_window_selection_152.yaml
+  name: 窗口选择
+  description: "测试步骤:\n  1. 打开终端，右键菜单做横向、纵向分屏操作\n  2. 鼠标点击分别选中左面、右面、上面、下面窗口拖动\n  3.\
+    \ 快捷键Alt+Up、Alt+Down、Alt+Left、Alt+Right\n预期结果:\n  1. 分屏窗口显示正常\n  2. 工作区窗口能够被选中\n\
+    \  3. 工作区窗口能够被选中\n"
+  module: 工作区
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_window_title_display_154
+  file: 窗口/test_window_title_display_154.yaml
+  name: 窗口标题显示
+  description: "测试步骤:\n  1. 进入启动器，检查终端在桌面的名称\n  2. 启动终端，检查终端窗口标题显示\n预期结果:\n  1. 显示“终端”\n\
+    \  2. “当前终端标题-终端”形式显示\n"
+  module: 工作区
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_encoding_107
+  file: 编码/test_encoding_107.yaml
+  name: 编码方式
+  description: "测试步骤:\n  1. 右键菜单-编码\n  2. 鼠标任选某编码\n  3. 编码列表下拉\n  4. 鼠标点击终端非编码列表\n\
+    \  5. 鼠标双击终端\n预期结果:\n  1. 列出所有可用的编码格式，默认为utf8 格式\n  2. 选中后终端输出变为乱码/正常\n  3. 下拉列表可以查看所有的可选编码\n\
+    \  4. 编码列表隐藏\n  5. 编码列表仍隐藏\n"
+  module: 右键菜单工作区
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_local_encoding_112
+  file: 编码/test_local_encoding_112.yaml
+  name: 本地编码
+  description: "测试步骤:\n  1. 打开终端，右键点击“编码”菜单\n  2. 打开终端列表\n  3. 首次进入终端检查终端默认编码\n  4.\
+    \ 右键菜单修改编码后，新建终端\n  5. 弹出编码选择列表点击终端\n预期结果:\n  1. 终端右边窗口弹出编码选择列表\n  2. 当前的编码在可视区域内\n\
+    \  3. 是UTF-8\n  4. 新建终端编码恢复默认UTF-8\n  5. 自动隐藏编码列表\n"
+  module: 右键菜单工作区
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_add_constraints_159
+  file: 自定义命令/test_add_constraints_159.yaml
+  name: 添加约束
+  description: "测试步骤:\n  1. 点击添加自定义命令\n  2. 不输入命令名称，其他正常输入，点击添加\n  3. 不输入相应命令，其他正常输入，点击添加\n\
+    \  4. 不敲入快捷键，其他正常输入，点击添加\n预期结果:\n  1. 弹出添加自定义窗口\n  2. 添加失败，命令名称是必须输入项\n  3. 添加失败，命令输入框是必须输入项\n\
+    \  4. 添加成功，快捷键不是必须输入项\n"
+  module: 自定义命令
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_auto_paste_160
+  file: 自定义命令/test_auto_paste_160.yaml
+  name: 自动粘贴
+  description: "测试步骤:\n  1. 终端输入命令如deepin-music，选中不执行\n  2. 右键选中自定义命令-添加自定义命令-弹出添加框\n\
+    \  3. 输入命令名称，点击保存\n  4. 对上述新建的命令进行编辑\n预期结果:\n  1. 命令处于选中状态\n  2. 选中的命令会自动粘贴到命令输入框中\n\
+    \  3. 保存成功\n  4. 可以正常编辑，未出现异常\n"
+  module: 自定义命令
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_custom_command_106
+  file: 自定义命令/test_custom_command_106.yaml
+  name: 自定义命令
+  description: "测试步骤:\n  1. 打开终端，键盘按Tab键切换到自定义插件\n  2. 再次按Tab键\n（PS：测试时需要测试Shift+Tab反向切换）\n\
+    预期结果:\n  1. 当前自定义命令有Focus效果\n  2. 切换到添加自定义命令按钮\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_custom_command_list_015
+  file: 自定义命令/test_custom_command_list_015.yaml
+  name: 列表
+  description: "测试步骤:\n  1. 每次成功添加命令后\n  2. 对已有的自定义命令进行编辑\n  3. 列表有较多自定义命令时，进行下拉/上拉\n\
+    \  4. 列表内自定义很多时时，新建自定义命令\n预期结果:\n  1. 自动在列表最下面生成\n  2. 编辑后自动排在最下方\n  3. 可通过下拉/上拉查看所有的自定义命令\n\
+    \  4. 新建成功时列表自动往下拉移动，从而可在列表内自动看到新建的自定义命令\n"
+  module: 自定义命令
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_delete_custom_cmd_163
+  file: 自定义命令/test_delete_custom_cmd_163.yaml
+  name: 删除
+  description: "测试步骤:\n  1. 打开终端，新建多个工作区，鼠标点击工作区X图标\n  2. 使用快捷键alt+w\n预期结果:\n  1.\
+    \ 删除工作区\n  2. 删除工作区\n"
+  module: 工作区
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_edit_success_162
+  file: 自定义命令/test_edit_success_162.yaml
+  name: 编辑成功
+  description: "测试步骤:\n  1. 进入自定义命令列表，任选一个自定义命令点击编辑\n  2. 输入自定义名称，点击保存\n  3. 粘贴输入字符，点击保存\n\
+    \  4. 输入命令，点击保存\n  5. 粘贴输入命令，点击保存\n  6. 修改快捷键，点击保存\n预期结果:\n  1. 弹出编辑窗口\n  2. 修改成功，列表中名称改变\n\
+    \  3. 修改成功，可以正常粘贴输入\n  4. 修改成功，列表中不显示具体命令，故列表无变化\n  5. 修改成功，可以正常粘贴输入\n  6. 修改成功，列表中快捷键改变\n"
+  module: 自定义命令
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_hide_custom_cmd_166
+  file: 自定义命令/test_hide_custom_cmd_166.yaml
+  name: '[008]隐藏'
+  description: "测试步骤:\n  1. 开启自定义命令模块后，鼠标点一下终端\n预期结果:\n  1. 自定义命令模块自动隐藏\n"
+  module: 自定义命令
+  feature: ''
+  tags:
+  - L1
+  app: deepin-terminal
+  skip: null
+- id: test_input_command_157
+  file: 自定义命令/test_input_command_157.yaml
+  name: 输入命令
+  description: "测试步骤:\n  1. 点击添加自定义命令\n  2. 分别点击取消/右上角x/按esc键\n  3. 命令栏输入一般个数的汉字/字母/数字\n\
+    \  4. 命令栏输入过多个数的汉字/字母/数字\n  5. 输入特殊字符：！！@#￥%&等\n  6. 输入字母、数字、汉字、特殊字符混合命令\n预期结果:\n\
+    \  1. 弹出自定义命令添加窗口\n  2. 退出窗口，新建取消，回退到到添加命令栏\n  3. 可正常输入\n  4. 可正常输入，超过32字符，输入框允许输入\n\
+    \  5. 可正常输入\n  6. 可正常输入\n"
+  module: 自定义命令
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_input_name_156
+  file: 自定义命令/test_input_name_156.yaml
+  name: 输入名称
+  description: "测试步骤:\n  1. 点击添加自定义命令\n  2. 进入窗口后，直接点击取消\n  3. 自定义名称输入一般个数的汉字或者字母或数字\n\
+    \  4. 自定义名称输入过长的汉字或者字母或数字\n  5. 输入特殊字符：*&！@#￥等\n  6. 输入汉字、字母、数字、特殊字符混合体\n预期结果:\n\
+    \  1. 进入添加命令窗口\n  2. 回到添加命令栏，退出窗口\n  3. 可以正常输入\n  4. 超过32字符，输入框允许输入，点击“保存”时，Tips提示框提示“名称长度不得超过32个字符”\n\
+    \  5. 可正常输入\n  6. 可正常输入\n"
+  module: 自定义命令
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_input_shortcut_158
+  file: 自定义命令/test_input_shortcut_158.yaml
+  name: 键入快捷键
+  description: "测试步骤:\n  1. 点击添加自定义命令\n  2. 分别点击取消 、右上角x;\n  3. 鼠标点击快捷键栏输入栏，键盘只敲字母或者数字符号\n\
+    \  4. 鼠标点击快捷键输入栏，键盘敲入ctrl/alt/shift+字母/符号\n  5. 鼠标点击快捷键输入栏，键盘敲入ctrl+shift/alt+字母/符号\n\
+    \  6. 鼠标点击快捷键输入栏，键盘敲入ctrl+tab+字母/符号\n  7. 鼠标点击快捷键输入栏，键盘敲入ctrl+shift/alt+双字符\n\
+    \  8. 鼠标点击快捷键输入栏，键盘敲入ctrl/shift/alt+字母/数字\n预期结果:\n  1. 弹出添加自定义窗口\n  2. 退出添加窗口，回到添加自定义栏\n\
+    \  3. 不能正常敲入\n  4. 可以正常敲入且显示正常\n  5. 可以再次敲入且显示正常\n  6. 提示“快捷键Ctrl+Tab已被占用，请重新设置”\n\
+    \  7. 只能敲入单字符\n  8. 可以正常敲入\n"
+  module: 自定义命令
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_custom_add_047
+  file: 自定义命令/test_keyboard_custom_add_047.yaml
+  name: 键盘交互添加命令
+  description: "测试步骤:\n  1. Tab键焦点在添加命令按钮，按Enter键\n  2. 依次按Tab\n  3. 焦点在取消、添加按钮时，按Enter/Space键\n\
+    \  4. 在弹框界面按ESC键\n（PS：测试时需要测试Shift+Tab反向切换）\n预期结果:\n  1. 弹出添加命令弹框\n  2. 切换顺序：名称、命令、快捷键、取消、添加、右上角X键，各选项有Focus效果\n\
+    \  3. 操作结束后，焦点回到添加命令按钮\n  4. 焦点返回到添加命令按钮\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_custom_commands_042
+  file: 自定义命令/test_keyboard_custom_commands_042.yaml
+  name: 键盘交互自定义功能
+  description: "前置条件: 有2个以上命令\n测试步骤:\n  1. 打开终端，键盘按Tab切换到自定义命令插件\n  2. 再Tab切换到自定义列表\n\
+    \  3. 自定义命令有Focus效果时按“→”方向键\n  4. 按“↑”、“↓”方向键\n  5. 编辑按钮有Focus效果按Enter或Space\n\
+    \  6. 编辑按钮有Focus效果按“←”方向键\n  7. 焦点在自定义命令时按Enter键\n（PS：测试时需要测试Shift+Tab反向切换）\n\
+    预期结果:\n  1. 光标在搜索框\n  2. “↑”、“↓”方向键切换自定义命令，选中的自定义命令有Focus效果，切换到最上、最下一个自定义命令时，有提示音\n\
+    \  3. 编辑按钮有边框效果\n  4. 会跳转到上一个、下一个自定义命令\n  5. 进入编辑自定义命界面\n  6. 当前编辑的自定义命令边框有Focus效果\n\
+    \  7. 执行自定义命令\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_custom_context_menu_049
+  file: 自定义命令/test_keyboard_custom_context_menu_049.yaml
+  name: 键盘交互右键菜单中调出自定义命令插件
+  description: "测试步骤:\n  1. 键盘按Alt+M调出右键菜\n  2. 按Tab键切换到自定义命令，按Enter键\n（PS：测试时需要测试Shift+Tab反向切换）\n\
+    预期结果:\n  1. 显示右键菜单\n  2. 自定义命令列表没有获得Focus效果\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_custom_delete_048
+  file: 自定义命令/test_keyboard_custom_delete_048.yaml
+  name: 键盘交互删除命令
+  description: "测试步骤:\n  1. 进入到删除命令界面，按Tab键\n  2. 在“取消”和“确定”按钮按下空格或者回车\n  3. 按ESC键\n\
+    \  4. 删除后下一项命令还存在\n  5. 删除后下一项命令不存在\n  6. 删除后不存在自定义命令\n（PS：测试时需要测试Shift+Tab反向切换）\n\
+    预期结果:\n  1. 焦点依次在右上角X键，取消，确定\n  2. 执行相应功能操作\n  3. 焦点返回到当前选择删除的自定义命令上\n  4. 默认选择删除自定义命令下一项\n\
+    \  5. 默认选择到当前删除项的上一项\n  6. 焦点回到添加命令按钮\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_custom_edit_046
+  file: 自定义命令/test_keyboard_custom_edit_046.yaml
+  name: 键盘交互编辑自定义命令
+  description: "测试步骤:\n  1. 进入编辑命令界面\n  2. 依次 按Tab键\n  3. 在“删除命令”、“取消”和“保存”按钮按下Enter键\n\
+    \  4. 按ESC键\n（PS：测试时需要测试Shift+Tab反向切换）\n预期结果:\n  1. 默认自定义名称全选\n  2. 一次切换名称、命令、快捷键、删除命令、取消、保存，右上角X键，各选项有Focus效果\n\
+    \  3. 执行相应选项操作\n  4. 退出弹框，焦点返回在当前编辑的自定义命令的编辑按钮上\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_custom_esc_043
+  file: 自定义命令/test_keyboard_custom_esc_043.yaml
+  name: 键盘交互自定义命令全局功能按ESC键
+  description: "前置条件: 列表有2个以上命令\n测试步骤:\n  1. 当焦点在搜索框、自定义命令列表、编辑按钮、添加命令按钮上时\n  2. 按ESC键\n\
+    （PS：测试时需要测试Shift+Tab反向切换）\n预期结果:\n  1. 选项有Focus效果\n  2. 焦点回到终端\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_custom_search_empty_044
+  file: 自定义命令/test_keyboard_custom_search_empty_044.yaml
+  name: 键盘交互自定义命令搜索结果为空
+  description: "前置条件: 列表有2个以上命令\n测试步骤:\n  1. 打开终端，Tab键切换到自定义命令插件\n  2. 搜索框不输入任何字符，按Enter键\n\
+    \  3. 输入字符，按Enter键，搜索结果为空\n（PS：测试时需要测试Shift+Tab反向切换）\n预期结果:\n  1. 搜索框有Focus效果\n\
+    \  2. 搜索框无变化\n  3. < 键有Focus效果，按“←”方向键/Enter/Space键返回到搜索框\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_custom_search_found_045
+  file: 自定义命令/test_keyboard_custom_search_found_045.yaml
+  name: 键盘交互自定义命令搜索有结果
+  description: "前置条件: 列表有2个以上命令\n测试步骤:\n  1. 打开终端，Tab键切换到自定义命令插件\n  2. 输入字符，按Enter键，搜索结果有显示\n\
+    \  3. 按Tab键\n  4. 按“→”方向键\n  5. 按“←”方向键\n  6. 按“↑”、“↓”方向键\n  7. 按Enter键\n  8.\
+    \ 当焦点在返回键、自定义命令列表、编辑按钮时按ES\n（PS：测试时需要测试Shift+Tab反向切换）\n预期结果:\n  1. 搜索框有Focus效果\n\
+    \  2. 返回键有Focus效果，按“←”方向键/Enter/Space键返回到搜索框\n  3. 自定义命令有Focus效果\n  4. 编辑按钮有边框效果\n\
+    \  5. 自定义命令边框有Focus效果\n  6. 切换自定义命令，选中的自定义命令有Focus效果，切换到最上、最下一个自定义命令时，有提示音\n \
+    \ 7. 执行自定义命令\n  8. 焦点回到终端\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_open_custom_cmd_165
+  file: 自定义命令/test_open_custom_cmd_165.yaml
+  name: 开启
+  description: "测试步骤:\n  1. 终端右键菜单-自定义命令\n  2. 点击终端上方设置-自定义命令\n  3. alt+Ins\n预期结果:\n\
+    \  1. 成功开启自定义命令模块\n  2. 成功开启自定义命令模块\n  3. 成功开启自定义命令模块\n"
+  module: 自定义命令
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_run_command_164
+  file: 自定义命令/test_run_command_164.yaml
+  name: 运行
+  description: "测试步骤:\n  1. 新建自定义命令:名称：深度音乐  命令：deepin-music    快捷键：crtl+p（或者无）点击添加\n\
+    \  2. 终端中键盘敲入ctrl+p（有快捷键的情况下）\n  3. 进入终端自定义命令列表，点击名为深度音乐的命令\n  4. 修改命令为sayonara（未安装的软件或者服务），修改名称为测试，保存\n\
+    \  5. 终端中键盘敲入ctrl+p（有快捷键的情况下）\n  6. 进入终端自定义命令列表，点击名为测试的命令\n  7. 进入远程服务器后，点击自定义命令，查看软件显示\n\
+    预期结果:\n  1. 成功添加到自定义命令列表\n  2. 成功开启深度音乐\n  3. 系统成功开启深度音乐\n  4. 修改成功\n  5. 不会开启相应服务或者软件\n\
+    \  6. 没有开启服务或这软件，终端有相应信息提示\n  7. 在远程服务器上也可以正常运行自定义命令\n"
+  module: 自定义命令
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_touch_add_server_075
+  file: 触摸/test_touch_add_server_075.yaml
+  name: '触摸屏添加服务器功能 - NON-AUTOMATABLE: 触摸操作无法自动化'
+  description: "测试步骤:\n  1. 打开终端，长按右键\n  2. 点击右键菜单远程管理\n  3. 点击添加服务器按钮\n  4. 输入服务器名称、地址、用户名、密码，点击添加\n\
+    预期结果:\n  1. 弹出右键菜单\n  2. 显示远程管理插件\n  3. 弹出添加服务器弹框\n  4. 服务器添加成功\n"
+  module: 触摸屏
+  feature: ''
+  tags:
+  - L1
+  app: deepin-terminal
+  skip: null
+- id: test_touch_delete_custom_command_074
+  file: 触摸/test_touch_delete_custom_command_074.yaml
+  name: '触摸屏删除自定义命令功能 - NON-AUTOMATABLE: 触摸操作无法自动化'
+  description: "测试步骤:\n  1. 打开终端，长按右键\n  2. 点击右键菜单自定义命令\n  3. 选择一个命令，点击编辑\n  4. 点击删除命令\n\
+    \  5. 点击右上角x键或取消按钮\n  6. 点击确定按钮\n预期结果:\n  1. 弹出右键菜单\n  2. 显示自定义命令插件\n  3. 弹出编辑自定义界面，名称全选\n\
+    \  4. 弹出删除命令弹框\n  5. 退出删除弹框\n  6. 当前编辑的命令被删除\n"
+  module: 触摸屏
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_touch_delete_server_077
+  file: 触摸/test_touch_delete_server_077.yaml
+  name: '触摸屏删除服务器功能 - NON-AUTOMATABLE: 触摸操作无法自动化'
+  description: "测试步骤:\n  1. 打开终端，长按屏幕后松手\n  2. 点击右键菜单远程管理\n  3. 选择一个服务器，点击编辑\n  4.\
+    \ 点击删除服务器\n  5. 点击右上角x键或取消按钮\n  6. 点击删除按钮\n预期结果:\n  1. 弹出右键菜单\n  2. 显示远程管理插件\n\
+    \  3. 弹出编辑服务器界面，服务器名全选\n  4. 弹出删除服务器弹框\n  5. 退出删除服务器弹框\n  6. 当前编辑的服务器被删除\n"
+  module: 触摸屏
+  feature: ''
+  tags:
+  - L1
+  app: deepin-terminal
+  skip: null
+- id: test_touch_download_file_079
+  file: 触摸/test_touch_download_file_079.yaml
+  name: '触摸屏连接服务器下载文件 - NON-AUTOMATABLE: 触摸操作无法自动化'
+  description: "测试步骤:\n  1. 打开终端，点击主菜单远程管理\n  2. 点击插件列表服务器选项\n  3. 单指长按调出右键菜单，选择下载文件\n\
+    \  4. 选择文件保存路径，点击选择\n  5. 输入需要下载的文件路径，点击enter\n预期结果:\n  1. 显示远程管理插件\n  2. 自动连接服务器\n\
+    \  3. 弹出选择文件路径对话框\n  4. 终端界面提示“请输入下载文件路径”\n  5. 终端界面提示文件下载成功\n"
+  module: 触摸屏
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_touch_edit_custom_command_073
+  file: 触摸/test_touch_edit_custom_command_073.yaml
+  name: '触摸屏编辑自定义命令功能 - NON-AUTOMATABLE: 触摸操作无法自动化'
+  description: "测试步骤:\n  1. 打开终端，长按右键\n  2. 点击右键菜单自定义命令\n  3. 选择一个命令，点击编辑\n  4. 输入名称、命令、快捷键点击保存\n\
+    预期结果:\n  1. 弹出右键菜单\n  2. 显示自定义命令插件\n  3. 弹出编辑自定义界面，名称全选\n  4. 自定义命保存成功\n"
+  module: 触摸屏
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_touch_edit_server_076
+  file: 触摸/test_touch_edit_server_076.yaml
+  name: '触摸屏编辑服务器功能 - NON-AUTOMATABLE: 触摸操作无法自动化'
+  description: "测试步骤:\n  1. 打开终端，长按右键\n  2. 点击右键菜单远程管理\n  3. 选择一个服务器，点击编辑\n  4. 输入服务器名、地址、用户名等点击保存\n\
+    预期结果:\n  1. 弹出右键菜单\n  2. 显示远程管理插件\n  3. 弹出编辑服务器界面，服务器名全选\n  4. 服务器名保存成功\n"
+  module: 触摸屏
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_touch_long_press_right_click_068
+  file: 触摸/test_touch_long_press_right_click_068.yaml
+  name: '触摸屏长按右键再抬起 - NON-AUTOMATABLE: 触摸操作无法自动化'
+  description: "测试步骤:\n  1. 打开终端，长按右键\n  2. 点击右键菜单的各个选项\n预期结果:\n  1. 弹出右键菜单\n  2.\
+    \ 可以执行相应的功能\n"
+  module: 触摸屏
+  feature: ''
+  tags:
+  - L1
+  app: deepin-terminal
+  skip: null
+- id: test_touch_main_interface_click_064
+  file: 触摸/test_touch_main_interface_click_064.yaml
+  name: '触摸屏主界面点击功能 - NON-AUTOMATABLE: 触摸操作无法自动化'
+  description: "测试步骤:\n  1. 从启动器打开终端\n  2. 标签栏点击+新建窗口，并点击上一个下一个标签页\n  3. 点击主菜单\n \
+    \ 4. 点击新建窗口\n  5. 点击自定义命令\n  6. 点击远程管理\n  7. 点击设置\n  8. 点击主题\n  9. 点击帮助\n  10.\
+    \ 点击关于\n  11. 终端无程序运行时点击退出\n  12. 终端有程序运行时点击退出\n  13. 点击右上角x键/取消\n  14. 点击关闭\n\
+    预期结果:\n  1. 打开终端窗口\n  2. 新建一个新工作区，并且可以选择上一个，下一个标签页\n  3. 弹出主菜单列表\n  4. 打开一个新的终端窗口\n\
+    \  5. 显示自定义插件\n  6. 显示远程管理插件\n  7. 进入设置界面\n  8. 可以切换主题\n  9. 进入帮助界面\n  10. 显示关于界面\n\
+    \  11. 直接退出终端\n  12. 弹出退出保护弹框\n  13. 退出保护弹框\n  14. 退出终端\n"
+  module: 触摸屏
+  feature: ''
+  tags:
+  - L1
+  app: deepin-terminal
+  skip: null
+- id: test_touch_new_custom_command_072
+  file: 触摸/test_touch_new_custom_command_072.yaml
+  name: '触摸屏新建自定义命令功能 - NON-AUTOMATABLE: 触摸操作无法自动化'
+  description: "测试步骤:\n  1. 打开终端，长按右键\n  2. 点击右键菜单自定义命令\n  3. 点击添加命令按钮\n  4. 输入名称、命令、快捷键点击添加\n\
+    预期结果:\n  1. 弹出右键菜单\n  2. 显示自定义命令插件\n  3. 弹出添加命令弹框\n  4. 自定义命令添加成功\n"
+  module: 触摸屏
+  feature: ''
+  tags:
+  - L1
+  app: deepin-terminal
+  skip: null
+- id: test_touch_one_finger_scroll_066
+  file: 触摸/test_touch_one_finger_scroll_066.yaml
+  name: '触摸屏一指上下滑动功能 - NON-AUTOMATABLE: 触摸操作无法自动化'
+  description: "测试步骤:\n  1. 打开终端，输入ls -al让屏幕超过一屏内容\n  2. 在终端界面一指向上滑动\n  3. 在终端界面一指向下滑动\n\
+    \  4. 手指上下来回滑动屏幕\n预期结果:\n  1. 窗口显示一屏以上内容\n  2. 屏幕内容向上\n  3. 屏幕内容向下\n  4. 上下滑动正常，无crash现象\n"
+  module: 触摸屏
+  feature: ''
+  tags:
+  - L1
+  app: deepin-terminal
+  skip: null
+- id: test_touch_rename_071
+  file: 触摸/test_touch_rename_071.yaml
+  name: '触摸屏重命名功能 - NON-AUTOMATABLE: 触摸操作无法自动化'
+  description: "测试步骤:\n  1. 打开终端，长按右键\n  2. 点击右键菜单重命名选项\n  3. 点击右上角x键，取消按钮\n  4. 点击确定按钮\n\
+    预期结果:\n  1. 弹出右键菜单\n  2. 调出重命名弹框，名称输入框默认被全选\n  3. 退出重命名弹框，标签名称未被修改\n  4. 退出重命名弹框，标签名称被修改\n"
+  module: 触摸屏
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_touch_search_070
+  file: 触摸/test_touch_search_070.yaml
+  name: '触摸屏查找功能 - NON-AUTOMATABLE: 触摸操作无法自动化'
+  description: "测试步骤:\n  1. 打开终端，长按右键\n  2. 点击右键菜单查找选项\n  3. 输入字符，点击向下按钮\n  4. 点击向上按钮\n\
+    预期结果:\n  1. 弹出右键菜单\n  2. 调出查找框，光标在查找框\n  3. 跳转到下一个字符\n  4. 跳转到上一个字符\n"
+  module: 触摸屏
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_touch_split_screen_069
+  file: 触摸/test_touch_split_screen_069.yaml
+  name: '触摸屏分屏功能 - NON-AUTOMATABLE: 触摸操作无法自动化'
+  description: "测试步骤:\n  1. 打开终端，长按右键\n  2. 点击右键菜单的横向分屏\n  3. 点击右键菜单纵向分屏\n  4. 点击关闭窗口\n\
+    \  5. 点击关闭其它窗口\n预期结果:\n  1. 弹出右键菜单\n  2. 显示横向分屏窗口，并且右键菜单中没有横向分屏选项\n  3. 显示纵向分屏窗口，并且右键菜单中没有纵向分屏选项\n\
+    \  4. 当前窗口被关闭\n  5. 其它窗口被关闭\n"
+  module: 触摸屏
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_touch_tab_right_click_menu_065
+  file: 触摸/test_touch_tab_right_click_menu_065.yaml
+  name: '触摸屏标签页右键菜单 - NON-AUTOMATABLE: 触摸操作无法自动化'
+  description: "测试步骤:\n  1. 打开终端，点击标签页x按钮\n  2. 点击关闭标签页选项\n  3. 点击关闭其它标签页选项\n预期结果:\n\
+    \  1. 关闭标签页\n  2. 关闭当前标签页\n  3. 其它标签页被关闭\n"
+  module: 触摸屏
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_touch_two_finger_zoom_067
+  file: 触摸/test_touch_two_finger_zoom_067.yaml
+  name: '触摸屏双指放大与缩小功能 - NON-AUTOMATABLE: 触摸操作无法自动化'
+  description: "测试步骤:\n  1. 打开终端，屏幕双指捏合做放大操作\n  2. 屏幕双指捏合做缩小操作\n  3. 在屏幕界面不停的操作放大与缩小操作\n\
+    预期结果:\n  1. 终端界面字体放大显示，放大到字体50号\n  2. 2终端界面字体缩小显示，缩小到字体5号\n  3. 窗口字体放大缩小功能正常，无crash现象\n"
+  module: 触摸屏
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_touch_upload_file_078
+  file: 触摸/test_touch_upload_file_078.yaml
+  name: '触摸屏连接服务器上传文件 - NON-AUTOMATABLE: 触摸操作无法自动化'
+  description: "测试步骤:\n  1. 打开终端，点击主菜单远程管理\n  2. 点击插件列表服务器选项\n  3. 单指长按调出右键菜单，选择上传文件\n\
+    \  4. 选择一个文件，点击上传按钮\n预期结果:\n  1. 显示远程管理插件\n  2. 自动连接服务器\n  3. 弹出选择文件对话框\n  4.\
+    \ 终端界面提示文件上传成功\n"
+  module: 触摸屏
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_auto_copy_on_select_091
+  file: 设置/test_auto_copy_on_select_091.yaml
+  name: 选中文字时自动复制到剪贴板
+  description: "测试步骤:\n  1. 进入设置，焦点在选中文字时自动复制到剪贴板复选框\n  2. 键盘按Enter键\n（PS：测试时需要测试Shift+Tab反向切换）\n\
+    预期结果:\n  1. 复选框有Focus效果\n  2. 取消/选中复选框\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_auto_wrap_198
+  file: 设置/test_auto_wrap_198.yaml
+  name: 终端界面内容自动换行显示
+  description: "前置条件: 默认窗口下进入终端\n测试步骤:\n  1. 进入终端，在终端中输入一些内容，如执行命令ss\n  2. 右上角做最大化操作\n\
+    \  3. 拖动窗口进行放大/缩小\n预期结果:\n  1. 终端界面显示返回内容\n  2. 终端内容自动换行显示\n  3. 终端内容自动换行显示\n"
+  module: 自动换行
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_background_blur_000
+  file: 设置/test_background_blur_000.yaml
+  name: 背景模糊
+  description: "测试步骤:\n  1. 打开终端，点击右键-设置，在弹出的设置对话框中，查看“背景模糊”默认值\n  2. 勾选“背景模糊”，查看终端显示\n\
+    \  3. 取消勾选“背景模糊”，查看终端背景显示\n预期结果:\n  1. 默认不勾选“背景模糊”\n  2. 如果透明度是1，终端背景不模糊显示；调节透明度后，背景模糊显示\n\
+    \  3. 终端背景不模糊显示\n"
+  module: 设置界面高级设置
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_background_blur_085
+  file: 设置/test_background_blur_085.yaml
+  name: 背景模糊复选框切换
+  description: "测试步骤:\n  1. 打开终端，点击右键-设置，在弹出的设置对话框中，查看“背景模糊”默认值\n  2. 勾选“背景模糊”，查看终端显示\n\
+    \  3. 取消勾选“背景模糊”，查看终端背景显示\n预期结果:\n  1. 默认不勾选“背景模糊”\n  2. 如果透明度是1，终端背景不模糊显示；调节透明度后，背景模糊显示\n\
+    \  3. 终端背景不模糊显示\n"
+  module: 设置界面高级设置
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_default_shell_list_200
+  file: 设置/test_default_shell_list_200.yaml
+  name: '默认shell下拉列表显示 - NON-AUTOMATABLE: skip-触摸操作无法自动化'
+  description: "测试步骤:\n  1. 打开终端，进入设置，高级设置下\n  2. 点击shell配置选项\n  3. 终端中输入cat /etc/shells查看文件中shell程序\n\
+    Notes:测试时一并测试触摸屏、触控板、键盘交互\n预期结果:\n  1. shell下有“shell配置”\n  2. 列表展开，获取当前系统安装的shell程序种类，默认shell选项$SHELL\n\
+    \  3. 显示与shell配置下拉列表一致\n备注：下拉列表的内容只显示Shell名称(不带路径）。例如：/bin/bash显示bash\n"
+  module: 设置/高级设置/shell
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_restore_defaults_086
+  file: 设置/test_restore_defaults_086.yaml
+  name: 恢复默认设置按钮
+  description: "测试步骤:\n  1. 打开设置界面，检查页面最下方显示\n  2. 不做任何修改，点击恢复所有按钮\n  3. 修改任意参数，点击恢复按钮\n\
+    预期结果:\n  1. 显示恢复所有设置按钮\n  2. 可以点击，界面保持不变\n  3. 被修改的数据恢复默认，检查对应配置文件也生效\n"
+  module: 设置界面高级设置
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_settings_173
+  file: 设置/test_settings_173.yaml
+  name: '[019]设置'
+  description: "测试步骤:\n  1. 进入终端，菜单栏点击设置选项\n  2. 弹出设置窗口后，点击右上角的x按钮，查看软件显示\n  3. 弹出设置窗口后，按ESC键，查看软件显示\n\
+    预期结果:\n  1. 弹出设置界面\n  2. 设置窗口会自动关闭\n  3. 设置窗口会自动关闭\n"
+  module: 主界面右上角菜单栏
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_settings_display_101
+  file: 设置/test_settings_display_101.yaml
+  name: 设置界面显示
+  description: "测试步骤:\n  1. 打开终端，右键/菜单栏选择设置，检查设置界面显示\n  2. 点击左边标题，检查右边内容显示\n  3. 鼠标移动到右边进行滚动\n\
+    预期结果:\n  1. 和设计图显示一致，左边标题列表，右边显示具体参数设置（基础设置中不显示主题；终端设置界面去除关于；\n高级设置下：光标闪烁中新增：选中文字时复制到剪贴板（默认开启）；\n\
+    滚动设置中去除回滚行数；窗口设置中新增分屏、丢失焦点后隐藏雷神窗口（默认关闭）背景模糊（自动关闭）\n  2. 被选择的标题自动切换到最上方\n  3. 可以上下滚动查看\n"
+  module: 设置界面基础设置
+  feature: ''
+  tags:
+  - L1
+  app: deepin-terminal
+  skip: null
+- id: test_settings_display_103
+  file: 设置/test_settings_display_103.yaml
+  name: 设置界面功能项显示
+  description: "测试步骤:\n  1. 打开终端，主菜单点击设置\n  2. 检查设置左侧菜单栏显示\n  3. 点击基础设置\n  4. 点击快捷键\n\
+    \  5. 点击高级设置\n  6. 点击恢复默认\n预期结果:\n  1. 弹出设置窗口\n  2. 基础设置、快捷键、高级设置\n  3. 包括：界面、透明度、字体、字体大小\n\
+    \  4. 包括：终端、工作区、其他快捷键\n  5. 光标包括：光标风格（默认⽅块）、光标闪烁（默认开启）、选中文本自动复制到剪贴板（默认开启）；\n滚动中包括：\
+    \ 按键时滚动（默认打开）、输出时滚动（默认打开）\n窗⼝设置中包括：普通窗⼝(默认）、分屏、最⼤化和全屏；背景模糊（默认关闭）、丢失焦点后隐藏雷神窗口（默认关闭）；\n\
+    Shell：Shell配置：SHELL（默认）、bash、dash、rbash、sh;\n禁用Ctrl+S和Ctrl+Q控制（默认关闭）\n  6. 设置界面恢复默认\n"
+  module: 设置界面基础设置
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_switch_shell_201
+  file: 设置/test_switch_shell_201.yaml
+  name: '切换下拉列表shell程序 - NON-AUTOMATABLE: skip-触摸操作无法自动化'
+  description: "测试步骤:\n  1. 打开终端，进入设置，高级设置下“默认shell”，点击默认shell选项\n  2. 下拉列表选择任意有效shell，如：dash\n\
+    \  3. 点击标签栏“+”新建标签页\n  4. 右上角主菜单点击新建窗口\n  5. 在新建窗口中右键菜单做横向分屏、纵向分屏操作\nNotes:测试时一并测试触摸屏、触控板、键盘交互\n\
+    预期结果:\n  1. 下拉列表展开\n  2. 列表收起，默认shell显示dash\n  3. 标签页中使用新的dash程序\n  4. 窗口使用新的dash程序\n\
+    \  5. 分屏窗口中使用新的dash程序\n"
+  module: 设置/高级设置/shell
+  feature: ''
+  tags:
+  - L1
+  app: deepin-terminal
+  skip: null
+- id: test_switch_shell_basic_ops_202
+  file: 设置/test_switch_shell_basic_ops_202.yaml
+  name: '切换shell后终端基本功能操作 - NON-AUTOMATABLE: skip-触摸操作无法自动化'
+  description: "测试步骤:\n  1. 打开终端，进入设置高级设置默认shell下，切换默认shell程序，如：rbash\n  2. 在终端中做新建标签页；新建窗口；修改编码；连接远程管理；执行自定义命令；远程管理和自定义命令进行增加、编辑、删除操作等\n\
+    Notes:测试时一并测试触摸屏、触控板、键盘交互；dash，sh，bash需要覆盖到\n预期结果:\n  1. 当前默认程序为rbash\n  2. 操作的功能正常，无异常\n"
+  module: 设置/高级设置/shell
+  feature: ''
+  tags:
+  - L1
+  app: deepin-terminal
+  skip: null
+- id: test_transparency_102
+  file: 设置/test_transparency_102.yaml
+  name: 透明度
+  description: "测试步骤:\n  1. 进入设置，Tab键切换到透明度\n  2. 键盘按“←”、“→”“↑”、“↓“方向键\n（PS：测试时需要测试Shift+Tab反向切换）\n\
+    预期结果:\n  1. 透明度按钮有Focus效果\n  2. 可调节透明度\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_add_button_134
+  file: 远程管理/test_add_button_134.yaml
+  name: '[014]添加按钮'
+  description: "测试步骤:\n  1. 终端右键-远程服务器\n  2. 查看添加按钮\n预期结果:\n  1. 弹出窗口， 右侧远程管理界面下方显示添加服务器和添加分组\n\
+    \  2. 按钮中部文字分别显示添加服务器和添加分组\n"
+  module: 远程管理器
+  feature: ''
+  tags:
+  - L1
+  app: deepin-terminal
+  skip: null
+- id: test_after_connect_operations_129
+  file: 远程管理/test_after_connect_operations_129.yaml
+  name: 连接服务器后操作
+  description: "测试步骤:\n  1. 打开终端进入远程管理服务器，选择一个远程服务器\n  2. 当前窗口有程序运行，选择一个服务器连接\n  3.\
+    \ 当前窗口没有有程序运行，选择一个服务器连接\n  4. 在远程服务器中使用rz和sz命令做上传文件和下载文件操作\n预期结果:\n  1. 会自动连接上服务器\n\
+    \  2. 在新标签中连接远程服务器\n  3. 在当前窗口中连接远程服务器\n  4. 如果远程服务器没有这命令自动打印一段提示信息（用户使用右键上传和下载功能之前，服务器是要安装sz和rz命令）\n"
+  module: 远程管理器
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_backspace_key_136
+  file: 远程管理/test_backspace_key_136.yaml
+  name: 退格键
+  description: "测试步骤:\n  1. 打开终端，进入到远程管理编码、退格键、删除键\n  2. 按空格键/Enter\n  3. 按“↑”、“↓“方向键\n\
+    \  4. 按Enter键\n  5. 按ESC键\n（PS：测试时需要测试Shift+Tab反向切换）\n预期结果:\n  1. 选项框有Focus效果\n\
+    \  2. 显示编码、退格键、删除键列表\n  3. 切换选择编码、退格键、删除键\n  4. 执行选择，列表收起\n  5. 列表收起\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_correct_connection_128
+  file: 远程管理/test_correct_connection_128.yaml
+  name: 正确连接
+  description: "测试步骤:\n  1. 在添加服务器界面填写正确的地址、端口、用户名，然后连接服务器\n  2. 在服务器列表中添加相同的服务器，查看服务器列表显示\n\
+    \  3. 在服务器列表中添加服务器名称不同，但地址、用户名、端口都一样，查看服务器列表显示\n预期结果:\n  1. 可以连接成功\n  2. 界面提示“该服务器名已存在,请重新输入”\n\
+    \  3. 显示名称不同的服务器名称\n"
+  module: 远程管理器
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_delete_key_135
+  file: 远程管理/test_delete_key_135.yaml
+  name: 删除键
+  description: "测试步骤:\n  1. 打开终端，进入到远程管理编码、退格键、删除键\n  2. 按空格键/Enter\n  3. 按“↑”、“↓“方向键\n\
+    \  4. 按Enter键\n  5. 按ESC键\n（PS：测试时需要测试Shift+Tab反向切换）\n预期结果:\n  1. 选项框有Focus效果\n\
+    \  2. 显示编码、退格键、删除键列表\n  3. 切换选择编码、退格键、删除键\n  4. 执行选择，列表收起\n  5. 列表收起\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_delete_server_124
+  file: 远程管理/test_delete_server_124.yaml
+  name: 删除服务器
+  description: "测试步骤:\n  1. 打开终端，按Tab键进入到删除服务器面\n  2. 按Tab键\n  3. 在“取消”和“确定”按钮按下空格或者回车\n\
+    \  4. 按ESC键\n  5. 删除后下一项服务器还存在\n  6. 删除后下一项服务器不存在\n  7. 删除后不存在服务器\n（PS：测试时需要测试Shift+Tab反向切换）\n\
+    预期结果:\n  1. 删除弹框显示正确\n  2. 焦点依次在右上角X键，取消，确定\n  3. 执行相应选项操作\n  4. 焦点返回到当前选择删除的服务器上\n\
+    \  5. 默认选择删除的下一项\n  6. 默认选择到当前删除项的上一项\n  7. 焦点回到添加服务器按钮\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_edit_server_125
+  file: 远程管理/test_edit_server_125.yaml
+  name: 编辑服务器
+  description: "测试步骤:\n  1. 打开终端，长按右键\n  2. 点击右键菜单远程管理\n  3. 选择一个服务器，点击编辑\n  4. 输入服务器名、地址、用户名等点击保存\n\
+    预期结果:\n  1. 弹出右键菜单\n  2. 显示远程管理插件\n  3. 弹出编辑服务器界面，服务器名全选\n  4. 服务器名保存成功\n"
+  module: 触摸屏
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_insert_remote_tab_title_format_119
+  file: 远程管理/test_insert_remote_tab_title_format_119.yaml
+  name: '插入远程标签标题格式功能 - NON-AUTOMATABLE: 触摸操作无法自动化'
+  description: "前置条件: 已连接远程管理\n测试步骤:\n  1. 打开终端，标签页点击鼠标右键\n  2. 点击插入按钮，选择用户名%u 、用户名@\
+    \  %U、远程主机（短）%h、会话编号 %#、shell设定的窗口标题 %w\n  3. 点击确定按钮\n  4. 点击取消按钮\n  5. 清空标签标题格式内容，点击确定\n\
+    Notes:测试时一并测试触摸屏、触控板、键盘交互\n预期结果:\n  1. 弹出重命名标签页弹框，远程标签标题格式输入框内容默认全选，标签标题格式与设置中一致\n\
+    \  2. 标签标题格式输入框显示选择插入的格式\n  3. 重命名标签显示与选择的一致\n  4. 重命名标签保持不变\n  5. 标签标题显示为Terminal\n"
+  module: 右键菜单标签页
+  feature: ''
+  tags:
+  - L1
+  app: deepin-terminal
+  skip: null
+- id: test_insert_remote_tab_title_types_145
+  file: 远程管理/test_insert_remote_tab_title_types_145.yaml
+  name: '插入不同类型远程标签标题功能 - NON-AUTOMATABLE: 触摸操作无法自动化'
+  description: "前置条件: 连接远程管理\n测试步骤:\n  1. 打开终端，进入设置基础设置下远程标签标题格式\n  2. 点击插入按钮，选择插入格式，用户名%u\
+    \ 、用户名@  %U、远程主机（短）%h、会话编号 %#、shell设定的窗口标题 %w\nNotes:测试时一并测试触摸屏、触控板、键盘交互\n预期结果:\n\
+    \  1. 默认格式%U%h；例：dzw@\n  10. \n  4. \n  11. 35\n  2. 编辑框中显示加入的插入选项；标签标题格式显示与选择的一致\n"
+  module: 远程管理器
+  feature: ''
+  tags:
+  - L1
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_remote_add_server_057
+  file: 远程管理/test_keyboard_remote_add_server_057.yaml
+  name: 键盘交互-添加服务器
+  description: "测试步骤:\n  1. 打开终端，Tab键焦点在添加服务器按钮，点击Enter键\n  2. 依次按Tab键切换\n  3. 焦点在取消、添加按钮时，按Enter/Space键\n\
+    \  4. 在弹框界面按ESC键\n（PS：测试时需要测试Shift+Tab反向切换）\n预期结果:\n  1. 弹出添加服务器弹框\n  2. 切换顺序：服务器名、地址、端口、用户名、密码、加密图标、证书、选择证书图标、高级选项、分组、路径、命令、编码、退格键、删除键、取消、添加、右上角X键，各选项有Focus效果\n\
+    \  3. 操作结束后，焦点回到添加服务器按钮\n  4. 焦点返回到添加服务器按钮\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_remote_delete_server_059
+  file: 远程管理/test_keyboard_remote_delete_server_059.yaml
+  name: 键盘交互-删除服务器
+  description: "测试步骤:\n  1. 打开终端，按Tab键进入到删除服务器面\n  2. 按Tab键\n  3. 在“取消”和“确定”按钮按下空格或者回车\n\
+    \  4. 按ESC键\n  5. 删除后下一项服务器还存在\n  6. 删除后下一项服务器不存在\n  7. 删除后不存在服务器\n（PS：测试时需要测试Shift+Tab反向切换）\n\
+    预期结果:\n  1. 删除弹框显示正确\n  2. 焦点依次在右上角X键，取消，确定\n  3. 执行相应选项操作\n  4. 焦点返回到当前选择删除的服务器上\n\
+    \  5. 默认选择删除的下一项\n  6. 默认选择到当前删除项的上一项\n  7. 焦点回到添加服务器按钮\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_remote_edit_server_058
+  file: 远程管理/test_keyboard_remote_edit_server_058.yaml
+  name: 键盘交互-编辑远程服务器
+  description: "测试步骤:\n  1. 打开终端，Tab键进入编辑服务器界面\n  2. 依次按Tab键\n  3. 在“删除服务器”、“取消”和“保存”按钮按下空格或者回车\n\
+    \  4. 按ESC退出弹框\n（PS：测试时需要测试Shift+Tab反向切换）\n预期结果:\n  1. 默认服务器名全选\n  2. 切换顺序：服务器名、地址、端口、用户名、密码、加密图标、证书、选择证书图标、高级选项、分组、路径、命令、编码、退格键、删除键、删除服务器、取消、保存、右上角X键，各选项有Focus效果\n\
+    \  3. 执行相应选项操作\n  4. 焦点返回在当前编辑的远程管理上\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_remote_empty_050
+  file: 远程管理/test_keyboard_remote_empty_050.yaml
+  name: 键盘交互远程管理列表为空
+  description: "测试步骤:\n  1. 打开终端，Tab键切换到主菜单，按Enter键\n  2. “↑”、“↓”方向键/Tab键切换远程管理\n\
+    \  3. 按Enter键\n（PS：测试时需要测试Shift+Tab反向切换）\n预期结果:\n  1. 显示主菜单列表\n  2. 远程管理插件打开\n\
+    \  3. 焦点切换到添加服务器按钮\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_remote_encoding_backspace_060
+  file: 远程管理/test_keyboard_remote_encoding_backspace_060.yaml
+  name: 键盘交互-编码退格删除
+  description: "测试步骤:\n  1. 打开终端，进入到远程管理编码、退格键、删除键\n  2. 按空格键/Enter\n  3. 按“↑”、“↓“方向键\n\
+    \  4. 按Enter键\n  5. 按ESC键\n（PS：测试时需要测试Shift+Tab反向切换）\n预期结果:\n  1. 选项框有Focus效果\n\
+    \  2. 显示编码、退格键、删除键列表\n  3. 切换选择编码、退格键、删除键\n  4. 执行选择，列表收起\n  5. 列表收起\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_remote_esc_056
+  file: 远程管理/test_keyboard_remote_esc_056.yaml
+  name: 键盘交互-远程管理全局ESC
+  description: "测试步骤:\n  1. 打开终端，当焦点在搜索框、服务器列表、编辑按钮、添加服务器按钮\n  2. 按ESC键\n（PS：测试时需要测试Shift+Tab反向切换）\n\
+    预期结果:\n  1. 选项有Focus效果\n  2. 焦点回到终端\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_remote_one_server_051
+  file: 远程管理/test_keyboard_remote_one_server_051.yaml
+  name: 键盘交互远程管理列表有一个服务器（分组或未分组）
+  description: "测试步骤:\n  1. 打开终端，Tab键切换到远程管理插件\n  2. 再按Tab键\n（PS：测试时需要测试Shift+Tab反向切换）\n\
+    预期结果:\n  1. 焦点进入服务器选项，列表有Focus效果\n  2. 添加服务器按钮高亮\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_remote_right_click_menu_061
+  file: 远程管理/test_keyboard_remote_right_click_menu_061.yaml
+  name: 键盘交互-右键菜单远程管理
+  description: "测试步骤:\n  1. 键盘按Alt+M调出右键菜单\n  2. 按Tab键切换到远程管理，按enter键\n（PS：测试时需要测试Shift+Tab反向切换）\n\
+    预期结果:\n  1. 显示远程管理\n  2. 远程管理列表没有获得Focus效果\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_remote_search_empty_054
+  file: 远程管理/test_keyboard_remote_search_empty_054.yaml
+  name: 键盘交互-远程搜索为空
+  description: "测试步骤:\n  1. 打开终端，Tab键切换到远程管理插件\n  2. 搜索框不输入任何字符，按Enter键\n  3. 输入字符，按Enter键搜索结果为空\n\
+    （PS：测试时需要测试Shift+Tab反向切换）\n预期结果:\n  1. 焦点在搜索框\n  2. 搜索框无变化\n  3. < 键有Focus效果，按“←”方向键/Enter/Space键返回到搜索框\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_remote_search_results_055
+  file: 远程管理/test_keyboard_remote_search_results_055.yaml
+  name: 键盘交互-远程搜索有结果
+  description: "测试步骤:\n  1. 打开终端，Tab键切换到远程管理插件\n  2. 输入字符，按Enter有搜索结果\n  3. 按Tab键切换到服务器\n\
+    \  4. 按“→”方向键\n  5. 在搜索结果列表按“↑”、“↓”方向键切换远程管理\n  6. 选中的结果是非组，按Enter键\n  7. 选中的是组，按Enter键\n\
+    \  8. 当焦点在返回键、服务器列表、编辑按钮时按ESC键\n（PS：测试时需要测试Shift+Tab反向切换）\n预期结果:\n  1. 焦点在搜索框\n\
+    \  2. 返回键有Focus效果，按“←”方向键/Enter/Space键返回到搜索框\n  3. 选择的服务器有Focus效果\n  4. 编辑按钮有边框效果\n\
+    \  5. 选中的服务器有Focus效果，切换到最上、最下一个服务器时，若无最上一个，最下一个有提示音\n  6. 执行连接远程服务器\n  7. 进入分组列表\n\
+    \  8. 焦点回到终端\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_remote_server_focus_group_053
+  file: 远程管理/test_keyboard_remote_server_focus_group_053.yaml
+  name: 键盘交互-远程服务器列表(组)
+  description: "测试步骤:\n  1. 打开终端，Tab键进入编辑服务器界面\n  2. 依次按Tab键\n  3. 在“删除服务器”、“取消”和“保存”按钮按下空格或者回车\n\
+    \  4. 按ESC退出弹框\n（PS：测试时需要测试Shift+Tab反向切换）\n预期结果:\n  1. 默认服务器名全选\n  2. 切换顺序：服务器名、地址、端口、用户名、密码、加密图标、证书、选择证书图标、高级选项、分组、路径、命令、编码、退格键、删除键、删除服务器、取消、保存、右上角X键，各选项有Focus效果\n\
+    \  3. 执行相应选项操作\n  4. 焦点返回在当前编辑的远程管理上\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_remote_server_focus_not_group_052
+  file: 远程管理/test_keyboard_remote_server_focus_not_group_052.yaml
+  name: 键盘交互-远程服务器列表(非组)
+  description: "测试步骤:\n  1. 打开终端，Tab键进入编辑服务器界面\n  2. 依次按Tab键\n  3. 在“删除服务器”、“取消”和“保存”按钮按下空格或者回车\n\
+    \  4. 按ESC退出弹框\n（PS：测试时需要测试Shift+Tab反向切换）\n预期结果:\n  1. 默认服务器名全选\n  2. 切换顺序：服务器名、地址、端口、用户名、密码、加密图标、证书、选择证书图标、高级选项、分组、路径、命令、编码、退格键、删除键、删除服务器、取消、保存、右上角X键，各选项有Focus效果\n\
+    \  3. 执行相应选项操作\n  4. 焦点返回在当前编辑的远程管理上\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_no_password_127
+  file: 远程管理/test_no_password_127.yaml
+  name: 未填写密码
+  description: "测试步骤:\n  1. 在添加服务器的过程中没有填写服务器密码，然后连接服务器\n  2. 服务器连接成功后，输入正确的密码，查看登陆显示\n\
+    预期结果:\n  1. 服务器连接成功，但需要输入密码才能登陆\n  2. 登陆成功，可以在服务器上进行相关操作\n"
+  module: 远程管理器
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_remote_address_port_142
+  file: 远程管理/test_remote_address_port_142.yaml
+  name: 远程管理-地址和端口
+  description: "测试步骤:\n  1. 在添加服务器窗口的地址输入框中输入：阿里快圣诞节，查看软件显示\n  2. 在添加服务器窗口的地址输入框中输入：asdfkad，查看软件显示\n\
+    \  3. 在添加服务器窗口的地址输入框中输入：adkj!@#，查看软件显示\n  4. 在添加服务器窗口的地址输入框中输入：超长字符，查看软件显示\n \
+    \ 5. 在添加服务器窗口的地址输入框中输入：特殊字符，查看软件显示\n  6. 在端口输入框中输入：上课，查看软件显示\n  7. 在端口输入框中输入：ak47，查看软件显示\n\
+    \  8. 在端口输入框中输入：2222，查看软件显示\n预期结果:\n  1. 可以正常输入，并显示正确\n  2. 可以正常输入，并显示正确\n  3.\
+    \ 可以正常输入，并显示正确\n  4. 可以正常输入，并显示正确\n  5. 可以正常输入，并显示正确\n  6. 软件会给出提示信息：此处只能输入数字\n\
+    \  7. 软件会给出提示信息：此处只能输入数字\n  8. 可以正常输入，并显示正确\n"
+  module: 远程管理器
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_remote_command_input_138
+  file: 远程管理/test_remote_command_input_138.yaml
+  name: 远程管理-命令输入
+  description: "测试步骤:\n  1. 打开终端，右键菜单选择远程管理\n  2. 按空白处\n预期结果:\n  1. 右侧显示出远程管理添加页面\n\
+    \  2. 远程管理页面隐藏\n"
+  module: 右键菜单工作区
+  feature: ''
+  tags:
+  - L1
+  app: deepin-terminal
+  skip: null
+- id: test_remote_encoding_137
+  file: 远程管理/test_remote_encoding_137.yaml
+  name: 远程管理-编码
+  description: "测试步骤:\n  1. 打开终端，右键菜单选择远程管理\n  2. 按空白处\n预期结果:\n  1. 右侧显示出远程管理添加页面\n\
+    \  2. 远程管理页面隐藏\n"
+  module: 右键菜单工作区
+  feature: ''
+  tags:
+  - L1
+  app: deepin-terminal
+  skip: null
+- id: test_remote_group_input_140
+  file: 远程管理/test_remote_group_input_140.yaml
+  name: 远程管理-分组输入
+  description: "测试步骤:\n  1. 打开终端，右键菜单选择远程管理\n  2. 按空白处\n预期结果:\n  1. 右侧显示出远程管理添加页面\n\
+    \  2. 远程管理页面隐藏\n"
+  module: 右键菜单工作区
+  feature: ''
+  tags:
+  - L1
+  app: deepin-terminal
+  skip: null
+- id: test_remote_management_108
+  file: 远程管理/test_remote_management_108.yaml
+  name: 远程管理
+  description: "测试步骤:\n  1. 打开终端，Tab键切换到主菜单，按Enter键\n  2. “↑”、“↓”方向键/Tab键切换远程管理\n\
+    \  3. 按Enter键\n（PS：测试时需要测试Shift+Tab反向切换）\n预期结果:\n  1. 显示主菜单列表\n  2. 远程管理插件打开\n\
+    \  3. 焦点切换到添加服务器按钮\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_remote_no_expect_command_147
+  file: 远程管理/test_remote_no_expect_command_147.yaml
+  name: 远程管理-不显示expect命令
+  description: "测试步骤:\n  1. 在添加服务器界面填写正确的地址、端口、用户名，然后连接服务器\n  2. 查看终端界面内容显示\n预期结果:\n\
+    \  1. 连接成功\n  2. 终端上不显示expect命令，防止暴露远程主机密码信息\n"
+  module: 远程管理器
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_remote_panel_auto_hide_131
+  file: 远程管理/test_remote_panel_auto_hide_131.yaml
+  name: 远程管理面板自动隐藏
+  description: "测试步骤:\n  1. 打开终端，进入到远程管理面板\n  2. 使用鼠标点击选中上面、下面、左面、右面拖动改变窗口大小\n  3.\
+    \ 鼠标点击远程管理面板旁边的终端区域\n预期结果:\n  1. \n  2. 远程管理面板自动隐藏\n  3. 远程管理面板自动隐藏\n"
+  module: 远程管理器
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_remote_path_input_139
+  file: 远程管理/test_remote_path_input_139.yaml
+  name: 远程管理-路径输入
+  description: "测试步骤:\n  1. 打开终端，右键菜单选择远程管理\n  2. 按空白处\n预期结果:\n  1. 右侧显示出远程管理添加页面\n\
+    \  2. 远程管理页面隐藏\n"
+  module: 右键菜单工作区
+  feature: ''
+  tags:
+  - L1
+  app: deepin-terminal
+  skip: null
+- id: test_remote_server_name_143
+  file: 远程管理/test_remote_server_name_143.yaml
+  name: 远程管理-服务器名称
+  description: "测试步骤:\n  1. 在弹出添加服务器窗口后，直接点击取消按钮，查看软件显示\n  2. 再弹出添加服务器窗口后，直接点击添加按钮，查看软件显示\n\
+    \  3. 在弹出添加服务器窗口后，点击右上角的&times;按钮，查看软件显示\n  4. 在弹出添加服务器窗口后，按ESC键，查看软件显示\n  5.\
+    \ 在添加服务器窗口的服务器名输入框中输入：阿里快圣诞节，查看软件显示\n  6. 在添加服务器窗口的服务器名输入框中输入：asdfkad，查看软件显示\n\
+    \  7. 在添加服务器窗口的服务器名输入框中输入：adkj!@#，查看软件显示\n  8. 在添加服务器窗口的服务器名输入框中输入：超长字符，查看软件显示\n\
+    \  9. 在添加服务器窗口的服务器名输入框中输入：特殊字符，查看软件显示\n预期结果:\n  1. 添加服务器窗口会自动退出\n  2. 添加服务器窗口会自动退出\n\
+    \  3. 添加服务器窗口会自动退出\n  4. 添加服务器窗口会自动退出\n  5. 可以正常输入，并显示正确\n  6. 可以正常输入，并显示正确\n\
+    \  7. 可以正常输入，并显示正确\n  8. 可以正常输入，超过窗口宽度在服务器列表中以....显示\n  9. 可以正常输入，并显示正确\n"
+  module: 远程管理器
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_remote_server_window_121
+  file: 远程管理/test_remote_server_window_121.yaml
+  name: 服务器窗口
+  description: "测试步骤:\n  1. 打开终端，在终端中点击右键，查看是否有远程管理显示\n  2. 在终端的右键菜单中点击远程管理，查看软件显示\n\
+    \  3. 打开终端后点击右上角的主菜单-远程管理，查看软件显示\n  4. 软件弹出添加远程服务器窗口后，点击除添加窗口外软件其他的地方\n  5. 打开终端使用快捷键alt+del查看软件显示\n\
+    \  6. 软件已经弹出远程服务器窗口，使用快捷键alt+del，查看软件显示\n  7. 在弹出添加服务器窗口后，点击添加服务器按钮，查看软件显示\n \
+    \ 8. 在弹出添加服务器窗口后，点击右上角的x，查看窗口显示\n  9. 在弹出添加服务器窗口后，按ESC键，查看窗口显示\n预期结果:\n  1. 有远程管理菜单显示\n\
+    \  2. 软件的右侧会自动弹出窗口显示可以添加远程服务器\n  3. 软件的右侧会自动弹出窗口显示可以添加远程服务器\n  4. 添加远程服务器窗口会自动收回\n\
+    \  5. 软件会自动弹出添加远程服务器窗口\n  6. 添加远程服务窗口会自动退出\n  7. 软件会自动弹出添加服务器窗口\n  8. 窗口会自动关闭\n\
+    \  9. 窗口会自动关闭\n"
+  module: 远程管理器
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_remote_terminal_tab_name_144
+  file: 远程管理/test_remote_terminal_tab_name_144.yaml
+  name: 远程管理-终端标签名称
+  description: "测试步骤:\n  1. 打开终端，在终端中添加服务器，然后连接服务器，查看终端标签显示\n  2. 连接服务器成功后，输入exit/键盘按ctrl+d，退出服务器连接，查看标签显示\n\
+    预期结果:\n  1. 终端标签会显示连接服务器的名称\n  2. 标签显示会退回到当前目录的名称\n"
+  module: 远程管理器
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_remote_username_password_141
+  file: 远程管理/test_remote_username_password_141.yaml
+  name: 远程管理-用户名密码
+  description: "测试步骤:\n  1. 在添加服务器窗口的用户名输入框中输入：阿里快圣诞节，查看软件显示\n  2. 在添加服务器窗口的用户名输入框中输入：asdfkad，查看软件显示\n\
+    \  3. 在添加服务器窗口的用户名输入框中输入：adkj!@#，查看软件显示\n  4. 在添加服务器窗口的用户名输入框中输入：超长字符，查看软件显示\n\
+    \  5. 在添加服务器窗口的用户名输入框中输入：特殊字符，查看软件显示\n  6. 在添加服务器窗口的密码输入框中输入：阿里快圣诞节，查看软件显示\n \
+    \ 7. 在添加服务器窗口的密码输入框中输入：asdfkad，查看软件显示\n  8. 在添加服务器窗口的密码输入框中输入：adjk!@#，查看软件显示\n\
+    \  9. 在密码输入框后面有一个显示密码按钮，点击一下，查看密码显示\n预期结果:\n  1. 可以正常输入，并显示正确\n  2. 可以正常输入，并显示正确\n\
+    \  3. 可以正常输入，并显示正确\n  4. 可以正常输入，并显示正确\n  5. 可以正常输入，并显示正确\n  6. 不能输入汉字\n  7. 可以正输入，以加密方式显示\n\
+    \  8. 可以正常输入，以加密方式显示\n  9. 密码会以明文方式显示\n"
+  module: 远程管理器
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_required_fields_133
+  file: 远程管理/test_required_fields_133.yaml
+  name: 必填项
+  description: "测试步骤:\n  1. 在添加服务器界面中只填写服务器名，点击添加按钮，查看软件显示\n  2. 在添加服务器界面中只填写地址，点击添加按钮，查看软件显示\n\
+    \  3. 在添加服务器界面中只填写用户名，点击添加按钮，查看软件显示\n  4. 在添加服务器界面中只填写服务器名和地址，点击添加按钮，查看软件显示\n\
+    \  5. 在添加服务器界面中只填写服务器名和用户名，点击添加按钮，查看软件显示\n  6. 在添加服务器界面中只填写地址和用户名，点击添加按钮，查看软件显示\n\
+    \  7. 在添加服务器界面中填写服务器名、地址和用户名，点击添加按钮，查看软件显示\n预期结果:\n  1. 软件不会添加服务器到服务器列表中\n  2.\
+    \ 软件不会添加服务器到服务器列表中\n  3. 软件不会添加服务器到服务器列表中\n  4. 软件不会添加服务器到服务器列表中\n  5. 软件不会添加服务器到服务器列表中\n\
+    \  6. 软件不会添加服务器到服务器列表中\n  7. 添加服务器成功，并自动保存到服务器列表中\n"
+  module: 远程管理器
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_server_grouping_123
+  file: 远程管理/test_server_grouping_123.yaml
+  name: 服务器分组
+  description: "测试步骤:\n  1. 在添加服务器时填写一个新的分组，查看服务器列表显示\n  2. 在添加服务器时填写一个已经存在的分组，查看服务器列表显示\n\
+    \  3. 在修改服务器时填写一个新组，查看服务器列表显示\n  4. 在修改服务器时填写一个已存在组，查看服务器列表显示\n  5. 在修改服务器时，将一个组中的服务器修改到另一个组中，查看服务器列表显示\n\
+    \  6. 假如当前分组只有一个服务器，然后删除分组、修改分组、删除该服务器，查看分组显示\n  7. 在新增和修改分组时，查看分组服务器数量显示\n预期结果:\n\
+    \  1. 软件会自动创建一个新组，并将该服务器添加到该组中\n  2. 软件会自动将该服务器添加到以存在的分组中\n  3. 软件会自动创建一个新组，并将该服务器添加到该组中\n\
+    \  4. 软件会自动将该服务器添加到以存在的分组中\n  5. 该服务器会从当前服务器消失，并跳转到另一个服务器中\n  6. 组中没有服务器时，该分组会自动删除\n\
+    \  7. 服务器数量显示正确\n"
+  module: 远程管理器
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_upload_file_132
+  file: 远程管理/test_upload_file_132.yaml
+  name: 上传文件
+  description: "测试步骤:\n  1. 打开终端，点击主菜单远程管理\n  2. 点击插件列表服务器选项\n  3. 单指长按调出右键菜单，选择上传文件\n\
+    \  4. 选择一个文件，点击上传按钮\n预期结果:\n  1. 显示远程管理插件\n  2. 自动连接服务器\n  3. 弹出选择文件对话框\n  4.\
+    \ 终端界面提示文件上传成功\n"
+  module: 触摸屏
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_wrong_connection_130
+  file: 远程管理/test_wrong_connection_130.yaml
+  name: 错误连接
+  description: "测试步骤:\n  1. 在添加服务器界面中填写错误的地址，然后连接服务器\n  2. 在添加服务器界面中填写错误的用户名，然后连接服务器\n\
+    \  3. 在添加服务器界面中填写错误的端口，然后连接服务器\n  4. 在添加服务器界面中填写错误的端口和地址，然后连接服务器\n  5. 在添加服务器界面中填写错误的端口和用户名，然后连接服务器\n\
+    \  6. 在添加服务器界面中填写错误的端口、地址和用户名，然后连接服务器\n  7. 在添加服务器界面中填写错误的路径，然后连接服务器\n  8. 在添加服务器界面中填写错误的命令，然后连接服务器\n\
+    \  9. 在服务器没有安装ssh服务时，填写正确的数据，并连接服务器\n预期结果:\n  1. 连接服务器会失败\n  2. 连接服务器会失败\n  3.\
+    \ 连接服务器会失败\n  4. 连接服务器会失败\n  5. 连接服务器会失败\n  6. 连接服务器会失败\n  7. 连接服务器会失败\n  8. 连接服务器会失败\n\
+    \  9. 连接服务器会失败\n"
+  module: 远程管理器
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_wrong_password_126
+  file: 远程管理/test_wrong_password_126.yaml
+  name: 错误密码
+  description: "测试步骤:\n  1. 在添加服务器的过程中填写错误的服务器密码，然后连接服务器\n  2. 在登陆失败后，重新输入正确的密码，查看登陆显示\n\
+    预期结果:\n  1. 在服务器连接的过程中，会尝试登陆，但会失败，需要重新输入密码\n  2. 登陆成功，且可以进行操作\n"
+  module: 远程管理器
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_auto_copy_checkbox_031
+  file: 键盘/test_keyboard_auto_copy_checkbox_031.yaml
+  name: 键盘交互-自动复制到剪贴板复选框
+  description: "测试步骤:\n  1. 打开终端，键盘按Ctrl+Alt+F\n  2. 依次按Tab键\n  3. 按ESC键\n（PS：测试时需要测试Shift+Tab反向切换）\n\
+    预期结果:\n  1. 调出查找框，焦点在输入框\n  2. 焦点在向上、向下搜索按钮\n  3. 查找框隐藏\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_context_menu_022
+  file: 键盘/test_keyboard_context_menu_022.yaml
+  name: 键盘交互-右键菜单快捷键
+  description: "测试步骤:\n  1. 键入设置，Tab键切换到快捷键\n  2. 按Enter键\n  3. 输入新的快捷键\n（PS：测试时需要测试Shift+Tab反向切换）\n\
+    预期结果:\n  1. 输入框有Focus效果\n  2. 提示“请输入新的快捷键”，并有Focus效果\n  3. 输入正常，并且Focus效果仍然在\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_cursor_blink_checkbox_030
+  file: 键盘/test_keyboard_cursor_blink_checkbox_030.yaml
+  name: 键盘交互-光标闪烁复选框
+  description: "测试步骤:\n  1. 进入设置，焦点在光标闪烁复选框\n  2. 键盘按Enter键\n（PS：测试时需要测试Shift+Tab反向切换）\n\
+    预期结果:\n  1. 复选框有Focus效果\n  2. 取消/选中复选框\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_cursor_style_029
+  file: 键盘/test_keyboard_cursor_style_029.yaml
+  name: 键盘交互-光标风格切换
+  description: "测试步骤:\n  1. 打开设置界面，检查光标风格默认显示\n  2. 修改为第二种，|\n  3. 修改为第三种_\n预期结果:\n\
+    \  1. 显示有3种风格，默认选中第一种\n  2. 光标立即生效\n  3. 光标立即生效\n"
+  module: 设置界面高级设置
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_font_026
+  file: 键盘/test_keyboard_font_026.yaml
+  name: null
+  description: "测试步骤:\n  1. 进入设置，Tab键跳转到字体\n  2. 按Enter键\n  3. 按“↑”、“↓“方向键\n  4. 点击Enter键\n\
+    \  5. 在列表显示时按ESC键\n（PS：测试时需要测试Shift+Tab反向切换）\n预期结果:\n  1. 字体框有Focus效果\n  2. 显示字体列表\n\
+    \  3. 切换选择字体\n  4. 执行选择字体，并且列表收起\n  5. 字体列表收起\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: null
+  skip: null
+- id: test_keyboard_font_size_027
+  file: 键盘/test_keyboard_font_size_027.yaml
+  name: 键盘交互-字体大小调节
+  description: "测试步骤:\n  1. 进入设置Tab键切换到字体大小\n  2. 键盘按“↑”、“↓“方向键\n  3. 输入字体，按Enter键\n\
+    （PS：测试时需要测试Shift+Tab反向切换）\n预期结果:\n  1. 字体设置框有Focus效果\n  2. “+”、“-”按钮触发字体增大与减小操作\n\
+    \  3. 字体框有仍然有Focus效果\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_main_menu_019
+  file: 键盘/test_keyboard_main_menu_019.yaml
+  name: 键盘交互Tab键切换到主菜单按Enter键
+  description: "测试步骤:\n  1. Tab键切换到主菜单按Enter键\n  2. 按Tab键或点击“↑”、“↓“方向键\n  3. 选择任意功能按Enter键\n\
+    \  4. 按Enter或方向“→”键\n  5. 按“↑”、“↓“方向键或Tab键\n  6. 按“←”方向键\n（PS：测试时需要测试Shift+Tab反向切换）\n\
+    预期结果:\n  1. 显示菜单列表\n  2. 可选择新建窗口、自定义命令、远程管理、设置、主题、帮助、关于、退出功能\n  3. 可执行操作（新建窗口、自定义命令、远程管理、设置、主题、帮助、关于、退出）\n\
+    \  4. 可展开主题选项\n  5. 可以选择主题\n  6. 收起主题列表\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_multi_window_063
+  file: 键盘/test_keyboard_multi_window_063.yaml
+  name: 键盘交互-多窗口中操作
+  description: "测试步骤:\n  1. 使用快捷键Ctrl+Alt+T新建多个终端窗口\n  2. 在其中一个窗口中操作自定义命令，远程管理，编码等功能\n\
+    \  3. 在全局功能中使用键盘ESC键\n预期结果:\n  1. 终端窗口显示正常\n  2. 键盘操作功能正常\n  3. 焦点返回正确\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_multi_workspace_017
+  file: 键盘/test_keyboard_multi_workspace_017.yaml
+  name: 键盘交互主界面有多个工作区
+  description: "测试步骤:\n  1. 键盘按Ctrl+Alt+T打开终端，新建多个工作区\n  2. 按Super+Tab键\n  3. 键盘按Ctrl+shift+1~Ctrl+shift+9\n\
+    \  4. Super+Tab跳出焦点到“+”按钮，键盘继续按Tab键\n（PS：测试时需要测试Shift+Tab反向切换）\n预期结果:\n  1. 标签栏出现<\
+    \ >箭头\n  2. 跳转到“+”按钮\n  3. Ctrl+shift+1切换到第一个标签页，Ctrl+shift+9切换到最后一个标签页\n  4.\
+    \ 按Tab依次跳转到+按钮，主菜单、最小化、最大化、关闭按钮，可循切换到当前标签栏\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_plugins_021
+  file: 键盘/test_keyboard_plugins_021.yaml
+  name: 键盘交互焦点在插件
+  description: "测试步骤:\n  1. 按Tab键焦点在查找、编码、远程管理、自定义命令插件\n  2. 键盘按ESC键\n（PS：测试时需要测试Shift+Tab反向切换）\n\
+    预期结果:\n  1. 选项有Foucs效果\n  2. 焦点返回到终端\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_search_focus_062
+  file: 键盘/test_keyboard_search_focus_062.yaml
+  name: 键盘交互-查找框焦点切换
+  description: "测试步骤:\n  1. 键入设置，Tab键切换到快捷键\n  2. 按Enter键\n  3. 输入新的快捷键\n（PS：测试时需要测试Shift+Tab反向切换）\n\
+    预期结果:\n  1. 输入框有Focus效果\n  2. 提示“请输入新的快捷键”，并有Focus效果\n  3. 输入正常，并且Focus效果仍然在\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_settings_tab_order_024
+  file: 键盘/test_keyboard_settings_tab_order_024.yaml
+  name: 键盘交互-设置界面Tab键切换顺序
+  description: "测试步骤:\n  1. 设置界面，第一次按Tab键\n  2. 第二次按Tab键\n  3. 第三次按Tab键\n  4. 第四次按Tab键\n\
+    \  5. 按Tab键/“↑”、“↓“方向键\n（PS：测试时需要测试Shift+Tab反向切换）\n预期结果:\n  1. 右上角X键有Focus效果\n\
+    \  2. 焦点聚焦到左侧，左侧列表，按“↑”、“↓“方向键切换菜单\n  3. 焦点到滚动条，按“↑”、“↓“方向键可以上下滚动\n  4. 依次切换到透明度、字体、字体大小、标签标题格式输入框、插入选择框、远程标签标题格式输入框、插入选择框、快捷键、光标风格、光标闪烁复选框、选中文字时自动复制到剪贴板复选框、按键时滚动复选框、输出时滚动复选框、启动时使用窗口、背景模糊复选框、丢失焦点后隐藏雷神窗口复选框、shell配置选择框、禁用ctrl+S和ctrl+Q控制复选框、恢复默认（到恢复默认时循环到右上角X）\n\
+    \  5. 从上往下切换菜单\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_shortcuts_028
+  file: 键盘/test_keyboard_shortcuts_028.yaml
+  name: 键盘交互-快捷键设置
+  description: "测试步骤:\n  1. 键入设置，Tab键切换到快捷键\n  2. 按Enter键\n  3. 输入新的快捷键\n（PS：测试时需要测试Shift+Tab反向切换）\n\
+    预期结果:\n  1. 输入框有Focus效果\n  2. 提示“请输入新的快捷键”，并有Focus效果\n  3. 输入正常，并且Focus效果仍然在\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_single_workspace_016
+  file: 键盘/test_keyboard_single_workspace_016.yaml
+  name: 键盘交互主界面只有一个工作区
+  description: "测试步骤:\n  1. 键盘按Ctrl+Alt+T打开终端，再按Super+Tab\n  2. 按Space/Enter键\n  3.\
+    \ 按Super+Tab焦点跳出终端，键盘继续按Tab键\n（PS：测试时需要测试Shift+Tab反向切换）\n预期结果:\n  1. 跳转到+按钮\n\
+    \  2. 新建一个新的工作区，焦点返回到终端\n  3. 依次到+按钮、主菜单、最小化、最大化、关闭按钮，可循切换到当前标签栏\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_tab_bar_020
+  file: 键盘/test_keyboard_tab_bar_020.yaml
+  name: 键盘交互焦点在标签栏
+  description: "测试步骤:\n  1. 按Super+Tab键焦点在标签栏+按钮，主菜单、最小化、最大化、关闭按钮\n  2. 按Tab键\n  3.\
+    \ 按ESC键\n  4. 按Enter键\n（PS：测试时需要测试Shift+Tab反向切换）\n预期结果:\n  1. 焦点在标签栏+按钮，选项有Foucs效果\n\
+    \  2. 焦点依次切换到主菜单、最小化、最大化、关闭按钮，选项有Foucs效果\n  3. 焦点回到终端\n  4. 执行各菜单功能\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_text_selection_023
+  file: 键盘/test_keyboard_text_selection_023.yaml
+  name: 键盘交互-选中文字功能
+  description: "测试步骤:\n  1. 打开正常窗口，键盘按Shift+“←”\n  2. 键盘按Shift+“→”方向键\n  3. 使用右键菜单将正常窗口做横向分屏或纵向分屏\n\
+    （PS：测试时需要测试Shift+Tab反向切换）\n预期结果:\n  1. 选择光标前面字符\n  2. 选择光标后面字符\n  3. 分屏功能正常，没有获得焦点的分屏窗口不支持选中文字功能\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_transparency_025
+  file: 键盘/test_keyboard_transparency_025.yaml
+  name: 键盘交互-透明度调节
+  description: "测试步骤:\n  1. 检查设置界面主题透明度\n  2. 检查设置小透明度\n  3. 检查是否支持鼠标拖动滚动条\n  4. 检查配置文件修改前后：\
+    \ cat ~/.config/deepin/deepin-terminal/config.conf\n预期结果:\n  1. 默认透明度1\n  2. 最小值为\n\
+    \  0. 2，界面显示几乎透明\n  3. 支持拖动滚动条修改透明度\n  4. opacity值和界面设置一致\n"
+  module: 设置界面基础设置
+  feature: ''
+  tags:
+  - L3
+  app: deepin-terminal
+  skip: null
+- id: test_keyboard_window_buttons_018
+  file: 键盘/test_keyboard_window_buttons_018.yaml
+  name: 键盘交互焦点在最小化，最大化，关闭按钮
+  description: "测试步骤:\n  1. 按Tab键焦点在最小化、最大化，键盘按Enter键\n  2. 按Tab焦点在关闭按钮，键盘按Enter键\n\
+    \  3. 有程序运行时，按Tab焦点在关闭按钮，键盘按Enter键\n  4. 键盘按Tab键，依次切换右上角X键、取消、关闭按钮\n  5. 执行取消或右上角X键\n\
+    （PS：测试时需要测试Shift+Tab反向切换）\n预期结果:\n  1. 窗口最小化在Dock栏\n  2. 窗口关闭\n  3. 弹出退出保护弹框\n\
+    \  4. 选项有Focus效果\n  5. 焦点回到X按钮\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_terminal_keyboard_bgblur_checkbox_035
+  file: 键盘/test_terminal_keyboard_bgblur_checkbox_035.yaml
+  name: 键盘交互-背景模糊复选框
+  description: "测试步骤:\n  1. 进入设置，焦点在背景模糊复选框\n  2. 键盘按Space/Enter键\n（PS：测试时需要测试Shift+Tab反向切换）\n\
+    预期结果:\n  1. 复选框有Focus效果\n  2. 取消/选中复选框\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_terminal_keyboard_custom_empty_040
+  file: 键盘/test_terminal_keyboard_custom_empty_040.yaml
+  name: 键盘交互-自定义列表为空
+  description: "测试步骤:\n  1. 打开终端，Tab键切换到主菜单，按Space/Enter键\n  2. “↑”、“↓”方向键/Tab键切换自定义命令，\n\
+    \  3. 按Enter键\n（PS：测试时需要测试Shift+Tab反向切换）\n预期结果:\n  1. 显示主菜单列表\n  2. 自定义插件打开\n\
+    \  3. 焦点切换到添加命令按钮\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_terminal_keyboard_custom_onecmd_041
+  file: 键盘/test_terminal_keyboard_custom_onecmd_041.yaml
+  name: 键盘交互-有一个自定义命令
+  description: "测试步骤:\n  1. 打开终端，键盘按Tab键切换到自定义插件\n  2. 再次按Tab键\n（PS：测试时需要测试Shift+Tab反向切换）\n\
+    预期结果:\n  1. 当前自定义命令有Focus效果\n  2. 切换到添加自定义命令按钮\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_terminal_keyboard_encoding_menu_039
+  file: 键盘/test_terminal_keyboard_encoding_menu_039.yaml
+  name: 键盘交互-右键菜单调出编码
+  description: "测试步骤:\n  1. 打开终端， 快捷键Alt+M调出右键菜单中编码插件\n  2. 检查当前编码显示\n（PS：测试时需要测试Shift+Tab反向切换）\n\
+    预期结果:\n  1. 编码插件显示\n  2. 编码框没有Focus效果\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_terminal_keyboard_encoding_open_038
+  file: 键盘/test_terminal_keyboard_encoding_open_038.yaml
+  name: 键盘交互-编码插件打开状态
+  description: "测试步骤:\n  1. 进入终端， Alt+M调出右键菜单，选择编码\n  2. 键盘按Super+Tab\n  3. 依次按Tab键，将焦点切换到终端\n\
+    \  4. 按“↑”、“↓”方向键\n  5. 选中其中一个编码时，按Enter键\n  6. 选中其中一个编码时，按Tab键\n  7. 选中其中一个编码时，按ESC键\n\
+    （PS：测试时需要测试Shift+Tab反向切换）\n预期结果:\n  1. 编码列表没有Focus效果\n  2. 焦点切换到“+”按钮\n  3. 当前选择的编码有Focus效果\n\
+    \  4. 可选择编码，编码框有Focus效\n  5. 选择当前编码\n  6. 跳转到主窗口的“+”按钮\n  7. 插件隐藏，焦点跳到终端\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_terminal_keyboard_global_event_037
+  file: 键盘/test_terminal_keyboard_global_event_037.yaml
+  name: 键盘交互-设置全局事件
+  description: "测试步骤:\n  1. Tab键进入设置，焦点在设置全局事件，键盘按ESC键\n（PS：测试时需要测试Shift+Tab反向切换）\n\
+    预期结果:\n  1. 设置窗口关闭,焦点回到终端\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_terminal_keyboard_hidequake_checkbox_036
+  file: 键盘/test_terminal_keyboard_hidequake_checkbox_036.yaml
+  name: 键盘交互-丢失焦点隐藏雷神窗口复选框
+  description: "测试步骤:\n  1. 进入设置，焦点在丢失焦点隐藏雷神窗口复选框\n  2. 键盘按Enter键\n（PS：测试时需要测试Shift+Tab反向切换）\n\
+    预期结果:\n  1. 复选框有Focus效果\n  2. 取消/选中复选框\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_terminal_keyboard_scroll_keypress_032
+  file: 键盘/test_terminal_keyboard_scroll_keypress_032.yaml
+  name: 键盘交互-按键时滚动复选框
+  description: "测试步骤:\n  1. 进入设置，焦点在按键时滚动复选框\n  2. 键盘按Enter键\n（PS：测试时需要测试Shift+Tab反向切换）\n\
+    预期结果:\n  1. 复选框有Focus效果\n  2. 取消/选中复选框\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_terminal_keyboard_scroll_output_033
+  file: 键盘/test_terminal_keyboard_scroll_output_033.yaml
+  name: 键盘交互-输出时滚动复选框
+  description: "测试步骤:\n  1. 进入设置，焦点在输出时滚动复选框\n  2. 键盘按Enter键\n（PS：测试时需要测试Shift+Tab反向切换）\n\
+    预期结果:\n  1. 复选框有Focus效果\n  2. 取消/选中复选框\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null
+- id: test_terminal_keyboard_startup_combo_034
+  file: 键盘/test_terminal_keyboard_startup_combo_034.yaml
+  name: 键盘交互-启动时使用下拉框
+  description: "测试步骤:\n  1. 进入设置，焦点在启动时使用下拉框\n  2. 按Enter\n  3. 按ESC键\n  4. 按“↑”、“↓“方向键\n\
+    \  5. 再按Enter键\n（PS：测试时需要测试Shift+Tab反向切换）\n预期结果:\n  1. 下拉框有Focus效果\n  2. 下拉列表展开\n\
+    \  3. 下拉列表收起\n  4. 可选择窗口模式（正常窗口、分屏、全屏、最大化）\n  5. 执行选择动作，列表收起\n"
+  module: 键盘交互
+  feature: ''
+  tags:
+  - L2
+  app: deepin-terminal
+  skip: null

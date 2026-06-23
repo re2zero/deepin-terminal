@@ -1,0 +1,53 @@
+name: 链接
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，光标指在超链接处（不选中）
+    2. 点击右键菜单
+    3. 打开链接
+    4. 复制链接
+  预期结果:
+    1. 显示超链接小手
+    2. 弹出菜单栏
+    3. 跳转链接显示内容
+    4. 复制链接成功
+module: 右键菜单
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653609'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 在终端中输出超链接
+  action: keyboard_type
+  value: echo https://www.deepin.org
+  wait: 0.3
+- name: 回车执行
+  action: keyboard_press
+  key: Return
+  wait: 0.3
+- name: 截图-终端显示超链接
+  action: noop
+- name: 右键点击终端内容区域
+  action: context_menu_comb
+  ref: context_open_link
+  wait: 0.3
+- name: 截图-右键菜单弹出
+  action: noop
+- name: 验证进程运行中
+  action: wait
+  value: '1000'
+- name: 关闭右键菜单
+  action: keyboard_press
+  key: Escape
+  wait: 0.3
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

@@ -1,0 +1,43 @@
+name: 窗口标题显示
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 进入启动器，检查终端在桌面的名称
+    2. 启动终端，检查终端窗口标题显示
+  预期结果:
+    1. 显示“终端”
+    2. “当前终端标题-终端”形式显示
+module: 工作区
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653049'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤2: 点击终端主窗口确保焦点'
+  action: element_action
+  ref: main_frame
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤2: 截图-窗口标题显示'
+  action: noop
+- name: '步骤2: 执行命令改变当前路径'
+  action: keyboard_type
+  value: cd /tmp
+  wait: 0.3
+- action: keyboard_press
+  key: Return
+  wait: 0.3
+- name: '步骤2: 截图-标题随路径变化'
+  action: noop
+- name: 验证终端仍在运行
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

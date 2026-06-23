@@ -1,0 +1,160 @@
+name: 服务器窗口
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，在终端中点击右键，查看是否有远程管理显示
+    2. 在终端的右键菜单中点击远程管理，查看软件显示
+    3. 打开终端后点击右上角的主菜单-远程管理，查看软件显示
+    4. 软件弹出添加远程服务器窗口后，点击除添加窗口外软件其他的地方
+    5. 打开终端使用快捷键alt+del查看软件显示
+    6. 软件已经弹出远程服务器窗口，使用快捷键alt+del，查看软件显示
+    7. 在弹出添加服务器窗口后，点击添加服务器按钮，查看软件显示
+    8. 在弹出添加服务器窗口后，点击右上角的x，查看窗口显示
+    9. 在弹出添加服务器窗口后，按ESC键，查看窗口显示
+  预期结果:
+    1. 有远程管理菜单显示
+    2. 软件的右侧会自动弹出窗口显示可以添加远程服务器
+    3. 软件的右侧会自动弹出窗口显示可以添加远程服务器
+    4. 添加远程服务器窗口会自动收回
+    5. 软件会自动弹出添加远程服务器窗口
+    6. 添加远程服务窗口会自动退出
+    7. 软件会自动弹出添加服务器窗口
+    8. 窗口会自动关闭
+    9. 窗口会自动关闭
+module: 远程管理器
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653149'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 终端右键查看是否有远程管理菜单显示'
+  action: context_menu_comb
+  ref: context_remote_management
+- action: wait
+  duration: 0.3
+- name: '步骤2: 右键菜单点击远程管理，查看弹出窗口'
+  action: context_menu_comb
+  ref: context_remote_management
+- action: wait
+  duration: 0.3
+- name: 按ESC关闭远程管理面板
+  action: keyboard_press
+  key: Escape
+- action: wait
+  duration: 0.3
+- name: '步骤3: 主菜单-远程管理'
+  action: main_menu_comb
+  ref: menu_remote_management
+- action: wait
+  duration: 0.3
+- name: 按ESC关闭远程管理面板 (2)
+  action: keyboard_press
+  key: Escape
+- action: wait
+  duration: 0.3
+- name: '步骤4: 打开远程管理后，点击添加服务器按钮'
+  action: main_menu_comb
+  ref: menu_remote_management
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Return
+- action: wait
+  duration: 0.3
+- name: '步骤5: Alt+Del快捷键调出远程管理窗口'
+  action: keyboard_press
+  value: alt+Delete
+- action: wait
+  duration: 0.3
+- name: 再次Alt+Del关闭远程管理窗口
+  action: keyboard_press
+  value: alt+Delete
+- action: wait
+  duration: 0.3
+- name: '步骤6: 弹出添加服务器窗口后，点击取消按钮'
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Return
+- action: wait
+  duration: 0.3
+- name: '步骤7: 添加服务器窗口按ESC键关闭'
+  action: keyboard_press
+  key: Return
+- action: wait
+  duration: 0.3
+- name: 再次Tab到添加按钮并按Enter
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Return
+- action: wait
+  duration: 0.3
+- name: 按ESC键关闭添加窗口
+  action: keyboard_press
+  key: Escape
+- action: wait
+  duration: 0.3
+- name: 验证终端进程仍在运行
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

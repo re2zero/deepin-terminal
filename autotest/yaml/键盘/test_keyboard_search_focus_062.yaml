@@ -1,0 +1,59 @@
+name: 键盘交互-查找框焦点切换
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 键入设置，Tab键切换到快捷键
+    2. 按Enter键
+    3. 输入新的快捷键
+  （PS：测试时需要测试Shift+Tab反向切换）
+  预期结果:
+    1. 输入框有Focus效果
+    2. 提示“请输入新的快捷键”，并有Focus效果
+    3. 输入正常，并且Focus效果仍然在
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653571'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: Ctrl+Alt+F打开查找框'
+  action: keyboard_press
+  value: ctrl+alt+f
+  wait: 0.3
+  assert:
+  - type: element_visible
+  ref: search_input
+- name: '步骤2: Tab键焦点切换到搜索方向按钮'
+  action: keyboard_press
+  key: Tab
+  wait: 0.3
+- name: '步骤3: 再次Tab键焦点切换到下一个按钮'
+  action: keyboard_press
+  key: Tab
+  wait: 0.3
+- name: '步骤4: Shift+Tab反向切换焦点'
+  action: keyboard_press
+  value: Shift,Tab
+  wait: 0.3
+- name: '步骤5: 再次Shift+Tab反向切换焦点到输入框'
+  action: keyboard_press
+  value: Shift,Tab
+  wait: 0.3
+- name: '步骤6: ESC键隐藏查找框'
+  action: keyboard_press
+  key: Escape
+  wait: 0.3
+  assert:
+  - type: element_not_visible
+  ref: search_input
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

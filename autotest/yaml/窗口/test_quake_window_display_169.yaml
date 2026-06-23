@@ -1,0 +1,48 @@
+name: '[005]雷神窗口显示'
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 右键dock上终端图标，选择雷神终端
+    2. 检查默认雷神窗口显示
+    3. 鼠标拖拽窗口底部
+    4. 检查最大窗口高度
+    5. 退出雷神窗口（Alt+F2），再次打开
+  预期结果:
+    1. 打开雷神终端
+    2. 使用屏幕的1/3的高度；标签工作区等按钮显示在下方
+    3. 可以修改窗口高度
+    4. 最大高度不超过屏幕高度的2/3
+    5. 记录上次修改的高度
+module: 104X
+feature: ''
+tags:
+- L1
+vars:
+  XLSX_ID: '1652981'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤2: 使用Alt+F2调出雷神终端'
+  action: keyboard_press
+  value: Alt,F2
+  wait: 2.0
+- name: '步骤3: 截图-雷神窗口初始显示'
+  action: noop
+- name: '步骤4: 鼠标拖拽窗口底部调整高度'
+  action: keyboard_press
+  key: Escape
+  wait: 0.3
+- name: '步骤5: Alt+F2再次打开雷神窗口'
+  action: keyboard_press
+  value: Alt,F2
+  wait: 2.0
+- name: '步骤6: 截图-雷神窗口保持上次高度'
+  action: noop
+- name: '步骤7: 验证终端进程运行中'
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

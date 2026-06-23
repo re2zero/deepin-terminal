@@ -1,0 +1,86 @@
+name: 键盘交互-编辑远程服务器
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，Tab键进入编辑服务器界面
+    2. 依次按Tab键
+    3. 在“删除服务器”、“取消”和“保存”按钮按下空格或者回车
+    4. 按ESC退出弹框
+  （PS：测试时需要测试Shift+Tab反向切换）
+  预期结果:
+    1. 默认服务器名全选
+    2. 切换顺序：服务器名、地址、端口、用户名、密码、加密图标、证书、选择证书图标、高级选项、分组、路径、命令、编码、退格键、删除键、删除服务器、取消、保存、右上角X键，各选项有Focus效果
+    3. 执行相应选项操作
+    4. 焦点返回在当前编辑的远程管理上
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653511'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 打开远程管理插件'
+  action: context_menu_comb
+  ref: context_remote_management
+- action: wait
+  duration: 0.5
+- name: 点击添加服务器按钮
+  action: element_action
+  ref: add_server_button
+- action: wait
+  duration: 0.5
+- name: '步骤2: 填写服务器信息'
+  action: keyboard_type
+  value: 测试服务器
+- action: wait
+  duration: 0.3
+- name: 点击添加按钮保存
+  action: element_action
+  ref: remote_add
+- action: wait
+  duration: 0.5
+- name: '步骤3: 选中刚添加的服务器'
+  action: element_action
+  selector: null
+  role: list item
+  index: 0
+- action: wait
+  duration: 0.3
+- name: 按Right和Return进入编辑模式
+  action: keyboard_press
+  key: Right
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Return
+- action: wait
+  duration: 0.5
+- name: '步骤4: 编辑服务器名称'
+  action: keyboard_press
+  value: ctrl,a
+- action: wait
+  duration: 0.3
+- action: keyboard_type
+  value: 编辑后的服务器
+- action: wait
+  duration: 0.3
+- name: 点击保存按钮
+  action: element_action
+  ref: remote_save
+- action: wait
+  duration: 0.5
+- name: 按ESC键退出远程管理
+  action: keyboard_press
+  key: Escape
+- action: wait
+  duration: 0.3
+- name: 验证终端进程仍在运行
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

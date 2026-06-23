@@ -1,0 +1,139 @@
+name: 搜索
+app: deepin-terminal
+screenshot: false
+description: |
+  前置条件: 列表有2个以上命令
+  测试步骤:
+    1. 打开终端，Tab键切换到自定义命令插件
+    2. 搜索框不输入任何字符，按Enter键
+    3. 输入字符，按Enter键，搜索结果为空
+  （PS：测试时需要测试Shift+Tab反向切换）
+  预期结果:
+    1. 搜索框有Focus效果
+    2. 搜索框无变化
+    3. < 键有Focus效果，按“←”方向键/Enter/Space键返回到搜索框
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653539'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '前置: 通过主菜单打开自定义命令面板'
+  action: main_menu_comb
+  ref: menu_custom_commands
+  wait: 0.3
+- name: '前置: 添加第一个自定义命令（用于搜索测试）'
+  action: element_action
+  ref: add_custom_command_button
+  do: click
+- action: wait
+  duration: 0.3
+- action: element_set_value
+  ref: custom_command_name_input
+  value: 深度音乐
+- action: element_set_value
+  ref: custom_command_command_input
+  value: deepin-music
+- action: element_set_value
+  ref: custom_command_shortcut_input
+  value: Ctrl+Shift+M
+- action: element_action
+  ref: custom_command_add
+  do: click
+- action: wait
+  duration: 0.3
+- name: '前置: 添加第二个自定义命令（用于搜索测试）'
+  action: element_action
+  ref: add_custom_command_button
+  do: click
+- action: wait
+  duration: 0.3
+- action: element_set_value
+  ref: custom_command_name_input
+  value: 测试命令
+- action: element_set_value
+  ref: custom_command_command_input
+  value: echo hello
+- action: element_set_value
+  ref: custom_command_shortcut_input
+  value: Ctrl+Shift+T
+- action: element_action
+  ref: custom_command_add
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤2: 不输入任何字符直接搜索（验证搜索失败）'
+  action: element_set_value
+  ref: custom_command_search_box
+  value: ''
+- action: keyboard_press
+  key: Enter
+- action: wait
+  duration: 0.3
+- name: '步骤3: 输入命令名称搜索字符'
+  action: element_set_value
+  ref: custom_command_search_box
+  value: 深度
+- action: keyboard_press
+  key: Enter
+- action: wait
+  duration: 0.3
+- name: '步骤3: 验证可以按命令名称搜索（终端仍在运行）'
+  action: wait
+  value: '1000'
+- name: '步骤4: 输入命令内容搜索字符'
+  action: element_set_value
+  ref: custom_command_search_box
+  value: echo
+- action: keyboard_press
+  key: Enter
+- action: wait
+  duration: 0.3
+- name: '步骤4: 验证可以按命令内容搜索（终端仍在运行）'
+  action: wait
+  value: '1000'
+- name: '步骤5: 输入命令快捷键搜索字符'
+  action: element_set_value
+  ref: custom_command_search_box
+  value: Ctrl+Shift+M
+- action: keyboard_press
+  key: Enter
+- action: wait
+  duration: 0.3
+- name: '步骤5: 验证可以按快捷键搜索（终端仍在运行）'
+  action: wait
+  value: '1000'
+- name: '步骤6: 搜索大写字母 D'
+  action: element_set_value
+  ref: custom_command_search_box
+  value: D
+- action: keyboard_press
+  key: Enter
+- action: wait
+  duration: 0.3
+- name: '步骤6: 搜索小写字母 d，验证搜索不区分大小写'
+  action: element_set_value
+  ref: custom_command_search_box
+  value: d
+- action: keyboard_press
+  key: Enter
+- action: wait
+  duration: 0.3
+- name: '步骤8: 综合搜索命令名称和具体命令'
+  action: element_set_value
+  ref: custom_command_search_box
+  value: deepin
+- action: keyboard_press
+  key: Enter
+- action: wait
+  duration: 0.3
+- name: '步骤8: 验证只要有一项匹配即可搜到（终端仍在运行）'
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

@@ -1,0 +1,46 @@
+name: "自定义命令 test suite"
+app: deepin-terminal
+reset_between_cases: true
+env:
+  FIXTURES_DIR: "${FIXTURES_DIR}"
+cases:
+  - name: "添加约束"
+    path: 自定义命令/test_add_constraints_159.yaml
+  - name: "自动粘贴"
+    path: 自定义命令/test_auto_paste_160.yaml
+  - name: "自定义命令"
+    path: 自定义命令/test_custom_command_106.yaml
+  - name: "列表"
+    path: 自定义命令/test_custom_command_list_015.yaml
+  - name: "删除"
+    path: 自定义命令/test_delete_custom_cmd_163.yaml
+  - name: "编辑成功"
+    path: 自定义命令/test_edit_success_162.yaml
+  - name: "[008]隐藏"
+    path: 自定义命令/test_hide_custom_cmd_166.yaml
+  - name: "输入命令"
+    path: 自定义命令/test_input_command_157.yaml
+  - name: "输入名称"
+    path: 自定义命令/test_input_name_156.yaml
+  - name: "键入快捷键"
+    path: 自定义命令/test_input_shortcut_158.yaml
+  - name: "键盘交互添加命令"
+    path: 自定义命令/test_keyboard_custom_add_047.yaml
+  - name: "键盘交互自定义功能"
+    path: 自定义命令/test_keyboard_custom_commands_042.yaml
+  - name: "键盘交互右键菜单中调出自定义命令插件"
+    path: 自定义命令/test_keyboard_custom_context_menu_049.yaml
+  - name: "键盘交互删除命令"
+    path: 自定义命令/test_keyboard_custom_delete_048.yaml
+  - name: "键盘交互编辑自定义命令"
+    path: 自定义命令/test_keyboard_custom_edit_046.yaml
+  - name: "键盘交互自定义命令全局功能按ESC键"
+    path: 自定义命令/test_keyboard_custom_esc_043.yaml
+  - name: "键盘交互自定义命令搜索结果为空"
+    path: 自定义命令/test_keyboard_custom_search_empty_044.yaml
+  - name: "键盘交互自定义命令搜索有结果"
+    path: 自定义命令/test_keyboard_custom_search_found_045.yaml
+  - name: "开启"
+    path: 自定义命令/test_open_custom_cmd_165.yaml
+  - name: "运行"
+    path: 自定义命令/test_run_command_164.yaml

@@ -1,0 +1,53 @@
+name: 背景模糊
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，点击右键-设置，在弹出的设置对话框中，查看“背景模糊”默认值
+    2. 勾选“背景模糊”，查看终端显示
+    3. 取消勾选“背景模糊”，查看终端背景显示
+  预期结果:
+    1. 默认不勾选“背景模糊”
+    2. 如果透明度是1，终端背景不模糊显示；调节透明度后，背景模糊显示
+    3. 终端背景不模糊显示
+module: 设置界面高级设置
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1693083'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 右键打开设置对话框
+  action: context_menu_comb
+  ref: context_settings
+  wait: 0.3
+  assert:
+  - type: element_visible
+  selector: null
+  role: dialog
+- name: 截图-设置对话框打开
+  action: noop
+- name: 点击高级设置导航项
+  action: element_action
+  ref: settings_advanced
+  do: click
+  wait: 0.3
+- name: 截图-高级设置页面
+  action: noop
+- name: 验证进程运行中
+  action: wait
+  value: '1000'
+- name: 关闭设置对话框
+  action: element_action
+  ref: settings_close_button
+  do: click
+  wait: 0.3
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

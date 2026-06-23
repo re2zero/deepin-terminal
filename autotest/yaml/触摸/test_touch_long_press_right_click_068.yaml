@@ -1,0 +1,30 @@
+# UNSUPPORTED: 触摸操作无法自动化
+name: '触摸屏长按右键再抬起 - NON-AUTOMATABLE: 触摸操作无法自动化'
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，长按右键
+    2. 点击右键菜单的各个选项
+  预期结果:
+    1. 弹出右键菜单
+    2. 可以执行相应的功能
+module: 触摸屏
+feature: ''
+tags:
+- L1
+vars:
+  XLSX_ID: '1653479'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 跳过 - skip-触摸操作无法自动化
+  action: wait
+  value: '300'
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

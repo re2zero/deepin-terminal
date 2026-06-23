@@ -1,0 +1,62 @@
+name: "键盘 test suite"
+app: deepin-terminal
+reset_between_cases: true
+env:
+  FIXTURES_DIR: "${FIXTURES_DIR}"
+cases:
+  - name: "键盘交互-自动复制到剪贴板复选框"
+    path: 键盘/test_keyboard_auto_copy_checkbox_031.yaml
+  - name: "键盘交互-右键菜单快捷键"
+    path: 键盘/test_keyboard_context_menu_022.yaml
+  - name: "键盘交互-光标闪烁复选框"
+    path: 键盘/test_keyboard_cursor_blink_checkbox_030.yaml
+  - name: "键盘交互-光标风格切换"
+    path: 键盘/test_keyboard_cursor_style_029.yaml
+  - name: "键盘交互-字体选择"
+    path: 键盘/test_keyboard_font_026.yaml
+  - name: "键盘交互-字体大小调节"
+    path: 键盘/test_keyboard_font_size_027.yaml
+  - name: "键盘交互Tab键切换到主菜单按Enter键"
+    path: 键盘/test_keyboard_main_menu_019.yaml
+  - name: "键盘交互-多窗口中操作"
+    path: 键盘/test_keyboard_multi_window_063.yaml
+  - name: "键盘交互主界面有多个工作区"
+    path: 键盘/test_keyboard_multi_workspace_017.yaml
+  - name: "键盘交互焦点在插件"
+    path: 键盘/test_keyboard_plugins_021.yaml
+  - name: "键盘交互-查找框焦点切换"
+    path: 键盘/test_keyboard_search_focus_062.yaml
+  - name: "键盘交互-设置界面Tab键切换顺序"
+    path: 键盘/test_keyboard_settings_tab_order_024.yaml
+  - name: "键盘交互-快捷键设置"
+    path: 键盘/test_keyboard_shortcuts_028.yaml
+  - name: "键盘交互主界面只有一个工作区"
+    path: 键盘/test_keyboard_single_workspace_016.yaml
+  - name: "键盘交互焦点在标签栏"
+    path: 键盘/test_keyboard_tab_bar_020.yaml
+  - name: "键盘交互-选中文字功能"
+    path: 键盘/test_keyboard_text_selection_023.yaml
+  - name: "键盘交互-透明度调节"
+    path: 键盘/test_keyboard_transparency_025.yaml
+  - name: "键盘交互焦点在最小化，最大化，关闭按钮"
+    path: 键盘/test_keyboard_window_buttons_018.yaml
+  - name: "键盘交互-背景模糊复选框"
+    path: 键盘/test_terminal_keyboard_bgblur_checkbox_035.yaml
+  - name: "键盘交互-自定义列表为空"
+    path: 键盘/test_terminal_keyboard_custom_empty_040.yaml
+  - name: "键盘交互-有一个自定义命令"
+    path: 键盘/test_terminal_keyboard_custom_onecmd_041.yaml
+  - name: "键盘交互-右键菜单调出编码"
+    path: 键盘/test_terminal_keyboard_encoding_menu_039.yaml
+  - name: "键盘交互-编码插件打开状态"
+    path: 键盘/test_terminal_keyboard_encoding_open_038.yaml
+  - name: "键盘交互-设置全局事件"
+    path: 键盘/test_terminal_keyboard_global_event_037.yaml
+  - name: "键盘交互-丢失焦点隐藏雷神窗口复选框"
+    path: 键盘/test_terminal_keyboard_hidequake_checkbox_036.yaml
+  - name: "键盘交互-按键时滚动复选框"
+    path: 键盘/test_terminal_keyboard_scroll_keypress_032.yaml
+  - name: "键盘交互-输出时滚动复选框"
+    path: 键盘/test_terminal_keyboard_scroll_output_033.yaml
+  - name: "键盘交互-启动时使用下拉框"
+    path: 键盘/test_terminal_keyboard_startup_combo_034.yaml

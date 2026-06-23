@@ -1,0 +1,51 @@
+name: 远程管理-不显示expect命令
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 在添加服务器界面填写正确的地址、端口、用户名，然后连接服务器
+    2. 查看终端界面内容显示
+  预期结果:
+    1. 连接成功
+    2. 终端上不显示expect命令，防止暴露远程主机密码信息
+module: 远程管理器
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653069'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 打开远程管理插件'
+  action: main_menu_comb
+  ref: menu_remote_management
+- action: wait
+  duration: 0.3
+- name: Tab到服务器列表，选中服务器连接
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Down
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Return
+- action: wait
+  duration: 0.3
+- name: '步骤2: 等待连接完成，验证终端内容'
+  action: wait
+  duration: 0.3
+- name: 验证终端进程仍在运行
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

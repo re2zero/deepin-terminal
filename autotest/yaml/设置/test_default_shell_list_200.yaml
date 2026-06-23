@@ -1,0 +1,34 @@
+# UNSUPPORTED: skip-触摸操作无法自动化
+name: '默认shell下拉列表显示 - NON-AUTOMATABLE: skip-触摸操作无法自动化'
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，进入设置，高级设置下
+    2. 点击shell配置选项
+    3. 终端中输入cat /etc/shells查看文件中shell程序
+  Notes:测试时一并测试触摸屏、触控板、键盘交互
+  预期结果:
+    1. shell下有“shell配置”
+    2. 列表展开，获取当前系统安装的shell程序种类，默认shell选项$SHELL
+    3. 显示与shell配置下拉列表一致
+  备注：下拉列表的内容只显示Shell名称(不带路径）。例如：/bin/bash显示bash
+module: 设置/高级设置/shell
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1652833'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 跳过 - skip-触摸操作无法自动化
+  action: wait
+  value: '300'
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

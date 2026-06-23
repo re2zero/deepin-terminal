@@ -1,0 +1,102 @@
+name: windowmod
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 终端输入deepin-terminal  --help
+    2. 终端输入deepin-terminal -m normal
+    3. 终端输入deepin-terminal -m  fullscreen
+    4. 终端输入deepin-terminal -m  maximum
+    5. 终端输入deepin-terminal -m splitscreen
+    6. 终端输入deepin-terminal -m xxx（非上述四个参数）
+    7. 终端输入deepin-terminal -m
+  预期结果:
+    1. 参数中有-m  --window-mode ，规定终端启动的窗口模式并有参数选项（noraml、fullscreen、maximum、splitscreen）
+    2. 开启另一个终端，正常窗口
+    3. 开启另一个终端，全屏
+    4. 弹出另一个终端，最大化窗口
+    5. 弹出另一个终端，分屏窗口
+    6. 系统应有错误提示，且不弹出相应窗口
+    7. 系统应有相应提示信息，且不弹出窗口
+module: 104X
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1652977'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤2: 输入deepin-terminal --help'
+  action: keyboard_type
+  value: deepin-terminal --help
+  wait: 0.3
+- name: '步骤3: 回车执行'
+  action: keyboard_press
+  key: Return
+  wait: 0.3
+- name: '步骤4: 截图-帮助信息输出'
+  action: noop
+- name: '步骤5: 输入deepin-terminal -m normal'
+  action: keyboard_type
+  value: deepin-terminal -m normal
+  wait: 0.3
+- name: '步骤6: 回车执行'
+  action: keyboard_press
+  key: Return
+  wait: 2.0
+- name: '步骤7: 截图-normal窗口'
+  action: noop
+- name: '步骤8: 关闭新窗口'
+  action: keyboard_press
+  value: Alt,F4
+  wait: 0.3
+- name: '步骤9: 输入deepin-terminal -m fullscreen'
+  action: keyboard_type
+  value: deepin-terminal -m fullscreen
+  wait: 0.3
+- name: '步骤10: 回车执行'
+  action: keyboard_press
+  key: Return
+  wait: 2.0
+- name: '步骤11: 截图-全屏窗口'
+  action: noop
+- name: '步骤12: 退出全屏'
+  action: keyboard_press
+  value: Alt,F4
+  wait: 0.3
+- name: '步骤13: 输入deepin-terminal -m maximum'
+  action: keyboard_type
+  value: deepin-terminal -m maximum
+  wait: 0.3
+- name: '步骤14: 回车执行'
+  action: keyboard_press
+  key: Return
+  wait: 2.0
+- name: '步骤15: 截图-最大化窗口'
+  action: noop
+- name: '步骤16: 关闭新窗口'
+  action: keyboard_press
+  value: Alt,F4
+  wait: 0.3
+- name: '步骤17: 输入deepin-terminal -m splitscreen'
+  action: keyboard_type
+  value: deepin-terminal -m splitscreen
+  wait: 0.3
+- name: '步骤18: 回车执行'
+  action: keyboard_press
+  key: Return
+  wait: 2.0
+- name: '步骤19: 截图-分屏窗口'
+  action: noop
+- name: '步骤20: 关闭新窗口'
+  action: keyboard_press
+  value: Alt,F4
+  wait: 0.3
+- name: '步骤21: 验证终端进程运行中'
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

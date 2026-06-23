@@ -1,0 +1,94 @@
+name: 设置界面功能项显示
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，主菜单点击设置
+    2. 检查设置左侧菜单栏显示
+    3. 点击基础设置
+    4. 点击快捷键
+    5. 点击高级设置
+    6. 点击恢复默认
+  预期结果:
+    1. 弹出设置窗口
+    2. 基础设置、快捷键、高级设置
+    3. 包括：界面、透明度、字体、字体大小
+    4. 包括：终端、工作区、其他快捷键
+    5. 光标包括：光标风格（默认⽅块）、光标闪烁（默认开启）、选中文本自动复制到剪贴板（默认开启）；
+  滚动中包括： 按键时滚动（默认打开）、输出时滚动（默认打开）
+  窗⼝设置中包括：普通窗⼝(默认）、分屏、最⼤化和全屏；背景模糊（默认关闭）、丢失焦点后隐藏雷神窗口（默认关闭）；
+  Shell：Shell配置：SHELL（默认）、bash、dash、rbash、sh;
+  禁用Ctrl+S和Ctrl+Q控制（默认关闭）
+    6. 设置界面恢复默认
+module: 设置界面基础设置
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653223'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 打开主菜单-设置'
+  action: main_menu_comb
+  ref: menu_settings
+- action: wait
+  duration: 0.3
+- name: '步骤1: 验证设置弹窗显示'
+  action: wait
+  value: '1000'
+- name: '步骤1: 截图-设置窗口'
+  action: noop
+- name: '步骤2: 验证左侧菜单栏包含基础设置'
+  action: wait
+  assert:
+  - type: element_visible
+  ref: settings_basic
+- name: '步骤3: 点击基础设置'
+  action: element_action
+  ref: settings_basic
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤3: 截图-基础设置页'
+  action: noop
+- name: '步骤4: 点击快捷键导航项'
+  action: element_action
+  ref: settings_shortcuts
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤4: 截图-快捷键页'
+  action: noop
+- name: '步骤5: 点击高级设置'
+  action: element_action
+  ref: settings_advanced
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤5: 截图-高级设置页'
+  action: noop
+- name: '步骤6: 点击恢复默认按钮'
+  action: element_action
+  ref: restore_defaults_button
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤6: 截图-点击恢复默认后'
+  action: noop
+- name: '步骤6: 验证终端进程运行中'
+  action: wait
+  value: '1000'
+- name: 关闭设置窗口
+  action: element_action
+  ref: settings_close_button
+  do: click
+- action: wait
+  duration: 0.3
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

@@ -1,0 +1,89 @@
+name: 键盘交互-删除服务器
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，按Tab键进入到删除服务器面
+    2. 按Tab键
+    3. 在“取消”和“确定”按钮按下空格或者回车
+    4. 按ESC键
+    5. 删除后下一项服务器还存在
+    6. 删除后下一项服务器不存在
+    7. 删除后不存在服务器
+  （PS：测试时需要测试Shift+Tab反向切换）
+  预期结果:
+    1. 删除弹框显示正确
+    2. 焦点依次在右上角X键，取消，确定
+    3. 执行相应选项操作
+    4. 焦点返回到当前选择删除的服务器上
+    5. 默认选择删除的下一项
+    6. 默认选择到当前删除项的上一项
+    7. 焦点回到添加服务器按钮
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653509'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 打开远程管理插件'
+  action: context_menu_comb
+  ref: context_remote_management
+- action: wait
+  duration: 0.5
+- name: '步骤2: 点击添加服务器按钮'
+  action: element_action
+  ref: add_server_button
+- action: wait
+  duration: 0.5
+- name: '步骤3: 输入服务器名称'
+  action: keyboard_type
+  value: 测试服务器
+- action: wait
+  duration: 0.3
+- name: '步骤4: 点击添加按钮保存'
+  action: element_action
+  ref: remote_add
+- action: wait
+  duration: 0.5
+- name: '步骤5: 点击已添加的服务器'
+  action: element_action
+  selector: null
+  role: list item
+  index: 0
+- action: wait
+  duration: 0.3
+- name: '步骤6: 按Right到编辑按钮，按Return进入编辑'
+  action: keyboard_press
+  key: Right
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Return
+- action: wait
+  duration: 0.5
+- name: '步骤7: 点击删除服务器按钮'
+  action: element_action
+  ref: remote_delete
+- action: wait
+  duration: 0.3
+- name: 删 除
+  action: element_action
+  selector: null
+  role: button
+- action: wait
+  duration: 0.5
+- name: '步骤9: 按Escape关闭远程管理面板'
+  action: keyboard_press
+  key: Escape
+- action: wait
+  duration: 0.3
+- name: '步骤10: 验证终端进程仍在运行'
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

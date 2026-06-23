@@ -1,0 +1,89 @@
+name: 键盘交互添加命令
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. Tab键焦点在添加命令按钮，按Enter键
+    2. 依次按Tab
+    3. 焦点在取消、添加按钮时，按Enter/Space键
+    4. 在弹框界面按ESC键
+  （PS：测试时需要测试Shift+Tab反向切换）
+  预期结果:
+    1. 弹出添加命令弹框
+    2. 切换顺序：名称、命令、快捷键、取消、添加、右上角X键，各选项有Focus效果
+    3. 操作结束后，焦点回到添加命令按钮
+    4. 焦点返回到添加命令按钮
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653533'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 打开自定义命令插件
+  action: main_menu_comb
+  ref: main_menu_button
+  assert:
+  - type: element_visible
+  selector: null
+  role: list
+  items:
+  - 自定义命令
+- name: Tab键切换到添加命令按钮区域
+  action: keyboard_press
+  key: Tab
+  wait: 0.3
+- name: 继续Tab到添加命令按钮
+  action: keyboard_press
+  key: Tab
+  wait: 0.3
+- name: 再Tab一次到达添加命令按钮
+  action: keyboard_press
+  key: Tab
+  wait: 0.3
+- name: 按Enter打开添加命令弹框
+  action: keyboard_press
+  key: Return
+  wait: 0.3
+- name: 验证添加命令弹框打开
+  action: wait
+  assert:
+  - type: element_visible
+  selector: null
+  role: text
+- name: 按Tab键切换到命令输入框
+  action: keyboard_press
+  key: Tab
+  wait: 0.3
+- name: 再Tab切换到快捷键输入框
+  action: keyboard_press
+  key: Tab
+  wait: 0.3
+- name: 再Tab切换到取消按钮
+  action: keyboard_press
+  key: Tab
+  wait: 0.3
+- name: 再Tab切换到添加按钮
+  action: keyboard_press
+  key: Tab
+  wait: 0.3
+- name: 按Shift+Tab反向切换
+  action: keyboard_press
+  value: Shift,Tab
+  wait: 0.3
+- name: 按ESC退出添加命令弹框
+  action: keyboard_press
+  key: Escape
+  wait: 0.3
+- name: 验证焦点返回自定义命令列表
+  action: wait
+  assert:
+  - type: element_visible
+  selector: null
+  role: list
+teardown:
+- action: session_stop

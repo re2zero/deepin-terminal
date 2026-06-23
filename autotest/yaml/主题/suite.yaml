@@ -1,0 +1,34 @@
+name: "主题 test suite"
+app: deepin-terminal
+reset_between_cases: true
+env:
+  FIXTURES_DIR: "${FIXTURES_DIR}"
+cases:
+  # UNSUPPORTED: test_builtin_theme_186
+  # - name: "test_builtin_theme_186"
+  #   path: 主题/test_builtin_theme_186.yaml
+  # UNSUPPORTED: test_custom_theme_background_192
+  # - name: "test_custom_theme_background_192"
+  #   path: 主题/test_custom_theme_background_192.yaml
+  # UNSUPPORTED: test_custom_theme_combo_195
+  # - name: "test_custom_theme_combo_195"
+  #   path: 主题/test_custom_theme_combo_195.yaml
+  # UNSUPPORTED: test_custom_theme_foreground_191
+  # - name: "test_custom_theme_foreground_191"
+  #   path: 主题/test_custom_theme_foreground_191.yaml
+  # UNSUPPORTED: test_custom_theme_new_window_196
+  # - name: "test_custom_theme_new_window_196"
+  #   path: 主题/test_custom_theme_new_window_196.yaml
+  # UNSUPPORTED: test_custom_theme_ps1_193
+  # - name: "test_custom_theme_ps1_193"
+  #   path: 主题/test_custom_theme_ps1_193.yaml
+  # UNSUPPORTED: test_custom_theme_ps2_194
+  # - name: "test_custom_theme_ps2_194"
+  #   path: 主题/test_custom_theme_ps2_194.yaml
+  # UNSUPPORTED: test_custom_theme_style_190
+  # - name: "test_custom_theme_style_190"
+  #   path: 主题/test_custom_theme_style_190.yaml
+  - name: "主菜单切换主题"
+    path: 主题/test_main_menu_theme_182.yaml
+  - name: "[010]切换主题"
+    path: 主题/test_switch_theme_174.yaml

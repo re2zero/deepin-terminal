@@ -1,0 +1,67 @@
+name: 主菜单切换主题
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，主菜单点击主题，切换深色
+    2. 主菜单切换跟随系统主题
+    3. 打开多个终端窗口，在有弹框界面，切换主题
+  预期结果:
+    1. 终端窗口显示深色主题
+    2. 终端窗口显示跟随系统变化
+    3. 弹框字体显示正常
+module: 主界面右上角菜单栏
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1652949'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 主菜单切换到深色主题'
+  action: main_menu_comb
+  ref: main_menu_button
+  wait: 0.3
+  items:
+  - 主题
+  - 深色
+- name: 截图-深色主题效果
+  action: noop
+- name: '步骤2: 主菜单切换到跟随系统主题'
+  action: main_menu_comb
+  ref: main_menu_button
+  wait: 0.3
+  items:
+  - 主题
+  - 跟随系统
+- name: 截图-跟随系统主题
+  action: noop
+- name: '步骤3: 新建窗口后打开设置弹框'
+  action: main_menu_comb
+  ref: menu_new_window
+  wait: 1.5
+- name: 在新窗口中通过主菜单打开设置
+  action: main_menu_comb
+  ref: menu_settings
+  wait: 0.3
+- name: 在设置弹框打开状态下切换主题
+  action: main_menu_comb
+  ref: main_menu_button
+  wait: 0.3
+  items:
+  - 主题
+  - 跟随系统
+- name: 截图-弹框字体显示
+  action: noop
+- name: 关闭设置弹框
+  action: keyboard_press
+  key: Escape
+  wait: 0.3
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

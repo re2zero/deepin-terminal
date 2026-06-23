@@ -1,0 +1,37 @@
+# UNSUPPORTED: skip-触摸操作无法自动化
+name: '切换下拉列表shell程序 - NON-AUTOMATABLE: skip-触摸操作无法自动化'
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，进入设置，高级设置下“默认shell”，点击默认shell选项
+    2. 下拉列表选择任意有效shell，如：dash
+    3. 点击标签栏“+”新建标签页
+    4. 右上角主菜单点击新建窗口
+    5. 在新建窗口中右键菜单做横向分屏、纵向分屏操作
+  Notes:测试时一并测试触摸屏、触控板、键盘交互
+  预期结果:
+    1. 下拉列表展开
+    2. 列表收起，默认shell显示dash
+    3. 标签页中使用新的dash程序
+    4. 窗口使用新的dash程序
+    5. 分屏窗口中使用新的dash程序
+module: 设置/高级设置/shell
+feature: ''
+tags:
+- L1
+vars:
+  XLSX_ID: '1652831'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 跳过 - skip-触摸操作无法自动化
+  action: wait
+  value: '300'
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

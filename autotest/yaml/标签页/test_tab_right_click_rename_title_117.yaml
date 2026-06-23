@@ -1,0 +1,33 @@
+# UNSUPPORTED: 触摸操作无法自动化
+name: '标签页右键菜单重命名标题 - NON-AUTOMATABLE: 触摸操作无法自动化'
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，编辑器区右键菜单
+    2. 标签页点击鼠标右键
+    3. 点击重命名标签
+  Notes:测试时一并测试触摸屏、触控板、键盘交互
+  预期结果:
+    1. 右键菜单中不显示重命名标题
+    2. 显示重命名标题
+    3. 弹出重命名标题弹框；弹框样式显示与UI一致
+module: 右键菜单标签页
+feature: ''
+tags:
+- L1
+vars:
+  XLSX_ID: '1653163'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 跳过 - skip-触摸操作无法自动化
+  action: wait
+  value: '300'
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

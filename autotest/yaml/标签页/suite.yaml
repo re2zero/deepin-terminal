@@ -1,0 +1,33 @@
+name: "标签页 test suite"
+app: deepin-terminal
+reset_between_cases: true
+env:
+  FIXTURES_DIR: "${FIXTURES_DIR}"
+cases:
+  - name: "关闭其它标签页"
+    path: 标签页/test_close_other_tabs_114.yaml
+  - name: "关闭标签页"
+    path: 标签页/test_close_tab_115.yaml
+  - name: "关闭标签页快捷键"
+    path: 标签页/test_close_tab_shortcut_095.yaml
+  # UNSUPPORTED: test_insert_tab_title_format_113
+  # - name: "test_insert_tab_title_format_113"
+  #   path: 标签页/test_insert_tab_title_format_113.yaml
+  # UNSUPPORTED: test_insert_tab_title_format_function_118
+  # - name: "test_insert_tab_title_format_function_118"
+  #   path: 标签页/test_insert_tab_title_format_function_118.yaml
+  - name: "鼠标指针在标签页上，点击鼠标中键"
+    path: 标签页/test_middle_click_tab_120.yaml
+  - name: "重命名标题"
+    path: 标签页/test_rename_title_011.yaml
+  - name: "标签页右键菜单"
+    path: 标签页/test_tab_context_menu_116.yaml
+  - name: "标签页消息提醒"
+    path: 标签页/test_tab_message_notification_149.yaml
+  # UNSUPPORTED: test_tab_right_click_rename_title_117
+  # - name: "test_tab_right_click_rename_title_117"
+  #   path: 标签页/test_tab_right_click_rename_title_117.yaml
+  - name: "标签页1~9快捷键"
+    path: 标签页/test_tab_shortcut_1_9_100.yaml
+  - name: "设置标签标题编号后，对标签页进行分屏操作"
+    path: 标签页/test_tab_title_numbering_split_007.yaml

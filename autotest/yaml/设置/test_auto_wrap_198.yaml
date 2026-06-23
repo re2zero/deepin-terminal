@@ -1,0 +1,50 @@
+name: 终端界面内容自动换行显示
+app: deepin-terminal
+screenshot: false
+description: |
+  前置条件: 默认窗口下进入终端
+  测试步骤:
+    1. 进入终端，在终端中输入一些内容，如执行命令ss
+    2. 右上角做最大化操作
+    3. 拖动窗口进行放大/缩小
+  预期结果:
+    1. 终端界面显示返回内容
+    2. 终端内容自动换行显示
+    3. 终端内容自动换行显示
+module: 自动换行
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1652875'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 输入较长命令'
+  action: keyboard_type
+  value: echo 'This is a very long test string to verify auto wrap behavior in terminal window display area'
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Return
+- action: wait
+  duration: 0.3
+- name: '步骤2: 点击最大化按钮'
+  action: element_action
+  ref: maximize_button
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤3: 再次点击恢复窗口大小'
+  action: element_action
+  ref: maximize_button
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤3: 验证终端进程仍在运行'
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

@@ -1,0 +1,144 @@
+name: 搜索服务器
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开服务器列表，查看是否有搜索按钮
+    2. 点击搜索按钮后，查看软件显示
+    3. 在输入框中输入字符：特殊字符，然后点击回车
+    4. 在搜索输入框中输入服务器的名称，点击回车
+    5. 在搜索输入框中输入服务器的ip地址，点击回车
+    6. 在搜索输入框中输入分组名称，点击回车
+    7. 在搜索输入框中输入字符后，点击后面的删除按钮
+    8. 搜索是模糊匹配的，只要服务器名称、ｉｐ地址、分组　任何一项匹配，都会显示出来
+  预期结果:
+    1. 有搜索按钮显示
+    2. 点击搜索按钮后，会自动进入搜索输入框，可输入字符
+    3. 搜索列表显示为空
+    4. 软件会自动匹配服务器名称，并将其显示
+    5. 软件会自动匹配服务器的ip地址，并将其显示
+    6. 软件会自动匹配分组，并将分组内的服务器全部显示
+    7. 软件会自动清空输入的字符
+    8. 操作成功
+module: 远程管理器
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653147'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 打开远程管理查看搜索按钮'
+  action: main_menu_comb
+  ref: menu_remote_management
+- action: wait
+  duration: 0.3
+- name: '步骤2: Tab到搜索框并点击进入'
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- name: 点击搜索框获取焦点
+  action: element_action
+  ref: remote_search_box
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤3: 输入特殊字符搜索'
+  action: keyboard_type
+  value: '@#$%^&*()'
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Return
+- action: wait
+  duration: 0.3
+- name: 清空搜索框
+  action: keyboard_press
+  value: ctrl+a
+- action: wait
+  duration: 0.2
+- action: keyboard_press
+  key: BackSpace
+- action: wait
+  duration: 0.3
+- name: '步骤4: 输入服务器名称搜索'
+  action: keyboard_type
+  value: test-server
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Return
+- action: wait
+  duration: 0.3
+- name: 清空搜索框 (2)
+  action: keyboard_press
+  value: ctrl+a
+- action: wait
+  duration: 0.2
+- action: keyboard_press
+  key: BackSpace
+- action: wait
+  duration: 0.3
+- name: '步骤5: 输入IP地址搜索'
+  action: keyboard_type
+  value: 192.168.1.1
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Return
+- action: wait
+  duration: 0.3
+- name: 清空搜索框 (3)
+  action: keyboard_press
+  value: ctrl+a
+- action: wait
+  duration: 0.2
+- action: keyboard_press
+  key: BackSpace
+- action: wait
+  duration: 0.3
+- name: '步骤6: 输入分组名称搜索'
+  action: keyboard_type
+  value: group-test
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Return
+- action: wait
+  duration: 0.3
+- name: '步骤7: 输入字符后删除'
+  action: keyboard_press
+  value: ctrl+a
+- action: wait
+  duration: 0.2
+- action: keyboard_press
+  key: BackSpace
+- action: wait
+  duration: 0.3
+- name: 再次输入后删除确认清空
+  action: keyboard_type
+  value: abc
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  value: ctrl+a
+- action: wait
+  duration: 0.2
+- action: keyboard_press
+  key: BackSpace
+- action: wait
+  duration: 0.3
+- name: 按ESC关闭远程管理面板
+  action: keyboard_press
+  key: Escape
+- action: wait
+  duration: 0.3
+- name: 验证终端进程仍在运行
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

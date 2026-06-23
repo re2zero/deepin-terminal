@@ -1,0 +1,93 @@
+name: 键盘交互-远程搜索有结果
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，Tab键切换到远程管理插件
+    2. 输入字符，按Enter有搜索结果
+    3. 按Tab键切换到服务器
+    4. 按“→”方向键
+    5. 在搜索结果列表按“↑”、“↓”方向键切换远程管理
+    6. 选中的结果是非组，按Enter键
+    7. 选中的是组，按Enter键
+    8. 当焦点在返回键、服务器列表、编辑按钮时按ESC键
+  （PS：测试时需要测试Shift+Tab反向切换）
+  预期结果:
+    1. 焦点在搜索框
+    2. 返回键有Focus效果，按“←”方向键/Enter/Space键返回到搜索框
+    3. 选择的服务器有Focus效果
+    4. 编辑按钮有边框效果
+    5. 选中的服务器有Focus效果，切换到最上、最下一个服务器时，若无最上一个，最下一个有提示音
+    6. 执行连接远程服务器
+    7. 进入分组列表
+    8. 焦点回到终端
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653517'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 打开远程管理插件'
+  action: main_menu_comb
+  ref: menu_remote_management
+- action: wait
+  duration: 0.3
+- name: '步骤2: 搜索框输入搜索字符，按Enter键搜索'
+  action: element_action
+  ref: remote_search_box
+  do: click
+- action: wait
+  duration: 0.3
+- action: keyboard_type
+  value: a
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Return
+- action: wait
+  duration: 0.3
+- name: '步骤3: 按Tab键切换到搜索结果服务器'
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- name: '步骤4: 按→方向键，编辑按钮有边框效果'
+  action: keyboard_press
+  key: Right
+- action: wait
+  duration: 0.3
+- name: '步骤5: 按↓方向键切换搜索结果'
+  action: keyboard_press
+  key: Down
+- action: wait
+  duration: 0.3
+- name: '步骤5: 按↑方向键切换搜索结果'
+  action: keyboard_press
+  key: Up
+- action: wait
+  duration: 0.3
+- name: '步骤6: 选中非组结果，按Enter键连接'
+  action: keyboard_press
+  key: Return
+- action: wait
+  duration: 0.3
+- name: '步骤8: 按ESC键焦点回到终端'
+  action: keyboard_press
+  key: Escape
+- action: wait
+  duration: 0.3
+- name: Shift+Tab反向切换测试
+  action: keyboard_press
+  value: shift,Tab
+- action: wait
+  duration: 0.3
+- name: 验证终端进程仍在运行
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

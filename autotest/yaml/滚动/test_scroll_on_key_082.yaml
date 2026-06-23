@@ -1,0 +1,71 @@
+name: 按键时滚动复选框切换
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开设置界面，检查按键时滚动设置
+    2. 终端内容超过一屏，输入ls -al按enter键执行命令，再次按enter键
+    3. 取消勾选按键时滚动，ls -al按enter键执行命令，再次按enter键
+    4. 检查配置文件cat ~/.config/deepin/deepin-terminal/config.conf
+  预期结果:
+    1. 默认勾选
+    2. 自动滚动到光标处
+    3. 页面不会滚动
+    4. scroll_on_key=true表示勾选，否则显示为false
+module: 设置界面高级设置
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653313'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 通过主菜单打开设置'
+  action: main_menu_comb
+  ref: menu_settings
+  wait: 0.3
+- name: '步骤2: 点击滚动设置导航项'
+  action: element_action
+  ref: settings_scroll
+  do: click
+  wait: 0.3
+- name: '步骤3: Tab键将焦点移到按键时滚动复选框（默认勾选）'
+  action: keyboard_press
+  key: Tab
+  wait: 0.3
+- name: '步骤4: 再次Tab键确保焦点在目标复选框'
+  action: keyboard_press
+  key: Tab
+  wait: 0.3
+- name: '步骤5: Enter键取消勾选按键时滚动'
+  action: keyboard_press
+  key: Enter
+  wait: 0.3
+- name: '步骤6: Shift+Tab反向切换焦点'
+  action: keyboard_press
+  value: Shift,Tab
+  wait: 0.3
+- name: '步骤7: 再次Enter键恢复勾选按键时滚动（默认状态）'
+  action: keyboard_press
+  key: Tab
+  wait: 0.3
+- name: '步骤8: Tab键确保焦点在复选框'
+  action: keyboard_press
+  key: Tab
+  wait: 0.3
+- name: '步骤9: Enter键恢复勾选按键时滚动'
+  action: keyboard_press
+  key: Enter
+  wait: 0.3
+- name: '步骤10: ESC关闭设置窗口'
+  action: keyboard_press
+  key: Escape
+  wait: 0.3
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

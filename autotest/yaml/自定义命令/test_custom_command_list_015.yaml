@@ -1,0 +1,100 @@
+name: 列表
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 每次成功添加命令后
+    2. 对已有的自定义命令进行编辑
+    3. 列表有较多自定义命令时，进行下拉/上拉
+    4. 列表内自定义很多时时，新建自定义命令
+  预期结果:
+    1. 自动在列表最下面生成
+    2. 编辑后自动排在最下方
+    3. 可通过下拉/上拉查看所有的自定义命令
+    4. 新建成功时列表自动往下拉移动，从而可在列表内自动看到新建的自定义命令
+module: 自定义命令
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653597'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 打开主菜单-自定义命令
+  action: main_menu_comb
+  ref: main_menu_button
+  items:
+  - 自定义命令
+- action: wait
+  duration: 0.3
+- name: 添加第一个自定义命令
+  action: element_action
+  ref: add_custom_command_button
+  do: click
+- action: wait
+  duration: 0.3
+- action: element_set_value
+  ref: custom_command_name_input
+  value: test_cmd_1
+- action: element_set_value
+  ref: custom_command_command_input
+  value: echo hello1
+- action: element_action
+  ref: custom_command_add
+  do: click
+- action: wait
+  duration: 0.3
+- name: 添加第二个自定义命令
+  action: element_action
+  ref: add_custom_command_button
+  do: click
+- action: wait
+  duration: 0.3
+- action: element_set_value
+  ref: custom_command_name_input
+  value: test_cmd_2
+- action: element_set_value
+  ref: custom_command_command_input
+  value: echo hello2
+- action: element_action
+  ref: custom_command_add
+  do: click
+- action: wait
+  duration: 0.3
+- name: 添加第三个自定义命令
+  action: element_action
+  ref: add_custom_command_button
+  do: click
+- action: wait
+  duration: 0.3
+- action: element_set_value
+  ref: custom_command_name_input
+  value: test_cmd_3
+- action: element_set_value
+  ref: custom_command_command_input
+  value: echo hello3
+- action: element_action
+  ref: custom_command_add
+  do: click
+- action: wait
+  duration: 0.3
+- name: 滚动列表查看所有命令
+  action: element_action
+  ref: custom_command_list
+  do: click
+- action: mouse_scroll
+  amount: -3
+- action: wait
+  duration: 0.3
+- action: mouse_scroll
+  amount: 3
+- action: wait
+  duration: 0.3
+- name: 验证终端仍在运行
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

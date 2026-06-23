@@ -1,0 +1,38 @@
+# UNSUPPORTED: 触摸操作无法自动化
+name: '触摸屏删除服务器功能 - NON-AUTOMATABLE: 触摸操作无法自动化'
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，长按屏幕后松手
+    2. 点击右键菜单远程管理
+    3. 选择一个服务器，点击编辑
+    4. 点击删除服务器
+    5. 点击右上角x键或取消按钮
+    6. 点击删除按钮
+  预期结果:
+    1. 弹出右键菜单
+    2. 显示远程管理插件
+    3. 弹出编辑服务器界面，服务器名全选
+    4. 弹出删除服务器弹框
+    5. 退出删除服务器弹框
+    6. 当前编辑的服务器被删除
+module: 触摸屏
+feature: ''
+tags:
+- L1
+vars:
+  XLSX_ID: '1653453'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 跳过 - skip-触摸操作无法自动化
+  action: wait
+  value: '300'
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

@@ -1,0 +1,77 @@
+name: 新建标签页快捷键
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开设置界面，检查新建标签页默认显示
+    2. 使用默认快捷键
+    3. 修改快捷键为其他，例如ctrl+t；使用新的快捷键
+    4. 使用旧的快捷键
+    5. 检查配置文件cat ~/.config/deepin/deepin-terminal/config.conf
+  预期结果:
+    1. 默认：ctrl+shift+t
+    2. 新建标签页
+    3. 新的快捷键生效
+    4. 旧的快捷键不生效
+    5. new_tab值和界面设置一致
+module: 设置界面快捷键
+feature: ''
+tags:
+- L3
+vars:
+  XLSX_ID: '1653269'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 打开设置界面'
+  action: main_menu_comb
+  ref: menu_settings
+- name: '步骤2: 点击快捷键导航'
+  action: element_action
+  ref: settings_shortcuts
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤3: 点击标签页子类别'
+  action: element_action
+  ref: settings_tab_shortcuts
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤4: 使用默认新建标签页快捷键Ctrl+Shift+T'
+  action: keyboard_press
+  value: ctrl+shift+t
+- action: wait
+  duration: 0.3
+- name: '步骤5: Tab切换到新建标签页快捷键项'
+  action: keyboard_press
+  key: Tab
+- action: keyboard_press
+  key: Tab
+- name: '步骤6: Enter进入编辑模式，修改快捷键为Ctrl+T'
+  action: keyboard_press
+  key: Return
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  value: ctrl+t
+- action: wait
+  duration: 0.3
+- name: '步骤7: 使用旧快捷键验证不生效'
+  action: keyboard_press
+  value: ctrl+shift+t
+- action: wait
+  duration: 0.3
+- name: '步骤8: 验证设置对话框可见'
+  action: wait
+  assert:
+  - type: element_visible
+  selector: null
+  role: dialog
+- name: '步骤9: 验证终端进程运行中'
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

@@ -1,0 +1,31 @@
+name: "其他 test suite"
+app: deepin-terminal
+reset_between_cases: true
+env:
+  FIXTURES_DIR: "${FIXTURES_DIR}"
+cases:
+  - name: "超链接显示以及跳转"
+    path: 其他/test_hyperlink_display_197.yaml
+  - name: "链接"
+    path: 其他/test_link_009.yaml
+  - name: "链接"
+    path: 其他/test_link_178.yaml
+  - name: "日志收集工具查看终端应用日志"
+    path: 其他/test_log_collect_app_204.yaml
+  - name: "日志配置文件查看"
+    path: 其他/test_log_config_check_203.yaml
+  - name: "多语言界面翻译"
+    path: 其他/test_multilang_ui_199.yaml
+  # UNSUPPORTED: test_paste_105
+  # - name: "test_paste_105"
+  #   path: 其他/test_paste_105.yaml
+  - name: "优先级"
+    path: 其他/test_priority_172.yaml
+  # UNSUPPORTED: test_right_click_menu_008
+  # - name: "test_right_click_menu_008"
+  #   path: 其他/test_right_click_menu_008.yaml
+  - name: "右键菜单显示项"
+    path: 其他/test_right_click_menu_104.yaml
+  # UNSUPPORTED: test_separator_line_010
+  # - name: "test_separator_line_010"
+  #   path: 其他/test_separator_line_010.yaml

@@ -1,0 +1,77 @@
+name: 向下查找
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 点击向下搜索，
+    2. 键盘enter回车搜索
+  预期结果:
+    1. 向下检索并选中符合条件的搜索内容
+    2. 默认从上往下搜索，每次点击一次，往下检索
+module: 查找
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653617'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 输入多行内容到终端
+  action: keyboard_type
+  value: echo item_a
+  wait: 0.3
+- name: 回车
+  action: keyboard_press
+  key: Return
+  wait: 0.3
+- name: 输入第二行
+  action: keyboard_type
+  value: echo item_b
+  wait: 0.3
+- name: 回车 (2)
+  action: keyboard_press
+  key: Return
+  wait: 0.3
+- name: 输入第三行
+  action: keyboard_type
+  value: echo item_c
+  wait: 0.3
+- name: 回车 (3)
+  action: keyboard_press
+  key: Return
+  wait: 0.3
+- name: 打开搜索框
+  action: keyboard_press
+  value: ctrl+alt+f
+  wait: 0.3
+- name: 输入搜索关键词
+  action: element_set_value
+  ref: search_input
+  value: item
+  wait: 0.3
+- name: 回车开始搜索，默认从上往下
+  action: keyboard_press
+  key: Return
+  wait: 0.3
+- name: 截图-第一次回车搜索
+  action: noop
+- name: 再次回车继续向下搜索
+  action: keyboard_press
+  key: Return
+  wait: 0.3
+- name: 截图-第二次回车搜索
+  action: noop
+- name: 再次回车继续向下搜索 (2)
+  action: keyboard_press
+  key: Return
+  wait: 0.3
+- name: 截图-第三次回车搜索
+  action: noop
+- name: 验证进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

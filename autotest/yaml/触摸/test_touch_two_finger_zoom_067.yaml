@@ -1,0 +1,32 @@
+# UNSUPPORTED: 触摸操作无法自动化
+name: '触摸屏双指放大与缩小功能 - NON-AUTOMATABLE: 触摸操作无法自动化'
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，屏幕双指捏合做放大操作
+    2. 屏幕双指捏合做缩小操作
+    3. 在屏幕界面不停的操作放大与缩小操作
+  预期结果:
+    1. 终端界面字体放大显示，放大到字体50号
+    2. 2终端界面字体缩小显示，缩小到字体5号
+    3. 窗口字体放大缩小功能正常，无crash现象
+module: 触摸屏
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653483'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 跳过 - skip-触摸操作无法自动化
+  action: wait
+  value: '300'
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

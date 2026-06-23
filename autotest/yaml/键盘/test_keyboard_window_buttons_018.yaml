@@ -1,0 +1,84 @@
+name: 键盘交互焦点在最小化，最大化，关闭按钮
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 按Tab键焦点在最小化、最大化，键盘按Enter键
+    2. 按Tab焦点在关闭按钮，键盘按Enter键
+    3. 有程序运行时，按Tab焦点在关闭按钮，键盘按Enter键
+    4. 键盘按Tab键，依次切换右上角X键、取消、关闭按钮
+    5. 执行取消或右上角X键
+  （PS：测试时需要测试Shift+Tab反向切换）
+  预期结果:
+    1. 窗口最小化在Dock栏
+    2. 窗口关闭
+    3. 弹出退出保护弹框
+    4. 选项有Focus效果
+    5. 焦点回到X按钮
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653591'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 按Tab键焦点切换到最小化按钮
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- name: 按Enter键触发最小化
+  action: keyboard_press
+  key: Enter
+- action: wait
+  duration: 0.3
+- name: 恢复窗口（恢复焦点）
+  action: keyboard_press
+  value: shift+tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  value: shift+tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  value: shift+tab
+- action: wait
+  duration: 0.3
+- name: 按Tab键切换到关闭按钮
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- name: 按Enter键关闭窗口（触发退出保护）
+  action: keyboard_press
+  key: Enter
+- action: wait
+  duration: 0.3
+- name: 在退出保护弹框中按Tab键切换焦点
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- name: 按ESC键关闭退出保护弹框
+  action: keyboard_press
+  key: Escape
+- action: wait
+  duration: 0.3
+- name: 验证终端仍在运行（取消退出）
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

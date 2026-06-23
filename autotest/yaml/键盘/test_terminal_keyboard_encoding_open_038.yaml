@@ -1,0 +1,84 @@
+name: 键盘交互-编码插件打开状态
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 进入终端， Alt+M调出右键菜单，选择编码
+    2. 键盘按Super+Tab
+    3. 依次按Tab键，将焦点切换到终端
+    4. 按“↑”、“↓”方向键
+    5. 选中其中一个编码时，按Enter键
+    6. 选中其中一个编码时，按Tab键
+    7. 选中其中一个编码时，按ESC键
+  （PS：测试时需要测试Shift+Tab反向切换）
+  预期结果:
+    1. 编码列表没有Focus效果
+    2. 焦点切换到“+”按钮
+    3. 当前选择的编码有Focus效果
+    4. 可选择编码，编码框有Focus效
+    5. 选择当前编码
+    6. 跳转到主窗口的“+”按钮
+    7. 插件隐藏，焦点跳到终端
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653551'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: Alt+M调出右键菜单选择编码
+  action: keyboard_press
+  value: Alt,M
+  wait: 0.3
+- name: 通过右键菜单打开编码
+  action: context_menu_comb
+  ref: context_encoding
+  wait: 0.3
+- name: 验证编码列表显示
+  action: wait
+  value: '1000'
+- name: Super+Tab切换焦点
+  action: keyboard_press
+  value: Super,Tab
+  wait: 0.3
+- name: Tab键将焦点切换到终端
+  action: keyboard_press
+  key: Tab
+  wait: 0.3
+- name: 向下箭头选择编码
+  action: keyboard_press
+  key: Down
+  wait: 0.3
+- name: 向上箭头选择编码
+  action: keyboard_press
+  key: Up
+  wait: 0.3
+- name: Enter键选择当前编码
+  action: keyboard_press
+  key: Enter
+  wait: 0.3
+- name: 再次Alt+M打开编码列表
+  action: keyboard_press
+  value: Alt,M
+  wait: 0.3
+- name: 再次打开编码菜单
+  action: context_menu_comb
+  ref: context_encoding
+  wait: 0.3
+- name: Tab键跳转到主窗口
+  action: keyboard_press
+  key: Tab
+  wait: 0.3
+- name: ESC键隐藏编码列表
+  action: keyboard_press
+  key: Escape
+  wait: 0.3
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

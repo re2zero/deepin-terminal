@@ -1,0 +1,12 @@
+name: "关于 test suite"
+app: deepin-terminal
+reset_between_cases: true
+env:
+  FIXTURES_DIR: "${FIXTURES_DIR}"
+cases:
+  - name: "关于1"
+    path: 关于/test_about_1_176.yaml
+  - name: "关于2"
+    path: 关于/test_about_2_177.yaml
+  - name: "帮助"
+    path: 关于/test_help_175.yaml

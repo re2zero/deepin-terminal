@@ -1,0 +1,19 @@
+name: null
+app: null
+screenshot: null
+description: |
+  测试步骤:
+    1. 打开终端，点击工作区标签旁+按钮
+    2. 使用快捷键新建：ctrl+shift+t
+  预期结果:
+    1. 添加新的工作区
+    2. 添加新的工作区
+module: 工作区
+feature: ''
+tags:
+- L1
+vars:
+  XLSX_ID: '1653065'
+setup: []
+steps: []
+teardown: []

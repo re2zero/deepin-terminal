@@ -1,0 +1,34 @@
+# UNSUPPORTED: 触摸操作无法自动化
+name: '触摸屏连接服务器上传文件 - NON-AUTOMATABLE: 触摸操作无法自动化'
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，点击主菜单远程管理
+    2. 点击插件列表服务器选项
+    3. 单指长按调出右键菜单，选择上传文件
+    4. 选择一个文件，点击上传按钮
+  预期结果:
+    1. 显示远程管理插件
+    2. 自动连接服务器
+    3. 弹出选择文件对话框
+    4. 终端界面提示文件上传成功
+module: 触摸屏
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653447'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 跳过 - skip-触摸操作无法自动化
+  action: wait
+  value: '300'
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

@@ -1,0 +1,45 @@
+name: 全屏窗口
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开设置界面，检查启动时使用默认设置
+    2. 检查下拉菜单显示
+    3. 设置为最大化，新建窗口
+    4. 检查配置文件cat ~/.config/deepin/deepin-terminal/config.conf
+    5. 注意：窗口大小是保存最后关闭一个的窗口大小
+  预期结果:
+    1. 默认显示为正常窗口
+    2. 正常窗口、分屏、全屏、最大化
+    3. 窗口最大化显示
+    4. use_on_starting显示和设置界面显示一致
+    5. 操作成功
+module: 设置界面高级设置
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653311'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 按F11进入全屏
+  action: keyboard_press
+  key: F11
+- action: wait
+  duration: 0.3
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+- name: 按F11退出全屏
+  action: keyboard_press
+  key: F11
+- action: wait
+  duration: 0.3
+- name: 验证终端进程运行中 (2)
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

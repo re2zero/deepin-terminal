@@ -1,0 +1,77 @@
+name: 键盘交互Tab键切换到主菜单按Enter键
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. Tab键切换到主菜单按Enter键
+    2. 按Tab键或点击“↑”、“↓“方向键
+    3. 选择任意功能按Enter键
+    4. 按Enter或方向“→”键
+    5. 按“↑”、“↓“方向键或Tab键
+    6. 按“←”方向键
+  （PS：测试时需要测试Shift+Tab反向切换）
+  预期结果:
+    1. 显示菜单列表
+    2. 可选择新建窗口、自定义命令、远程管理、设置、主题、帮助、关于、退出功能
+    3. 可执行操作（新建窗口、自定义命令、远程管理、设置、主题、帮助、关于、退出）
+    4. 可展开主题选项
+    5. 可以选择主题
+    6. 收起主题列表
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653589'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 按Tab键切换到主菜单按钮
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- name: 按Enter键展开主菜单
+  action: keyboard_press
+  key: Enter
+- action: wait
+  duration: 0.3
+- name: 按向下方向键选择菜单项
+  action: keyboard_press
+  key: Down
+- action: wait
+  duration: 0.3
+- name: 按向上方向键选择菜单项
+  action: keyboard_press
+  key: Up
+- action: wait
+  duration: 0.3
+- name: 选择主题菜单项并按向右方向键展开子菜单
+  action: main_menu_comb
+  ref: main_menu_button
+  items:
+  - 主题
+- action: wait
+  duration: 0.3
+- name: 按向下方向键选择主题选项
+  action: keyboard_press
+  key: Down
+- action: wait
+  duration: 0.3
+- name: 按向左方向键收起主题列表
+  action: keyboard_press
+  key: Left
+- action: wait
+  duration: 0.3
+- name: 按ESC键关闭菜单
+  action: keyboard_press
+  key: Escape
+- action: wait
+  duration: 0.3
+- name: 验证终端仍在运行
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

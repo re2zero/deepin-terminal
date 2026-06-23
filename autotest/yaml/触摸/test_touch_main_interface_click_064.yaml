@@ -1,0 +1,54 @@
+# UNSUPPORTED: 触摸操作无法自动化
+name: '触摸屏主界面点击功能 - NON-AUTOMATABLE: 触摸操作无法自动化'
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 从启动器打开终端
+    2. 标签栏点击+新建窗口，并点击上一个下一个标签页
+    3. 点击主菜单
+    4. 点击新建窗口
+    5. 点击自定义命令
+    6. 点击远程管理
+    7. 点击设置
+    8. 点击主题
+    9. 点击帮助
+    10. 点击关于
+    11. 终端无程序运行时点击退出
+    12. 终端有程序运行时点击退出
+    13. 点击右上角x键/取消
+    14. 点击关闭
+  预期结果:
+    1. 打开终端窗口
+    2. 新建一个新工作区，并且可以选择上一个，下一个标签页
+    3. 弹出主菜单列表
+    4. 打开一个新的终端窗口
+    5. 显示自定义插件
+    6. 显示远程管理插件
+    7. 进入设置界面
+    8. 可以切换主题
+    9. 进入帮助界面
+    10. 显示关于界面
+    11. 直接退出终端
+    12. 弹出退出保护弹框
+    13. 退出保护弹框
+    14. 退出终端
+module: 触摸屏
+feature: ''
+tags:
+- L1
+vars:
+  XLSX_ID: '1653491'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 跳过 - skip-触摸操作无法自动化
+  action: wait
+  value: '300'
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

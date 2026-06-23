@@ -1,0 +1,39 @@
+# UNSUPPORTED: skip-触摸操作无法自动化
+name: '内置主题显示以及功能 - NON-AUTOMATABLE: skip-触摸操作无法自动化'
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，点击主菜单进入主题
+    2. 鼠标焦点悬浮在主题菜单项
+    3. 鼠标焦点离开时
+    4. 按键盘上、下键切换到主题菜单项
+    5. 鼠标左键选择或键盘按下“enter”键
+    6. 再次进入主题
+  Notes:测试时一并测试触摸屏、触控板、键盘交互
+  预期结果:
+    1. 显示浅色、深色、跟随系统、Elementary、Empathy、Tomorrow night blue、Bim、Freya、Hybrid、Ocean dark、Deepin、Ura、One light；默认主题是深色、跟随系统与内置主题之间有分割线
+    2. 终端主题跟随变化
+    3. 还原之前主题配色
+    4. 终端窗口主题跟随变化
+    5. 设置主题成功
+    6. 当前主题菜单项前显示“勾选”状态
+module: 标签页移动
+feature: ''
+tags:
+- L1
+vars:
+  XLSX_ID: '1652911'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 跳过 - skip-触摸操作无法自动化
+  action: wait
+  value: '300'
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

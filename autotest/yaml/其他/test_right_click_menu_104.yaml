@@ -1,0 +1,59 @@
+name: 右键菜单显示项
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 进入终端，鼠标右键，检查右键菜单通用菜单显示
+    2. 打开终端，终端未选中内容，并且光标下不是超链接，点击右键菜单
+    3. 终端内没有选中内容，并且光标下是超链接，点击右键菜单
+    4. 终端中选中文本后，点击右键菜单
+    5. 终端中选中当前目录下的文件，点击右键菜单，点击“打开”菜单
+  预期结果:
+    1. 在文件管理器中打开、横向分屏、纵向分屏、关闭工作区、新建标签页、全屏、查找、编码、自定义命令、远程管理、设置；
+    2. 显示通用菜单项
+    3. 应该包括打开链接、复制链接、通用菜单
+    4. 应该包括复制、粘贴、搜索、通用菜单
+    5. 应该包括复制、粘贴、打开、搜索、通用菜单，会调用系统应用打开文件
+module: 右键菜单工作区
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653213'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 右键打开通用菜单'
+  action: context_menu_comb
+  ref: context_paste
+- action: wait
+  duration: 0.3
+- name: '步骤1: 截图-右键通用菜单'
+  action: noop
+- name: '步骤1: 按ESC关闭右键菜单'
+  action: keyboard_press
+  key: Escape
+- action: wait
+  duration: 0.3
+- name: '步骤1: 验证终端进程运行中'
+  action: wait
+  value: '1000'
+- name: '步骤2: 未选中内容且非超链接时右键'
+  action: context_menu_comb
+  ref: context_open_in_file_manager
+- action: wait
+  duration: 0.3
+- name: '步骤2: 截图-无选中内容右键菜单'
+  action: noop
+- name: '步骤2: 按ESC关闭菜单'
+  action: keyboard_press
+  key: Escape
+- action: wait
+  duration: 0.3
+- name: '步骤3: 验证终端仍在运行'
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

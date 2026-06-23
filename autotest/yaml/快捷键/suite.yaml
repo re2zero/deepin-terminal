@@ -1,0 +1,22 @@
+name: "快捷键 test suite"
+app: deepin-terminal
+reset_between_cases: true
+env:
+  FIXTURES_DIR: "${FIXTURES_DIR}"
+cases:
+  - name: "关闭工作区快捷键"
+    path: 快捷键/test_close_workspace_shortcut_098.yaml
+  - name: "隐藏显示快捷键"
+    path: 快捷键/test_hide_show_shortcut_099.yaml
+  - name: "新建标签页快捷键"
+    path: 快捷键/test_new_tab_shortcut_094.yaml
+  - name: "粘贴快捷键"
+    path: 快捷键/test_paste_shortcut_092.yaml
+  - name: "全选快捷键"
+    path: 快捷键/test_select_all_shortcut_093.yaml
+  - name: "选择下面的工作区快捷键"
+    path: 快捷键/test_select_lower_workspace_shortcut_097.yaml
+  - name: "快捷键启动"
+    path: 快捷键/test_shortcut_launch_185.yaml
+  - name: "[009]终端快捷键"
+    path: 快捷键/test_terminal_shortcut_keys_155.yaml

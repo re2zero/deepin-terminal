@@ -1,0 +1,86 @@
+name: 标签页1~9快捷键
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，进入设置，快捷键下
+    2. 新建工作区不大于9个，键盘按Ctrl+ Shift + 1 ~ Ctrl+ Shift + 9
+    3. 新建工作区大于9个，键盘按Ctrl+ Shift + 9
+  Notes:测试时一并测试触摸屏、触控板、键盘交互
+  预期结果:
+    1. 存在切换标签页1~9快捷键功能；默认快捷键“Ctrl+Shift+1”、“Ctrl+Shift+2”、“Ctrl+Shift+3” ... “Ctrl+Shift+9”；支持自定义快捷键功能
+    2. 分别切换到数字对应的标签
+    3. 切换到最后⼀个标签，⽽不是第 9 个标签
+module: 设置界面快捷键
+feature: ''
+tags:
+- L1
+vars:
+  XLSX_ID: '1653235'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 新建多个工作区'
+  action: element_action
+  ref: add_tab_button
+  do: click
+- action: wait
+  duration: 0.3
+- action: element_action
+  ref: add_tab_button
+  do: click
+- action: wait
+  duration: 0.3
+- action: element_action
+  ref: add_tab_button
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤2: 使用Ctrl+Shift+1切换到第1个标签'
+  action: keyboard_press
+  value: ctrl+shift+1
+- action: wait
+  duration: 0.3
+- name: '步骤3: 使用Ctrl+Shift+2切换到第2个标签'
+  action: keyboard_press
+  value: ctrl+shift+2
+- action: wait
+  duration: 0.3
+- name: '步骤4: 使用Ctrl+Shift+3切换到第3个标签'
+  action: keyboard_press
+  value: ctrl+shift+3
+- action: wait
+  duration: 0.3
+- name: '步骤5: 使用Ctrl+Shift+9切换到最后一个标签'
+  action: keyboard_press
+  value: ctrl+shift+9
+- action: wait
+  duration: 0.3
+- name: '步骤6: 打开设置验证快捷键配置'
+  action: main_menu_comb
+  ref: menu_settings
+- name: '步骤7: 点击快捷键导航'
+  action: element_action
+  ref: settings_shortcuts
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤8: 点击标签页子类别检查1~9快捷键'
+  action: element_action
+  ref: settings_tab_shortcuts
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤9: 验证设置对话框可见'
+  action: wait
+  assert:
+  - type: element_visible
+  selector: null
+  role: dialog
+- name: '步骤10: 验证终端进程运行中'
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

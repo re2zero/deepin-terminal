@@ -1,0 +1,92 @@
+name: 添加约束
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 点击添加自定义命令
+    2. 不输入命令名称，其他正常输入，点击添加
+    3. 不输入相应命令，其他正常输入，点击添加
+    4. 不敲入快捷键，其他正常输入，点击添加
+  预期结果:
+    1. 弹出添加自定义窗口
+    2. 添加失败，命令名称是必须输入项
+    3. 添加失败，命令输入框是必须输入项
+    4. 添加成功，快捷键不是必须输入项
+module: 自定义命令
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653019'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 通过主菜单打开自定义命令面板'
+  action: main_menu_comb
+  ref: menu_custom_commands
+  wait: 0.3
+- name: '步骤2: 点击添加命令按钮打开添加对话框'
+  action: element_action
+  ref: add_custom_command_button
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤2: 输入快捷键和命令，不输入名称，点击添加'
+  action: element_set_value
+  ref: custom_command_shortcut_input
+  value: Ctrl+Shift+K
+- action: element_set_value
+  ref: custom_command_command_input
+  value: echo test
+- action: element_action
+  ref: custom_command_add
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤2: 验证添加失败（名称是必须输入项）— 面板仍可见'
+  action: wait
+  assert:
+  - type: element_visible
+  ref: custom_command_name_input
+- name: '步骤3: 清空后输入名称和快捷键，不输入命令，点击添加'
+  action: element_set_value
+  ref: custom_command_name_input
+  value: 测试命令
+- action: element_set_value
+  ref: custom_command_command_input
+  value: ''
+- action: element_set_value
+  ref: custom_command_shortcut_input
+  value: Ctrl+Shift+L
+- action: element_action
+  ref: custom_command_add
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤3: 验证添加失败（命令输入框是必须输入项）— 面板仍可见'
+  action: wait
+  assert:
+  - type: element_visible
+  ref: custom_command_command_input
+- name: '步骤4: 输入名称和命令，不输入快捷键，点击添加'
+  action: element_set_value
+  ref: custom_command_name_input
+  value: 验证约束命令
+- action: element_set_value
+  ref: custom_command_command_input
+  value: echo success
+- action: element_set_value
+  ref: custom_command_shortcut_input
+  value: ''
+- action: element_action
+  ref: custom_command_add
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤4: 验证添加成功（快捷键不是必须输入项），终端仍在运行'
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

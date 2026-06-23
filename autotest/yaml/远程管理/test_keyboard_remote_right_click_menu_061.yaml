@@ -1,0 +1,40 @@
+name: 键盘交互-右键菜单远程管理
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 键盘按Alt+M调出右键菜单
+    2. 按Tab键切换到远程管理，按enter键
+  （PS：测试时需要测试Shift+Tab反向切换）
+  预期结果:
+    1. 显示远程管理
+    2. 远程管理列表没有获得Focus效果
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653505'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 按Alt+M调出右键菜单'
+  action: context_menu_comb
+  ref: context_remote_management
+- action: wait
+  duration: 0.3
+- name: '步骤2: 远程管理列表没有获得Focus效果，验证进程运行'
+  action: wait
+  value: '1000'
+- name: Shift+Tab反向切换测试
+  action: keyboard_press
+  value: shift,Tab
+- action: wait
+  duration: 0.3
+- name: 验证终端进程仍在运行
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

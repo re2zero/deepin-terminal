@@ -1,0 +1,107 @@
+name: 服务器分组
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 在添加服务器时填写一个新的分组，查看服务器列表显示
+    2. 在添加服务器时填写一个已经存在的分组，查看服务器列表显示
+    3. 在修改服务器时填写一个新组，查看服务器列表显示
+    4. 在修改服务器时填写一个已存在组，查看服务器列表显示
+    5. 在修改服务器时，将一个组中的服务器修改到另一个组中，查看服务器列表显示
+    6. 假如当前分组只有一个服务器，然后删除分组、修改分组、删除该服务器，查看分组显示
+    7. 在新增和修改分组时，查看分组服务器数量显示
+  预期结果:
+    1. 软件会自动创建一个新组，并将该服务器添加到该组中
+    2. 软件会自动将该服务器添加到以存在的分组中
+    3. 软件会自动创建一个新组，并将该服务器添加到该组中
+    4. 软件会自动将该服务器添加到以存在的分组中
+    5. 该服务器会从当前服务器消失，并跳转到另一个服务器中
+    6. 组中没有服务器时，该分组会自动删除
+    7. 服务器数量显示正确
+module: 远程管理器
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653145'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 打开远程管理插件'
+  action: main_menu_comb
+  ref: menu_remote_management
+- action: wait
+  duration: 0.3
+- name: Tab到添加服务器按钮，按Enter打开添加窗口
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Return
+- action: wait
+  duration: 0.3
+- name: 按ESC关闭添加窗口
+  action: keyboard_press
+  key: Escape
+- action: wait
+  duration: 0.3
+- name: '步骤2: Tab到服务器列表区域'
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- name: 按Down键浏览服务器分组列表
+  action: keyboard_press
+  key: Down
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Down
+- action: wait
+  duration: 0.3
+- name: 按Up键浏览服务器分组列表
+  action: keyboard_press
+  key: Up
+- action: wait
+  duration: 0.3
+- name: '步骤3: 按Enter进入分组'
+  action: keyboard_press
+  key: Return
+- action: wait
+  duration: 0.3
+- name: 按Tab切换到组内服务器
+  action: keyboard_press
+  key: Tab
+- action: wait
+  duration: 0.3
+- name: 按←方向键返回上级
+  action: keyboard_press
+  key: Left
+- action: wait
+  duration: 0.3
+- name: '步骤4: Shift+Tab反向切换测试'
+  action: keyboard_press
+  value: shift,Tab
+- action: wait
+  duration: 0.3
+- name: 按ESC关闭远程管理面板
+  action: keyboard_press
+  key: Escape
+- action: wait
+  duration: 0.3
+- name: 验证终端进程仍在运行
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

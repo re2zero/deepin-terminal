@@ -1,0 +1,67 @@
+name: 查找隐藏
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开查找框按ESC
+    2. 打开查找框鼠标点击终端其他地方
+  预期结果:
+    1. 搜索界面被隐藏
+    2. 搜索界面被隐藏
+module: 查找
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653615'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 打开搜索框
+  action: keyboard_press
+  value: ctrl+alt+f
+  wait: 0.3
+- name: DLineEditChildLineEdit
+  action: element_action
+  ref: search_input
+  do: click
+  assert:
+  - type: element_visible
+  selector: null
+  role: text
+- name: 截图-搜索框打开
+  action: noop
+- name: 按ESC键隐藏搜索框
+  action: keyboard_press
+  key: Escape
+  wait: 0.3
+- name: 截图-ESC后搜索框隐藏
+  action: noop
+- name: 再次打开搜索框
+  action: keyboard_press
+  value: ctrl+alt+f
+  wait: 0.3
+- name: DLineEditChildLineEdit
+  action: element_action
+  ref: search_input
+  do: click
+  assert:
+  - type: element_visible
+  selector: null
+  role: text
+- name: 截图-搜索框再次打开
+  action: noop
+- name: 点击终端内容区域使搜索框失去焦点
+  action: element_action
+  ref: terminal_content
+  do: click
+  wait: 0.3
+- name: 截图-点击终端其他位置后
+  action: noop
+- name: 验证进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

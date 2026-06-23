@@ -1,0 +1,60 @@
+name: 键盘交互-设置界面Tab键切换顺序
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 设置界面，第一次按Tab键
+    2. 第二次按Tab键
+    3. 第三次按Tab键
+    4. 第四次按Tab键
+    5. 按Tab键/“↑”、“↓“方向键
+  （PS：测试时需要测试Shift+Tab反向切换）
+  预期结果:
+    1. 右上角X键有Focus效果
+    2. 焦点聚焦到左侧，左侧列表，按“↑”、“↓“方向键切换菜单
+    3. 焦点到滚动条，按“↑”、“↓“方向键可以上下滚动
+    4. 依次切换到透明度、字体、字体大小、标签标题格式输入框、插入选择框、远程标签标题格式输入框、插入选择框、快捷键、光标风格、光标闪烁复选框、选中文字时自动复制到剪贴板复选框、按键时滚动复选框、输出时滚动复选框、启动时使用窗口、背景模糊复选框、丢失焦点后隐藏雷神窗口复选框、shell配置选择框、禁用ctrl+S和ctrl+Q控制复选框、恢复默认（到恢复默认时循环到右上角X）
+    5. 从上往下切换菜单
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653579'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 打开设置界面'
+  action: main_menu_comb
+  ref: menu_settings
+- name: '步骤2: 第一次按Tab键，焦点到右上角X关闭按钮'
+  action: keyboard_press
+  key: Tab
+- name: '步骤3: 第二次按Tab键，焦点到左侧导航列表'
+  action: keyboard_press
+  key: Tab
+- name: '步骤4: 按↓方向键切换左侧菜单'
+  action: keyboard_press
+  key: Down
+- name: '步骤5: 第三次按Tab键，焦点到右侧内容区域'
+  action: keyboard_press
+  key: Tab
+- name: '步骤6: 按↓方向键切换内容区域焦点'
+  action: keyboard_press
+  key: Down
+- name: '步骤7: Shift+Tab反向切换回左侧列表'
+  action: keyboard_press
+  value: shift,Tab
+- name: '步骤8: 验证设置对话框可见'
+  action: wait
+  assert:
+  - type: element_visible
+  selector: null
+  role: dialog
+- name: '步骤9: 验证终端进程运行中'
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

@@ -1,0 +1,58 @@
+name: 查找显示
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，右键菜单选择搜索，检查搜索显示
+    2. 使用快捷键ctrl+alt+f
+    3. 窗口显示多个分屏时，检查搜索显示
+  预期结果:
+    1. 在右上角显示：放大镜、搜索输入框、向上搜索向下搜索按钮
+    2. 调出搜索界面
+    3. 始终显示在右上角
+module: 查找
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653625'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 右键菜单选择查找
+  action: context_menu_comb
+  ref: context_search
+  wait: 0.3
+- name: 截图-查找界面显示
+  action: noop
+- name: 按ESC隐藏查找框
+  action: keyboard_press
+  key: Escape
+  wait: 0.3
+- name: 使用快捷键Ctrl+Alt+F调出查找
+  action: keyboard_press
+  value: ctrl+alt+f
+  wait: 0.3
+- name: 截图-快捷键调出查找
+  action: noop
+- name: 关闭查找框
+  action: keyboard_press
+  key: Escape
+  wait: 0.3
+- name: 横向分屏
+  action: context_menu_comb
+  ref: context_horizontal_split
+  wait: 0.3
+- name: 在分屏状态下使用快捷键调出查找
+  action: keyboard_press
+  value: ctrl+alt+f
+  wait: 0.3
+- name: 截图-分屏时查找显示
+  action: noop
+- name: 验证进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

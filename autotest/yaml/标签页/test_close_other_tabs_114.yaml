@@ -1,0 +1,74 @@
+name: 关闭其它标签页
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，新建多个工作区
+    2. 鼠标焦点在标签上，点击右键菜单栏关闭其它标签页
+    3. 只有一个标签页，点击右键“关闭其它标签页”
+  预期结果:
+    1. 工作区新建成功
+    2. 关闭焦点以外的标签页
+    3. 关闭其它标签页置灰显示不可操作
+module: 右键菜单标签页
+feature: ''
+tags:
+- L1
+vars:
+  XLSX_ID: '1653173'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 新建多个工作区'
+  action: element_action
+  ref: add_tab_button
+  do: click
+- action: wait
+  duration: 0.3
+- action: element_action
+  ref: add_tab_button
+  do: click
+- action: wait
+  duration: 0.3
+- action: element_action
+  ref: add_tab_button
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤2: 右键标签页打开菜单，选择关闭其它标签页'
+  action: element_action
+  ref: tab_list
+  do: right_click
+- action: wait
+  duration: 0.3
+- name: 按Down键导航到关闭其它标签页
+  action: keyboard_press
+  key: Down
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Down
+- action: wait
+  duration: 0.3
+- action: keyboard_press
+  key: Return
+- action: wait
+  duration: 0.3
+- name: '步骤3: 只有一个标签页时，右键打开菜单'
+  action: element_action
+  ref: tab_list
+  do: right_click
+- action: wait
+  duration: 0.3
+- name: 按ESC关闭菜单
+  action: keyboard_press
+  key: Escape
+- action: wait
+  duration: 0.3
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

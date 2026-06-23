@@ -1,0 +1,36 @@
+# UNSUPPORTED: 需要letmego支持重启
+name: '粘贴 - NON-AUTOMATABLE: 需要letmego支持重启'
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开设置界面，检查默认粘贴显示
+    2. 使用快捷键进行粘贴
+    3. 修改快捷键为其他；如ctrl+e；使用修改后的快捷键
+    4. 使用旧的快捷键
+    5. 检查配置文件cat ~/.config/deepin/deepin-terminal/config.conf
+  预期结果:
+    1. 默认：ctrl+shift+v
+    2. 粘贴成功
+    3. 粘贴成功
+    4. 旧的快捷键不生效
+    5. paste值和界面设置一致
+module: 设置界面快捷键
+feature: ''
+tags:
+- L3
+vars:
+  XLSX_ID: '1653281'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 跳过 - skip-重启类场景需要letmego支持
+  action: wait
+  value: '300'
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

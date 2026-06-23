@@ -1,0 +1,10 @@
+name: "拖拽 test suite"
+app: deepin-terminal
+reset_between_cases: true
+env:
+  FIXTURES_DIR: "${FIXTURES_DIR}"
+# All cases in this module are UNSUPPORTED (drag operations cannot be automated)
+# UNSUPPORTED: test_drag_tab_position_187
+# UNSUPPORTED: test_drag_tab_to_new_window_188
+# UNSUPPORTED: test_drag_upload_file_146
+cases: []

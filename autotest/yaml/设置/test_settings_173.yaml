@@ -1,0 +1,46 @@
+name: '[019]设置'
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 进入终端，菜单栏点击设置选项
+    2. 弹出设置窗口后，点击右上角的x按钮，查看软件显示
+    3. 弹出设置窗口后，按ESC键，查看软件显示
+  预期结果:
+    1. 弹出设置界面
+    2. 设置窗口会自动关闭
+    3. 设置窗口会自动关闭
+module: 主界面右上角菜单栏
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1652969'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 通过主菜单打开设置'
+  action: main_menu_comb
+  ref: menu_settings
+  wait: 0.3
+- name: '步骤2: 截图-设置界面弹出'
+  action: noop
+- name: '步骤3: 按ESC关闭设置窗口'
+  action: keyboard_press
+  key: Escape
+  wait: 0.3
+- name: '步骤4: 通过主菜单再次打开设置'
+  action: main_menu_comb
+  ref: menu_settings
+  wait: 0.3
+- name: '步骤5: 按ESC关闭设置窗口'
+  action: keyboard_press
+  key: Escape
+  wait: 0.3
+- name: '步骤6: 验证终端进程运行中'
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

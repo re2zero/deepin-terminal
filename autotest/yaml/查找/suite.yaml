@@ -1,0 +1,24 @@
+name: "查找 test suite"
+app: deepin-terminal
+reset_between_cases: true
+env:
+  FIXTURES_DIR: "${FIXTURES_DIR}"
+cases:
+  - name: "[015]查找"
+    path: 查找/test_search_015_109.yaml
+  - name: "搜索"
+    path: 查找/test_search_custom_cmd_161.yaml
+  - name: "查找显示"
+    path: 查找/test_search_display_001.yaml
+  - name: "向下查找"
+    path: 查找/test_search_down_005.yaml
+  - name: "查找隐藏"
+    path: 查找/test_search_hide_006.yaml
+  - name: "查找输入框"
+    path: 查找/test_search_input_002.yaml
+  - name: "查找过程"
+    path: 查找/test_search_process_003.yaml
+  - name: "搜索服务器"
+    path: 查找/test_search_server_122.yaml
+  - name: "向上查找"
+    path: 查找/test_search_up_004.yaml

@@ -1,0 +1,78 @@
+name: 键盘交互-启动时使用下拉框
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 进入设置，焦点在启动时使用下拉框
+    2. 按Enter
+    3. 按ESC键
+    4. 按“↑”、“↓“方向键
+    5. 再按Enter键
+  （PS：测试时需要测试Shift+Tab反向切换）
+  预期结果:
+    1. 下拉框有Focus效果
+    2. 下拉列表展开
+    3. 下拉列表收起
+    4. 可选择窗口模式（正常窗口、分屏、全屏、最大化）
+    5. 执行选择动作，列表收起
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653559'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 通过主菜单打开设置
+  action: main_menu_comb
+  ref: menu_settings
+  wait: 0.3
+- name: 点击窗口设置导航项
+  action: element_action
+  ref: settings_window
+  do: click
+  wait: 0.3
+- name: Tab键将焦点移到启动时使用下拉框
+  action: keyboard_press
+  key: Tab
+  wait: 0.3
+- name: 按Enter键展开下拉列表
+  action: keyboard_press
+  key: Enter
+  wait: 0.3
+- name: 按ESC键收起下拉列表
+  action: keyboard_press
+  key: Escape
+  wait: 0.3
+- name: 再次聚焦下拉框并Enter展开
+  action: keyboard_press
+  key: Enter
+  wait: 0.3
+- name: 按向下箭头选择窗口模式
+  action: keyboard_press
+  key: Down
+  wait: 0.3
+- name: 再次按向下箭头切换选项
+  action: keyboard_press
+  key: Down
+  wait: 0.3
+- name: 按向上箭头反向选择
+  action: keyboard_press
+  key: Up
+  wait: 0.3
+- name: 按Enter确认选择并收起列表
+  action: keyboard_press
+  key: Enter
+  wait: 0.3
+- name: Escape关闭设置窗口
+  action: keyboard_press
+  key: Escape
+  wait: 0.3
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

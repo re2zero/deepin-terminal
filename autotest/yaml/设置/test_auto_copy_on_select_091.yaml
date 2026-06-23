@@ -1,0 +1,54 @@
+name: 选中文字时自动复制到剪贴板
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 进入设置，焦点在选中文字时自动复制到剪贴板复选框
+    2. 键盘按Enter键
+  （PS：测试时需要测试Shift+Tab反向切换）
+  预期结果:
+    1. 复选框有Focus效果
+    2. 取消/选中复选框
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653565'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 打开设置界面'
+  action: main_menu_comb
+  ref: menu_settings
+- name: '步骤2: 点击高级设置导航'
+  action: element_action
+  ref: settings_advanced
+  do: click
+- action: wait
+  duration: 0.3
+- name: '步骤3: Tab导航至光标闪烁区域'
+  action: keyboard_press
+  key: Tab
+- action: keyboard_press
+  key: Tab
+- action: keyboard_press
+  key: Tab
+- name: '步骤4: 空格键切换自动复制复选框'
+  action: keyboard_press
+  key: Space
+- action: wait
+  duration: 0.3
+- name: '步骤5: 验证设置对话框可见'
+  action: wait
+  assert:
+  - type: element_visible
+  selector: null
+  role: dialog
+- name: '步骤6: 验证终端进程运行中'
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

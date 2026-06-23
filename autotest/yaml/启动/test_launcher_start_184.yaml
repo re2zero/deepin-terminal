@@ -1,0 +1,31 @@
+name: 启动器启动
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开启动器，在启动器中点击终端图标，查看软件显示
+    2. 打开启动器，在启动器中选中终端图标，点击右键－打开，查看软件显示
+  预期结果:
+    1. 终端正常启动
+    2. 终端正常启动
+module: 启动终端
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1652943'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 验证终端正常启动
+  action: wait
+  value: '1000'
+- name: 验证主窗口可见
+  action: wait
+  assert:
+  - type: element_visible
+  ref: main_window
+teardown:
+- action: session_stop

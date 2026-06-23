@@ -1,0 +1,48 @@
+name: 键盘交互-自动复制到剪贴板复选框
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，键盘按Ctrl+Alt+F
+    2. 依次按Tab键
+    3. 按ESC键
+  （PS：测试时需要测试Shift+Tab反向切换）
+  预期结果:
+    1. 调出查找框，焦点在输入框
+    2. 焦点在向上、向下搜索按钮
+    3. 查找框隐藏
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653503'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 打开设置界面'
+  action: main_menu_comb
+  ref: menu_settings
+- name: '步骤2: Tab键切换到自动复制复选框'
+  action: keyboard_press
+  key: Tab
+- action: keyboard_press
+  key: Tab
+- action: keyboard_press
+  key: Tab
+- name: '步骤3: 按Enter键切换复选框选中/取消'
+  action: keyboard_press
+  key: Return
+- name: '步骤4: 验证设置对话框仍可见'
+  action: wait
+  assert:
+  - type: element_visible
+  selector: null
+  role: dialog
+- name: '步骤5: 验证终端进程运行中'
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

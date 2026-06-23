@@ -1,0 +1,89 @@
+name: 退格键
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开终端，进入到远程管理编码、退格键、删除键
+    2. 按空格键/Enter
+    3. 按“↑”、“↓“方向键
+    4. 按Enter键
+    5. 按ESC键
+  （PS：测试时需要测试Shift+Tab反向切换）
+  预期结果:
+    1. 选项框有Focus效果
+    2. 显示编码、退格键、删除键列表
+    3. 切换选择编码、退格键、删除键
+    4. 执行选择，列表收起
+    5. 列表收起
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653507'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 主菜单打开远程管理'
+  action: main_menu_comb
+  ref: menu_remote_management
+  wait: 0.3
+- name: '步骤1: 点击添加服务器按钮'
+  action: element_action
+  ref: add_server_button
+  do: click
+  wait: 0.3
+- name: '步骤1: 在服务器名输入框中输入字符'
+  action: element_action
+  ref: remote_server_name
+  do: click
+  wait: 0.3
+- action: keyboard_type
+  value: TestBackspace
+  wait: 0.3
+- name: '步骤1: 按退格键删除输入字符'
+  action: keyboard_press
+  key: BackSpace
+  wait: 0.2
+- action: keyboard_press
+  key: BackSpace
+  wait: 0.2
+- action: keyboard_press
+  key: BackSpace
+  wait: 0.2
+- action: keyboard_press
+  key: BackSpace
+  wait: 0.2
+- name: '步骤2: 在端口输入框中测试退格键'
+  action: element_action
+  ref: remote_server_port
+  do: click
+  wait: 0.3
+- name: '步骤2: 输入端口号后按退格键'
+  action: keyboard_type
+  value: '80'
+  wait: 0.3
+- action: keyboard_press
+  key: BackSpace
+  wait: 0.2
+- action: keyboard_press
+  key: BackSpace
+  wait: 0.2
+- action: keyboard_press
+  key: BackSpace
+  wait: 0.3
+- name: '步骤2: 测试退格键能否在端口下拉菜单中操作'
+  action: keyboard_press
+  key: BackSpace
+  wait: 0.3
+- name: 关闭添加服务器弹框
+  action: keyboard_press
+  key: Escape
+  wait: 0.3
+- name: 验证终端进程仍在运行
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

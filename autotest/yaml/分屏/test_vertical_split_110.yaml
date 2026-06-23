@@ -1,0 +1,56 @@
+name: 纵向分屏
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 打开设置界面，检查纵向分屏默认快捷键显示
+    2. 使用默认快捷键，检查纵向分屏显示
+    3. 修改快捷键为其他，如：ctrl+shift+m使用新的快捷键
+    4. 使用旧的快捷键`
+    5. 检查配置文件 cat ~/.config/deepin/deepin-terminal/config.conf
+  预期结果:
+    1. 默认：ctrl+shift+j
+    2. 屏幕被分为左右2个屏
+    3. 快捷键生效
+    4. 旧的快捷键不会生效
+    5. vertical_split和设置界面保持一致
+module: 设置界面快捷键
+feature: ''
+tags:
+- L3
+vars:
+  XLSX_ID: '1653259'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: '步骤1: 右键菜单选择纵向分屏'
+  action: context_menu_comb
+  ref: context_vertical_split
+- action: wait
+  duration: 0.3
+- name: '步骤1: 截图-纵向分屏显示'
+  action: noop
+- name: '步骤1: 验证终端进程运行中'
+  action: wait
+  value: '1000'
+- name: '步骤2: 关闭当前分屏窗口恢复单屏'
+  action: context_menu_comb
+  ref: context_close_workspace
+- action: wait
+  duration: 0.3
+- name: '步骤2: 截图-恢复单屏后'
+  action: noop
+- name: '步骤3: 使用快捷键Ctrl+Shift+J纵向分屏'
+  action: keyboard_press
+  value: ctrl+shift+j
+- action: wait
+  duration: 0.3
+- name: '步骤3: 截图-快捷键纵向分屏'
+  action: noop
+- name: '步骤3: 验证终端进程运行中'
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

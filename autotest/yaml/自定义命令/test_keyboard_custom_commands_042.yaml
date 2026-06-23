@@ -1,0 +1,95 @@
+name: 键盘交互自定义功能
+app: deepin-terminal
+screenshot: false
+description: |
+  前置条件: 有2个以上命令
+  测试步骤:
+    1. 打开终端，键盘按Tab切换到自定义命令插件
+    2. 再Tab切换到自定义列表
+    3. 自定义命令有Focus效果时按“→”方向键
+    4. 按“↑”、“↓”方向键
+    5. 编辑按钮有Focus效果按Enter或Space
+    6. 编辑按钮有Focus效果按“←”方向键
+    7. 焦点在自定义命令时按Enter键
+  （PS：测试时需要测试Shift+Tab反向切换）
+  预期结果:
+    1. 光标在搜索框
+    2. “↑”、“↓”方向键切换自定义命令，选中的自定义命令有Focus效果，切换到最上、最下一个自定义命令时，有提示音
+    3. 编辑按钮有边框效果
+    4. 会跳转到上一个、下一个自定义命令
+    5. 进入编辑自定义命界面
+    6. 当前编辑的自定义命令边框有Focus效果
+    7. 执行自定义命令
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653543'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 打开自定义命令插件
+  action: main_menu_comb
+  ref: main_menu_button
+  assert:
+  - type: element_visible
+  selector: null
+  role: list
+  items:
+  - 自定义命令
+- name: 验证搜索框可见（光标在搜索框）
+  action: wait
+  assert:
+  - type: element_visible
+  selector: null
+  role: text
+- name: 按Tab切换到自定义命令列表
+  action: keyboard_press
+  key: Tab
+  wait: 0.3
+- name: 验证自定义命令列表有Focus效果
+  action: wait
+  assert:
+  - type: element_visible
+  selector: null
+  role: list
+- name: 按下箭头键切换自定义命令
+  action: keyboard_press
+  key: Down
+  wait: 0.3
+- name: 再按下箭头切换
+  action: keyboard_press
+  key: Down
+  wait: 0.3
+- name: 按上箭头返回上一个命令
+  action: keyboard_press
+  key: Up
+  wait: 0.3
+- name: 按右方向键（聚焦编辑按钮）
+  action: keyboard_press
+  key: Right
+  wait: 0.3
+- name: 按左方向键（返回自定义命令Focus）
+  action: keyboard_press
+  key: Left
+  wait: 0.3
+- name: 按Shift+Tab反向切换焦点
+  action: keyboard_press
+  value: Shift,Tab
+  wait: 0.3
+- name: 按Tab回到自定义列表
+  action: keyboard_press
+  key: Tab
+  wait: 0.3
+- name: 按Enter执行选中的自定义命令
+  action: keyboard_press
+  key: Return
+  wait: 0.3
+- name: 验证终端进程仍在运行
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

@@ -1,0 +1,38 @@
+name: 键盘交互-设置全局事件
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. Tab键进入设置，焦点在设置全局事件，键盘按ESC键
+  （PS：测试时需要测试Shift+Tab反向切换）
+  预期结果:
+    1. 设置窗口关闭,焦点回到终端
+module: 键盘交互
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653553'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 通过主菜单打开设置
+  action: main_menu_comb
+  ref: menu_settings
+  wait: 0.3
+- name: ESC键关闭设置窗口
+  action: keyboard_press
+  key: Escape
+  wait: 0.3
+- name: 验证设置窗口已关闭
+  action: wait
+  assert:
+  - type: element_visible
+  ref: main_window
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

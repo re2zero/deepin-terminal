@@ -1,0 +1,33 @@
+# UNSUPPORTED: 触摸操作无法自动化
+name: '多个窗口/多工作区中Ctrl+S和Ctrl+Q流控制 - NON-AUTOMATABLE: 触摸操作无法自动化'
+app: deepin-terminal
+screenshot: false
+description: |
+  前置条件: 不勾选“禁用Ctrl+S和Ctrl+Q流控制”选项
+  测试步骤:
+    1. 打开终端，新建多个终端窗口，其中一个窗口键盘按Ctrl+S
+    2. 其窗口新建多个工作区，其中一个工作区键盘按Ctrl+S
+  Notes:测试时一并测试触摸屏、触控板、键盘交互
+  预期结果:
+    1. 只要当前窗口弹出“已经按下Ctrl+S，输出被挂起。可以按下Ctrl+Q继续。”，其它窗口不弹，可以正常输入内容
+    2. 只要当前工作区弹出“已经按下Ctrl+S，输出被挂起。可以按下Ctrl+Q继续。”，其它窗口不弹，可以正常输入内容
+  Notes:键盘交互不用考虑焦点到X按钮，Ctrl+Q可以关闭此弹框
+module: 设置界面高级设置
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653297'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 跳过 - skip-触摸操作无法自动化
+  action: wait
+  value: '300'
+- name: 验证终端进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop

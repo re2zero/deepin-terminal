@@ -1,0 +1,85 @@
+name: 向上查找
+app: deepin-terminal
+screenshot: false
+description: |
+  测试步骤:
+    1. 点击向上搜索按钮
+    2. 使用快捷键shift+enter/shift+return
+  预期结果:
+    1. 向上检索
+    2. 向上检索
+module: 查找
+feature: ''
+tags:
+- L2
+vars:
+  XLSX_ID: '1653619'
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 1.0
+steps:
+- name: 输入多行内容到终端
+  action: keyboard_type
+  value: echo line1_hello
+  wait: 0.3
+- name: 回车
+  action: keyboard_press
+  key: Return
+  wait: 0.3
+- name: 输入第二行
+  action: keyboard_type
+  value: echo line2_hello
+  wait: 0.3
+- name: 回车 (2)
+  action: keyboard_press
+  key: Return
+  wait: 0.3
+- name: 输入第三行
+  action: keyboard_type
+  value: echo line3_hello
+  wait: 0.3
+- name: 回车 (3)
+  action: keyboard_press
+  key: Return
+  wait: 0.3
+- name: 打开搜索框
+  action: keyboard_press
+  value: ctrl+alt+f
+  wait: 0.3
+- name: 输入搜索关键词
+  action: element_set_value
+  ref: search_input
+  value: hello
+  wait: 0.3
+- name: 先回车向下搜索到最底部
+  action: keyboard_press
+  key: Return
+  wait: 0.3
+- name: 再回车一次
+  action: keyboard_press
+  key: Return
+  wait: 0.3
+- name: 再回车一次 (2)
+  action: keyboard_press
+  key: Return
+  wait: 0.3
+- name: 截图-当前位置
+  action: noop
+- name: 使用Shift+Enter向上搜索
+  action: keyboard_press
+  value: shift+Return
+  wait: 0.3
+- name: 截图-Shift+Enter向上搜索
+  action: noop
+- name: 再次Shift+Enter继续向上搜索
+  action: keyboard_press
+  value: shift+Return
+  wait: 0.3
+- name: 截图-再次向上搜索
+  action: noop
+- name: 验证进程运行中
+  action: wait
+  value: '1000'
+teardown:
+- action: session_stop
