@@ -84,8 +84,8 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowTermQStackedWidget
       role: layered pane
+      accessible_id: MainWindowTermQStackedWidget
 - id: suite_V25_2500_测试部专用_B类解耦商店应用_终端_102X_右键菜单_116103_002_s1
   name: 链接右键菜单
   description: ''
@@ -120,7 +120,7 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 - id: suite_V25_2500_测试部专用_B类解耦商店应用_终端_102X_右键菜单_116103_003_s1
   name: 重命名标题对话框
   description: ''
@@ -162,25 +162,25 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: titleBar
+      accessible_id: titleBar
   - step_type: assert
     action: assert_element
     selector:
-      name: content
+      accessible_id: content
   - step_type: assert
     action: assert_element
     selector:
-      name: logoIcon
       role: label
+      accessible_id: logoIcon
   - step_type: assert
     action: assert_element
     selector:
-      name: titleText
       role: label
+      accessible_id: titleText
   - step_type: assert
     action: assert_element
     selector:
-      name: titleText
       role: label
+      accessible_id: titleText
 teardown:
 - action: session_stop

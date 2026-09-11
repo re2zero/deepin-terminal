@@ -17,7 +17,7 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
   - step_type: assert
     action: assert_process_running
     value: deepin-shortcut-viewer

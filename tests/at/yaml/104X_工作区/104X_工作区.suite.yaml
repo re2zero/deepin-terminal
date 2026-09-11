@@ -23,11 +23,11 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowTermQStackedWidget
+      accessible_id: MainWindowTermQStackedWidget
 - id: suite_104X_工作区_002_s1
   name: 标签页消息提醒
   description: ''
@@ -57,11 +57,11 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowTermQStackedWidget
+      accessible_id: MainWindowTermQStackedWidget
 - id: suite_104X_工作区_003_s1
   name: 窗口横向分屏
   description: ''
@@ -79,15 +79,15 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowTermQStackedWidget
+      accessible_id: MainWindowTermQStackedWidget
 - id: suite_104X_工作区_004_s1
   name: 窗口纵向分屏
   description: ''
@@ -105,11 +105,11 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowTermQStackedWidget
+      accessible_id: MainWindowTermQStackedWidget
 - id: suite_104X_工作区_005_s1
   name: 窗口选择
   description: ''
@@ -142,11 +142,11 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowTermQStackedWidget
+      accessible_id: MainWindowTermQStackedWidget
 - id: suite_104X_工作区_006_s1
   name: 滚动条显示
   description: ''
@@ -175,11 +175,11 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowTermQStackedWidget
+      accessible_id: MainWindowTermQStackedWidget
 - id: suite_104X_工作区_007_s1
   name: 窗口标题显示
   description: ''
@@ -190,6 +190,6 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 teardown:
 - action: session_stop

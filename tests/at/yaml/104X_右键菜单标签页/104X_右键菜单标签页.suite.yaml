@@ -26,11 +26,11 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: TabBarCloseTabAction
+      accessible_id: TabBarCloseTabAction
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 - id: suite_104X_右键菜单标签页_002_s1
   name: 右键菜单关闭其它标签页
   description: ''
@@ -54,15 +54,15 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: TabBarCloseOtherTabAction
+      accessible_id: TabBarCloseOtherTabAction
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: TabBarCloseOtherTabAction
+      accessible_id: TabBarCloseOtherTabAction
 - id: suite_104X_右键菜单标签页_003_s1
   name: 标签页右键菜单内容
   description: ''
@@ -79,15 +79,15 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: TabBarCloseTabAction
+      accessible_id: TabBarCloseTabAction
   - step_type: assert
     action: assert_element
     selector:
-      name: TabBarCloseOtherTabAction
+      accessible_id: TabBarCloseOtherTabAction
   - step_type: assert
     action: assert_element
     selector:
-      name: TabTitleRenameAction
+      accessible_id: TabTitleRenameAction
 - id: suite_104X_右键菜单标签页_004_s1
   name: 标签页重命名标题
   description: ''
@@ -111,23 +111,23 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: titleBar
+      accessible_id: titleBar
   - step_type: assert
     action: assert_element
     selector:
-      name: titleText
+      accessible_id: titleText
   - step_type: assert
     action: assert_element
     selector:
-      name: logoIcon
+      accessible_id: logoIcon
   - step_type: assert
     action: assert_element
     selector:
-      name: content
+      accessible_id: content
   - step_type: assert
     action: assert_element
     selector:
-      name: TabTitleRenameAction
+      accessible_id: TabTitleRenameAction
 - id: suite_104X_右键菜单标签页_005_s1
   name: 插入标签标题格式
   description: ''
@@ -163,14 +163,14 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: content
+      accessible_id: content
   - step_type: assert
     action: assert_element
     selector:
-      name: TabTitleRenameAction
+      accessible_id: TabTitleRenameAction
   - step_type: assert
     action: assert_element
     selector:
-      name: titleBar
+      accessible_id: titleBar
 teardown:
 - action: session_stop

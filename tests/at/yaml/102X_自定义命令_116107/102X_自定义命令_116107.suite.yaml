@@ -143,38 +143,38 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomQAction
+      accessible_id: CustomQAction
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomQAction
+      accessible_id: CustomQAction
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomQAction
+      accessible_id: CustomQAction
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomQAction
+      accessible_id: CustomQAction
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomQAction
+      accessible_id: CustomQAction
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 teardown:
 - action: session_stop

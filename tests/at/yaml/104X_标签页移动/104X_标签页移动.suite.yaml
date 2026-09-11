@@ -35,7 +35,7 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 - id: suite_104X_标签页移动_002_s1
   name: 拖动标签页位置
   description: ''
@@ -61,6 +61,6 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 teardown:
 - action: session_stop

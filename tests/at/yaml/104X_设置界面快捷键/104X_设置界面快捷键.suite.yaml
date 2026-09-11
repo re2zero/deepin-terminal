@@ -53,7 +53,7 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
 - id: suite_104X_设置界面快捷键_002_s1
   name: 标签页快捷键-新建与关闭
   description: ''
@@ -98,7 +98,7 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
 - id: suite_104X_设置界面快捷键_003_s1
   name: 工作区快捷键-纵向分屏/选择下面工作区/关闭工作区
   description: ''
@@ -155,7 +155,7 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
 - id: suite_104X_设置界面快捷键_004_s1
   name: 设置界面隐藏显示快捷键功能
   description: ''
@@ -173,7 +173,7 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
 - id: suite_104X_设置界面快捷键_005_s1
   name: 标签页1~9快捷键切换
   description: ''
@@ -254,6 +254,6 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowTermQStackedWidget
+      accessible_id: MainWindowTermQStackedWidget
 teardown:
 - action: session_stop

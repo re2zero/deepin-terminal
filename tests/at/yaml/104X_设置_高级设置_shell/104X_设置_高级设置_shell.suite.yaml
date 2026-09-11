@@ -20,7 +20,7 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
 - id: suite_104X_设置_高级设置_shell_002_s1
   name: 切换下拉列表shell程序
   description: ''
@@ -68,11 +68,11 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowTermQStackedWidget
+      accessible_id: MainWindowTermQStackedWidget
 - id: suite_104X_设置_高级设置_shell_003_s1
   name: 切换shell后终端中基本功能操作
   description: ''
@@ -108,10 +108,10 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowTermQStackedWidget
+      accessible_id: MainWindowTermQStackedWidget
 teardown:
 - action: session_stop

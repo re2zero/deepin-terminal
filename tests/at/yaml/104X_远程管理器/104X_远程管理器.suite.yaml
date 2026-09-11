@@ -48,39 +48,39 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_not_exists
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_not_exists
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteIconLabel
+      accessible_id: RemoteIconLabel
   - step_type: assert
     action: assert_not_exists
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 - id: suite_104X_远程管理器_002_s1
   name: 添加按钮
   description: ''
@@ -95,11 +95,11 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 - id: suite_104X_远程管理器_003_s1
   name: 搜索服务器
   description: ''
@@ -165,27 +165,27 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 - id: suite_104X_远程管理器_004_s1
   name: 服务器分组
   description: ''
@@ -266,27 +266,27 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteIconLabel
+      accessible_id: RemoteIconLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: ItemWidgetFirstLineLabel
+      accessible_id: ItemWidgetFirstLineLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: ItemWidgetSecondLineLabel
+      accessible_id: ItemWidgetSecondLineLabel
 - id: suite_104X_远程管理器_005_s1
   name: 删除服务器
   description: ''
@@ -373,31 +373,31 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: ItemWidgetFirstLineLabel
+      accessible_id: ItemWidgetFirstLineLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteIconLabel
+      accessible_id: RemoteIconLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
 - id: suite_104X_远程管理器_006_s1
   name: 编辑服务器
   description: ''
@@ -520,23 +520,23 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteIconLabel
+      accessible_id: RemoteIconLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: ItemWidgetFirstLineLabel
+      accessible_id: ItemWidgetFirstLineLabel
 - id: suite_104X_远程管理器_007_s1
   name: 必填项
   description: ''
@@ -719,39 +719,39 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteIconLabel
+      accessible_id: RemoteIconLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_not_exists
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
 - id: suite_104X_远程管理器_008_s1
   name: 服务器名称
   description: ''
@@ -838,51 +838,51 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteIconLabel
+      accessible_id: RemoteIconLabel
   - step_type: assert
     action: assert_not_exists
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_not_exists
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
 - id: suite_104X_远程管理器_009_s1
   name: 命令
   description: ''
@@ -957,39 +957,39 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteIconLabel
+      accessible_id: RemoteIconLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_not_exists
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
 - id: suite_104X_远程管理器_010_s1
   name: 路径
   description: ''
@@ -1067,43 +1067,43 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteIconLabel
+      accessible_id: RemoteIconLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_not_exists
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
 - id: suite_104X_远程管理器_011_s1
   name: 分组
   description: ''
@@ -1178,43 +1178,43 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteIconLabel
+      accessible_id: RemoteIconLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_not_exists
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
 - id: suite_104X_远程管理器_012_s1
   name: 用户名密码
   description: ''
@@ -1286,51 +1286,51 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteIconLabel
+      accessible_id: RemoteIconLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_not_exists
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
 - id: suite_104X_远程管理器_013_s1
   name: 地址和端口
   description: ''
@@ -1396,51 +1396,51 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteIconLabel
+      accessible_id: RemoteIconLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_not_exists
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
 - id: suite_104X_远程管理器_015_s1
   name: 删除键
   description: ''
@@ -1512,31 +1512,31 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteIconLabel
+      accessible_id: RemoteIconLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_not_exists
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
 - id: suite_104X_远程管理器_016_s1
   name: 退格键
   description: ''
@@ -1605,31 +1605,31 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteIconLabel
+      accessible_id: RemoteIconLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_not_exists
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
 - id: suite_104X_远程管理器_017_s1
   name: 编码
   description: ''
@@ -1695,31 +1695,31 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteIconLabel
+      accessible_id: RemoteIconLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_not_exists
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
 - id: suite_104X_远程管理器_018_s1
   name: 远程管理面板自动隐藏
   description: ''
@@ -1740,15 +1740,15 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_not_exists
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 - id: suite_104X_远程管理器_019_s1
   name: 插入不同类型远程标签标题功能
   description: ''
@@ -1778,18 +1778,18 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_not_exists
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 teardown:
 - action: session_stop

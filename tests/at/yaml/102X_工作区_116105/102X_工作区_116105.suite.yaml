@@ -41,11 +41,11 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowTermQStackedWidget
+      accessible_id: MainWindowTermQStackedWidget
 - id: suite_102X_工作区_116105_002_s1
   name: 删除工作区
   description: ''
@@ -69,11 +69,11 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowTermQStackedWidget
+      accessible_id: MainWindowTermQStackedWidget
 - id: suite_102X_工作区_116105_003_s1
   name: 窗口删除
   description: ''
@@ -106,14 +106,14 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowTermQStackedWidget
+      accessible_id: MainWindowTermQStackedWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 teardown:
 - action: session_stop

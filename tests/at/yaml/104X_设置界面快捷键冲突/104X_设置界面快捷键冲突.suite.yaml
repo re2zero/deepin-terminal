@@ -29,6 +29,6 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: ServiceSettingShortcutConflictDialog
+      accessible_id: ServiceSettingShortcutConflictDialog
 teardown:
 - action: session_stop

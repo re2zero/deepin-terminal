@@ -69,23 +69,23 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowTermQStackedWidget
+      accessible_id: MainWindowTermQStackedWidget
 - id: suite_104X_自定义命令_002_s1
   name: 添加自定义命令-名称输入
   description: ''
@@ -154,47 +154,47 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomTitleBar
+      accessible_id: CustomTitleBar
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomLogoIcon
+      accessible_id: CustomLogoIcon
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomTitleTextLabel
+      accessible_id: CustomTitleTextLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomContentWidget
+      accessible_id: CustomContentWidget
   - step_type: assert
     action: assert_not_exists
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomContentWidget
+      accessible_id: CustomContentWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomContentWidget
+      accessible_id: CustomContentWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomContentWidget
+      accessible_id: CustomContentWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 - id: suite_104X_自定义命令_003_s1
   name: 添加自定义命令-命令输入
   description: ''
@@ -257,31 +257,31 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_not_exists
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomContentWidget
+      accessible_id: CustomContentWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomContentWidget
+      accessible_id: CustomContentWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomContentWidget
+      accessible_id: CustomContentWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomContentWidget
+      accessible_id: CustomContentWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 - id: suite_104X_自定义命令_004_s1
   name: 添加自定义命令-快捷键输入
   description: ''
@@ -347,31 +347,31 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_not_exists
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomContentWidget
+      accessible_id: CustomContentWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomContentWidget
+      accessible_id: CustomContentWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomContentWidget
+      accessible_id: CustomContentWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomShortcutConflictDialog
+      accessible_id: CustomShortcutConflictDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 - id: suite_104X_自定义命令_005_s1
   name: 添加约束
   description: ''
@@ -464,23 +464,23 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomQAction
+      accessible_id: CustomQAction
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 - id: suite_104X_自定义命令_006_s1
   name: 自动粘贴
   description: ''
@@ -528,19 +528,19 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomQAction
+      accessible_id: CustomQAction
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 - id: suite_104X_自定义命令_007_s1
   name: 搜索自定义命令
   description: ''
@@ -696,39 +696,39 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomQAction
+      accessible_id: CustomQAction
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomQAction
+      accessible_id: CustomQAction
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 - id: suite_104X_自定义命令_008_s1
   name: 编辑自定义命令
   description: ''
@@ -878,51 +878,51 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomQAction
+      accessible_id: CustomQAction
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomQAction
+      accessible_id: CustomQAction
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomQAction
+      accessible_id: CustomQAction
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomQAction
+      accessible_id: CustomQAction
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomQAction
+      accessible_id: CustomQAction
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomQAction
+      accessible_id: CustomQAction
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 - id: suite_104X_自定义命令_009_s1
   name: 删除自定义命令
   description: ''
@@ -1012,35 +1012,35 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomQAction
+      accessible_id: CustomQAction
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomQAction
+      accessible_id: CustomQAction
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_not_exists
     selector:
-      name: CustomQAction
+      accessible_id: CustomQAction
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 - id: suite_104X_自定义命令_010_s1
   name: 运行自定义命令（未安装软件）
   description: ''
@@ -1091,18 +1091,18 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomQAction
+      accessible_id: CustomQAction
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
   - step_type: assert
     action: assert_ocr_exists
     text: sayonara
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
   - step_type: assert
     action: assert_ocr_exists
     text: sayonara

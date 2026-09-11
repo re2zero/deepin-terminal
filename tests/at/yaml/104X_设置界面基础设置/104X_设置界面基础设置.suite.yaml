@@ -41,19 +41,19 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
 - id: suite_104X_设置界面基础设置_002_s1
   name: 透明度
   description: ''
@@ -77,15 +77,15 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_file_exists
     path: ~/.config/deepin/deepin-terminal/config.conf
@@ -133,22 +133,22 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
 teardown:
 - action: session_stop

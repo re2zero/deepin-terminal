@@ -56,22 +56,22 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_file_exists
     path: ~/.config/deepin/deepin-terminal/config.conf
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 - id: suite_104X_设置界面高级设置_002_s1
   name: 滚动设置（按键时滚动/输出时滚动）
   description: ''
@@ -137,18 +137,18 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_file_exists
     path: ~/.config/deepin/deepin-terminal/config.conf
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 - id: suite_104X_设置界面高级设置_003_s1
   name: 窗口设置（背景模糊/启动时使用/丢失焦点隐藏雷神窗口）
   description: ''
@@ -223,31 +223,31 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowTermQStackedWidget
+      accessible_id: MainWindowTermQStackedWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowTermQStackedWidget
+      accessible_id: MainWindowTermQStackedWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 - id: suite_104X_设置界面高级设置_004_s1
   name: 恢复默认设置
   description: ''
@@ -298,22 +298,22 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_file_exists
     path: ~/.config/deepin/deepin-terminal/config.conf
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 - id: suite_104X_设置界面高级设置_005_s1
   name: Ctrl+S/Ctrl+Q流控制（普通/分屏/多窗口多工作区）
   description: ''
@@ -436,23 +436,23 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowTermQStackedWidget
+      accessible_id: MainWindowTermQStackedWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 - id: suite_104X_设置界面高级设置_006_s1
   name: 选中文字自动复制到剪贴板
   description: ''
@@ -534,22 +534,22 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 teardown:
 - action: session_stop

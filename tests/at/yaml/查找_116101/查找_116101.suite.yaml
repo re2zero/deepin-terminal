@@ -22,7 +22,7 @@ suites:
   - step_type: action
     action: element_action
     selector:
-      name: Search
+      accessible_id: PageSearchBarSearchEdit
     do: click
   - step_type: action
     action: keyboard_type
@@ -39,12 +39,12 @@ suites:
   - step_type: action
     action: element_action
     selector:
-      name: FindNext
+      accessible_id: PageSearchBarFindNextDIconButton
     do: click
   - step_type: action
     action: element_action
     selector:
-      name: FindPrevious
+      accessible_id: PageSearchBarFindPrevDIconButton
     do: click
   - step_type: action
     action: keyboard_hot_key
@@ -67,43 +67,43 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: Search
+      accessible_id: PageSearchBarSearchEdit
   - step_type: assert
     action: assert_element
     selector:
-      name: FindNext
+      accessible_id: PageSearchBarFindNextDIconButton
   - step_type: assert
     action: assert_element
     selector:
-      name: FindPrevious
+      accessible_id: PageSearchBarFindPrevDIconButton
   - step_type: assert
     action: assert_element
     selector:
-      name: Search
+      accessible_id: PageSearchBarSearchEdit
   - step_type: assert
     action: assert_element
     selector:
-      name: Search
+      accessible_id: PageSearchBarSearchEdit
   - step_type: assert
     action: assert_element
     selector:
-      name: FindNext
+      accessible_id: PageSearchBarFindNextDIconButton
   - step_type: assert
     action: assert_element
     selector:
-      name: FindPrevious
+      accessible_id: PageSearchBarFindPrevDIconButton
   - step_type: assert
     action: assert_element
     selector:
-      name: Search
+      accessible_id: PageSearchBarSearchEdit
   - step_type: assert
     action: assert_element
     selector:
-      name: Search
+      accessible_id: PageSearchBarSearchEdit
   - step_type: assert
     action: assert_element
     selector:
-      name: Search
+      accessible_id: PageSearchBarSearchEdit
 - id: suite_查找_116101_002_s1
   name: 分屏操作与分屏后查找显示
   description: ''
@@ -127,10 +127,10 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: Search
+      accessible_id: PageSearchBarSearchEdit
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 teardown:
 - action: session_stop

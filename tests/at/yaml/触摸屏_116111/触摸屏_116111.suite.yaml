@@ -120,23 +120,23 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowTermQStackedWidget
+      accessible_id: MainWindowTermQStackedWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 - id: suite_触摸屏_116111_002_s1
   name: 触摸屏标签页右键菜单
   description: ''
@@ -163,15 +163,15 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowTermQStackedWidget
+      accessible_id: MainWindowTermQStackedWidget
 - id: suite_触摸屏_116111_003_s1
   name: 触摸屏长按右键再抬起
   description: ''
@@ -189,11 +189,11 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: Search
+      accessible_id: PageSearchBarSearchEdit
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 - id: suite_触摸屏_116111_004_s1
   name: 触摸屏分屏功能
   description: ''
@@ -226,19 +226,19 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowTermQStackedWidget
+      accessible_id: MainWindowTermQStackedWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 - id: suite_触摸屏_116111_005_s1
   name: 触摸屏查找功能
   description: ''
@@ -252,7 +252,7 @@ suites:
   - step_type: action
     action: element_action
     selector:
-      name: Search
+      accessible_id: PageSearchBarSearchEdit
     do: click
   - step_type: action
     action: keyboard_type
@@ -260,26 +260,26 @@ suites:
   - step_type: action
     action: element_action
     selector:
-      name: FindNext
+      accessible_id: PageSearchBarFindNextDIconButton
     do: click
   - step_type: action
     action: element_action
     selector:
-      name: FindPrevious
+      accessible_id: PageSearchBarFindPrevDIconButton
     do: click
   assert_steps:
   - step_type: assert
     action: assert_element
     selector:
-      name: Search
+      accessible_id: PageSearchBarSearchEdit
   - step_type: assert
     action: assert_element
     selector:
-      name: FindNext
+      accessible_id: PageSearchBarFindNextDIconButton
   - step_type: assert
     action: assert_element
     selector:
-      name: FindPrevious
+      accessible_id: PageSearchBarFindPrevDIconButton
 - id: suite_触摸屏_116111_006_s1
   name: 触摸屏重命名功能
   description: ''
@@ -312,31 +312,31 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: titleBar
+      accessible_id: titleBar
   - step_type: assert
     action: assert_element
     selector:
-      name: logoIcon
+      accessible_id: logoIcon
   - step_type: assert
     action: assert_element
     selector:
-      name: titleText
+      accessible_id: titleText
   - step_type: assert
     action: assert_element
     selector:
-      name: content
+      accessible_id: content
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: titleBar
+      accessible_id: titleBar
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 - id: suite_触摸屏_116111_007_s1
   name: 触摸屏自定义命令（添加/编辑/删除）
   description: ''
@@ -429,39 +429,39 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomQAction
+      accessible_id: CustomQAction
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomQAction
+      accessible_id: CustomQAction
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomQAction
+      accessible_id: CustomQAction
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 - id: suite_触摸屏_116111_008_s1
   name: 触摸屏远程管理服务器（添加/编辑/删除）
   description: ''
@@ -560,46 +560,46 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteIconLabel
+      accessible_id: RemoteIconLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteIconLabel
+      accessible_id: RemoteIconLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 teardown:
 - action: session_stop

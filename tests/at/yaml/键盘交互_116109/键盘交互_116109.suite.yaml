@@ -120,11 +120,11 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowTermQStackedWidget
+      accessible_id: MainWindowTermQStackedWidget
 - id: suite_键盘交互_116109_002_s1
   name: 主菜单键盘导航（主菜单/右键菜单打开插件）
   description: ''
@@ -242,7 +242,7 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 - id: suite_键盘交互_116109_003_s1
   name: 设置键盘导航-基础控件（Tab顺序/透明度/字体/字体大小/快捷键/光标）
   description: ''
@@ -362,11 +362,11 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 - id: suite_键盘交互_116109_004_s1
   name: 设置键盘导航-复选框与下拉框（光标闪烁/自动复制/滚动/启动时使用/背景模糊/雷神）
   description: ''
@@ -447,11 +447,11 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: SettingDialog
+      accessible_id: SettingDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 - id: suite_键盘交互_116109_005_s1
   name: 自定义命令键盘（列表导航/搜索/添加/编辑/删除）
   description: ''
@@ -610,27 +610,27 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: CustomAddCommandDialog
+      accessible_id: CustomAddCommandDialog
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 - id: suite_键盘交互_116109_006_s1
   name: 远程管理键盘-列表与搜索（服务器列表/分组/搜索）
   description: ''
@@ -756,15 +756,15 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 - id: suite_键盘交互_116109_007_s1
   name: 远程管理键盘-服务器配置弹框（添加/编辑/删除服务器、编码退格删除键）
   description: ''
@@ -914,27 +914,27 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteIconLabel
+      accessible_id: RemoteIconLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: RemoteTitleLabel
+      accessible_id: RemoteTitleLabel
   - step_type: assert
     action: assert_element
     selector:
-      name: ListViewMainWidget
+      accessible_id: ListViewMainWidget
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 - id: suite_键盘交互_116109_008_s1
   name: 查找与编码键盘（查找框/编码插件/多窗口）
   description: ''
@@ -1000,22 +1000,22 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: Search
+      accessible_id: PageSearchBarSearchEdit
   - step_type: assert
     action: assert_element
     selector:
-      name: FindPrevious
+      accessible_id: PageSearchBarFindPrevDIconButton
   - step_type: assert
     action: assert_element
     selector:
-      name: FindNext
+      accessible_id: PageSearchBarFindNextDIconButton
   - step_type: assert
     action: assert_element
     selector:
-      name: Search
+      accessible_id: PageSearchBarSearchEdit
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 teardown:
 - action: session_stop

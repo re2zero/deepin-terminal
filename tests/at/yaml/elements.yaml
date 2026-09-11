@@ -2,54 +2,54 @@ elements:
   TermWidgetPage:
     name: TermWidgetPage
   MainWindowTermQStackedWidget:
-    name: MainWindowTermQStackedWidget
+    accessible_id: MainWindowTermQStackedWidget
   MainWindowCentralQWidget:
-    name: MainWindowCentralQWidget
+    accessible_id: MainWindowCentralQWidget
   titleBar:
-    name: titleBar
+    accessible_id: titleBar
   content:
-    name: content
+    accessible_id: content
   logoIcon:
-    name: logoIcon
+    accessible_id: logoIcon
   titleText:
-    name: titleText
+    accessible_id: titleText
   Search:
-    name: Search
+    accessible_id: PageSearchBarSearchEdit
   FindNext:
-    name: FindNext
+    accessible_id: PageSearchBarFindNextDIconButton
   FindPrevious:
-    name: FindPrevious
+    accessible_id: PageSearchBarFindPrevDIconButton
   CustomAddCommandDialog:
-    name: CustomAddCommandDialog
+    accessible_id: CustomAddCommandDialog
   CustomQAction:
-    name: CustomQAction
+    accessible_id: CustomQAction
   SettingDialog:
-    name: SettingDialog
+    accessible_id: SettingDialog
   ListViewMainWidget:
-    name: ListViewMainWidget
+    accessible_id: ListViewMainWidget
   RemoteTitleLabel:
-    name: RemoteTitleLabel
+    accessible_id: RemoteTitleLabel
   RemoteIconLabel:
-    name: RemoteIconLabel
+    accessible_id: RemoteIconLabel
   TabBarCloseTabAction:
-    name: TabBarCloseTabAction
+    accessible_id: TabBarCloseTabAction
   TabBarCloseOtherTabAction:
-    name: TabBarCloseOtherTabAction
+    accessible_id: TabBarCloseOtherTabAction
   TabTitleRenameAction:
-    name: TabTitleRenameAction
+    accessible_id: TabTitleRenameAction
   CustomTitleBar:
-    name: CustomTitleBar
+    accessible_id: CustomTitleBar
   CustomLogoIcon:
-    name: CustomLogoIcon
+    accessible_id: CustomLogoIcon
   CustomTitleTextLabel:
-    name: CustomTitleTextLabel
+    accessible_id: CustomTitleTextLabel
   CustomContentWidget:
-    name: CustomContentWidget
+    accessible_id: CustomContentWidget
   CustomShortcutConflictDialog:
-    name: CustomShortcutConflictDialog
+    accessible_id: CustomShortcutConflictDialog
   ItemWidgetFirstLineLabel:
-    name: ItemWidgetFirstLineLabel
+    accessible_id: ItemWidgetFirstLineLabel
   ItemWidgetSecondLineLabel:
-    name: ItemWidgetSecondLineLabel
+    accessible_id: ItemWidgetSecondLineLabel
   ServiceSettingShortcutConflictDialog:
-    name: ServiceSettingShortcutConflictDialog
+    accessible_id: ServiceSettingShortcutConflictDialog

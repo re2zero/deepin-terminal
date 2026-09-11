@@ -33,7 +33,7 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 - id: suite_104X_主题_自定义主题_002_s1
   name: 自定义主题前景色设置
   description: ''
@@ -113,7 +113,7 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 - id: suite_104X_主题_自定义主题_006_s1
   name: 自定义主题前景色背景色提示符组合设置
   description: ''
@@ -217,7 +217,7 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 - id: suite_104X_主题_自定义主题_007_s1
   name: 设置自定义主题后新建窗口标签页分屏
   description: ''
@@ -305,6 +305,6 @@ suites:
   - step_type: assert
     action: assert_element
     selector:
-      name: MainWindowCentralQWidget
+      accessible_id: MainWindowCentralQWidget
 teardown:
 - action: session_stop
