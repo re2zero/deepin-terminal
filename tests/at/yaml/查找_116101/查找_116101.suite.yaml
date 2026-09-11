@@ -1,0 +1,136 @@
+name: 查找_116101_suite
+app: deepin-terminal
+module: 查找_116101
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 3.0
+suites:
+- id: suite_查找_116101_001_s1
+  name: 查找功能-搜索框显示、输入、搜索过程与隐藏
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 查找
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+alt+f
+  - step_type: action
+    action: element_action
+    selector:
+      name: Search
+    do: click
+  - step_type: action
+    action: keyboard_type
+    text: 123ASsdh周圣》?:%$%^&
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: AAAAABBBBBCCCCCDDDDDEEEEE1111122222333334444455555
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: element_action
+    selector:
+      name: FindNext
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      name: FindPrevious
+    do: click
+  - step_type: action
+    action: keyboard_hot_key
+    key: shift+enter
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Escape
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+alt+f
+  - step_type: action
+    action: element_action
+    selector:
+      name: TermWidgetPage
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: Search
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: FindNext
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: FindPrevious
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: Search
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: Search
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: FindNext
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: FindPrevious
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: Search
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: Search
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: Search
+- id: suite_查找_116101_002_s1
+  name: 分屏操作与分屏后查找显示
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 纵向分屏
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 横向分屏
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+alt+f
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: Search
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+teardown:
+- action: session_stop

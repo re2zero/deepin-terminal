@@ -1,0 +1,33 @@
+name: 104X_自动换行_suite
+app: deepin-terminal
+module: 104X_自动换行
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 3.0
+suites:
+- id: suite_104X_自动换行_001_s1
+  name: 终端界面内容自动换行显示
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_type
+    text: ss
+  - step_type: action
+    action: keyboard_press
+    key: Return
+  - step_type: action
+    action: keyboard_hot_key
+    key: super+up
+  - step_type: action
+    action: keyboard_press
+    key: Shift
+  - step_type: action
+    action: mouse_drag
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+teardown:
+- action: session_stop

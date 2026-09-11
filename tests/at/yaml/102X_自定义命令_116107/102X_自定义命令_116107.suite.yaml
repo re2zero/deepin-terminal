@@ -1,0 +1,180 @@
+name: 102X_自定义命令_116107_suite
+app: deepin-terminal
+module: 102X_自定义命令_116107
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 3.0
+suites:
+- id: suite_102X_自定义命令_116107_001_s1
+  name: 自定义命令列表-添加/编辑/滚动/新建定位
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 自定义命令
+  - step_type: action
+    action: keyboard_press
+    key: Shift
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Right
+  - step_type: action
+    action: keyboard_press
+    key: Up
+  - step_type: action
+    action: keyboard_press
+    key: Down
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_type
+    text: cmd1
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: echo 1
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Right
+  - step_type: action
+    action: keyboard_press
+    key: Up
+  - step_type: action
+    action: keyboard_press
+    key: Down
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_type
+    text: cmd2
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: echo 2
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Right
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_type
+    text: cmd1_edit
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Up
+  - step_type: action
+    action: keyboard_press
+    key: Down
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Right
+  - step_type: action
+    action: keyboard_press
+    key: Up
+  - step_type: action
+    action: keyboard_press
+    key: Down
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_type
+    text: cmd3
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: echo 3
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomAddCommandDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomQAction
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomAddCommandDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomQAction
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomQAction
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomQAction
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomAddCommandDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomQAction
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+teardown:
+- action: session_stop

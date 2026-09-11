@@ -1,0 +1,22 @@
+name: 104X_启动终端_suite
+app: deepin-terminal
+module: 104X_启动终端
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 3.0
+suites:
+- id: suite_104X_启动终端_001_s1
+  name: 快捷键启动终端
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_press
+    key: Shift
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+teardown:
+- action: session_stop

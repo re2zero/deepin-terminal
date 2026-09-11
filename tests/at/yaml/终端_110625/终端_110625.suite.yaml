@@ -1,0 +1,22 @@
+name: 终端_110625_suite
+app: deepin-terminal
+module: 终端_110625
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 3.0
+suites:
+- id: suite_终端_110625_001_s1
+  name: 终端日志配置文件查看
+  description: ''
+  steps: []
+  assert_steps:
+  - step_type: assert
+    action: assert_file_exists
+    path: /usr/share/deepin-log-viewer/deepin-log.conf.d/deepin-terminal.json
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+teardown:
+- action: session_stop

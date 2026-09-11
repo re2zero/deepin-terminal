@@ -1,0 +1,186 @@
+name: V25_2500_测试部专用_B类解耦商店应用_终端_102X_右键菜单_116103_suite
+app: deepin-terminal
+module: V25_2500_测试部专用_B类解耦商店应用_终端_102X_右键菜单_116103
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 3.0
+suites:
+- id: suite_V25_2500_测试部专用_B类解耦商店应用_终端_102X_右键菜单_116103_001_s1
+  name: 右键菜单项显示与分隔线
+  description: ''
+  steps:
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: TermWidgetPage
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 横向分屏
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: TermWidgetPage
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 关闭其他工作区
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: TermWidgetPage
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 新建标签页
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: TermWidgetPage
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 全屏
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: TermWidgetPage
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 查找
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: TermWidgetPage
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 远程管理
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: TermWidgetPage
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 设置
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowTermQStackedWidget
+      role: layered pane
+- id: suite_V25_2500_测试部专用_B类解耦商店应用_终端_102X_右键菜单_116103_002_s1
+  name: 链接右键菜单
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_type
+    text: echo https://www.deepin.org
+  - step_type: action
+    action: keyboard_press
+    key: enter
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: TermWidgetPage
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 打开链接
+  - step_type: action
+    action: mouse_right_click
+    selector:
+      name: TermWidgetPage
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 复制链接
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+- id: suite_V25_2500_测试部专用_B类解耦商店应用_终端_102X_右键菜单_116103_003_s1
+  name: 重命名标题对话框
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: f2
+  - step_type: action
+    action: keyboard_press
+    key: Shift
+  - step_type: action
+    action: keyboard_press
+    key: escape
+  - step_type: action
+    action: keyboard_hot_key
+    key: f2
+  - step_type: action
+    action: keyboard_press
+    key: Shift
+  - step_type: action
+    action: keyboard_type
+    text: test_rename_title_123
+  - step_type: action
+    action: keyboard_press
+    key: enter
+  - step_type: action
+    action: keyboard_hot_key
+    key: f2
+  - step_type: action
+    action: keyboard_press
+    key: Shift
+  - step_type: action
+    action: keyboard_type
+    text: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+  - step_type: action
+    action: keyboard_press
+    key: enter
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: titleBar
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: content
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: logoIcon
+      role: label
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: titleText
+      role: label
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: titleText
+      role: label
+teardown:
+- action: session_stop

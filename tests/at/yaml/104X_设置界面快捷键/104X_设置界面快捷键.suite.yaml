@@ -1,0 +1,259 @@
+name: 104X_设置界面快捷键_suite
+app: deepin-terminal
+module: 104X_设置界面快捷键
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 3.0
+suites:
+- id: suite_104X_设置界面快捷键_001_s1
+  name: 终端快捷键-粘贴与全选修改
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_type
+    text: test_paste_123
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 设置
+  - step_type: action
+    action: keyboard_press
+    key: Shift
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+v
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+e
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+e
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+v
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+a
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+a
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+a
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+a
+  assert_steps:
+  - step_type: assert
+    action: assert_file_exists
+    path: ~/.config/deepin/deepin-terminal/config.conf
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: SettingDialog
+- id: suite_104X_设置界面快捷键_002_s1
+  name: 标签页快捷键-新建与关闭
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 设置
+  - step_type: action
+    action: keyboard_press
+    key: Shift
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+t
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+t
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+t
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+t
+  - step_type: action
+    action: keyboard_hot_key
+    key: alt+w
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+w
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+w
+  - step_type: action
+    action: keyboard_hot_key
+    key: alt+w
+  assert_steps:
+  - step_type: assert
+    action: assert_file_exists
+    path: ~/.config/deepin/deepin-terminal/config.conf
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: SettingDialog
+- id: suite_104X_设置界面快捷键_003_s1
+  name: 工作区快捷键-纵向分屏/选择下面工作区/关闭工作区
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 设置
+  - step_type: action
+    action: keyboard_press
+    key: Shift
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+j
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+m
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+m
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+j
+  - step_type: action
+    action: keyboard_hot_key
+    key: alt+down
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+j
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+j
+  - step_type: action
+    action: keyboard_hot_key
+    key: alt+down
+  - step_type: action
+    action: keyboard_hot_key
+    key: alt+q
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+w
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+w
+  - step_type: action
+    action: keyboard_hot_key
+    key: alt+q
+  assert_steps:
+  - step_type: assert
+    action: assert_file_exists
+    path: ~/.config/deepin/deepin-terminal/config.conf
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: SettingDialog
+- id: suite_104X_设置界面快捷键_004_s1
+  name: 设置界面隐藏显示快捷键功能
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 设置
+  - step_type: action
+    action: keyboard_press
+    key: Shift
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: SettingDialog
+- id: suite_104X_设置界面快捷键_005_s1
+  name: 标签页1~9快捷键切换
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 设置
+  - step_type: action
+    action: keyboard_press
+    key: Shift
+  - step_type: action
+    action: keyboard_press
+    key: escape
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+t
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+t
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+t
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+t
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+t
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+t
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+t
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+t
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+1
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+2
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+3
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+4
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+5
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+6
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+7
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+8
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+9
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+t
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+t
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+9
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowTermQStackedWidget
+teardown:
+- action: session_stop

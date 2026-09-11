@@ -1,0 +1,176 @@
+name: 104X_右键菜单标签页_suite
+app: deepin-terminal
+module: 104X_右键菜单标签页
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 3.0
+suites:
+- id: suite_104X_右键菜单标签页_001_s1
+  name: 右键菜单关闭标签页
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+Shift+T
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+Shift+T
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 关闭标签页
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: TabBarCloseTabAction
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+- id: suite_104X_右键菜单标签页_002_s1
+  name: 右键菜单关闭其它标签页
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+Shift+T
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 关闭其他标签页
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 关闭其他标签页
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: TabBarCloseOtherTabAction
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: TabBarCloseOtherTabAction
+- id: suite_104X_右键菜单标签页_003_s1
+  name: 标签页右键菜单内容
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 关闭标签页
+    - 关闭其他标签页
+    - 重命名标题
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: TabBarCloseTabAction
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: TabBarCloseOtherTabAction
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: TabTitleRenameAction
+- id: suite_104X_右键菜单标签页_004_s1
+  name: 标签页重命名标题
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+Shift+T
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 重命名标题
+  - step_type: action
+    action: keyboard_type
+    text: test_tab_title_001
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: titleBar
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: titleText
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: logoIcon
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: content
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: TabTitleRenameAction
+- id: suite_104X_右键菜单标签页_005_s1
+  name: 插入标签标题格式
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+Shift+T
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 重命名标题
+  - step_type: action
+    action: keyboard_type
+    text: '%n'
+  - step_type: action
+    action: keyboard_type
+    text: '%d'
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 重命名标题
+  - step_type: action
+    action: keyboard_press
+    key: Escape
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: content
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: TabTitleRenameAction
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: titleBar
+teardown:
+- action: session_stop

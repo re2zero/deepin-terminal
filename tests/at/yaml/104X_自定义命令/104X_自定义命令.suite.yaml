@@ -1,0 +1,1110 @@
+name: 104X_自定义命令_suite
+app: deepin-terminal
+module: 104X_自定义命令
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 3.0
+suites:
+- id: suite_104X_自定义命令_001_s1
+  name: 开启与隐藏自定义命令模块
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 自定义命令
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Escape
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 自定义命令
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Escape
+  - step_type: action
+    action: keyboard_hot_key
+    key: Alt+Ins
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Escape
+  - step_type: action
+    action: mouse_click
+    x: 960
+    y: 400
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomAddCommandDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomAddCommandDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomAddCommandDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowTermQStackedWidget
+- id: suite_104X_自定义命令_002_s1
+  name: 添加自定义命令-名称输入
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 自定义命令
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Escape
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_type
+    text: test_name_001
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: 012345678901234567890123456789012345
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: test*&!@#￥
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: 混合test123*&
+  - step_type: action
+    action: keyboard_press
+    key: Escape
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomAddCommandDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomTitleBar
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomLogoIcon
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomTitleTextLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomContentWidget
+  - step_type: assert
+    action: assert_not_exists
+    selector:
+      name: CustomAddCommandDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomContentWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomAddCommandDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomContentWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomContentWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+- id: suite_104X_自定义命令_003_s1
+  name: 添加自定义命令-命令输入
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 自定义命令
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Escape
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: test_command_001
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: 012345678901234567890123456789012345
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: test!!@#￥%&
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: 混合cmd123*&
+  - step_type: action
+    action: keyboard_press
+    key: Escape
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomAddCommandDialog
+  - step_type: assert
+    action: assert_not_exists
+    selector:
+      name: CustomAddCommandDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomContentWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomContentWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomContentWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomContentWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+- id: suite_104X_自定义命令_004_s1
+  name: 添加自定义命令-快捷键输入
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 自定义命令
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Escape
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_type
+    text: test_shortcut
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: echo test
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: a
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+Shift+A
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+Alt+B
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Escape
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomAddCommandDialog
+  - step_type: assert
+    action: assert_not_exists
+    selector:
+      name: CustomAddCommandDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomContentWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomContentWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomContentWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomShortcutConflictDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+- id: suite_104X_自定义命令_005_s1
+  name: 添加约束
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 自定义命令
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: echo test
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+Shift+C
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Escape
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_type
+    text: test_name
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+Shift+C
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Escape
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_type
+    text: test_name
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: echo test
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomAddCommandDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomAddCommandDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomAddCommandDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomQAction
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+- id: suite_104X_自定义命令_006_s1
+  name: 自动粘贴
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_type
+    text: deepin-music
+  - step_type: action
+    action: keyboard_hot_key
+    key: Shift+Home
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 自定义命令
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_type
+    text: test_music
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Right
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Escape
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomAddCommandDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomQAction
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomAddCommandDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+- id: suite_104X_自定义命令_007_s1
+  name: 搜索自定义命令
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 自定义命令
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_type
+    text: test_name
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: echo hello
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+Shift+A
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_type
+    text: music
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: deepin-music
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+Shift+B
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_type
+    text: test
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: deepin
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: Ctrl+Shift+A
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: M
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: m
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomQAction
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomQAction
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+- id: suite_104X_自定义命令_008_s1
+  name: 编辑自定义命令
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 自定义命令
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_type
+    text: edit_test
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: echo original
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+Shift+E
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Right
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: edited_name
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Right
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_type
+    text: pasted_name
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+V
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Right
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: echo edited
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Right
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: echo pasted
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+V
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Right
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+Shift+F
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomQAction
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomAddCommandDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomQAction
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomAddCommandDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomQAction
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomAddCommandDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomQAction
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomAddCommandDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomQAction
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomAddCommandDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomQAction
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+- id: suite_104X_自定义命令_009_s1
+  name: 删除自定义命令
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 自定义命令
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_type
+    text: del_test
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: echo del
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+Shift+D
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Right
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Escape
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Right
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomQAction
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomAddCommandDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomAddCommandDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomQAction
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomAddCommandDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomAddCommandDialog
+  - step_type: assert
+    action: assert_not_exists
+    selector:
+      name: CustomQAction
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+- id: suite_104X_自定义命令_010_s1
+  name: 运行自定义命令（未安装软件）
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 自定义命令
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_type
+    text: 测试
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: sayonara
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+Shift+P
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+Shift+P
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomQAction
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_ocr_exists
+    text: sayonara
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_ocr_exists
+    text: sayonara
+teardown:
+- action: session_stop

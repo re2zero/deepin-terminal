@@ -1,0 +1,1795 @@
+name: 104X_远程管理器_suite
+app: deepin-terminal
+module: 104X_远程管理器
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 3.0
+suites:
+- id: suite_104X_远程管理器_001_s1
+  name: 服务器窗口
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 远程管理
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 远程管理
+  - step_type: action
+    action: mouse_click
+    x: 960
+    y: 400
+  - step_type: action
+    action: keyboard_hot_key
+    key: Alt+Del
+  - step_type: action
+    action: keyboard_hot_key
+    key: Alt+Del
+  - step_type: action
+    action: keyboard_hot_key
+    key: Alt+Del
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Escape
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+  - step_type: assert
+    action: assert_not_exists
+    selector:
+      name: ListViewMainWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+  - step_type: assert
+    action: assert_not_exists
+    selector:
+      name: ListViewMainWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteIconLabel
+  - step_type: assert
+    action: assert_not_exists
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+- id: suite_104X_远程管理器_002_s1
+  name: 添加按钮
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 远程管理
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+- id: suite_104X_远程管理器_003_s1
+  name: 搜索服务器
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 远程管理
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: 特殊字符
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_press
+    key: Delete
+  - step_type: action
+    action: keyboard_type
+    text: server
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_press
+    key: Delete
+  - step_type: action
+    action: keyboard_type
+    text: 192.168.1.1
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_press
+    key: Delete
+  - step_type: action
+    action: keyboard_type
+    text: group
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_press
+    key: Delete
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+- id: suite_104X_远程管理器_004_s1
+  name: 服务器分组
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 远程管理
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_type
+    text: server_new_group
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: 192.168.1.10
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: user
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: new_group
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteIconLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ItemWidgetFirstLineLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ItemWidgetSecondLineLabel
+- id: suite_104X_远程管理器_005_s1
+  name: 删除服务器
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 远程管理
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Escape
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Escape
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ItemWidgetFirstLineLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteIconLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+- id: suite_104X_远程管理器_006_s1
+  name: 编辑服务器
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 远程管理
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_type
+    text: edited_server
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: 192.168.1.20
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: '2222'
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: newuser
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: newpass
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: edited_group
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: /home
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: ls
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Down
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Down
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Down
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteIconLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ItemWidgetFirstLineLabel
+- id: suite_104X_远程管理器_007_s1
+  name: 必填项
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 远程管理
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_type
+    text: only_name
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_press
+    key: Delete
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: 192.168.1.30
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_press
+    key: Delete
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: user
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_press
+    key: Delete
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: full_server
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: 192.168.1.40
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: user
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteIconLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_not_exists
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+- id: suite_104X_远程管理器_008_s1
+  name: 服务器名称
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 远程管理
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Escape
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Escape
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_type
+    text: 阿里快圣诞节
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: asdfkad
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: adkj!@#
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: 超长字符超长字符超长字符超长字符超长字符超长字符
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteIconLabel
+  - step_type: assert
+    action: assert_not_exists
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_not_exists
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+- id: suite_104X_远程管理器_009_s1
+  name: 命令
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 远程管理
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: 阿里快圣诞节
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: asdfkad
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: adkj!@#
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: 超长字符超长字符超长字符超长字符超长字符超长字符
+  - step_type: action
+    action: keyboard_press
+    key: Escape
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteIconLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_not_exists
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+- id: suite_104X_远程管理器_010_s1
+  name: 路径
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 远程管理
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: 阿里快圣诞节
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: asdfkad
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: adkj!@#
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: 超长字符超长字符超长字符超长字符超长字符超长字符
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: /home
+  - step_type: action
+    action: keyboard_press
+    key: Escape
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteIconLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_not_exists
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+- id: suite_104X_远程管理器_011_s1
+  name: 分组
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 远程管理
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: 阿里快圣诞节
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: asdfkad
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: adkj!@#
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: 超长字符超长字符超长字符超长字符超长字符超长字符
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: new_group
+  - step_type: action
+    action: keyboard_press
+    key: Escape
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteIconLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_not_exists
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+- id: suite_104X_远程管理器_012_s1
+  name: 用户名密码
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 远程管理
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: 阿里快圣诞节
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: asdfkad
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: adkj!@#
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: 超长字符超长字符超长字符超长字符超长字符超长字符
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: 阿里快圣诞节
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: asdfkad
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: adjk!@#
+  - step_type: action
+    action: keyboard_press
+    key: Escape
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteIconLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_not_exists
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+- id: suite_104X_远程管理器_013_s1
+  name: 地址和端口
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 远程管理
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: 阿里快圣诞节
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: asdfkad
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: adkj!@#
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: 超长字符超长字符超长字符超长字符超长字符超长字符
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: 上课
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: ak47
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+A
+  - step_type: action
+    action: keyboard_type
+    text: '2222'
+  - step_type: action
+    action: keyboard_press
+    key: Escape
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteIconLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_not_exists
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+- id: suite_104X_远程管理器_015_s1
+  name: 删除键
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 远程管理
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Down
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Escape
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteIconLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_not_exists
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+- id: suite_104X_远程管理器_016_s1
+  name: 退格键
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 远程管理
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Down
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Escape
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteIconLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_not_exists
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+- id: suite_104X_远程管理器_017_s1
+  name: 编码
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 远程管理
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Down
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Escape
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteIconLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_not_exists
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+- id: suite_104X_远程管理器_018_s1
+  name: 远程管理面板自动隐藏
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 远程管理
+  - step_type: action
+    action: mouse_drag
+  - step_type: action
+    action: mouse_click
+    x: 500
+    y: 300
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+  - step_type: assert
+    action: assert_not_exists
+    selector:
+      name: ListViewMainWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+- id: suite_104X_远程管理器_019_s1
+  name: 插入不同类型远程标签标题功能
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 设置
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Down
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Escape
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: SettingDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: SettingDialog
+  - step_type: assert
+    action: assert_not_exists
+    selector:
+      name: SettingDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+teardown:
+- action: session_stop

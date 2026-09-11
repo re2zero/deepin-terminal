@@ -1,0 +1,243 @@
+name: V25_2500_测试部专用_B类解耦商店应用_终端_104X_右键菜单工作区_116125_suite
+app: deepin-terminal
+module: V25_2500_测试部专用_B类解耦商店应用_终端_104X_右键菜单工作区_116125
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 3.0
+suites:
+- id: suite_V25_2500_测试部专用_B类解耦商店应用_终端_104X_右键菜单工作区_116125_001_s1
+  name: 右键菜单显示项
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 在文件管理器中打开
+    - 横向分屏
+    - 纵向分屏
+    - 关闭工作区
+    - 新建标签页
+    - 全屏
+    - 查找
+    - 编码
+    - 自定义命令
+    - 远程管理
+    - 设置
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+- id: suite_V25_2500_测试部专用_B类解耦商店应用_终端_104X_右键菜单工作区_116125_002_s1
+  name: 粘贴
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_type
+    text: paste_test_123
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 粘贴
+  - step_type: action
+    action: keyboard_press
+    key: Return
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowTermQStackedWidget
+- id: suite_V25_2500_测试部专用_B类解耦商店应用_终端_104X_右键菜单工作区_116125_003_s1
+  name: 自定义命令
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 自定义命令
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Return
+  - step_type: action
+    action: mouse_click
+    selector:
+      name: TermWidgetPage
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomAddCommandDialog
+  - step_type: assert
+    action: assert_not_exists
+    selector:
+      name: CustomAddCommandDialog
+- id: suite_V25_2500_测试部专用_B类解耦商店应用_终端_104X_右键菜单工作区_116125_004_s1
+  name: 编码方式
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 编码
+  - step_type: action
+    action: keyboard_press
+    key: Down
+  - step_type: action
+    action: keyboard_press
+    key: Return
+  - step_type: action
+    action: mouse_click
+    selector:
+      name: TermWidgetPage
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowTermQStackedWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+- id: suite_V25_2500_测试部专用_B类解耦商店应用_终端_104X_右键菜单工作区_116125_005_s1
+  name: 远程管理
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 远程管理
+  - step_type: action
+    action: mouse_click
+    selector:
+      name: TermWidgetPage
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+  - step_type: assert
+    action: assert_not_exists
+    selector:
+      name: ListViewMainWidget
+- id: suite_V25_2500_测试部专用_B类解耦商店应用_终端_104X_右键菜单工作区_116125_006_s1
+  name: 查找
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 查找
+  - step_type: action
+    action: element_action
+    selector:
+      name: Search
+    do: click
+  - step_type: action
+    action: keyboard_type
+    text: test
+  - step_type: action
+    action: keyboard_press
+    key: Return
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: Search
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: FindNext
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: FindPrevious
+- id: suite_V25_2500_测试部专用_B类解耦商店应用_终端_104X_右键菜单工作区_116125_007_s1
+  name: 纵向分屏
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 纵向分屏
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+j
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowTermQStackedWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowTermQStackedWidget
+- id: suite_V25_2500_测试部专用_B类解耦商店应用_终端_104X_右键菜单工作区_116125_009_s1
+  name: 本地编码
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 编码
+  - step_type: action
+    action: keyboard_press
+    key: Down
+  - step_type: action
+    action: keyboard_press
+    key: Return
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+t
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowTermQStackedWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowTermQStackedWidget
+- id: suite_V25_2500_测试部专用_B类解耦商店应用_终端_104X_右键菜单工作区_116125_010_s1
+  name: 插入不同类型标签标题格式
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 设置
+  - step_type: action
+    action: keyboard_press
+    key: Down
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: SettingDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: SettingDialog
+teardown:
+- action: session_stop

@@ -1,0 +1,66 @@
+name: 104X_标签页移动_suite
+app: deepin-terminal
+module: 104X_标签页移动
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 3.0
+suites:
+- id: suite_104X_标签页移动_001_s1
+  name: 内置主题显示以及功能
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 主题
+    - 深色
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 主题
+    - 浅色
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 主题
+    - 跟随系统
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+- id: suite_104X_标签页移动_002_s1
+  name: 拖动标签页位置
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+Shift+T
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+Shift+T
+  - step_type: action
+    action: mouse_click
+    x: 960
+    y: 60
+  - step_type: action
+    action: mouse_drag
+    x: 1200
+    y: 60
+  - step_type: action
+    action: keyboard_press
+    key: Shift
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+teardown:
+- action: session_stop

@@ -1,0 +1,154 @@
+name: 104X_设置界面基础设置_suite
+app: deepin-terminal
+module: 104X_设置界面基础设置
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 3.0
+suites:
+- id: suite_104X_设置界面基础设置_001_s1
+  name: 设置界面显示
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 设置
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Down
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Down
+  - step_type: action
+    action: keyboard_press
+    key: Down
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: mouse_scroll
+    value: -3
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: SettingDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: SettingDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: SettingDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: SettingDialog
+- id: suite_104X_设置界面基础设置_002_s1
+  name: 透明度
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 设置
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Home
+  - step_type: action
+    action: keyboard_press
+    key: End
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: SettingDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: SettingDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: SettingDialog
+  - step_type: assert
+    action: assert_file_exists
+    path: ~/.config/deepin/deepin-terminal/config.conf
+- id: suite_104X_设置界面基础设置_003_s1
+  name: 设置界面功能项显示
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 设置
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Down
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Down
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: mouse_scroll
+    value: -6
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: SettingDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: SettingDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: SettingDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: SettingDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: SettingDialog
+teardown:
+- action: session_stop

@@ -1,0 +1,263 @@
+name: 104X_主界面右上角菜单栏_suite
+app: deepin-terminal
+module: 104X_主界面右上角菜单栏
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 3.0
+suites:
+- id: suite_104X_主界面右上角菜单栏_001_s1
+  name: 设置窗口打开与关闭
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 设置
+  - step_type: action
+    action: keyboard_hot_key
+    key: Alt+F4
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 设置
+  - step_type: action
+    action: keyboard_press
+    key: Escape
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: SettingDialog
+  - step_type: assert
+    action: assert_not_exists
+    selector:
+      name: SettingDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: SettingDialog
+  - step_type: assert
+    action: assert_not_exists
+    selector:
+      name: SettingDialog
+- id: suite_104X_主界面右上角菜单栏_002_s1
+  name: 主菜单切换主题
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 主题
+    - 浅色
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 主题
+    - 跟随系统
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 主题
+    - 深色
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 主题
+    - 浅色
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 主题
+    - 深色
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 主题
+    - 跟随系统
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 设置
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 主题
+    - 深色
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: SettingDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: SettingDialog
+- id: suite_104X_主界面右上角菜单栏_003_s1
+  name: 帮助与关于窗口
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 帮助
+  - step_type: action
+    action: keyboard_press
+    key: F1
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 关于
+  - step_type: action
+    action: keyboard_hot_key
+    key: Alt+F4
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 关于
+  - step_type: action
+    action: keyboard_press
+    key: Escape
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 关于
+  - step_type: action
+    action: keyboard_hot_key
+    key: Alt+F4
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+- id: suite_104X_主界面右上角菜单栏_004_s1
+  name: 窗口最大化还原最小化关闭
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: Meta+Up
+  - step_type: action
+    action: keyboard_hot_key
+    key: Meta+Down
+  - step_type: action
+    action: keyboard_hot_key
+    key: Meta+Down
+  - step_type: action
+    action: mouse_click
+    selector:
+      name: TermWidgetPage
+  - step_type: action
+    action: keyboard_hot_key
+    key: Meta+Up
+  - step_type: action
+    action: keyboard_hot_key
+    key: Meta+Down
+  - step_type: action
+    action: mouse_click
+    selector:
+      name: TermWidgetPage
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 新建窗口
+  - step_type: action
+    action: keyboard_hot_key
+    key: Alt+F4
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_window_count
+    expected: 0
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_window_count
+    expected: 0
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_window_count
+    expected: 2
+  - step_type: assert
+    action: assert_window_count
+    expected: 1
+teardown:
+- action: session_stop

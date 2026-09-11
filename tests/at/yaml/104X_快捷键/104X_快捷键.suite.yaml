@@ -1,0 +1,25 @@
+name: 104X_快捷键_suite
+app: deepin-terminal
+module: 104X_快捷键
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 3.0
+suites:
+- id: suite_104X_快捷键_001_s1
+  name: Ctrl+Shift+?显示快捷键
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+?
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_process_running
+    value: deepin-shortcut-viewer
+teardown:
+- action: session_stop

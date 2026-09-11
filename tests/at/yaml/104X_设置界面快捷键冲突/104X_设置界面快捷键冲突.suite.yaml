@@ -1,0 +1,34 @@
+name: 104X_设置界面快捷键冲突_suite
+app: deepin-terminal
+module: 104X_设置界面快捷键冲突
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 3.0
+suites:
+- id: suite_104X_设置界面快捷键冲突_001_s1
+  name: 设置快捷键冲突弹窗
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 设置
+  - step_type: action
+    action: keyboard_press
+    key: Shift
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+Shift+P
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ServiceSettingShortcutConflictDialog
+teardown:
+- action: session_stop

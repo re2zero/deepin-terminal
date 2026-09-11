@@ -1,0 +1,101 @@
+name: V25_2500_测试部专用_B类解耦商店应用_终端_104X_116091_suite
+app: deepin-terminal
+module: V25_2500_测试部专用_B类解耦商店应用_终端_104X_116091
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 3.0
+suites:
+- id: suite_V25_2500_测试部专用_B类解耦商店应用_终端_104X_116091_001_s1
+  name: 窗口显示模式（正常窗口与全屏窗口）
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: F11
+  - step_type: action
+    action: keyboard_hot_key
+    key: F11
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowTermQStackedWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+- id: suite_V25_2500_测试部专用_B类解耦商店应用_终端_104X_116091_002_s1
+  name: 雷神窗口显示与切换
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: Alt+F2
+  - step_type: action
+    action: keyboard_press
+    key: Shift
+  - step_type: action
+    action: keyboard_hot_key
+    key: Alt+F2
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowTermQStackedWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+- id: suite_V25_2500_测试部专用_B类解耦商店应用_终端_104X_116091_003_s1
+  name: windowmod命令行窗口模式
+  description: ''
+  steps: []
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+- id: suite_V25_2500_测试部专用_B类解耦商店应用_终端_104X_116091_004_s1
+  name: 优先级（命令行参数覆盖设置默认窗口模式）
+  description: ''
+  steps: []
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+teardown:
+- action: session_stop

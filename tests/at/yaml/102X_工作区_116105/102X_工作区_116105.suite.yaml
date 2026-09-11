@@ -1,0 +1,119 @@
+name: 102X_工作区_116105_suite
+app: deepin-terminal
+module: 102X_工作区_116105
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 3.0
+suites:
+- id: suite_102X_工作区_116105_001_s1
+  name: 切换工作区
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 新建标签页
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 新建标签页
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+tab
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+tab
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+1
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+2
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+9
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowTermQStackedWidget
+- id: suite_102X_工作区_116105_002_s1
+  name: 删除工作区
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 新建标签页
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 新建标签页
+  - step_type: action
+    action: keyboard_hot_key
+    key: alt+w
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowTermQStackedWidget
+- id: suite_102X_工作区_116105_003_s1
+  name: 窗口删除
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 纵向分屏
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 关闭窗口
+  - step_type: action
+    action: keyboard_press
+    key: ESC
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 关闭窗口
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowTermQStackedWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+teardown:
+- action: session_stop

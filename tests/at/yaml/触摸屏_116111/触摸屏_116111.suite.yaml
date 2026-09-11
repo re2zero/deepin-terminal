@@ -1,0 +1,605 @@
+name: 触摸屏_116111_suite
+app: deepin-terminal
+module: 触摸屏_116111
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 3.0
+suites:
+- id: suite_触摸屏_116111_001_s1
+  name: 触摸屏主界面点击功能
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 新建标签页
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+shift+tab
+  - step_type: action
+    action: keyboard_hot_key
+    key: ctrl+tab
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 新建窗口
+    - 自定义命令
+    - 远程管理
+    - 设置
+    - 主题
+    - 帮助
+    - 关于
+    - 退出
+  - step_type: action
+    action: keyboard_press
+    key: Esc
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 自定义命令
+  - step_type: action
+    action: keyboard_press
+    key: Esc
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 远程管理
+  - step_type: action
+    action: keyboard_press
+    key: Esc
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 设置
+  - step_type: action
+    action: keyboard_press
+    key: Esc
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 主题
+  - step_type: action
+    action: keyboard_press
+    key: Esc
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 帮助
+  - step_type: action
+    action: keyboard_press
+    key: Esc
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 关于
+  - step_type: action
+    action: keyboard_press
+    key: Esc
+  - step_type: action
+    action: keyboard_type
+    text: sleep 30
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 退出
+  - step_type: action
+    action: keyboard_press
+    key: Esc
+  - step_type: action
+    action: dtk_main_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 退出
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowTermQStackedWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: SettingDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+- id: suite_触摸屏_116111_002_s1
+  name: 触摸屏标签页右键菜单
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 新建标签页
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 关闭标签页
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 关闭其他标签页
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowTermQStackedWidget
+- id: suite_触摸屏_116111_003_s1
+  name: 触摸屏长按右键再抬起
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 查找
+  - step_type: action
+    action: keyboard_press
+    key: Esc
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: Search
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+- id: suite_触摸屏_116111_004_s1
+  name: 触摸屏分屏功能
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 横向分屏
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 纵向分屏
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 关闭工作区
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 关闭其他工作区
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowTermQStackedWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+- id: suite_触摸屏_116111_005_s1
+  name: 触摸屏查找功能
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 查找
+  - step_type: action
+    action: element_action
+    selector:
+      name: Search
+    do: click
+  - step_type: action
+    action: keyboard_type
+    text: hello
+  - step_type: action
+    action: element_action
+    selector:
+      name: FindNext
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      name: FindPrevious
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: Search
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: FindNext
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: FindPrevious
+- id: suite_触摸屏_116111_006_s1
+  name: 触摸屏重命名功能
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 重命名标题
+  - step_type: action
+    action: keyboard_type
+    text: newtitle
+  - step_type: action
+    action: keyboard_press
+    key: Esc
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 重命名标题
+  - step_type: action
+    action: keyboard_type
+    text: renamed
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: titleBar
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: logoIcon
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: titleText
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: content
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: titleBar
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+- id: suite_触摸屏_116111_007_s1
+  name: 触摸屏自定义命令（添加/编辑/删除）
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 自定义命令
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_type
+    text: mytool
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: ls -la
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+Alt+1
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Right
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_type
+    text: newtool
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Right
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Esc
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Right
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Esc
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomAddCommandDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomQAction
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomAddCommandDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomQAction
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomAddCommandDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomAddCommandDialog
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: CustomQAction
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+- id: suite_触摸屏_116111_008_s1
+  name: 触摸屏远程管理服务器（添加/编辑/删除）
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 远程管理
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_type
+    text: myserver
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: 192.168.1.100
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: root
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_type
+    text: '123456'
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Right
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_type
+    text: newname
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Right
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Esc
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Right
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Tab
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Enter
+  - step_type: action
+    action: keyboard_press
+    key: Esc
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteIconLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteIconLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: RemoteTitleLabel
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: ListViewMainWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+teardown:
+- action: session_stop

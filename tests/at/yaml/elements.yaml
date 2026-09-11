@@ -1,0 +1,55 @@
+elements:
+  TermWidgetPage:
+    name: TermWidgetPage
+  MainWindowTermQStackedWidget:
+    name: MainWindowTermQStackedWidget
+  MainWindowCentralQWidget:
+    name: MainWindowCentralQWidget
+  titleBar:
+    name: titleBar
+  content:
+    name: content
+  logoIcon:
+    name: logoIcon
+  titleText:
+    name: titleText
+  Search:
+    name: Search
+  FindNext:
+    name: FindNext
+  FindPrevious:
+    name: FindPrevious
+  CustomAddCommandDialog:
+    name: CustomAddCommandDialog
+  CustomQAction:
+    name: CustomQAction
+  SettingDialog:
+    name: SettingDialog
+  ListViewMainWidget:
+    name: ListViewMainWidget
+  RemoteTitleLabel:
+    name: RemoteTitleLabel
+  RemoteIconLabel:
+    name: RemoteIconLabel
+  TabBarCloseTabAction:
+    name: TabBarCloseTabAction
+  TabBarCloseOtherTabAction:
+    name: TabBarCloseOtherTabAction
+  TabTitleRenameAction:
+    name: TabTitleRenameAction
+  CustomTitleBar:
+    name: CustomTitleBar
+  CustomLogoIcon:
+    name: CustomLogoIcon
+  CustomTitleTextLabel:
+    name: CustomTitleTextLabel
+  CustomContentWidget:
+    name: CustomContentWidget
+  CustomShortcutConflictDialog:
+    name: CustomShortcutConflictDialog
+  ItemWidgetFirstLineLabel:
+    name: ItemWidgetFirstLineLabel
+  ItemWidgetSecondLineLabel:
+    name: ItemWidgetSecondLineLabel
+  ServiceSettingShortcutConflictDialog:
+    name: ServiceSettingShortcutConflictDialog

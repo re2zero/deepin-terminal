@@ -1,0 +1,31 @@
+name: 104X_主界面工作区显示_suite
+app: deepin-terminal
+module: 104X_主界面工作区显示
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 3.0
+suites:
+- id: suite_104X_主界面工作区显示_001_s1
+  name: 删除工作区
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+Shift+W
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+D
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 关闭工作区
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+teardown:
+- action: session_stop

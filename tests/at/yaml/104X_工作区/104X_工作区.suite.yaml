@@ -1,0 +1,195 @@
+name: 104X_工作区_suite
+app: deepin-terminal
+module: 104X_工作区
+setup:
+- action: session_start
+  command: deepin-terminal
+  wait: 3.0
+suites:
+- id: suite_104X_工作区_001_s1
+  name: 新建工作区
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+Shift+T
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 新建标签页
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowTermQStackedWidget
+- id: suite_104X_工作区_002_s1
+  name: 标签页消息提醒
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+Shift+T
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+Shift+T
+  - step_type: action
+    action: keyboard_type
+    text: sleep 2
+  - step_type: action
+    action: keyboard_press
+    key: Return
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+Tab
+  - step_type: action
+    action: keyboard_press
+    key: Shift
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+Tab
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowTermQStackedWidget
+- id: suite_104X_工作区_003_s1
+  name: 窗口横向分屏
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 横向分屏
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+Shift+H
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowTermQStackedWidget
+- id: suite_104X_工作区_004_s1
+  name: 窗口纵向分屏
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 纵向分屏
+  - step_type: action
+    action: keyboard_hot_key
+    key: Ctrl+Shift+J
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowTermQStackedWidget
+- id: suite_104X_工作区_005_s1
+  name: 窗口选择
+  description: ''
+  steps:
+  - step_type: action
+    action: dtk_context_menu
+    selector:
+      name: TermWidgetPage
+    items:
+    - 横向分屏
+    - 纵向分屏
+  - step_type: action
+    action: element_action
+    selector:
+      name: TermWidgetPage
+    do: click
+  - step_type: action
+    action: keyboard_hot_key
+    key: Alt+Up
+  - step_type: action
+    action: keyboard_hot_key
+    key: Alt+Down
+  - step_type: action
+    action: keyboard_hot_key
+    key: Alt+Left
+  - step_type: action
+    action: keyboard_hot_key
+    key: Alt+Right
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowTermQStackedWidget
+- id: suite_104X_工作区_006_s1
+  name: 滚动条显示
+  description: ''
+  steps:
+  - step_type: action
+    action: keyboard_type
+    text: seq 1 100
+  - step_type: action
+    action: keyboard_press
+    key: Return
+  - step_type: action
+    action: mouse_drag
+  - step_type: action
+    action: keyboard_press
+    key: Shift
+  - step_type: action
+    action: mouse_scroll
+    value: -5
+  - step_type: action
+    action: keyboard_hot_key
+    key: Shift+PageUp
+  - step_type: action
+    action: keyboard_hot_key
+    key: Shift+PageDown
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowTermQStackedWidget
+- id: suite_104X_工作区_007_s1
+  name: 窗口标题显示
+  description: ''
+  steps: []
+  assert_steps:
+  - step_type: assert
+    action: assert_window
+  - step_type: assert
+    action: assert_element
+    selector:
+      name: MainWindowCentralQWidget
+teardown:
+- action: session_stop
